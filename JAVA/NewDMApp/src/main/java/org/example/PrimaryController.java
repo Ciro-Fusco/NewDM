@@ -19,7 +19,7 @@ public class PrimaryController {
         System.out.println("ciao");
     }
 
-
+    @FXML
     public void checkLogin(MouseEvent mouseEvent) throws IOException {
 
         System.out.println(us.getText()+" "+pass.getText());
