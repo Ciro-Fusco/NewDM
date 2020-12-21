@@ -29,7 +29,7 @@
                   <RowConstraints maxHeight="171.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label prefHeight="59.0" prefWidth="614.0" text="A FESS RA MAMM RA FERRUCCI" textFill="#0fb6e4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Label prefHeight="59.0" prefWidth="614.0" text="Login" textFill="#0fb6e4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="41.0" />
                      </font>
