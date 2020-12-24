@@ -55,7 +55,7 @@
                   <Insets />
                </VBox.margin>
             </TextField>
-            <Label text="Cod.Utente" textFill="WHITE">
+            <Label text="Password" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
