@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"org.example","l":"App"},{"p":"db","l":"DatabaseConnection"},{"p":"org.example","l":"PrimaryController"},{"p":"db","l":"query"},{"p":"Entity","l":"Utente"}]

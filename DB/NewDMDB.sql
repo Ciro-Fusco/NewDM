@@ -12,24 +12,14 @@ Create table Utente
   );
   
 create table Scontrino
-( id int not null unsigned,
+( id int unsigned not null ,
   data date not null,
   importo_versato double not null,
+  totale double not null,
   resto double not null,
-  constraint pk_id primary key(id)
+  constraint pk_id_Scontrino primary key(id,data)
 );
 
-create table ELENCA
-(
-  id int not null unsigned,
-  data date not null,
-  codice bigint not null,
-  constraint pk_id_data_codice primary key( id,data,codice),
-  constraint fk_id_data foreign key (id,data) references Scontrino(id,data) on update cascade,
-  constraint fk_codice foreign key (codice) references Prodotto(codice) 
-  
-);
-  
 create table Prodotto
 ( codice bigint not null,
   nome varchar(30) not null,
@@ -37,15 +27,27 @@ create table Prodotto
   prezzo float not null,
   constraint pk_codice primary key(codice)
 );
+
+create table ELENCA
+(
+  id int unsigned not null ,
+  data date not null,
+  codice bigint not null,
+  constraint pk_id_data_codice primary key( id,data,codice),
+  constraint fk_id_data foreign key (id,data) references Scontrino(id,data) on update cascade,
+  constraint fk_codice foreign key (codice) references Prodotto(codice) 
+  
+);
+
   
 create table Richiesta_Acquisto
 ( id int unsigned auto_increment not null,
   quantità int unsigned not null,
   data date not null,
   stato varchar(20) not null,
-  prodotto int unsigned not null
+  prodotto bigint not null,
   constraint pk_id primary key(id),
-  constraint fk_codice_prodotto foreign key(prodotto) references Prodotto(id) on update cascade on delete cascade
+  constraint fk_codice_prodotto foreign key(prodotto) references Prodotto(codice) on update cascade on delete cascade
 );
     
 create table Ticket
@@ -54,22 +56,22 @@ create table Ticket
   codice_fiscale char(16) not null,
   indirizzo varchar(100) not null,
   num_tel int not null,
-  prodotto bigint notnull
+  prodotto bigint not null,
   numero_di_serie varchar(60) not null,
-  scontrino int unsigned not null
+  scontrino int unsigned not null,
   problema varchar(400) not null,
   data date not null,
   stato varchar(20) not null,
   constraint pk_cf_data_numSer primary key(data,codice_fiscale,numero_di_serie),
-  constraint fk_prodotto foreign key(prodotto) references Prodotto(id) on update cascade
-  constraint fk_prodotto foreign key(scontrino) references Scontrino(id) on update cascade
+  constraint fk_prodotto foreign key(prodotto) references Prodotto(codice) on update cascade,
+  constraint fk_scontrino foreign key(scontrino) references Scontrino(id) on update cascade
 );
 
 load data local infile 'C:\Users\Ciro\Desktop\IS\DB\creazione e popolamento\dataprodotti.sql'
-into table Turno fields terminated by",";
+into table Prodotto fields terminated by",";
 
 load data local infile 'C:\Users\Ciro\Desktop\IS\DB\creazione e popolamento\datascontrini.sql'
-into table Personale fields terminated by",";
+into table Scontrino fields terminated by",";
 
 
 
