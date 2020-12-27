@@ -20,9 +20,9 @@ public class Utente {
 
     /**
      *
-     * @param nome
-     * @param cognome
-     * @param username
+     * @param nome nome dell'utente
+     * @param cognome cognome dell'utente
+     * @param username username dell'utente
      *
      * Inserisce le informazioni riguardo l'utente nella classe.
      *
@@ -54,7 +54,7 @@ public class Utente {
            return false;
        else{
            res.next();
-           setUtente(res.getString("Nome"),res.getString("Cognome"),res.getString("Username"));
+           setUtente(res.getString("NOME"),res.getString("COGNOME"),res.getString("USERNAME"));
            return true;
        }
 
