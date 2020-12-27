@@ -17,7 +17,7 @@ public class DatabaseConnection {
             try {
                 //caricamento e registrazione driver
                 Class.forName("com.mysql.cj.jdbc.Driver"); //Carica il Driver
-                String url = "jdbc:mysql://localhost:3306/Negozio?useSSL=false&serverTimezone=UTC";
+                String url = "jdbc:mysql://localhost:3306/NEGOZIO?useSSL=false&serverTimezone=UTC";
                 String username = "root";
                 String pwd = "ci1ro23456";
                 con = DriverManager.getConnection(url, username, pwd);
