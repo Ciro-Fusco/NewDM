@@ -36,7 +36,7 @@ public class Utente {
 
     /**
      *
-     * Cerca nel Database l'eisitenza di un utente e lo autentica nel sistema.
+     * Cerca nel Database l'esistenza di un utente e lo autentica nel sistema.
      *
      * @param user Nome utente
      * @param pass Password non ancora codificata
