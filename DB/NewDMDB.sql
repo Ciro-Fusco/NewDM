@@ -12,8 +12,8 @@ Create table Utente
   );
   
 create table Scontrino
-( id int unsigned not null ,
-  data date not null,
+( id int unsigned auto_increment not null ,
+  data varchar(30) not null,
   importo_versato double not null,
   totale double not null,
   resto double not null,
@@ -31,7 +31,7 @@ create table Prodotto
 create table ELENCA
 (
   id int unsigned not null ,
-  data date not null,
+  data varchar(30) not null,
   codice bigint not null,
   constraint pk_id_data_codice primary key( id,data,codice),
   constraint fk_id_data foreign key (id,data) references Scontrino(id,data) on update cascade,
