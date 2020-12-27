@@ -5,7 +5,7 @@ set global local_infile=1;
 
 Create table Utente
 ( username varchar(30) not null,
-  password char(6) not null,
+  password varchar(600) not null,
   nome varchar(30),
   cognome varchar(30),
   constraint pk_data_ora primary key (username)
