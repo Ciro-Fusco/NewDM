@@ -5,9 +5,9 @@ set global local_infile=1;
 
 Create table Utente
 ( username varchar(30) not null,
-  password varchar(600) not null,
   nome varchar(30),
   cognome varchar(30),
+  password varchar(600) not null,
   constraint pk_data_ora primary key (username)
   );
   
@@ -67,10 +67,13 @@ create table Ticket
   constraint fk_scontrino foreign key(scontrino) references Scontrino(id) on update cascade
 );
 
-load data local infile 'C:\Users\Ciro\Desktop\IS\DB\creazione e popolamento\dataprodotti.sql'
+load data local infile "C:\\Users\\Ciro\\Desktop\\IS\\DB\\datautente.sql"
+into table Utente fields terminated by",";
+
+load data local infile 'C:\\Users\\Ciro\\Desktop\\IS\\DB\\dataprodotti.sql'
 into table Prodotto fields terminated by",";
 
-load data local infile 'C:\Users\Ciro\Desktop\IS\DB\creazione e popolamento\datascontrini.sql'
+load data local infile 'C:\\Users\\Ciro\\Desktop\\IS\\DB\\datascontrini.sql'
 into table Scontrino fields terminated by",";
 
 

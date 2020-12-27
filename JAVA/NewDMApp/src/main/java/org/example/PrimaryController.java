@@ -26,13 +26,13 @@ public class PrimaryController {
         if(DatabaseConnection.Connect())
         if(Utente.Login(us.getText(),pass.getText()))
             App.setRoot("Dashboard");
-        else /*  Da inserire popup di errore a cura di Vincenzo*/;
+        else App.setRoot("CassaTotale"); /*  Da inserire popup di errore a cura di Vincenzo*/;
     }
 
-    public void Logout(MouseEvent mouseEvent) {
+    public void Logout(MouseEvent mouseEvent) throws Exception {
 
         DatabaseConnection.Close();
         Utente.clear();
-
+        App.setRoot("Login");
     }
 }
