@@ -13,6 +13,7 @@ import db.DatabaseConnection;
 import db.query;
 import org.apache.commons.codec.digest.DigestUtils;
 
+
 /**
  * Lo Scontrino che viene emesso al termine degli acquisti.
  *

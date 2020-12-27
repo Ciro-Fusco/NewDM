@@ -11,10 +11,9 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b3c40;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.PrimaryController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b3c40;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Utenza">
    <top>
       <GridPane prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #46494e;" BorderPane.alignment="CENTER">
          <columnConstraints>
@@ -36,11 +35,11 @@
       </GridPane>
    </top>
    <center>
-      <SplitPane dividerPositions="0.24924924924924924" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #3b3c40;" stylesheets="@Dashboard.css" BorderPane.alignment="CENTER">
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #3b3c40;" stylesheets="@Dashboard.css" BorderPane.alignment="CENTER">
         <items>
             <BorderPane maxHeight="-Infinity" prefHeight="85.0" prefWidth="598.0">
                <left>
-                  <Label text="Ordina prodotto" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Label text="Inserisci prodotto - Riepilogo" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font size="30.0" />
                      </font>
@@ -57,31 +56,23 @@
                   </Button>
                </right>
             </BorderPane>
-            <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0" style="-fx-background-color: #3b3c40;">
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
-                  <Label text="Quantità" textFill="WHITE">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="-50.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField maxWidth="-Infinity" prefWidth="200.0">
-                     <VBox.margin>
-                        <Insets top="5.0" />
-                     </VBox.margin>
+                  <TextField alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="200.0" prefWidth="550.0">
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #5ac5f1;" text="Conferma" textFill="WHITE">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </Button>
+                  <Button mnemonicParsing="false" style="-fx-background-color: #5ac5f1;" text="Conferma" textFill="WHITE" GridPane.rowIndex="1" />
                </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </VBox>
+            </GridPane>
         </items>
       </SplitPane>
    </center>

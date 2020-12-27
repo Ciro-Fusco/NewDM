@@ -1,4 +1,4 @@
-package org.example;
+package Controller;
 
 import java.io.IOException;
 
@@ -10,16 +10,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 
-public class PrimaryController {
+public class Utenza {
 
     
     public TextField us;
     public PasswordField pass;
 
-    @FXML
-    private void switchToSecondary() throws IOException {
-        System.out.println("ciao");
-    }
 
     @FXML
     public void checkLogin(MouseEvent mouseEvent) throws Exception {
@@ -34,5 +30,20 @@ public class PrimaryController {
         DatabaseConnection.Close();
         Utente.clear();
         App.setRoot("Login");
+    }
+
+    @FXML
+    public void OpenMagazzino(MouseEvent mouseEvent) throws Exception {
+        App.setRoot("DashboardMagazzino");
+    }
+
+    @FXML
+    public void OpenAssistenza(MouseEvent mouseEvent) throws Exception {
+        App.setRoot("Assistenza");
+    }
+
+    @FXML
+    public void OpenCassa(MouseEvent mouseEvent) throws Exception {
+        App.setRoot("Cassa");
     }
 }

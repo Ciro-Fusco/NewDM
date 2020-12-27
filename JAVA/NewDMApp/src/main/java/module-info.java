@@ -5,6 +5,6 @@ module org.example {
     requires org.apache.commons.codec;
     requires mysql.connector.java;
 
-    opens org.example to javafx.fxml;
-    exports org.example;
+    opens Controller to javafx.fxml;
+    exports Controller;
 }

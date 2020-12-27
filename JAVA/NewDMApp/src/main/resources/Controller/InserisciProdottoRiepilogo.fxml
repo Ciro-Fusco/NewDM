@@ -10,11 +10,10 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b3c40;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.PrimaryController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b3c40;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Utenza">
    <top>
       <GridPane prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #46494e;" BorderPane.alignment="CENTER">
          <columnConstraints>
@@ -40,7 +39,7 @@
         <items>
             <BorderPane maxHeight="-Infinity" prefHeight="85.0" prefWidth="598.0">
                <left>
-                  <Label text="Cassa" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Label text="Inserisci nuovo prodotto - Riepilogo" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font size="30.0" />
                      </font>
@@ -50,7 +49,7 @@
                   </Label>
                </left>
                <right>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #ff5c66;" text="Esci" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button mnemonicParsing="false" style="-fx-background-color: #ff5c66;" text="Indietro" textFill="WHITE" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets right="20.0" />
                      </BorderPane.margin>
@@ -71,27 +70,7 @@
                         <Insets left="20.0" right="20.0" />
                      </GridPane.margin>
                   </TextField>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                     <left>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #5ac5f1;" text="Inserisci prodotto" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <BorderPane.margin>
-                              <Insets left="20.0" />
-                           </BorderPane.margin>
-                        </Button>
-                     </left>
-                     <right>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #5ac5f1;" text="Annulla" textFill="WHITE" />
-                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: #5ac5f1;" text="Termina" textFill="WHITE">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                        </HBox>
-                     </right>
-                  </BorderPane>
+                  <Button mnemonicParsing="false" style="-fx-background-color: #5ac5f1;" text="Conferma" textFill="WHITE" GridPane.rowIndex="1" />
                </children>
             </GridPane>
         </items>

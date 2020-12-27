@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b3c40;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.PrimaryController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b3c40;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Utenza">
    <top>
       <GridPane prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #46494e;" BorderPane.alignment="CENTER">
          <columnConstraints>
@@ -39,7 +39,7 @@
         <items>
             <BorderPane maxHeight="-Infinity" prefHeight="85.0" prefWidth="598.0">
                <left>
-                  <Label text="Inserisci prodotto - Riepilogo" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Label text="Assistenza - Dettagli problema" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font size="30.0" />
                      </font>
@@ -70,7 +70,7 @@
                         <Insets left="20.0" right="20.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #5ac5f1;" text="Conferma" textFill="WHITE" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" style="-fx-background-color: #5ac5f1;" text="Inoltra" textFill="WHITE" GridPane.rowIndex="1" />
                </children>
             </GridPane>
         </items>
