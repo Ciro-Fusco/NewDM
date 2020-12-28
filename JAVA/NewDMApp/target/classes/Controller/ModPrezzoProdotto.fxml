@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b3c40;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Utenza">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b3c40;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Magazzino">
    <top>
       <GridPane prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #46494e;" BorderPane.alignment="CENTER">
          <columnConstraints>
@@ -50,7 +50,7 @@
                   </Label>
                </left>
                <right>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #ff5c66;" text="Indietro" textFill="WHITE" BorderPane.alignment="CENTER">
+                  <Button mnemonicParsing="false" onMousePressed="#OpenDashboardMagazzino" style="-fx-background-color: #ff5c66;" text="Indietro" textFill="WHITE" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets right="20.0" />
                      </BorderPane.margin>
@@ -72,7 +72,7 @@
                         <Insets top="5.0" />
                      </VBox.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #5ac5f1;" text="Cerca" textFill="WHITE">
+                  <Button mnemonicParsing="false" onMousePressed="#CercaProdottoModPrezzo" style="-fx-background-color: #5ac5f1;" text="Cerca" textFill="WHITE">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>

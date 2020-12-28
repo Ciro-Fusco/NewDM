@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -36,11 +35,11 @@
       </GridPane>
    </top>
    <center>
-      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #3b3c40;" stylesheets="@Dashboard.css" BorderPane.alignment="CENTER">
+      <SplitPane dividerPositions="0.17717717717717718" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #3b3c40;" stylesheets="@Dashboard.css" BorderPane.alignment="CENTER">
         <items>
-            <Pane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="200.0">
-               <children>
-                  <Label text="Dashboard - Magazzino" textFill="WHITE">
+            <BorderPane maxHeight="-Infinity" prefHeight="70.0" prefWidth="200.0">
+               <left>
+                  <Label text="Dashboard - Magazzino" textFill="WHITE" BorderPane.alignment="CENTER">
                      <font>
                         <Font size="30.0" />
                      </font>
@@ -48,8 +47,15 @@
                         <Insets left="20.0" top="6.0" />
                      </padding>
                   </Label>
-               </children>
-            </Pane>
+               </left>
+               <right>
+                  <Button alignment="CENTER" mnemonicParsing="false" onMousePressed="#OpenDashboard" style="-fx-background-color: #ff5c66;" text="Indietro" textFill="WHITE" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets right="20.0" />
+                     </BorderPane.margin>
+                  </Button>
+               </right>
+            </BorderPane>
             <GridPane>
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
