@@ -5,6 +5,7 @@ import java.io.IOException;
 import Entity.Utente;
 import db.DatabaseConnection;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -19,10 +20,11 @@ public class Utenza {
 
     @FXML
     public void checkLogin(MouseEvent mouseEvent) throws Exception {
+        Alert alert = new Alert(Alert.AlertType.ERROR,"Inserire delle credenziali valide");
         if(DatabaseConnection.Connect())
-        if(Utente.Login(us.getText(),pass.getText()))
-            App.setRoot("Dashboard");
-        else App.setRoot("CassaTotale"); /*  Da inserire popup di errore a cura di Vincenzo*/;
+            if(Utente.Login(us.getText(),pass.getText()))
+                App.setRoot("Dashboard");
+            else alert.show(); /*  Da inserire popup di errore a cura di Vincenzo*/;
     }
 
     public void Logout(MouseEvent mouseEvent) throws Exception {

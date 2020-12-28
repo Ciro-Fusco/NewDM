@@ -19,7 +19,7 @@ public class DatabaseConnection {
                 Class.forName("com.mysql.cj.jdbc.Driver"); //Carica il Driver
                 String url = "jdbc:mysql://localhost:3306/NEGOZIO?allowPublicKeyRetrieval=true&&useSSL=false&serverTimezone=UTC";
                 String username = "root";
-                String pwd = "ci1ro23456";
+                String pwd = "federernadal";
                 con = DriverManager.getConnection(url, username, pwd);
                 return true;
             } catch (Exception e) {
@@ -42,6 +42,7 @@ public class DatabaseConnection {
 
         try {
             con.close();
+            con = null;
             return true;
         } catch (SQLException e) {
             return false;

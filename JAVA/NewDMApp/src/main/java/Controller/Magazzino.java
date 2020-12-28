@@ -11,7 +11,11 @@ public class Magazzino {
         App.setRoot("DashboardMagazzino");
     }
 
-    //FRAME DASHBOARD MAGAZZINO
+    //DASHBOARD MAGAZZINO
+
+    public void OpenDashboard(MouseEvent mouseEvent) throws IOException {
+        App.setRoot("Dashboard");
+    }
 
     @FXML
     public void OpenInserisciProdotto(MouseEvent mouseEvent) throws Exception {
@@ -36,7 +40,7 @@ public class Magazzino {
     ////////////////////////////////////////////////////////////////////////////
 
 
-    //FRAME INSERISCI PRODOTTO GIA PRESENTE
+    //INSERISCI PRODOTTO GIA PRESENTE
 
     public void InserisciProdotto(MouseEvent mouseEvent) {
         //Inserimento prodotto
@@ -45,8 +49,7 @@ public class Magazzino {
     ///////////////////////////////////////////////////////////////////////////////
 
 
-
-    //FRAME INSERISCI NUOVO PRODOTTO
+    //INSERISCI NUOVO PRODOTTO
 
     public void InserisciNuovoProdotto(MouseEvent mouseEvent) {
         //Inserimento nuovo prodotto
@@ -54,7 +57,8 @@ public class Magazzino {
 
     ///////////////////////////////////////////////////////////////////
 
-    // FRAME MOD PREZZO PRODOTTO
+
+    //MOD PREZZO PRODOTTO
 
     public void CercaProdottoModPrezzo(MouseEvent mouseEvent) {
         //Cerca prod by codice
@@ -62,7 +66,9 @@ public class Magazzino {
 
     /////////////////////////////////////////////////////////
 
-    // FRAME ORDINA PRODOTTO
+
+
+    //ORDINA PRODOTTO
 
     public void CercaProdottoOrdinaProd(MouseEvent mouseEvent) {
         //Cerca prod by codice
