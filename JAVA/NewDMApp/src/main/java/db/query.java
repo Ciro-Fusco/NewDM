@@ -10,6 +10,6 @@ public interface query {
     String scontrino = "INSERT INTO SCONTRINO(data,importo_versato,totale,resto) VALUES(?,?,?,?)";
     String prodotto = "SELECT * FROM PRODOTTO AS p WHERE p.codice=?";
     String elenca = "INSERT INTO ELENCA VALUES(?,?,?)";
-    String upQuant= "UPDATE PRODOTTO SET quantity = ? WHERE codice=?";
+    String upDBQuant= "UPDATE PRODOTTO as p SET p.quantity = (p.quantity - ?) WHERE p.codice=?";
 
 }

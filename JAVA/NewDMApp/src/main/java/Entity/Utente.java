@@ -1,6 +1,7 @@
 package Entity;
 
 import db.DatabaseConnection;
+import db.UtenteDAO;
 import db.query;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -28,36 +29,13 @@ public class Utente {
      *
      *
      */
-    private static void setUtente(String nome, String cognome, String username) {
+    public static void setUtente(String nome, String cognome, String username) {
         Utente.nome = nome;
         Utente.cognome = cognome;
         Utente.username = username;
     }
 
-    /**
-     *
-     * Cerca nel Database l'esistenza di un utente e lo autentica nel sistema.
-     *
-     * @param user Nome utente
-     * @param pass Password non ancora codificata
-     * @return true -- se l'utente è stato autenticato; false -- altrimenti
-     * @throws SQLException
-     */
-    public static boolean Login(String user, String pass) throws SQLException {
 
-        PreparedStatement prep = DatabaseConnection.con.prepareStatement(query.login);
-        prep.setString(1,user);
-        String shapass = DigestUtils.sha1Hex(pass);
-        prep.setString(2,shapass);
-        ResultSet res = prep.executeQuery();
-       if(res.next()){
-           setUtente(res.getString("NOME"),res.getString("COGNOME"),res.getString("USERNAME"));
-           return true;
-       }
-       return false;
-
-
-    }
 
     /**
      * Elimina le informazioni circa l'utente correntemente autenticato
@@ -101,6 +79,18 @@ public class Utente {
                 ", cognome='" + cognome + '\'' +
                 ", username='" + username + '\'' +
                 '}';
+    }
+
+
+    public static boolean Login(String us, String pass){
+
+        try{
+            return UtenteDAO.Login(us,pass);
+        }catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
+
     }
 
 

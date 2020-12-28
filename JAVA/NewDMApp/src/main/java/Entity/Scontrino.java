@@ -10,6 +10,8 @@ import java.util.List;
 import Exceptions.ProdottoNotFoundException;
 import com.mysql.cj.PreparedQuery;
 import db.DatabaseConnection;
+import db.ProdottoDAO;
+import db.ScontrinoDAO;
 import db.query;
 
 
@@ -42,7 +44,8 @@ public class Scontrino {
      *  Se il prodotto richiesto non esiste lancia una eccezione.
      *
      * @param cod codice del prodotto
-     * @throws ProdottoNotFoundException
+     * @throws ProdottoNotFoundException Il codice inserito non corrisponde ad alcun prodotto.
+     *
      */
    public void addProdotto(Long cod) throws ProdottoNotFoundException {
         if(l==null)
@@ -55,6 +58,7 @@ public class Scontrino {
                 riepilogo.replaceFirst(p.getNome() + "   x " + p.getAcquistato() + "     " + p.getPrezzo() * p.getAcquistato(),
                         p.getNome() + "   x " + p.updateAcquistato(1) + "     " + p.getPrezzo() * p.getAcquistato());
             }
+            l.add(p);
             riepilogo += "\n" + p.getNome() + "   x " + p.updateAcquistato(1) + "     " + p.getPrezzo() * p.getAcquistato();
         }
    }
@@ -91,37 +95,36 @@ public class Scontrino {
         return resto;
     }
 
+    public double getVersato() {
+        return versato;
+    }
+
+    public String getData() {
+        return data;
+    }
+
     public String getRiepilogo() {
         return riepilogo;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public List<Prodotto> getList() {
+        return l;
+    }
+
     /**
-     * Salva lo Scontrino nel Database e crea le voci della tabella ELENCA
-     * @throws SQLException
+     *
+     * Salva lo scontrino nel Database
+     * @throws SQLException Errore del Database;
      */
-
-    public void save() throws SQLException {
-
-        PreparedStatement prep = DatabaseConnection.con.prepareStatement(query.scontrino);
-        prep.setString(1,this.data);
-        prep.setDouble(2,this.versato);
-        prep.setDouble(3,this.tot);
-        prep.setDouble(4,this.resto);
-        ResultSet res = prep.executeQuery();
-        res.next();
-        this.id=res.getLong("id");
-
-        l.forEach((c)->{
-            try {
-                PreparedStatement state = DatabaseConnection.con.prepareStatement(query.elenca);
-                state.setLong(1,this.id);
-                state.setString(2,this.data);
-                state.setLong(3,c.getCodice());
-                state.executeQuery();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-            c.updateDB();
-        });
+    public void save() throws SQLException{
+        ScontrinoDAO.save(this);
     }
 }
