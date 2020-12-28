@@ -10,42 +10,39 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-
 public class Utenza {
 
-    
-    public TextField us;
-    public PasswordField pass;
+  public TextField us;
+  public PasswordField pass;
 
+  @FXML
+  public void checkLogin(MouseEvent mouseEvent) throws Exception {
+    Alert alert = new Alert(Alert.AlertType.ERROR, "Inserire delle credenziali valide");
+    if (DatabaseConnection.Connect())
+      if (Utente.Login(us.getText(), pass.getText())) App.setRoot("Dashboard");
+      else alert.show(); /*  Da inserire popup di errore a cura di Vincenzo*/
+    ;
+  }
 
-    @FXML
-    public void checkLogin(MouseEvent mouseEvent) throws Exception {
-        Alert alert = new Alert(Alert.AlertType.ERROR,"Inserire delle credenziali valide");
-        if(DatabaseConnection.Connect())
-            if(Utente.Login(us.getText(),pass.getText()))
-                App.setRoot("Dashboard");
-            else alert.show(); /*  Da inserire popup di errore a cura di Vincenzo*/;
-    }
+  public void Logout(MouseEvent mouseEvent) throws Exception {
 
-    public void Logout(MouseEvent mouseEvent) throws Exception {
+    DatabaseConnection.Close();
+    Utente.clear();
+    App.setRoot("Login");
+  }
 
-        DatabaseConnection.Close();
-        Utente.clear();
-        App.setRoot("Login");
-    }
+  @FXML
+  public void OpenMagazzino(MouseEvent mouseEvent) throws Exception {
+    App.setRoot("DashboardMagazzino");
+  }
 
-    @FXML
-    public void OpenMagazzino(MouseEvent mouseEvent) throws Exception {
-        App.setRoot("DashboardMagazzino");
-    }
+  @FXML
+  public void OpenAssistenza(MouseEvent mouseEvent) throws Exception {
+    App.setRoot("Assistenza");
+  }
 
-    @FXML
-    public void OpenAssistenza(MouseEvent mouseEvent) throws Exception {
-        App.setRoot("Assistenza");
-    }
-
-    @FXML
-    public void OpenCassa(MouseEvent mouseEvent) throws Exception {
-        App.setRoot("Cassa");
-    }
+  @FXML
+  public void OpenCassa(MouseEvent mouseEvent) throws Exception {
+    App.setRoot("Cassa");
+  }
 }

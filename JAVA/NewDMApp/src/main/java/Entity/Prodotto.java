@@ -10,80 +10,79 @@ import java.sql.SQLException;
 
 public class Prodotto {
 
-    private int acquistato;
-    private double prezzo;
-    private long codice;
-    private String Nome;
-    private int quantity;
+  private int acquistato;
+  private double prezzo;
+  private long codice;
+  private String Nome;
+  private int quantity;
 
-    public Prodotto(double prezzo, long codice, String Nome, int quantity) {
-        this.prezzo = prezzo;
-        this.codice = codice;
-        this.Nome = Nome;
-        this.quantity = quantity;
-    }
+  public Prodotto(double prezzo, long codice, String Nome, int quantity) {
+    this.prezzo = prezzo;
+    this.codice = codice;
+    this.Nome = Nome;
+    this.quantity = quantity;
+  }
 
-    public double getPrezzo() {
-        return prezzo;
-    }
+  public double getPrezzo() {
+    return prezzo;
+  }
 
-    public String getNome() {
-        return this.Nome;
-    }
+  public String getNome() {
+    return this.Nome;
+  }
 
-    public int getAcquistato() {
-        return acquistato;
-    }
+  public int getAcquistato() {
+    return acquistato;
+  }
 
-    /**
-     *Aggiorna le unità di prodotto inserite nello scontrino presente nello scontrino
-     * @param q unità da aggiungere
-     * @return quantità totale nello scontrino
-     */
-    public int updateAcquistato(int q)
-    {
-        return this.acquistato+=q;
-    }
+  /**
+   * Aggiorna le unità di prodotto inserite nello scontrino presente nello scontrino
+   *
+   * @param q unità da aggiungere
+   * @return quantità totale nello scontrino
+   */
+  public int updateAcquistato(int q) {
+    return this.acquistato += q;
+  }
 
-    public void setAcquistato(int acquistato) {
-        this.acquistato = acquistato;
-    }
+  public void setAcquistato(int acquistato) {
+    this.acquistato = acquistato;
+  }
 
-    public void setPrezzo(double prezzo) {
-        this.prezzo = prezzo;
-    }
+  public void setPrezzo(double prezzo) {
+    this.prezzo = prezzo;
+  }
 
-    public long getCodice() {
-        return codice;
-    }
+  public long getCodice() {
+    return codice;
+  }
 
-    public void setCodice(long codice) {
-        this.codice = codice;
-    }
+  public void setCodice(long codice) {
+    this.codice = codice;
+  }
 
-    public void setNome(String nome) {
-        Nome = nome;
-    }
+  public void setNome(String nome) {
+    Nome = nome;
+  }
 
-    public int getQuantity() {
-        return quantity;
-    }
+  public int getQuantity() {
+    return quantity;
+  }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+  public void setQuantity(int quantity) {
+    this.quantity = quantity;
+  }
 
-    public static Prodotto search(Long cod){
-        return ProdottoDAO.search(cod);
-    }
+  public static Prodotto search(Long cod) {
+    return ProdottoDAO.search(cod);
+  }
 
-    /**
-     * Aggiorna la quantità del prodotto nel Database
-     * @return true se la quantità del prodotto è stata aggiornata correttamente
-     */
-    public boolean updateDBQuantity(){
-        return ProdottoDAO.updateDBQuantity(this);
-    }
-
-
+  /**
+   * Aggiorna la quantità del prodotto nel Database
+   *
+   * @return true se la quantità del prodotto è stata aggiornata correttamente
+   */
+  public boolean updateDBQuantity() {
+    return ProdottoDAO.updateDBQuantity(this);
+  }
 }

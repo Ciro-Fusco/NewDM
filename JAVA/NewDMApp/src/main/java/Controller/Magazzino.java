@@ -7,72 +7,67 @@ import java.io.IOException;
 
 public class Magazzino {
 
-    public void OpenDashboardMagazzino(MouseEvent mouseEvent) throws IOException {
-        App.setRoot("DashboardMagazzino");
-    }
+  public void OpenDashboardMagazzino(MouseEvent mouseEvent) throws IOException {
+    App.setRoot("DashboardMagazzino");
+  }
 
-    //DASHBOARD MAGAZZINO
+  // DASHBOARD MAGAZZINO
 
-    public void OpenDashboard(MouseEvent mouseEvent) throws IOException {
-        App.setRoot("Dashboard");
-    }
+  public void OpenDashboard(MouseEvent mouseEvent) throws IOException {
+    App.setRoot("Dashboard");
+  }
 
-    @FXML
-    public void OpenInserisciProdotto(MouseEvent mouseEvent) throws Exception {
-        App.setRoot("InserisciProdotto");
-    }
+  @FXML
+  public void OpenInserisciProdotto(MouseEvent mouseEvent) throws Exception {
+    App.setRoot("InserisciProdotto");
+  }
 
-    @FXML
-    public void OpenInserisciNuovoProdotto(MouseEvent mouseEvent) throws Exception {
-        App.setRoot("InserisciNuovoProdotto");
-    }
+  @FXML
+  public void OpenInserisciNuovoProdotto(MouseEvent mouseEvent) throws Exception {
+    App.setRoot("InserisciNuovoProdotto");
+  }
 
-    @FXML
-    public void OpenOrdinaProdotto(MouseEvent mouseEvent) throws Exception {
-        App.setRoot("OrdinaProdotto");
-    }
+  @FXML
+  public void OpenOrdinaProdotto(MouseEvent mouseEvent) throws Exception {
+    App.setRoot("OrdinaProdotto");
+  }
 
-    @FXML
-    public void OpenModificaPrezzo(MouseEvent mouseEvent) throws Exception {
-        App.setRoot("ModPrezzoProdotto");
-    }
+  @FXML
+  public void OpenModificaPrezzo(MouseEvent mouseEvent) throws Exception {
+    App.setRoot("ModPrezzoProdotto");
+  }
 
-    ////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////
 
+  // INSERISCI PRODOTTO GIA PRESENTE
 
-    //INSERISCI PRODOTTO GIA PRESENTE
+  public void InserisciProdotto(MouseEvent mouseEvent) {
+    // Inserimento prodotto
+  }
 
-    public void InserisciProdotto(MouseEvent mouseEvent) {
-        //Inserimento prodotto
-    }
+  ///////////////////////////////////////////////////////////////////////////////
 
-    ///////////////////////////////////////////////////////////////////////////////
+  // INSERISCI NUOVO PRODOTTO
 
+  public void InserisciNuovoProdotto(MouseEvent mouseEvent) {
+    // Inserimento nuovo prodotto
+  }
 
-    //INSERISCI NUOVO PRODOTTO
+  ///////////////////////////////////////////////////////////////////
 
-    public void InserisciNuovoProdotto(MouseEvent mouseEvent) {
-        //Inserimento nuovo prodotto
-    }
+  // MOD PREZZO PRODOTTO
 
-    ///////////////////////////////////////////////////////////////////
+  public void CercaProdottoModPrezzo(MouseEvent mouseEvent) {
+    // Cerca prod by codice
+  }
 
+  /////////////////////////////////////////////////////////
 
-    //MOD PREZZO PRODOTTO
+  // ORDINA PRODOTTO
 
-    public void CercaProdottoModPrezzo(MouseEvent mouseEvent) {
-        //Cerca prod by codice
-    }
+  public void CercaProdottoOrdinaProd(MouseEvent mouseEvent) {
+    // Cerca prod by codice
+  }
 
-    /////////////////////////////////////////////////////////
-
-
-
-    //ORDINA PRODOTTO
-
-    public void CercaProdottoOrdinaProd(MouseEvent mouseEvent) {
-        //Cerca prod by codice
-    }
-
-    /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
 }
