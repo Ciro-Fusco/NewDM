@@ -25,7 +25,7 @@ create table PRODOTTO
 ( CODICE bigint not null,
   NOME varchar(30) not null,
   QUANTITY int unsigned not null,
-  PREZZO float not null,
+  PREZZO double not null,
   constraint pk_codice primary key(CODICE)
 );
 

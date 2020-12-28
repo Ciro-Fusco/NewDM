@@ -8,4 +8,5 @@ public interface query {
   String prodotto = "SELECT * FROM PRODOTTO AS p WHERE p.codice=?";
   String elenca = "INSERT INTO ELENCA VALUES(?,?,?)";
   String upDBQuant = "UPDATE PRODOTTO as p SET p.quantity = (p.quantity - ?) WHERE p.codice=?";
+  String newProdotto = "INSERT INTO PRODOTTO VALUES (?,?,?,?)";
 }

@@ -83,6 +83,13 @@ public class Prodotto {
    * @return true se la quantità del prodotto è stata aggiornata correttamente
    */
   public boolean updateDBQuantity() {
-    return ProdottoDAO.updateDBQuantity(this);
+          return ProdottoDAO.updateDBQuantity(this);
+  }
+
+  /**
+   * Salva un nuovo Prodotto nel database
+   */
+  public boolean createProdotto() {
+    return ProdottoDAO.createProdotto(this);
   }
 }

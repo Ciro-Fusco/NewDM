@@ -59,4 +59,22 @@ public class ProdottoDAO {
       return false;
     }
   }
+
+    public static boolean createProdotto(Prodotto p) {
+      PreparedStatement prep = null;
+      try {
+        prep = DatabaseConnection.con.prepareStatement(query.newProdotto);
+        prep.setLong(1, p.getCodice());
+        prep.setString(2, p.getNome());
+        prep.setInt(3, p.getQuantity());
+        prep.setDouble(4, p.getPrezzo());
+        prep.executeQuery();
+        return true;
+
+      } catch (SQLException throwables) {
+        throwables.printStackTrace();
+        return false;
+      }
+    }
 }
+
