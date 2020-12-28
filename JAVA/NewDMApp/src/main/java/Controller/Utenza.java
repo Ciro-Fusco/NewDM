@@ -17,10 +17,9 @@ public class Utenza {
 
   @FXML
   public void checkLogin(MouseEvent mouseEvent) throws Exception {
-    Alert alert = new Alert(Alert.AlertType.ERROR, "Inserire delle credenziali valide");
     if (DatabaseConnection.Connect())
       if (Utente.Login(us.getText(), pass.getText())) App.setRoot("Dashboard");
-      else alert.show(); /*  Da inserire popup di errore a cura di Vincenzo*/
+      else AlertMessage.showError("Inserire delle credenziali valide"); /*  Da inserire popup di errore a cura di Vincenzo*/
     ;
   }
 
