@@ -6,7 +6,7 @@ public class DatabaseConnection {
     public static Connection con = null ;
 
     /**
-     * Esegue la connnessione al Database.
+     * Esegue la connessione al Database.
      *
      * @return true se il collegamento è riuscito; false altrimenti.
      *
@@ -17,7 +17,7 @@ public class DatabaseConnection {
             try {
                 //caricamento e registrazione driver
                 Class.forName("com.mysql.cj.jdbc.Driver"); //Carica il Driver
-                String url = "jdbc:mysql://localhost:3306/NEGOZIO?useSSL=false&serverTimezone=UTC";
+                String url = "jdbc:mysql://localhost:3306/NEGOZIO?allowPublicKeyRetrieval=true&&useSSL=false&serverTimezone=UTC";
                 String username = "root";
                 String pwd = "ci1ro23456";
                 con = DriverManager.getConnection(url, username, pwd);

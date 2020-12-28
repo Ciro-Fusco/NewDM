@@ -50,13 +50,11 @@ public class Utente {
         String shapass = DigestUtils.sha1Hex(pass);
         prep.setString(2,shapass);
         ResultSet res = prep.executeQuery();
-       if(res == null)
-           return false;
-       else{
-           res.next();
+       if(res.next()){
            setUtente(res.getString("NOME"),res.getString("COGNOME"),res.getString("USERNAME"));
            return true;
        }
+       return false;
 
 
     }
