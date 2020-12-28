@@ -19,7 +19,7 @@ public class Utenza {
   public void checkLogin(MouseEvent mouseEvent) throws Exception {
     if (DatabaseConnection.Connect())
       if (Utente.Login(us.getText(), pass.getText())) App.setRoot("Dashboard");
-      else AlertMessage.ShowError("Inserire delle credenziali valide"); /*  Da inserire popup di errore a cura di Vincenzo*/
+      else AlertMessage.showError("Inserire delle credenziali valide"); /*  Da inserire popup di errore a cura di Vincenzo*/
     ;
   }
 
