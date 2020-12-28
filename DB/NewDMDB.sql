@@ -4,12 +4,12 @@ use NEGOZIO;
 set global local_infile=1; 
 set global transaction isolation level read committed; 
 
-Create table UTENTE
+create table UTENTE
 ( USERNAME varchar(30) not null,
   NOME varchar(30),
   COGNOME varchar(30),
   PASSWORD varchar(600) not null,
-  constraint pk_data_ora primary key (USERNAME)
+  constraint pk_username primary key (USERNAME)
   );
   
 create table SCONTRINO
@@ -68,14 +68,14 @@ create table TICKET
   constraint fk_scontrino foreign key(SCONTRINO) references SCONTRINO(ID) on update cascade
 );
 
-load data local infile "C:\\Users\\Ciro\\Desktop\\IS\\DB\\datautente.sql"
-into table Utente fields terminated by",";
+load data local infile "C:\\Users\\Ciro\\Desktop\\IS\\NewDM\\DB\\datautente.sql"
+into table UTENTE fields terminated by",";
 
-load data local infile 'C:\\Users\\Ciro\\Desktop\\IS\\DB\\dataprodotti.sql'
-into table Prodotto fields terminated by",";
+load data local infile 'C:\\Users\\Ciro\\Desktop\\IS\\NewDM\\DB\\dataprodotti.sql'
+into table PRODOTTO fields terminated by",";
 
-load data local infile 'C:\\Users\\Ciro\\Desktop\\IS\\DB\\datascontrini.sql'
-into table Scontrino fields terminated by",";
+load data local infile 'C:\\Users\\Ciro\\Desktop\\IS\\NewDM\\DB\\datascontrini.sql'
+into table SCONTRINO fields terminated by",";
 
 
 
