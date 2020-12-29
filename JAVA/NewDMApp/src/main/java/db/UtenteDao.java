@@ -3,6 +3,8 @@ package db;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import exceptions.UtenteNotFoundException;
 import org.apache.commons.codec.digest.DigestUtils;
 import static entity.Utente.setUtente;
 
@@ -15,8 +17,9 @@ public class UtenteDao {
    * @param pass Password non ancora codificata
    * @return true -- se l'utente è stato autenticato; false -- altrimenti.
    * @throws SQLException Errore del Database;
+   * @throws UtenteNotFoundException Utente non trovato nel Database;
    */
-  public static boolean login(String user, String pass) throws SQLException {
+  public static boolean login(String user, String pass) throws SQLException, UtenteNotFoundException {
 
     PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.login);
     prep.setString(1, user);
@@ -27,6 +30,6 @@ public class UtenteDao {
       setUtente(res.getString("NOME"), res.getString("COGNOME"), res.getString("USERNAME"));
       return true;
     }
-    return false;
+    throw new UtenteNotFoundException("Utente non trovato");
   }
 }

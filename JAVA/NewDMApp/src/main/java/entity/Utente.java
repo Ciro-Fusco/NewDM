@@ -1,6 +1,8 @@
 package entity;
 
 import db.UtenteDao;
+import exceptions.UtenteNotFoundException;
+
 import java.sql.SQLException;
 
 /**
@@ -67,7 +69,7 @@ public class Utente {
         + '}';
   }
 
-  public static boolean login(String us, String pass) {
+  public static boolean login(String us, String pass) throws UtenteNotFoundException {
 
     try {
       return UtenteDao.login(us, pass);
