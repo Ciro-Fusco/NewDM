@@ -90,6 +90,9 @@ modules.xml
 # Sonarlint plugin
 .idea/sonarlint
 
+# File di output Intellij
+target/*
+
 # End of https://www.toptal.com/developers/gitignore/api/intellij+all
 *.class
 
