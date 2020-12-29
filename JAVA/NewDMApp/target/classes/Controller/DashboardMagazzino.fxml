@@ -15,7 +15,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="600.0" style="-fx-background-color: #3b3c40;" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Magazzino">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Magazzino">
     <top>
         <GridPane prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #46494e;"
                   BorderPane.alignment="CENTER">
@@ -54,7 +54,7 @@
                         </Label>
                     </left>
                     <right>
-                        <Button alignment="CENTER" mnemonicParsing="false" onMousePressed="#OpenDashboard"
+                        <Button alignment="CENTER" mnemonicParsing="false" onMousePressed="#openDashboard"
                                 style="-fx-background-color: #ff5c66;" text="Indietro" textFill="WHITE"
                                 BorderPane.alignment="CENTER">
                             <BorderPane.margin>
@@ -75,7 +75,7 @@
                     </rowConstraints>
                     <children>
                         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                                mnemonicParsing="false" onMousePressed="#OpenInserisciProdotto" prefHeight="149.0"
+                                mnemonicParsing="false" onMousePressed="#openInserisciProdotto" prefHeight="149.0"
                                 prefWidth="306.0" style="-fx-background-color: #46494e;" GridPane.rowIndex="1">
                             <GridPane.margin>
                                 <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
@@ -95,7 +95,7 @@
                             </graphic>
                         </Button>
                         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                                mnemonicParsing="false" onMousePressed="#OpenInserisciNuovoProdotto" prefHeight="149.0"
+                                mnemonicParsing="false" onMousePressed="#openInserisciNuovoProdotto" prefHeight="149.0"
                                 prefWidth="306.0" style="-fx-background-color: #46494e;" GridPane.columnIndex="1"
                                 GridPane.rowIndex="1">
                             <GridPane.margin>
@@ -116,7 +116,7 @@
                             </graphic>
                         </Button>
                         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                                mnemonicParsing="false" onMousePressed="#OpenModificaPrezzo" prefHeight="149.0"
+                                mnemonicParsing="false" onMousePressed="#openModificaPrezzo" prefHeight="149.0"
                                 prefWidth="306.0" style="-fx-background-color: #46494e;" GridPane.columnIndex="1"
                                 GridPane.rowIndex="2">
                             <graphic>
@@ -137,7 +137,7 @@
                             </GridPane.margin>
                         </Button>
                         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                                mnemonicParsing="false" onMousePressed="#OpenOrdinaProdotto" prefHeight="149.0"
+                                mnemonicParsing="false" onMousePressed="#openOrdinaProdotto" prefHeight="149.0"
                                 prefWidth="306.0" style="-fx-background-color: #46494e;" GridPane.rowIndex="2">
                             <graphic>
                                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">

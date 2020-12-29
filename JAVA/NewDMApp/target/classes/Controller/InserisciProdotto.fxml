@@ -16,7 +16,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="600.0" style="-fx-background-color: #3b3c40;" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Magazzino">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Magazzino">
     <top>
         <GridPane prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #46494e;"
                   BorderPane.alignment="CENTER">
@@ -55,7 +55,7 @@
                         </Label>
                     </left>
                     <right>
-                        <Button mnemonicParsing="false" onMousePressed="#OpenDashboardMagazzino"
+                        <Button mnemonicParsing="false" onMousePressed="#openDashboardMagazzino"
                                 style="-fx-background-color: #ff5c66;" text="Indietro" textFill="WHITE"
                                 BorderPane.alignment="CENTER">
                             <BorderPane.margin>
@@ -90,7 +90,7 @@
                         </Label>
                         <TextField fx:id="quantita" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0"
                                    prefWidth="250.0"/>
-                        <Button mnemonicParsing="false" onMousePressed="#InserisciProdotto"
+                        <Button mnemonicParsing="false" onMousePressed="#inserisciProdotto"
                                 style="-fx-background-color: #5ac5f1;" text="Inserisci prodotto" textFill="WHITE">
                             <VBox.margin>
                                 <Insets top="20.0"/>
