@@ -1,10 +1,12 @@
 package entity;
 
+import exceptions.DatabaseException;
 import exceptions.ProdottoNotFoundException;
 import db.ScontrinoDao;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /** Lo Scontrino che viene emesso al termine degli acquisti. */
@@ -14,12 +16,27 @@ public class Scontrino {
   private double tot = 0;
   private double resto;
   private double versato;
-  private final String data = new Date(System.currentTimeMillis()).toString(); // Da vedere
+  private final String data; // Da vedere
   private String riepilogo;
   private Long id;
 
-  /** Crea uno scontrino vuoto alla data corrente */
-  public Scontrino() {}
+  /** Crea uno scontrino vuoto alla data corrente
+   *
+   */
+  public Scontrino() {
+    this.data = setData();
+  }
+
+  /**
+   * Inizializza la data dello scontrino alla data corrente
+   *
+   * @return La stringa contenente la data corrente
+   */
+  private String setData(){
+  LocalDateTime date = LocalDateTime.now();
+    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+    return date.format(myFormatObj).toString();
+  }
 
   /**
    * Aggiunge un prodotto alla lista dei prodotti. Se la lista &egrave; vuota la inizializza e poi
@@ -27,8 +44,9 @@ public class Scontrino {
    *
    * @param cod codice del prodotto
    * @throws ProdottoNotFoundException Il codice inserito non corrisponde ad alcun prodotto.
+   * @throws DatabaseException Errore del Database
    */
-  public void addProdotto(Long cod) throws ProdottoNotFoundException {
+  public void addProdotto(Long cod) throws ProdottoNotFoundException, DatabaseException {
     if (prodottoList == null) {
       prodottoList = new ArrayList<Prodotto>();
     }
@@ -37,6 +55,7 @@ public class Scontrino {
       throw new ProdottoNotFoundException("Prodotto non trovato");
     } else {
       if (prodottoList.contains(p)) {
+        p=prodottoList.get(prodottoList.indexOf(p));
         riepilogo.replaceFirst(
             p.getNome() + "   x " + p.getAcquistato() + "     " + p.getPrezzo() * p.getAcquistato(),
             p.getNome()
@@ -111,9 +130,9 @@ public class Scontrino {
   /**
    * Salva lo scontrino nel Database
    *
-   * @throws SQLException Errore del Database;
+   * @throws DatabaseException Errore nel Database
    */
-  public void save() throws SQLException {
+  public void save() throws DatabaseException {
     ScontrinoDao.save(this);
   }
 }

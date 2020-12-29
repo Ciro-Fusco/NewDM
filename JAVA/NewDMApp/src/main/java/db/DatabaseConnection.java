@@ -1,5 +1,7 @@
 package db;
 
+import exceptions.DatabaseException;
+
 import java.sql.*;
 
 public class DatabaseConnection {
@@ -7,10 +9,8 @@ public class DatabaseConnection {
 
   /**
    * Esegue la connessione al Database.
-   *
-   * @return true se il collegamento è riuscito; false altrimenti.
    */
-  public static boolean connect() {
+  public static void connect() throws DatabaseException {
 
     try {
       if ((con == null) || con.isClosed()) {
@@ -20,28 +20,28 @@ public class DatabaseConnection {
             "jdbc:mysql://localhost:3306/NEGOZIO?"
                 + "allowPublicKeyRetrieval=true&&useSSL=false&serverTimezone=UTC";
         String username = "root";
-        String pwd = "federernadal";
+        String pwd = "ci1ro2345";
         con = DriverManager.getConnection(url, username, pwd);
-        return true;
       }
     } catch (SQLException e) {
       e.printStackTrace();
-      return false;
+      throw new DatabaseException("Connessione al Database non riuscita");
     } catch (ClassNotFoundException e) {
       e.printStackTrace();
-      return false;
     }
 
-    return true;
   }
 
-  /** Chiude la connessione con il Database. */
-  public static void close() {
+  /** Chiude la connessione con il Database.
+   * @throws DatabaseException Errore del database
+   */
+  public static void close() throws DatabaseException {
 
     try {
       con.close();
     } catch (SQLException e) {
       e.printStackTrace();
+      throw new DatabaseException("Chiusura della connessione non riuscita");
     }
   }
 }

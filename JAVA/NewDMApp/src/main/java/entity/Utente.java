@@ -1,9 +1,9 @@
 package entity;
 
+import db.DatabaseConnection;
 import db.UtenteDao;
+import exceptions.DatabaseException;
 import exceptions.UtenteNotFoundException;
-
-import java.sql.SQLException;
 
 /**
  * Classe statica. Può contenere una sola istanza di utente alla volta. Non possiede costruttori.
@@ -69,13 +69,22 @@ public class Utente {
         + '}';
   }
 
-  public static boolean login(String us, String pass) throws UtenteNotFoundException {
+  /**
+   *
+   * @param us Nome utente
+   * @param pass Password in chiaro
+   * @return true se login è effettuato
+   * @throws UtenteNotFoundException Utente non trovato
+   * @throws DatabaseException Errore generico del Database
+   */
+  public static boolean login(String us, String pass) throws UtenteNotFoundException, DatabaseException {
 
-    try {
       return UtenteDao.login(us, pass);
-    } catch (SQLException e) {
-      e.printStackTrace();
-      return false;
-    }
+
+  }
+
+  public static void logout() throws DatabaseException {
+    clear();
+    DatabaseConnection.close();
   }
 }

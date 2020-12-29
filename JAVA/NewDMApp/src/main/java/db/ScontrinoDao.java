@@ -2,6 +2,8 @@ package db;
 
 import entity.Prodotto;
 import entity.Scontrino;
+import exceptions.DatabaseException;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +16,7 @@ public class ScontrinoDao {
    *
    * @param s Scontrino da salvare
    */
-  public static void save(Scontrino s) {
+  public static void save(Scontrino s) throws DatabaseException {
 
     try {
       PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.scontrino);
@@ -28,9 +30,8 @@ public class ScontrinoDao {
       }
 
       List<Prodotto> l = s.getList();
-      l.forEach(
-          (c) -> {
-            try {
+      for(Prodotto c : l){
+            try{
               PreparedStatement state = DatabaseConnection.con.prepareStatement(Query.elenca);
               state.setLong(1, s.getId());
               state.setString(2, s.getData());
@@ -38,11 +39,13 @@ public class ScontrinoDao {
               state.executeQuery();
             } catch (SQLException throwables) {
               throwables.printStackTrace();
+              throw new DatabaseException("Errore non fatale nel Database.");
             }
             c.updatedbquantity();
-          });
+          }
     } catch (SQLException e) {
       e.printStackTrace();
+      throw new DatabaseException("Errore nel salvataggio dello Scontrino");
     }
   }
 }

@@ -14,19 +14,15 @@ public class Utenza {
 
   @FXML
   public void checkLogin(MouseEvent mouseEvent) throws Exception {
-    if (DatabaseConnection.connect()) {
+      DatabaseConnection.connect();
       if (Utente.login(us.getText(), pass.getText())) {
         App.setRoot("Dashboard");
-      } else {
-        AlertMessage.showError("Inserire delle credenziali valide");
-      }
     }
   }
 
   public void logout(MouseEvent mouseEvent) throws Exception {
 
-    DatabaseConnection.close();
-    Utente.clear();
+    Utente.logout();
     App.setRoot("Login");
   }
 

@@ -1,10 +1,13 @@
 package entity;
 
+import db.DatabaseConnection;
 import db.ProdottoDao;
+import exceptions.DatabaseException;
+import exceptions.ProdottoNotFoundException;
 
 public class Prodotto {
 
-  private int acquistato;
+  private int acquistato; /* Numero di volte in cui il prodotto è stato inserito nello scontrino */
   private double prezzo;
   private long codice;
   private String nome;
@@ -67,7 +70,15 @@ public class Prodotto {
     this.quantity = quantity;
   }
 
-  public static Prodotto search(Long cod) {
+  /**
+   * Cerca un prodotto dato il codice
+   *
+   * @param cod Codice del prodotto da trovare
+   * @return Il prodotto cercato
+   * @throws ProdottoNotFoundException Prodotto non trovato
+   * @throws DatabaseException Errore nel database
+   */
+  public static Prodotto search(Long cod) throws ProdottoNotFoundException, DatabaseException {
     return ProdottoDao.search(cod);
   }
 
@@ -76,12 +87,12 @@ public class Prodotto {
    *
    * @return true se la quantità del prodotto è stata aggiornata correttamente
    */
-  public boolean updatedbquantity() {
+  public boolean updatedbquantity() throws DatabaseException {
     return ProdottoDao.updatedbquantity(this);
   }
 
   /** Salva un nuovo Prodotto nel database */
-  public boolean createProdotto() {
+  public boolean createProdotto() throws DatabaseException {
     return ProdottoDao.createProdotto(this);
   }
 }

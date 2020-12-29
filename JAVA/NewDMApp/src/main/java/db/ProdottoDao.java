@@ -1,6 +1,8 @@
 package db;
 
 import entity.Prodotto;
+import exceptions.DatabaseException;
+import exceptions.ProdottoNotFoundException;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,8 +15,10 @@ public class ProdottoDao {
    *
    * @param cod codice del prodotto
    * @return un nuovo Prodotto contenente i dati della query
+   * @throws DatabaseException errore del database:
+   * @throws ProdottoNotFoundException prodotto non trovato nel database;
    */
-  public static Prodotto search(Long cod) {
+  public static Prodotto search(Long cod) throws DatabaseException, ProdottoNotFoundException {
 
     PreparedStatement prep = null;
     try {
@@ -29,11 +33,11 @@ public class ProdottoDao {
             res.getString("Nome"),
             res.getInt("quantità"));
       }
-      return null;
+      throw new ProdottoNotFoundException("Prodotto non trovato");
 
     } catch (SQLException throwables) {
       throwables.printStackTrace();
-      return null;
+      throw new DatabaseException("Errore generico del Database");
     }
   }
 
@@ -43,7 +47,8 @@ public class ProdottoDao {
    * @param p prodotto da aggiornare
    * @return true se la quantità del prodotto è stata aggiornata correttamente, false altrimenti
    */
-  public static boolean updatedbquantity(Prodotto p) {
+  public static boolean updatedbquantity(Prodotto p) throws DatabaseException
+    {
 
     PreparedStatement prep = null;
     try {
@@ -55,11 +60,11 @@ public class ProdottoDao {
 
     } catch (SQLException throwables) {
       throwables.printStackTrace();
-      return false;
+      throw new DatabaseException("Errore nell'aggiornamento della quantità del Prodotto: "+p.getNome());
     }
   }
 
-  public static boolean createProdotto(Prodotto p) {
+  public static boolean createProdotto(Prodotto p) throws DatabaseException {
     PreparedStatement prep = null;
     try {
       prep = DatabaseConnection.con.prepareStatement(Query.newProdotto);
@@ -72,7 +77,7 @@ public class ProdottoDao {
 
     } catch (SQLException throwables) {
       throwables.printStackTrace();
-      return false;
+      throw new DatabaseException("Errore nel salvataggio del Prodotto");
     }
   }
 }

@@ -2,9 +2,9 @@ package exceptions;
 
 import controller.AlertMessage;
 
-public class ProdottoNotFoundException extends Exception {
+public class DatabaseException extends Exception {
 
-  public ProdottoNotFoundException(String message) {
+  public DatabaseException(String message) {
     super(message);
     AlertMessage.showError(message);
   }
