@@ -1,0 +1,33 @@
+digraph Tree {
+node [shape=box, style="rounded", color="black", fontname=helvetica] ;
+edge [fontname=helvetica] ;
+0 [label="costo(prezzo) <= 60.0\ngini = 0.8\nsamples = 88\nvalue = [9, 37, 29, 19, 30, 21]"] ;
+1 [label="dimensione confezione(piccola,media,grande)_Media <= 0.5\ngini = 0.6\nsamples = 34\nvalue = [0, 4, 1, 1, 30, 21]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="zona supermercato(periferia,residenziale)_Residenziale <= 0.5\ngini = 0.6\nsamples = 15\nvalue = [0, 4, 1, 1, 14, 3]"] ;
+1 -> 2 ;
+3 [label="gini = 0.6\nsamples = 5\nvalue = [0, 4, 0, 1, 5, 0]"] ;
+2 -> 3 ;
+4 [label="gini = 0.5\nsamples = 10\nvalue = [0, 0, 1, 0, 9, 3]"] ;
+2 -> 4 ;
+5 [label="festività(Feriale,Lavorativo)_Feriale <= 0.5\ngini = 0.5\nsamples = 19\nvalue = [0, 0, 0, 0, 16, 18]"] ;
+1 -> 5 ;
+6 [label="gini = 0.5\nsamples = 15\nvalue = [0, 0, 0, 0, 11, 14]"] ;
+5 -> 6 ;
+7 [label="gini = 0.5\nsamples = 4\nvalue = [0, 0, 0, 0, 5, 4]"] ;
+5 -> 7 ;
+8 [label="spedizione(prezzo) <= 15.0\ngini = 0.7\nsamples = 54\nvalue = [9, 33, 28, 18, 0, 0]"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="dimensione confezione(piccola,media,grande)_Media <= 0.5\ngini = 0.7\nsamples = 40\nvalue = [6, 26, 14, 18, 0, 0]"] ;
+8 -> 9 ;
+10 [label="gini = 0.7\nsamples = 17\nvalue = [0, 12, 10, 10, 0, 0]"] ;
+9 -> 10 ;
+11 [label="gini = 0.7\nsamples = 23\nvalue = [6, 14, 4, 8, 0, 0]"] ;
+9 -> 11 ;
+12 [label="zona supermercato(periferia,residenziale)_Residenziale <= 0.5\ngini = 0.6\nsamples = 14\nvalue = [3, 7, 14, 0, 0, 0]"] ;
+8 -> 12 ;
+13 [label="gini = 0.6\nsamples = 7\nvalue = [3, 5, 6, 0, 0, 0]"] ;
+12 -> 13 ;
+14 [label="gini = 0.3\nsamples = 7\nvalue = [0, 2, 8, 0, 0, 0]"] ;
+12 -> 14 ;
+}
