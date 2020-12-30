@@ -47,8 +47,7 @@ public class ProdottoDao {
    * @param p prodotto da aggiornare
    * @return true se la quantità del prodotto è stata aggiornata correttamente, false altrimenti
    */
-  public static boolean updatedbquantity(Prodotto p) throws DatabaseException
-    {
+  public static boolean updatedbquantity(Prodotto p) throws DatabaseException {
 
     PreparedStatement prep = null;
     try {
@@ -60,7 +59,8 @@ public class ProdottoDao {
 
     } catch (SQLException throwables) {
       throwables.printStackTrace();
-      throw new DatabaseException("Errore nell'aggiornamento della quantità del Prodotto: "+p.getNome());
+      throw new DatabaseException(
+          "Errore nell'aggiornamento della quantità del Prodotto: " + p.getNome());
     }
   }
 
@@ -72,7 +72,7 @@ public class ProdottoDao {
       prep.setString(2, p.getNome());
       prep.setInt(3, p.getQuantity());
       prep.setDouble(4, p.getPrezzo());
-      prep.executeQuery();
+      prep.executeUpdate();
       return true;
 
     } catch (SQLException throwables) {

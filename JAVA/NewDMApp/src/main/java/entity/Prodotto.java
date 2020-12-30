@@ -20,6 +20,10 @@ public class Prodotto {
     this.quantity = quantity;
   }
 
+  public Prodotto() {
+
+  }
+
   public double getPrezzo() {
     return prezzo;
   }
@@ -94,5 +98,16 @@ public class Prodotto {
   /** Salva un nuovo Prodotto nel database */
   public boolean createProdotto() throws DatabaseException {
     return ProdottoDao.createProdotto(this);
+  }
+
+  @Override
+  public String toString() {
+    return "Prodotto{" +
+            "acquistato=" + acquistato +
+            ", prezzo=" + prezzo +
+            ", codice=" + codice +
+            ", nome='" + nome + '\'' +
+            ", quantity=" + quantity +
+            '}';
   }
 }
