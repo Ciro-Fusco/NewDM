@@ -45,22 +45,41 @@ public class ProdottoDao {
    * Aggiorna la quantità del prodotto nel DB
    *
    * @param p prodotto da aggiornare
-   * @return true se la quantità del prodotto è stata aggiornata correttamente, false altrimenti
+   *@throws DatabaseException errore del database:
    */
-  public static boolean updatedbquantity(Prodotto p) throws DatabaseException {
+  public static void leavedbquantity(Prodotto p) throws DatabaseException {
 
     PreparedStatement prep = null;
     try {
-      prep = DatabaseConnection.con.prepareStatement(Query.upDBQuant);
+      prep = DatabaseConnection.con.prepareStatement(Query.downDBQuant);
       prep.setInt(1, p.getAcquistato());
       prep.setLong(2, p.getCodice());
-      prep.executeQuery();
-      return true;
+      prep.executeUpdate();
 
     } catch (SQLException throwables) {
       throwables.printStackTrace();
       throw new DatabaseException(
           "Errore nell'aggiornamento della quantità del Prodotto: " + p.getNome());
+    }
+  }
+
+  /**
+   *
+   * @param i quantità da aggiungere al Database
+   * @throws DatabaseException Errore del Database
+   */
+  public static void adddbquantity(int i,Prodotto p) throws DatabaseException{
+    PreparedStatement prep = null;
+    try {
+      prep = DatabaseConnection.con.prepareStatement(Query.upDBQuant);
+      prep.setInt(1, i);
+      prep.setLong(2, p.getCodice());
+      prep.executeUpdate();
+
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+      throw new DatabaseException(
+              "Errore nell'aggiornamento della quantità del Prodotto: " + p.getNome());
     }
   }
 

@@ -7,6 +7,7 @@ import exceptions.DatabaseException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 public class ScontrinoDao {
@@ -19,15 +20,14 @@ public class ScontrinoDao {
   public static void save(Scontrino s) throws DatabaseException {
 
     try {
-      PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.scontrino);
+      PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.newScontrino, Statement.RETURN_GENERATED_KEYS);
       prep.setString(1, s.getData());
       prep.setDouble(2, s.getVersato());
       prep.setDouble(3, s.getTot());
       prep.setDouble(4, s.getResto());
-      ResultSet res = prep.executeQuery();
-      while (res.next()) {
-        s.setId(res.getLong("id"));
-      }
+      prep.executeUpdate();
+      ResultSet rs =prep.getGeneratedKeys();
+        s.setId(rs.getLong(1));
 
       List<Prodotto> l = s.getList();
       for(Prodotto c : l){
@@ -36,12 +36,12 @@ public class ScontrinoDao {
               state.setLong(1, s.getId());
               state.setString(2, s.getData());
               state.setLong(3, c.getCodice());
-              state.executeQuery();
+              state.executeUpdate();
             } catch (SQLException throwables) {
               throwables.printStackTrace();
               throw new DatabaseException("Errore non fatale nel Database.");
             }
-            c.updatedbquantity();
+            c.leavedbquantity();
           }
     } catch (SQLException e) {
       e.printStackTrace();

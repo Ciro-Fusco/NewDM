@@ -1,6 +1,5 @@
 package entity;
 
-import db.DatabaseConnection;
 import db.ProdottoDao;
 import exceptions.DatabaseException;
 import exceptions.ProdottoNotFoundException;
@@ -87,15 +86,27 @@ public class Prodotto {
   }
 
   /**
-   * Aggiorna la quantità del prodotto nel Database
+   * Rimuova una data quantità del prodotto nel Database in base al numero di volte in cui
+   * il codice è stato inserito nello scontrino.
    *
-   * @return true se la quantità del prodotto è stata aggiornata correttamente
+   * @throws DatabaseException Errore del Database
    */
-  public boolean updatedbquantity() throws DatabaseException {
-    return ProdottoDao.updatedbquantity(this);
+  public void leavedbquantity() throws DatabaseException {
+     ProdottoDao.leavedbquantity(this);
   }
 
-  /** Salva un nuovo Prodotto nel database */
+  /**
+   * Aggiunge al Database una quantità del prodotto che lo invoca
+   * @param i quantità da aggiungere al Database
+   * @throws DatabaseException Errore del Database
+   */
+  public void adddbquantity(int i) throws DatabaseException{
+    ProdottoDao.adddbquantity(i,this);
+  }
+
+  /** Salva un nuovo Prodotto nel database
+   * @throws DatabaseException Errore del Database
+   */
   public boolean createProdotto() throws DatabaseException {
     return ProdottoDao.createProdotto(this);
   }
