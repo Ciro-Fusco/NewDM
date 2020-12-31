@@ -31,7 +31,7 @@ public class ProdottoDao {
             res.getDouble("Prezzo"),
             res.getLong("Codice"),
             res.getString("Nome"),
-            res.getInt("quantità"));
+            res.getInt("quantity"));
       }
       throw new ProdottoNotFoundException("Prodotto non trovato");
 

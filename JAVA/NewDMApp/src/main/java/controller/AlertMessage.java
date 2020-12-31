@@ -10,4 +10,9 @@ public class AlertMessage {
     alert = new Alert(Alert.AlertType.ERROR, errore);
     alert.show();
   }
+
+  public static void showInformation(String info) {
+    alert = new Alert(Alert.AlertType.INFORMATION, info);
+    alert.show();
+  }
 }

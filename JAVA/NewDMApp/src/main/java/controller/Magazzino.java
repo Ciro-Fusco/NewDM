@@ -9,28 +9,43 @@ import java.util.concurrent.TimeUnit;
 
 import entity.Prodotto;
 import exceptions.DatabaseException;
+import exceptions.ProdottoNotFoundException;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 public class Magazzino implements Initializable {
 
-  private static Prodotto nuovoProdotto;
+  private static Prodotto prodotto;
+  private static Prodotto tempProdotto;
   @FXML private TextField nomeProd;
   @FXML private TextField prezzoProd;
   @FXML private TextField codiceProd;
   @FXML private TextField quantitaProd;
   @FXML public TextField riepilogoNuovoProdotto;
+  @FXML public TextField riepilogoProdotto;
+  @FXML private Label labelNomeProd;
+  @FXML private Label labelPrezzoProd;
 
-  //Viene eseguito ogni volta che si carica una nuova finestra
+  // Viene eseguito ogni volta che si carica una nuova finestra
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     String nomeFile =
         url.toString().substring(url.toString().lastIndexOf('/') + 1, url.toString().length());
 
     if (nomeFile.equals("InserisciNuovoProdottoRiepilogo.fxml")) {
-      riepilogoNuovoProdotto.setText(nuovoProdotto.toString());
+      riepilogoNuovoProdotto.setText(prodotto.toString());
+    }
+
+    if (nomeFile.equals("InserisciProdottoRiepilogo.fxml")) {
+      riepilogoProdotto.setText(tempProdotto.toString());
+    }
+
+    if (nomeFile.equals("ModPrezzoProdottoPopUp.fxml")) {
+      labelPrezzoProd.setText(Double.toString(prodotto.getPrezzo()));
+      labelNomeProd.setText(prodotto.getNome());
     }
   }
 
@@ -68,8 +83,26 @@ public class Magazzino implements Initializable {
 
   // INSERISCI PRODOTTO GIA PRESENTE
 
-  public void inserisciProdotto(MouseEvent mouseEvent) {
-    // Inserisci prodotto
+  public void openInserisciProdottoRiepilogo(MouseEvent mouseEvent)
+      throws IOException, ProdottoNotFoundException, DatabaseException {
+    try {
+      tempProdotto = new Prodotto();
+      prodotto = Prodotto.search(Long.parseLong(codiceProd.getText()));
+      tempProdotto.setQuantity(prodotto.getQuantity() + Integer.parseInt(quantitaProd.getText()));
+      tempProdotto.setCodice(prodotto.getCodice());
+      tempProdotto.setPrezzo(prodotto.getPrezzo());
+      tempProdotto.setNome(prodotto.getNome());
+      tempProdotto.setAcquistato(prodotto.getAcquistato());
+      App.setRoot("InserisciProdottoRiepilogo");
+    } catch (NumberFormatException excpt) {
+      AlertMessage.showError("Compila i campi in modo corretto");
+    }
+  }
+
+  public void inserisciProdotto(MouseEvent mouseEvent) throws DatabaseException, IOException {
+    prodotto.adddbquantity(tempProdotto.getQuantity() - prodotto.getQuantity());
+    AlertMessage.showInformation("Quantità aggiornata correttamente");
+    App.setRoot("InserisciProdotto");
   }
 
   ///////////////////////////////////////////////////////////////////////////////
@@ -77,24 +110,41 @@ public class Magazzino implements Initializable {
   // INSERISCI NUOVO PRODOTTO
 
   public void openNuovoProdottoRiepilogo(MouseEvent mouseEvent) throws IOException {
-    nuovoProdotto = new Prodotto();
-    nuovoProdotto.setNome(nomeProd.getText());
-    nuovoProdotto.setPrezzo(Integer.parseInt(prezzoProd.getText()));
-    nuovoProdotto.setQuantity(Integer.parseInt(quantitaProd.getText()));
-    nuovoProdotto.setCodice(Integer.parseInt(codiceProd.getText()));
-    App.setRoot("InserisciNuovoProdottoRiepilogo");
+    try {
+      prodotto = new Prodotto();
+      prodotto.setNome(nomeProd.getText());
+      prodotto.setPrezzo(Integer.parseInt(prezzoProd.getText()));
+      prodotto.setQuantity(Integer.parseInt(quantitaProd.getText()));
+      prodotto.setCodice(Integer.parseInt(codiceProd.getText()));
+      App.setRoot("InserisciNuovoProdottoRiepilogo");
+    } catch (NumberFormatException exception) {
+      exception.printStackTrace();
+      AlertMessage.showError("Compila i campi in modo corretto");
+    }
   }
 
-  public void inserisciNuovoProdotto(MouseEvent mouseEvent) throws DatabaseException {
-    nuovoProdotto.createProdotto();
+  public void inserisciNuovoProdotto(MouseEvent mouseEvent) throws DatabaseException, IOException {
+    prodotto.createProdotto();
+    AlertMessage.showInformation("Prodotto inserito correttamente!");
+    App.setRoot("InserisciNuovoProdottoRiepilogo");
   }
 
   ///////////////////////////////////////////////////////////////////
 
   // MOD PREZZO PRODOTTO
 
-  public void cercaProdottoModPrezzo(MouseEvent mouseEvent) {
-    // Cerca prod by codice
+  public void aggiornaPrezzo(MouseEvent mouseEvent) {
+    //AGGIORNA QUANTITA NEL DB
+  }
+
+  public void openModificaPrezzoPopUp(MouseEvent mouseEvent)
+      throws ProdottoNotFoundException, DatabaseException, IOException {
+    try {
+      prodotto = Prodotto.search(Long.parseLong(codiceProd.getText()));
+      App.setRoot("ModPrezzoProdottoPopUp");
+    } catch (NumberFormatException exception) {
+      AlertMessage.showInformation("Compila i campi in modo corretto");
+    }
   }
 
   /////////////////////////////////////////////////////////
