@@ -143,7 +143,7 @@ public class Magazzino implements Initializable {
       prodotto = Prodotto.search(Long.parseLong(codiceProd.getText()));
       App.setRoot("ModPrezzoProdottoPopUp");
     } catch (NumberFormatException exception) {
-      AlertMessage.showInformation("Compila i campi in modo corretto");
+      AlertMessage.showError("Compila i campi in modo corretto");
     }
   }
 
