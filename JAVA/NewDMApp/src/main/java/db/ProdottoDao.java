@@ -99,4 +99,19 @@ public class ProdottoDao {
       throw new DatabaseException("Errore nel salvataggio del Prodotto");
     }
   }
+
+  public static void modificaPrezzo(Prodotto p, double prezzo) throws DatabaseException{
+    PreparedStatement prep = null;
+    try {
+      prep = DatabaseConnection.con.prepareStatement(Query.modificaPrezzo);
+      prep.setDouble(1, prezzo);
+      prep.setLong(2, p.getCodice());
+      prep.executeUpdate();
+
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+      throw new DatabaseException("Errore nel salvataggio del Prodotto");
+    }
+
+  }
 }

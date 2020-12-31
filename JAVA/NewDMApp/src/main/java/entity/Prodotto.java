@@ -111,6 +111,10 @@ public class Prodotto {
     return ProdottoDao.createProdotto(this);
   }
 
+  public void modificaPrezzo(double prezzo) throws DatabaseException{
+    ProdottoDao.modificaPrezzo(this,prezzo);
+  }
+
   @Override
   public String toString() {
     return "Prodotto{" +

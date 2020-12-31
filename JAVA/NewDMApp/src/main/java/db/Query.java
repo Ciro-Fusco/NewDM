@@ -10,4 +10,5 @@ public interface Query {
   String upDBQuant = "UPDATE PRODOTTO as p SET p.quantity = (p.quantity + ?) WHERE p.codice=?";
   String downDBQuant = "UPDATE PRODOTTO as p SET p.quantity = (p.quantity - ?) WHERE p.codice=?";
   String newProdotto = "INSERT INTO PRODOTTO VALUES (?,?,?,?)";
+  String modificaPrezzo = "UPDATE PRODOTTO as p SET p.prezzo = ? WHERE p.codice=?"; ;
 }
