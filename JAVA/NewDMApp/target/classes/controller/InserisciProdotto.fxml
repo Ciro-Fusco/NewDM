@@ -81,7 +81,7 @@
                             </VBox.margin>
                         </Label>
                         <TextField fx:id="quantitaProd" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" />
-                        <Button mnemonicParsing="false" onMousePressed="#inserisciProdotto" style="-fx-background-color: #5ac5f1;" text="Inserisci prodotto" textFill="WHITE">
+                        <Button mnemonicParsing="false" onMousePressed="#openInserisciProdottoRiepilogo" style="-fx-background-color: #5ac5f1;" text="Inserisci prodotto" textFill="WHITE">
                             <VBox.margin>
                                 <Insets top="20.0" />
                             </VBox.margin>

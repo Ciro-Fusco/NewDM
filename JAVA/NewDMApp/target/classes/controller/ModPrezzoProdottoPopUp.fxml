@@ -14,51 +14,45 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" style="-fx-background-color: #3b3c40;" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Utenza">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b3c40;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Magazzino">
     <top>
-        <GridPane prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #46494e;"
-                  BorderPane.alignment="CENTER">
+        <GridPane prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #46494e;" BorderPane.alignment="CENTER">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <ImageView fitHeight="68.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true"
-                           GridPane.halignment="CENTER">
+                <ImageView fitHeight="68.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
                     <GridPane.margin>
-                        <Insets/>
+                        <Insets />
                     </GridPane.margin>
                     <image>
-                        <Image url="@Logo.png"/>
+                        <Image url="@Logo.png" />
                     </image>
                 </ImageView>
             </children>
         </GridPane>
     </top>
     <center>
-        <SplitPane dividerPositions="0.24924924924924924" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0"
-                   style="-fx-background-color: #3b3c40;" stylesheets="@Dashboard.css" BorderPane.alignment="CENTER">
+        <SplitPane dividerPositions="0.24924924924924924" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #3b3c40;" stylesheets="@Dashboard.css" BorderPane.alignment="CENTER">
             <items>
                 <BorderPane maxHeight="-Infinity" prefHeight="85.0" prefWidth="598.0">
                     <left>
                         <Label text="Modifica prezzo prodotto" textFill="WHITE" BorderPane.alignment="CENTER">
                             <font>
-                                <Font size="30.0"/>
+                                <Font size="30.0" />
                             </font>
                             <padding>
-                                <Insets left="20.0"/>
+                                <Insets left="20.0" />
                             </padding>
                         </Label>
                     </left>
                     <right>
-                        <Button mnemonicParsing="false" style="-fx-background-color: #ff5c66;" text="Indietro"
-                                textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Button mnemonicParsing="false" onMousePressed="#openModificaPrezzo" style="-fx-background-color: #ff5c66;" text="Indietro" textFill="WHITE" BorderPane.alignment="CENTER">
                             <BorderPane.margin>
-                                <Insets right="20.0"/>
+                                <Insets right="20.0" />
                             </BorderPane.margin>
                         </Button>
                     </right>
@@ -67,43 +61,35 @@
                     <children>
                         <BorderPane prefHeight="90.0" prefWidth="598.0">
                             <left>
-                                <VBox alignment="CENTER_RIGHT" prefHeight="146.0" prefWidth="225.0"
-                                      BorderPane.alignment="CENTER">
+                                <VBox alignment="CENTER_RIGHT" prefHeight="146.0" prefWidth="225.0" BorderPane.alignment="CENTER">
                                     <children>
-                                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="143.0"
-                                               text="Nome prodotto" textAlignment="CENTER" textFill="WHITE"
-                                               wrapText="true">
+                                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="143.0" text="Nome prodotto" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                                             <font>
-                                                <Font size="20.0"/>
+                                                <Font size="20.0" />
                                             </font>
                                         </Label>
-                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0"
-                                               prefWidth="143.0" text="--" textFill="WHITE">
+                                        <Label fx:id="labelNomeProd" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="143.0" text="--" textFill="WHITE">
                                             <font>
-                                                <Font size="15.0"/>
+                                                <Font size="15.0" />
                                             </font>
                                         </Label>
                                     </children>
                                 </VBox>
                             </left>
                             <VBox.margin>
-                                <Insets top="-50.0"/>
+                                <Insets top="-50.0" />
                             </VBox.margin>
                             <right>
-                                <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="203.0"
-                                      BorderPane.alignment="CENTER">
+                                <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="203.0" BorderPane.alignment="CENTER">
                                     <children>
-                                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="143.0"
-                                               text="Prezzo attuale" textAlignment="CENTER" textFill="WHITE"
-                                               wrapText="true">
+                                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="143.0" text="Prezzo attuale" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                                             <font>
-                                                <Font size="20.0"/>
+                                                <Font size="20.0" />
                                             </font>
                                         </Label>
-                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0"
-                                               prefWidth="143.0" text="--" textFill="WHITE">
+                                        <Label fx:id="labelPrezzoProd" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="143.0" text="--" textFill="WHITE">
                                             <font>
-                                                <Font size="15.0"/>
+                                                <Font size="15.0" />
                                             </font>
                                         </Label>
                                     </children>
@@ -112,22 +98,21 @@
                         </BorderPane>
                         <Label text="Prezzo nuovo" textFill="WHITE">
                             <font>
-                                <Font size="20.0"/>
+                                <Font size="20.0" />
                             </font>
                             <VBox.margin>
-                                <Insets top="-10.0"/>
+                                <Insets top="-10.0" />
                             </VBox.margin>
                         </Label>
-                        <TextField maxWidth="-Infinity" prefWidth="200.0"/>
-                        <Button mnemonicParsing="false" style="-fx-background-color: #5ac5f1;" text="Aggiorna"
-                                textFill="WHITE">
+                        <TextField fx:id="prezzoProd" maxWidth="-Infinity" prefWidth="200.0" />
+                        <Button mnemonicParsing="false" onMousePressed="#aggiornaPrezzo" style="-fx-background-color: #5ac5f1;" text="Aggiorna" textFill="WHITE">
                             <VBox.margin>
-                                <Insets top="20.0"/>
+                                <Insets top="20.0" />
                             </VBox.margin>
                         </Button>
                     </children>
                     <opaqueInsets>
-                        <Insets/>
+                        <Insets />
                     </opaqueInsets>
                 </VBox>
             </items>
