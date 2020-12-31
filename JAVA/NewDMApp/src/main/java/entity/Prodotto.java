@@ -86,7 +86,7 @@ public class Prodotto {
   }
 
   /**
-   * Rimuova una data quantità del prodotto nel Database in base al numero di volte in cui
+   * Diminuisce la quantità del Prodotto dal Database in base al numero di volte in cui
    * il codice è stato inserito nello scontrino.
    *
    * @throws DatabaseException Errore del Database
@@ -96,7 +96,7 @@ public class Prodotto {
   }
 
   /**
-   * Aggiunge al Database una quantità del prodotto che lo invoca
+   * Aumenta la quantità di questo prodotto nel database
    * @param i quantità da aggiungere al Database
    * @throws DatabaseException Errore del Database
    */
@@ -104,13 +104,19 @@ public class Prodotto {
     ProdottoDao.adddbquantity(i,this);
   }
 
-  /** Salva un nuovo Prodotto nel database
+  /** Salva questo Prodotto nel database
    * @throws DatabaseException Errore del Database
+   * @return true se il Prodotto è stato creato correttamente
    */
   public boolean createProdotto() throws DatabaseException {
     return ProdottoDao.createProdotto(this);
   }
 
+  /**
+   * Modifica il prezzo del Prodotto
+   * @param prezzo Nuovo prezzo
+   * @throws DatabaseException Errore generico nel Database
+   */
   public void modificaPrezzo(double prezzo) throws DatabaseException{
     ProdottoDao.modificaPrezzo(this,prezzo);
   }

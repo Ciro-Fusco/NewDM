@@ -66,6 +66,7 @@ public class ProdottoDao {
   /**
    *
    * @param i quantità da aggiungere al Database
+   * @param p Prodotto a cui aggiungere la quantitàs
    * @throws DatabaseException Errore del Database
    */
   public static void adddbquantity(int i,Prodotto p) throws DatabaseException{
@@ -100,6 +101,12 @@ public class ProdottoDao {
     }
   }
 
+  /**
+   * Modifica il prezzo di un prodotto
+   * @param p Prodotto da modificare
+   * @param prezzo Nuovo prezzo da impostare
+   * @throws DatabaseException Errore nel Database
+   */
   public static void modificaPrezzo(Prodotto p, double prezzo) throws DatabaseException{
     PreparedStatement prep = null;
     try {

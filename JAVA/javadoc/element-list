@@ -1,5 +1,5 @@
-module:org.example
-Controller
+module:org.exemple
+controller
 db
-Entity
-Exceptions
+entity
+exceptions

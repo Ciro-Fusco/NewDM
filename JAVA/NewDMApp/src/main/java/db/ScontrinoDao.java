@@ -16,6 +16,7 @@ public class ScontrinoDao {
    * Salva lo Scontrino nel Database e crea le voci della tabella ELENCA
    *
    * @param s Scontrino da salvare
+   * @throws DatabaseException Errore del Database
    */
   public static void save(Scontrino s) throws DatabaseException {
 

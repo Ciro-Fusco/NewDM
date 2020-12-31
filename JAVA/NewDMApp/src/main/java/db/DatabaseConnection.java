@@ -9,6 +9,7 @@ public class DatabaseConnection {
 
   /**
    * Esegue la connessione al Database.
+   * @throws DatabaseException Errore del Database
    */
   public static void connect() throws DatabaseException {
 

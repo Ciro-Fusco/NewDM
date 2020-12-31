@@ -1,1 +1,1 @@
-moduleSearchIndex = [{"l":"org.example"}]
+moduleSearchIndex = [{"l":"org.exemple"}]
