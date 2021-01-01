@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 import entity.Prodotto;
 import exceptions.DatabaseException;
+import exceptions.ProdottoException;
 import exceptions.ProdottoNotFoundException;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -84,7 +85,7 @@ public class Magazzino implements Initializable {
   // INSERISCI PRODOTTO GIA PRESENTE
 
   public void openInserisciProdottoRiepilogo(MouseEvent mouseEvent)
-      throws IOException, ProdottoNotFoundException, DatabaseException {
+      throws IOException, ProdottoException, DatabaseException {
     try {
       tempProdotto = new Prodotto();
       prodotto = Prodotto.search(Long.parseLong(codiceProd.getText()));
@@ -110,7 +111,7 @@ public class Magazzino implements Initializable {
 
   // INSERISCI NUOVO PRODOTTO
 
-  public void openNuovoProdottoRiepilogo(MouseEvent mouseEvent) throws IOException {
+  public void openNuovoProdottoRiepilogo(MouseEvent mouseEvent) throws IOException,ProdottoException {
     try {
       prodotto = new Prodotto();
       prodotto.setNome(nomeProd.getText());
@@ -127,19 +128,19 @@ public class Magazzino implements Initializable {
   public void inserisciNuovoProdotto(MouseEvent mouseEvent) throws DatabaseException, IOException {
     prodotto.createProdotto();
     AlertMessage.showInformation("Prodotto inserito correttamente!");
-    App.setRoot("InserisciNuovoProdottoRiepilogo");
+    App.setRoot("InserisciNuovoProdotto");
   }
 
   ///////////////////////////////////////////////////////////////////
 
   // MOD PREZZO PRODOTTO
 
-  public void aggiornaPrezzo(MouseEvent mouseEvent) throws DatabaseException {
+  public void aggiornaPrezzo(MouseEvent mouseEvent) throws DatabaseException, ProdottoException,IOException {
     try {
       prodotto.modificaPrezzo(Double.parseDouble(prezzoProd.getText()));
       prodotto.setPrezzo(Double.parseDouble(prezzoProd.getText()));
       AlertMessage.showInformation("Prezzo aggiornato con successo");
-      labelPrezzoProd.setText(Double.toString(prodotto.getPrezzo()));
+      App.setRoot("ModPrezzoProdotto");
     } catch (NumberFormatException exception) {
       exception.printStackTrace();
       AlertMessage.showError("Compila i campi in modo corretto");
@@ -147,7 +148,7 @@ public class Magazzino implements Initializable {
   }
 
   public void openModificaPrezzoPopUp(MouseEvent mouseEvent)
-      throws ProdottoNotFoundException, DatabaseException, IOException {
+      throws ProdottoException, DatabaseException, IOException {
     try {
       prodotto = Prodotto.search(Long.parseLong(codiceProd.getText()));
       App.setRoot("ModPrezzoProdottoPopUp");

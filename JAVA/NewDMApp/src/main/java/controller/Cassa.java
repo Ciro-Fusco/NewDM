@@ -3,7 +3,9 @@ package controller;
 import entity.Prodotto;
 import entity.Scontrino;
 import exceptions.DatabaseException;
+import exceptions.ProdottoException;
 import exceptions.ProdottoNotFoundException;
+import exceptions.ScontrinoException;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -32,9 +34,10 @@ public class Cassa implements Initializable {
 
     if (nomeFile.equals("Cassa.fxml")) {
       if (scontrino != null) {
-        for (Prodotto p : scontrino.getList()) {
+        scontrinoTextField.appendText(scontrino.getRiepilogo());
+        /*for (Prodotto p : scontrino.getList()) {
           scontrinoTextField.appendText(p.toString() + System.lineSeparator());
-        }
+        }*/
       }
     }
 
@@ -47,9 +50,10 @@ public class Cassa implements Initializable {
       if (scontrino != null) {
         scontrino.calcolaResto();
         restoLabel.setText(Double.toString(scontrino.getResto()));
-        for (Prodotto p : scontrino.getList()) {
+        riepilogoTextArea.setText(scontrino.getRiepilogo());
+        /*for (Prodotto p : scontrino.getList()) {
           riepilogoTextArea.appendText(p.toString() + System.lineSeparator());
-        }
+        }*/
       }
     }
   }
@@ -77,14 +81,14 @@ public class Cassa implements Initializable {
   }
   //////////////////////////////////////////////////////////////////
 
-  // inserimeto prodotto
+  // inserimento prodotto
 
   public void openCassa(MouseEvent mouseEvent) throws IOException {
     App.setRoot("Cassa");
   }
 
   public void inserimentoProdotto(MouseEvent mouseEvent)
-      throws ProdottoNotFoundException, DatabaseException {
+      throws ProdottoException, DatabaseException{
     try {
       if (scontrino == null) {
         scontrino = new Scontrino();
@@ -100,7 +104,7 @@ public class Cassa implements Initializable {
   ////////////////////////////////////////////////////////////////
 
   // Totale cassa
-  public void openCassaRiepilogo(MouseEvent mouseEvent) throws IOException {
+  public void openCassaRiepilogo(MouseEvent mouseEvent) throws IOException, ScontrinoException {
     try {
       scontrino.setVersato(Double.parseDouble(sommaVersataTextField.getText()));
       App.setRoot("CassaRiepilogo");
@@ -116,6 +120,7 @@ public class Cassa implements Initializable {
   public void confermaScontrino(MouseEvent mouseEvent) throws DatabaseException, IOException {
     scontrino.save();
     AlertMessage.showInformation("Scontrino salvato");
+    scontrino=null;
     App.setRoot("Cassa");
   }
 

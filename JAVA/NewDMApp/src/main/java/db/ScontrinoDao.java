@@ -28,7 +28,8 @@ public class ScontrinoDao {
       prep.setDouble(4, s.getResto());
       prep.executeUpdate();
       ResultSet rs =prep.getGeneratedKeys();
-        s.setId(rs.getLong(1));
+      rs.next();
+      s.setId(rs.getLong(1));
 
       List<Prodotto> l = s.getList();
       for(Prodotto c : l){

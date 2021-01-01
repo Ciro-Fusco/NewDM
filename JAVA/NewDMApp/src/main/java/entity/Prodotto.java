@@ -2,6 +2,7 @@ package entity;
 
 import db.ProdottoDao;
 import exceptions.DatabaseException;
+import exceptions.ProdottoException;
 import exceptions.ProdottoNotFoundException;
 
 import java.util.Objects;
@@ -14,7 +15,9 @@ public class Prodotto {
   private String nome;
   private int quantity;
 
-  public Prodotto(double prezzo, long codice, String nome, int quantity) {
+  public Prodotto(double prezzo, long codice, String nome, int quantity) throws ProdottoException {
+    if(prezzo <=0 || quantity <=0)
+      throw new ProdottoException("Prezzo e quantità devono essere entrambi positivi");
     this.prezzo = prezzo;
     this.codice = codice;
     this.nome = nome;
@@ -51,8 +54,11 @@ public class Prodotto {
     this.acquistato = acquistato;
   }
 
-  public void setPrezzo(double prezzo) {
-    this.prezzo = prezzo;
+  public void setPrezzo(double prezzo) throws ProdottoException {
+    if(prezzo <0 )
+      throw new ProdottoException("Il prezzo non può essere negativo");
+
+      this.prezzo = prezzo;
   }
 
   public long getCodice() {
@@ -71,7 +77,10 @@ public class Prodotto {
     return quantity;
   }
 
-  public void setQuantity(int quantity) {
+  public void setQuantity(int quantity) throws ProdottoException {
+    if(quantity<0)
+      throw new ProdottoException("La quantità non può essere negativa");
+
     this.quantity = quantity;
   }
 
@@ -83,7 +92,7 @@ public class Prodotto {
    * @throws ProdottoNotFoundException Prodotto non trovato
    * @throws DatabaseException Errore nel database
    */
-  public static Prodotto search(Long cod) throws ProdottoNotFoundException, DatabaseException {
+  public static Prodotto search(Long cod) throws ProdottoException, DatabaseException {
     return ProdottoDao.search(cod);
   }
 
@@ -119,7 +128,10 @@ public class Prodotto {
    * @param prezzo Nuovo prezzo
    * @throws DatabaseException Errore generico nel Database
    */
-  public void modificaPrezzo(double prezzo) throws DatabaseException{
+  public void modificaPrezzo(double prezzo) throws DatabaseException, ProdottoException {
+    if(prezzo<0){
+      throw new ProdottoException("Prezzo nuovo negativo.");
+    }
     ProdottoDao.modificaPrezzo(this,prezzo);
   }
 

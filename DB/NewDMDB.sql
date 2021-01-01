@@ -1,8 +1,7 @@
 DROP DATABASE if exists NEGOZIO;
 create database NEGOZIO;
 use NEGOZIO;
-set global local_infile=1; 
-set global transaction isolation level read committed; 
+set global local_infile=1;
 
 create table UTENTE
 ( USERNAME varchar(30) not null,

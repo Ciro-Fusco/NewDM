@@ -2,6 +2,7 @@ package db;
 
 import entity.Prodotto;
 import exceptions.DatabaseException;
+import exceptions.ProdottoException;
 import exceptions.ProdottoNotFoundException;
 
 import java.sql.PreparedStatement;
@@ -18,7 +19,7 @@ public class ProdottoDao {
    * @throws DatabaseException errore del database:
    * @throws ProdottoNotFoundException prodotto non trovato nel database;
    */
-  public static Prodotto search(Long cod) throws DatabaseException, ProdottoNotFoundException {
+  public static Prodotto search(Long cod) throws DatabaseException, ProdottoException {
 
     PreparedStatement prep = null;
     try {

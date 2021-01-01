@@ -1,8 +1,11 @@
 package entity;
 
 import exceptions.DatabaseException;
+import exceptions.ProdottoException;
 import exceptions.ProdottoNotFoundException;
 import db.ScontrinoDao;
+import exceptions.ScontrinoException;
+
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -17,7 +20,7 @@ public class Scontrino {
   private double resto;
   private double versato;
   private final String data; // Da vedere
-  private String riepilogo;
+  private String riepilogo ="";
   private Long id;
 
   /** Crea uno scontrino vuoto alla data corrente
@@ -46,7 +49,7 @@ public class Scontrino {
    * @throws ProdottoNotFoundException Il codice inserito non corrisponde ad alcun prodotto.
    * @throws DatabaseException Errore del Database
    */
-  public void addProdotto(Long cod) throws ProdottoNotFoundException, DatabaseException {
+  public void addProdotto(Long cod) throws ProdottoNotFoundException, DatabaseException, ProdottoException {
     if (prodottoList == null) {
       prodottoList = new ArrayList<Prodotto>();
     }
@@ -55,23 +58,24 @@ public class Scontrino {
       throw new ProdottoNotFoundException("Prodotto non trovato");
     } else {
       if (prodottoList.contains(p)) {
-        p=prodottoList.get(prodottoList.indexOf(p));
-        riepilogo =riepilogo.replaceFirst(
-            p.getNome() + "   x " + p.getAcquistato() + "     " + p.getPrezzo() * p.getAcquistato(),
-            p.getNome()
-                + "   x "
-                + p.updateAcquistato(1)
-                + "     "
-                + p.getPrezzo() * p.getAcquistato());
+        p = prodottoList.get(prodottoList.indexOf(p));
+        riepilogo = riepilogo.replaceFirst(
+                p.getNome() + "   x " + p.getAcquistato() + "     € " + p.getPrezzo() * p.getAcquistato(),
+                p.getNome()
+                        + "   x "
+                        + p.updateAcquistato(1)
+                        + "     € "
+                        + p.getPrezzo() * p.getAcquistato());
+      } else {
+        prodottoList.add(p);
+        riepilogo +=
+                "\n"
+                        + p.getNome()
+                        + "   x "
+                        + p.updateAcquistato(1)
+                        + "     € "
+                        + p.getPrezzo() * p.getAcquistato();
       }
-      prodottoList.add(p);
-      riepilogo +=
-          "\n"
-              + p.getNome()
-              + "   x "
-              + p.updateAcquistato(1)
-              + "     "
-              + p.getPrezzo() * p.getAcquistato();
     }
   }
 
@@ -90,7 +94,10 @@ public class Scontrino {
     this.resto = this.versato - this.tot;
   }
 
-  public void setVersato(double versato) {
+  public void setVersato(double versato) throws ScontrinoException {
+    if(versato < this.tot){
+      throw new ScontrinoException("Importo versato non sufficiente");
+    }
     this.versato = versato;
     calcolaResto();
   }
