@@ -3,6 +3,7 @@ package controller;
 import entity.Utente;
 import db.DatabaseConnection;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -12,7 +13,7 @@ public class Utenza {
   public TextField us;
   public PasswordField pass;
 
-  @FXML
+    @FXML
   public void checkLogin(MouseEvent mouseEvent) throws Exception {
       DatabaseConnection.connect();
       if (Utente.login(us.getText(), pass.getText())) {

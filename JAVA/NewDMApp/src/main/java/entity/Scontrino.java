@@ -77,7 +77,7 @@ public class Scontrino {
 
   /** Calcola il totale dello scontrino */
   public void calcolaTot() {
-
+    this.tot=0;
     prodottoList.forEach(
         (p) -> {
           this.tot += p.getPrezzo() * p.getAcquistato();
@@ -85,7 +85,7 @@ public class Scontrino {
   }
 
   /** Calcola il resto da dare al Cliente */
-  private void calcolaResto() {
+  public void calcolaResto() {
 
     this.resto = this.versato - this.tot;
   }

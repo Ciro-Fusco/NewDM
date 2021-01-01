@@ -95,6 +95,7 @@ public class Magazzino implements Initializable {
       tempProdotto.setAcquistato(prodotto.getAcquistato());
       App.setRoot("InserisciProdottoRiepilogo");
     } catch (NumberFormatException excpt) {
+      excpt.printStackTrace();
       AlertMessage.showError("Compila i campi in modo corretto");
     }
   }
@@ -133,8 +134,16 @@ public class Magazzino implements Initializable {
 
   // MOD PREZZO PRODOTTO
 
-  public void aggiornaPrezzo(MouseEvent mouseEvent) {
-    //AGGIORNA QUANTITA NEL DB
+  public void aggiornaPrezzo(MouseEvent mouseEvent) throws DatabaseException {
+    try {
+      prodotto.modificaPrezzo(Double.parseDouble(prezzoProd.getText()));
+      prodotto.setPrezzo(Double.parseDouble(prezzoProd.getText()));
+      AlertMessage.showInformation("Prezzo aggiornato con successo");
+      labelPrezzoProd.setText(Double.toString(prodotto.getPrezzo()));
+    } catch (NumberFormatException exception) {
+      exception.printStackTrace();
+      AlertMessage.showError("Compila i campi in modo corretto");
+    }
   }
 
   public void openModificaPrezzoPopUp(MouseEvent mouseEvent)
@@ -143,6 +152,7 @@ public class Magazzino implements Initializable {
       prodotto = Prodotto.search(Long.parseLong(codiceProd.getText()));
       App.setRoot("ModPrezzoProdottoPopUp");
     } catch (NumberFormatException exception) {
+      exception.printStackTrace();
       AlertMessage.showError("Compila i campi in modo corretto");
     }
   }
