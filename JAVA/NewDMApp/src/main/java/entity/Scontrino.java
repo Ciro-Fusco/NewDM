@@ -56,7 +56,7 @@ public class Scontrino {
     } else {
       if (prodottoList.contains(p)) {
         p=prodottoList.get(prodottoList.indexOf(p));
-        riepilogo.replaceFirst(
+        riepilogo =riepilogo.replaceFirst(
             p.getNome() + "   x " + p.getAcquistato() + "     " + p.getPrezzo() * p.getAcquistato(),
             p.getNome()
                 + "   x "

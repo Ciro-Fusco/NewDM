@@ -4,6 +4,8 @@ import db.ProdottoDao;
 import exceptions.DatabaseException;
 import exceptions.ProdottoNotFoundException;
 
+import java.util.Objects;
+
 public class Prodotto {
 
   private int acquistato; /* Numero di volte in cui il prodotto è stato inserito nello scontrino */
@@ -131,4 +133,14 @@ public class Prodotto {
             ", quantity=" + quantity +
             '}';
   }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Prodotto prodotto = (Prodotto) o;
+    return getCodice() == prodotto.getCodice();
+  }
+
+
 }

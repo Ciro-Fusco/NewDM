@@ -114,7 +114,7 @@ public class Magazzino implements Initializable {
     try {
       prodotto = new Prodotto();
       prodotto.setNome(nomeProd.getText());
-      prodotto.setPrezzo(Integer.parseInt(prezzoProd.getText()));
+      prodotto.setPrezzo(Double.parseDouble(prezzoProd.getText()));
       prodotto.setQuantity(Integer.parseInt(quantitaProd.getText()));
       prodotto.setCodice(Integer.parseInt(codiceProd.getText()));
       App.setRoot("InserisciNuovoProdottoRiepilogo");
