@@ -3,12 +3,20 @@ package db;
 import entity.Prodotto;
 import entity.Scontrino;
 import exceptions.DatabaseException;
+import exceptions.ScontrinoException;
+import exceptions.ScontrinoNotFoundException;
+import exceptions.UtenteNotFoundException;
+import javafx.util.converter.LocalDateTimeStringConverter;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
 import java.util.List;
+
+import static entity.Utente.setUtente;
 
 public class ScontrinoDao {
 
@@ -29,25 +37,36 @@ public class ScontrinoDao {
       prep.executeUpdate();
       ResultSet rs =prep.getGeneratedKeys();
       rs.next();
-      s.setId(rs.getLong(1));
+      s.setId(rs.getInt(1));
 
-      List<Prodotto> l = s.getList();
-      for(Prodotto c : l){
-            try{
-              PreparedStatement state = DatabaseConnection.con.prepareStatement(Query.elenca);
-              state.setLong(1, s.getId());
-              state.setString(2, s.getData());
-              state.setLong(3, c.getCodice());
-              state.executeUpdate();
-            } catch (SQLException throwables) {
-              throwables.printStackTrace();
-              throw new DatabaseException("Errore non fatale nel Database.");
-            }
-            c.leavedbquantity();
-          }
+      ElencaDao.save(s);
+
     } catch (SQLException e) {
       e.printStackTrace();
       throw new DatabaseException("Errore nel salvataggio dello Scontrino");
     }
   }
+
+    public static void checkScontrino(long codice, String dataScontrino) throws ScontrinoException, DatabaseException {
+      try {
+        PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.checkScontrino);
+        prep.setLong(1, codice);
+        prep.setString(2, dataScontrino);
+
+        ResultSet res = prep.executeQuery();
+        if (!res.next()) {
+          throw new ScontrinoNotFoundException("Scontrino non trovato\nControlla il codice");
+        }else{
+          String data_temp = res.getString("data");
+          LocalDateTime data_obj = LocalDateTime.parse(data_temp);
+          LocalDateTime data_2_years_ago = LocalDateTime.now().minusYears(2);
+          if(data_obj.isBefore(data_2_years_ago))
+            throw new ScontrinoException("Scontrino inserito non più in garanzia");
+
+        }
+      } catch (SQLException e) {
+        e.printStackTrace();
+        throw new DatabaseException("Errore generico\nRiprova tra qualche secondo");
+      }
+    }
 }

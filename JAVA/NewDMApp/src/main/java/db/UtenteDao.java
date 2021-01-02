@@ -22,8 +22,6 @@ public class UtenteDao {
    */
   public static boolean login(String user, String pass) throws DatabaseException, UtenteNotFoundException {
     try {
-
-
       PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.login);
       prep.setString(1, user);
       String shapass = DigestUtils.sha1Hex(pass);

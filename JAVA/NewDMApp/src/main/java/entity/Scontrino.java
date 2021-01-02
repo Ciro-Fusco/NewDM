@@ -1,10 +1,7 @@
 package entity;
 
-import exceptions.DatabaseException;
-import exceptions.ProdottoException;
-import exceptions.ProdottoNotFoundException;
+import exceptions.*;
 import db.ScontrinoDao;
-import exceptions.ScontrinoException;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
@@ -21,7 +18,7 @@ public class Scontrino {
   private double versato;
   private final String data; // Da vedere
   private String riepilogo ="";
-  private Long id;
+  private int id;
 
   /** Crea uno scontrino vuoto alla data corrente
    *
@@ -38,7 +35,7 @@ public class Scontrino {
   private String setData(){
   LocalDateTime date = LocalDateTime.now();
     DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-    return date.format(myFormatObj).toString();
+    return date.format(myFormatObj);
   }
 
   /**
@@ -122,11 +119,11 @@ public class Scontrino {
     return riepilogo;
   }
 
-  public void setId(Long id) {
+  public void setId(int id) {
     this.id = id;
   }
 
-  public Long getId() {
+  public int getId() {
     return id;
   }
 
@@ -141,5 +138,9 @@ public class Scontrino {
    */
   public void save() throws DatabaseException {
     ScontrinoDao.save(this);
+  }
+
+  public static void checkScontrino(long codice, String dataScontrino) throws ScontrinoException, DatabaseException {
+    ScontrinoDao.checkScontrino(codice,dataScontrino);
   }
 }
