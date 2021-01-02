@@ -1,8 +1,8 @@
 package entity;
 
 import db.ElencaDao;
-import db.ScontrinoDao;
 import exceptions.DatabaseException;
+import exceptions.ElencaException;
 import exceptions.ProdottoException;
 import exceptions.ScontrinoException;
 
@@ -12,15 +12,16 @@ import java.time.format.DateTimeFormatter;
 public class Ticket {
 
     private String nomeCognome,cf,indirizzo,numeroDiSerie,nomeProdotto,stato,problema,dataApertura,dataScontrino,tipo;
-    private long numTel,codiceScontrino,codiceProdotto;
+    private long numTel,codiceProdotto;
+    private int codiceScontrino;
     private static final String APERTO="Aperto";
     private static final String IN_LAVORAZIONE="In Lavorazione";
     private static final String CHIUSO="Chiuso";
 
 
 
-    public Ticket(String nomeCognome, String cf, String indirizzo, String tipo,String nomeProdotto, String numeroDiSerie, long num_tel,
-                  long codiceScontrino,String dataScontrino,long codiceProdotto) throws ScontrinoException, DatabaseException, ProdottoException {
+    public Ticket(String nomeCognome, String cf, String indirizzo, String tipo, String nomeProdotto, String numeroDiSerie, long num_tel,
+                  int codiceScontrino, String dataScontrino, long codiceProdotto) throws ScontrinoException, DatabaseException, ProdottoException, ElencaException {
         this.nomeCognome = nomeCognome;
         this.cf = cf;
         this.indirizzo = indirizzo;
@@ -134,11 +135,11 @@ public class Ticket {
         this.numTel = numTel;
     }
 
-    public long getCodiceScontrino() {
+    public int getCodiceScontrino() {
         return codiceScontrino;
     }
 
-    public void setCodiceScontrino(long codiceScontrino) {
+    public void setCodiceScontrino(int codiceScontrino) {
         this.codiceScontrino = codiceScontrino;
     }
 

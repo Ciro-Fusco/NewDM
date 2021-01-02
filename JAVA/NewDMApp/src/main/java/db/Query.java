@@ -7,6 +7,7 @@ public interface Query {
   String newScontrino = "INSERT INTO SCONTRINO(data,importo_versato,totale,resto) VALUES(?,?,?,?)";
   String prodotto = "SELECT * FROM PRODOTTO AS p WHERE p.codice=?";
   String elenca = "INSERT INTO ELENCA VALUES(?,?,?,?)";
+  String elencaCheck= "SELECT * FROM ELENCA AS e WHERE e.id=? AND e.data=? AND e.codice=?";
   String upDBQuant = "UPDATE PRODOTTO as p SET p.quantity = (p.quantity + ?) WHERE p.codice=?";
   String downDBQuant = "UPDATE PRODOTTO as p SET p.quantity = (p.quantity - ?) WHERE p.codice=?";
   String newProdotto = "INSERT INTO PRODOTTO VALUES (?,?,?,?)";
