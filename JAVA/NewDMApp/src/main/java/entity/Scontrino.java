@@ -140,7 +140,7 @@ public class Scontrino {
     ScontrinoDao.save(this);
   }
 
-  public static void checkScontrino(long codice, String dataScontrino) throws ScontrinoException, DatabaseException {
+  public static void checkScontrino(int codice, String dataScontrino) throws ScontrinoException, DatabaseException {
     ScontrinoDao.checkScontrino(codice,dataScontrino);
   }
 }
