@@ -13,7 +13,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static entity.Utente.setUtente;
@@ -47,7 +50,7 @@ public class ScontrinoDao {
     }
   }
 
-    public static void checkScontrino(int codice, String dataScontrino) throws ScontrinoException, DatabaseException {
+    public static void checkScontrino(int codice, String dataScontrino) throws ScontrinoException, DatabaseException, ParseException {
       try {
         PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.checkScontrino);
         prep.setInt(1, codice);
@@ -58,7 +61,8 @@ public class ScontrinoDao {
           throw new ScontrinoNotFoundException("Scontrino non trovato\nControlla il codice");
         }else{
           String data_temp = res.getString("data");
-          LocalDateTime data_obj = LocalDateTime.parse(data_temp);
+          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+          LocalDateTime data_obj = LocalDateTime.parse(data_temp, formatter);
           LocalDateTime data_2_years_ago = LocalDateTime.now().minusYears(2);
           if(data_obj.isBefore(data_2_years_ago))
             throw new ScontrinoException("Scontrino inserito non più in garanzia");
