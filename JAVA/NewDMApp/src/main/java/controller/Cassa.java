@@ -35,9 +35,6 @@ public class Cassa implements Initializable {
     if (nomeFile.equals("Cassa.fxml")) {
       if (scontrino != null) {
         scontrinoTextField.appendText(scontrino.getRiepilogo());
-        /*for (Prodotto p : scontrino.getList()) {
-          scontrinoTextField.appendText(p.toString() + System.lineSeparator());
-        }*/
       }
     }
 
@@ -51,9 +48,6 @@ public class Cassa implements Initializable {
         scontrino.calcolaResto();
         restoLabel.setText(Double.toString(scontrino.getResto()));
         riepilogoTextArea.setText(scontrino.getRiepilogo());
-        /*for (Prodotto p : scontrino.getList()) {
-          riepilogoTextArea.appendText(p.toString() + System.lineSeparator());
-        }*/
       }
     }
   }
