@@ -17,12 +17,10 @@ public class Scontrino {
   private double resto;
   private double versato;
   private final String data; // Da vedere
-  private String riepilogo ="";
+  private String riepilogo = "";
   private int id;
 
-  /** Crea uno scontrino vuoto alla data corrente
-   *
-   */
+  /** Crea uno scontrino vuoto alla data corrente */
   public Scontrino() {
     this.data = setData();
   }
@@ -32,8 +30,8 @@ public class Scontrino {
    *
    * @return La stringa contenente la data corrente
    */
-  private String setData(){
-  LocalDateTime date = LocalDateTime.now();
+  private String setData() {
+    LocalDateTime date = LocalDateTime.now();
     DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     return date.format(myFormatObj);
   }
@@ -46,7 +44,8 @@ public class Scontrino {
    * @throws ProdottoNotFoundException Il codice inserito non corrisponde ad alcun prodotto.
    * @throws DatabaseException Errore del Database
    */
-  public void addProdotto(Long cod) throws ProdottoNotFoundException, DatabaseException, ProdottoException {
+  public void addProdotto(Long cod)
+      throws ProdottoNotFoundException, DatabaseException, ProdottoException {
     if (prodottoList == null) {
       prodottoList = new ArrayList<Prodotto>();
     }
@@ -56,29 +55,34 @@ public class Scontrino {
     } else {
       if (prodottoList.contains(p)) {
         p = prodottoList.get(prodottoList.indexOf(p));
-        riepilogo = riepilogo.replaceFirst(
-                p.getNome() + "   x " + p.getAcquistato() + "     € " + p.getPrezzo() * p.getAcquistato(),
+        riepilogo =
+            riepilogo.replaceFirst(
                 p.getNome()
-                        + "   x "
-                        + p.updateAcquistato(1)
-                        + "     € "
-                        + p.getPrezzo() * p.getAcquistato());
+                    + "   x "
+                    + p.getAcquistato()
+                    + "     € "
+                    + p.getPrezzo() * p.getAcquistato(),
+                p.getNome()
+                    + "   x "
+                    + p.updateAcquistato(1)
+                    + "     € "
+                    + p.getPrezzo() * p.getAcquistato());
       } else {
         prodottoList.add(p);
         riepilogo +=
-                "\n"
-                        + p.getNome()
-                        + "   x "
-                        + p.updateAcquistato(1)
-                        + "     € "
-                        + p.getPrezzo() * p.getAcquistato();
+            "\n"
+                + p.getNome()
+                + "   x "
+                + p.updateAcquistato(1)
+                + "     € "
+                + p.getPrezzo() * p.getAcquistato();
       }
     }
   }
 
   /** Calcola il totale dello scontrino */
   public void calcolaTot() {
-    this.tot=0;
+    this.tot = 0;
     prodottoList.forEach(
         (p) -> {
           this.tot += p.getPrezzo() * p.getAcquistato();
@@ -92,7 +96,7 @@ public class Scontrino {
   }
 
   public void setVersato(double versato) throws ScontrinoException {
-    if(versato < this.tot){
+    if (versato < this.tot) {
       throw new ScontrinoException("Importo versato non sufficiente");
     }
     this.versato = versato;
@@ -140,7 +144,8 @@ public class Scontrino {
     ScontrinoDao.save(this);
   }
 
-  public static void checkScontrino(int codice, String dataScontrino) throws ScontrinoException, DatabaseException {
-    ScontrinoDao.checkScontrino(codice,dataScontrino);
+  public static void checkScontrino(int codice, String dataScontrino)
+      throws ScontrinoException, DatabaseException {
+    ScontrinoDao.checkScontrino(codice, dataScontrino);
   }
 }
