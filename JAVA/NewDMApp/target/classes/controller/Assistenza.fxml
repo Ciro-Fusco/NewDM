@@ -14,258 +14,239 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" style="-fx-background-color: #3b3c40;" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Utenza">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3b3c40;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Assistenza">
     <top>
-        <GridPane prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #46494e;"
-                  BorderPane.alignment="CENTER">
+        <GridPane prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #46494e;" BorderPane.alignment="CENTER">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <ImageView fitHeight="68.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true"
-                           GridPane.halignment="CENTER">
+                <ImageView fitHeight="68.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
                     <GridPane.margin>
-                        <Insets/>
+                        <Insets />
                     </GridPane.margin>
                     <image>
-                        <Image url="@Logo.png"/>
+                        <Image url="@Logo.png" />
                     </image>
                 </ImageView>
             </children>
         </GridPane>
     </top>
     <center>
-        <SplitPane dividerPositions="0.24924924924924924" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0"
-                   style="-fx-background-color: #3b3c40;" stylesheets="@Dashboard.css" BorderPane.alignment="CENTER">
+        <SplitPane dividerPositions="0.24924924924924924" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #3b3c40;" stylesheets="@Dashboard.css" BorderPane.alignment="CENTER">
             <items>
                 <BorderPane maxHeight="-Infinity" prefHeight="85.0" prefWidth="598.0">
                     <left>
                         <Label text="Assistenza" textFill="WHITE" BorderPane.alignment="CENTER">
                             <font>
-                                <Font size="30.0"/>
+                                <Font size="30.0" />
                             </font>
                             <padding>
-                                <Insets left="20.0"/>
+                                <Insets left="20.0" />
                             </padding>
                         </Label>
                     </left>
                     <right>
-                        <Button mnemonicParsing="false" style="-fx-background-color: #ff5c66;" text="Indietro"
-                                textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Button mnemonicParsing="false" onMousePressed="#openDashboard" style="-fx-background-color: #ff5c66;" text="Indietro" textFill="WHITE" BorderPane.alignment="CENTER">
                             <BorderPane.margin>
-                                <Insets right="20.0"/>
+                                <Insets right="20.0" />
                             </BorderPane.margin>
                         </Button>
                     </right>
                 </BorderPane>
                 <GridPane>
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0"
-                              style="-fx-background-color: #3b3c40;">
+                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0" style="-fx-background-color: #3b3c40;">
                             <children>
                                 <Label text="Prezzo nuovo" textFill="WHITE">
                                     <font>
-                                        <Font size="20.0"/>
+                                        <Font size="20.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets top="-10.0"/>
+                                        <Insets top="-10.0" />
                                     </VBox.margin>
                                 </Label>
-                                <TextField maxWidth="-Infinity" prefWidth="100.0"/>
+                                <TextField maxWidth="-Infinity" prefWidth="100.0" />
                             </children>
                             <opaqueInsets>
-                                <Insets/>
+                                <Insets />
                             </opaqueInsets>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0"
-                              style="-fx-background-color: #3b3c40;" GridPane.rowIndex="1">
+                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0" style="-fx-background-color: #3b3c40;" GridPane.rowIndex="1">
                             <children>
                                 <Label text="Telefono cliente" textFill="WHITE">
                                     <font>
-                                        <Font size="20.0"/>
+                                        <Font size="20.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets top="-10.0"/>
+                                        <Insets top="-10.0" />
                                     </VBox.margin>
                                 </Label>
-                                <TextField maxWidth="-Infinity" prefWidth="150.0"/>
+                                <TextField fx:id="telefonoCli" maxWidth="-Infinity" prefWidth="150.0" />
                             </children>
                             <opaqueInsets>
-                                <Insets/>
+                                <Insets />
                             </opaqueInsets>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0"
-                              style="-fx-background-color: #3b3c40;" GridPane.rowIndex="2">
+                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0" style="-fx-background-color: #3b3c40;" GridPane.rowIndex="2">
                             <children>
                                 <Label text="Cod.Fiscale" textFill="WHITE">
                                     <font>
-                                        <Font size="20.0"/>
+                                        <Font size="20.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets top="-10.0"/>
+                                        <Insets top="-10.0" />
                                     </VBox.margin>
                                 </Label>
-                                <TextField maxWidth="-Infinity" prefWidth="150.0"/>
+                                <TextField fx:id="codFiscCli" maxWidth="-Infinity" prefWidth="150.0" />
                             </children>
                             <opaqueInsets>
-                                <Insets/>
+                                <Insets />
                             </opaqueInsets>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0"
-                              style="-fx-background-color: #3b3c40;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0" style="-fx-background-color: #3b3c40;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                             <children>
                                 <Label text="Nome prodotto" textFill="WHITE">
                                     <font>
-                                        <Font size="20.0"/>
+                                        <Font size="20.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets top="-10.0"/>
+                                        <Insets top="-10.0" />
                                     </VBox.margin>
                                 </Label>
-                                <TextField maxWidth="-Infinity" prefWidth="150.0"/>
+                                <TextField fx:id="nomeProdotto" maxWidth="-Infinity" prefWidth="150.0" />
                             </children>
                             <opaqueInsets>
-                                <Insets/>
+                                <Insets />
                             </opaqueInsets>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0"
-                              style="-fx-background-color: #3b3c40;">
+                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0" style="-fx-background-color: #3b3c40;">
                             <children>
                                 <Label text="Nome e cognome cliente" textAlignment="CENTER" textFill="WHITE">
                                     <font>
-                                        <Font size="20.0"/>
+                                        <Font size="20.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets top="-10.0"/>
+                                        <Insets top="-10.0" />
                                     </VBox.margin>
                                 </Label>
-                                <TextField maxWidth="-Infinity" prefWidth="150.0"/>
+                                <TextField fx:id="nomeCognCli" maxWidth="-Infinity" prefWidth="150.0" />
                             </children>
                             <opaqueInsets>
-                                <Insets/>
+                                <Insets />
                             </opaqueInsets>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0"
-                              style="-fx-background-color: #3b3c40;" GridPane.columnIndex="1">
+                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0" style="-fx-background-color: #3b3c40;" GridPane.columnIndex="1">
                             <children>
                                 <Label text="Tipo prodotto" textFill="WHITE">
                                     <font>
-                                        <Font size="20.0"/>
+                                        <Font size="20.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets top="-10.0"/>
+                                        <Insets top="-10.0" />
                                     </VBox.margin>
                                 </Label>
-                                <TextField maxWidth="-Infinity" prefWidth="150.0"/>
+                                <TextField fx:id="tipoProdotto" maxWidth="-Infinity" prefWidth="150.0" />
                             </children>
                             <opaqueInsets>
-                                <Insets/>
+                                <Insets />
                             </opaqueInsets>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0"
-                              style="-fx-background-color: #3b3c40;" GridPane.columnIndex="2">
+                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0" style="-fx-background-color: #3b3c40;" GridPane.columnIndex="2">
                             <children>
                                 <Label text="Numero scontrino" textFill="WHITE">
                                     <font>
-                                        <Font size="20.0"/>
+                                        <Font size="20.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets top="-10.0"/>
+                                        <Insets top="-10.0" />
                                     </VBox.margin>
                                 </Label>
-                                <TextField maxWidth="-Infinity" prefWidth="150.0"/>
+                                <TextField fx:id="numScontrino" maxWidth="-Infinity" prefWidth="150.0" />
                             </children>
                             <opaqueInsets>
-                                <Insets/>
+                                <Insets />
                             </opaqueInsets>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0"
-                              style="-fx-background-color: #3b3c40;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0" style="-fx-background-color: #3b3c40;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                             <children>
-                                <Label text="Codice prodotto" textFill="WHITE">
+                                <Label fx:id="c" text="Codice prodotto" textFill="WHITE">
                                     <font>
-                                        <Font size="20.0"/>
+                                        <Font size="20.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets top="-10.0"/>
+                                        <Insets top="-10.0" />
                                     </VBox.margin>
                                 </Label>
-                                <TextField maxWidth="-Infinity" prefWidth="150.0"/>
+                                <TextField fx:id="codProdotto" maxWidth="-Infinity" prefWidth="150.0" />
                             </children>
                             <opaqueInsets>
-                                <Insets/>
+                                <Insets />
                             </opaqueInsets>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0"
-                              style="-fx-background-color: #3b3c40;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0" style="-fx-background-color: #3b3c40;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                             <children>
                                 <Label text="Data scontrino" textFill="WHITE">
                                     <font>
-                                        <Font size="20.0"/>
+                                        <Font size="20.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets top="-10.0"/>
+                                        <Insets top="-10.0" />
                                     </VBox.margin>
                                 </Label>
-                                <TextField maxWidth="-Infinity" prefWidth="150.0"/>
+                                <TextField fx:id="dataScontrino" maxWidth="-Infinity" prefWidth="150.0" />
                             </children>
                             <opaqueInsets>
-                                <Insets/>
+                                <Insets />
                             </opaqueInsets>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0"
-                              style="-fx-background-color: #3b3c40;" GridPane.rowIndex="3">
+                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0" style="-fx-background-color: #3b3c40;" GridPane.rowIndex="3">
                             <children>
                                 <Label text="Indirizzo residenza" textFill="WHITE">
                                     <font>
-                                        <Font size="20.0"/>
+                                        <Font size="20.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets top="-10.0"/>
+                                        <Insets top="-10.0" />
                                     </VBox.margin>
                                 </Label>
-                                <TextField maxWidth="-Infinity" prefWidth="150.0"/>
+                                <TextField fx:id="indirizzoResiCli" maxWidth="-Infinity" prefWidth="150.0" />
                             </children>
                             <opaqueInsets>
-                                <Insets/>
+                                <Insets />
                             </opaqueInsets>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0"
-                              style="-fx-background-color: #3b3c40;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <VBox alignment="CENTER" prefHeight="213.0" prefWidth="598.0" style="-fx-background-color: #3b3c40;" GridPane.columnIndex="1" GridPane.rowIndex="3">
                             <children>
                                 <Label text="Numero di serie" textFill="WHITE">
                                     <font>
-                                        <Font size="20.0"/>
+                                        <Font size="20.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets top="-10.0"/>
+                                        <Insets top="-10.0" />
                                     </VBox.margin>
                                 </Label>
-                                <TextField maxWidth="-Infinity" prefWidth="150.0"/>
+                                <TextField fx:id="numSerieProd" maxWidth="-Infinity" prefWidth="150.0" />
                             </children>
                             <opaqueInsets>
-                                <Insets/>
+                                <Insets />
                             </opaqueInsets>
                         </VBox>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
-                                style="-fx-background-color: #5ac5f1;" text="Avanti" textFill="WHITE"
-                                GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMousePressed="#openAssistenzaDettagliProb" style="-fx-background-color: #5ac5f1;" text="Avanti" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                     </children>
                 </GridPane>
             </items>
