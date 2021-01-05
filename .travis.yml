@@ -2,7 +2,9 @@ language: java
 
 sudo: false
 
-script: mvn clean verify
+script:
+  - mvn -f JAVA/NewDMApp/pom.xml
+  - mvn clean verify
 
 branches:
   only:
