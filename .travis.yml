@@ -6,4 +6,4 @@ script: mvn clean verify
 
 branches:
   only:
-    -Codice
+    - Codice
