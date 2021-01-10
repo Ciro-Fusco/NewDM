@@ -46,7 +46,7 @@ public class Cassa implements Initializable {
     if (nomeFile.equals("CassaRiepilogo.fxml")) {
       if (scontrino != null) {
         scontrino.calcolaResto();
-        restoLabel.setText(Double.toString(scontrino.getResto()));
+        restoLabel.setText(String.format("%.2f",scontrino.getResto()));
         riepilogoTextArea.setText(scontrino.getRiepilogo());
       }
     }
