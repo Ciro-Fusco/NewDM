@@ -33,6 +33,7 @@ public class Assistenza {
     App.setRoot("Dashboard");
   }
 
+  @FXML
   public void openAssistenzaDettagliProb(MouseEvent mouseEvent)
       throws IOException, ScontrinoException, ElencaException, ProdottoException,
           DatabaseException {
