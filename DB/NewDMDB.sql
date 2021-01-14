@@ -13,7 +13,7 @@ create table UTENTE
   );
   
 create table SCONTRINO
-( ID int unsigned auto_increment not null ,
+( ID bigint auto_increment not null ,
   DATA varchar(30) not null,
   IMPORTO_VERSATO double not null,
   TOTALE double not null,
@@ -31,7 +31,7 @@ create table PRODOTTO
 
 create table ELENCA
 (
-  ID int unsigned not null ,
+  ID bigint not null ,
   DATA varchar(30) not null,
   CODICE bigint not null,
   QUANTITY int not null,
@@ -62,7 +62,7 @@ create table TICKET
   NOME_PRODOTTO varchar(50) not null,
   PRODOTTO bigint not null,
   NUMERO_DI_SERIE varchar(60) not null,
-  SCONTRINO int unsigned not null,
+  SCONTRINO bigint not null,
   DATA_SCONTRINO varchar(30) not null,
   PROBLEMA varchar(400) not null,
   DATA_APERTURA varchar(30) not null,
