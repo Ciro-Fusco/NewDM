@@ -12,6 +12,6 @@ public interface Query {
   String downDBQuant = "UPDATE PRODOTTO as p SET p.quantity = (p.quantity - ?) WHERE p.codice=?";
   String newProdotto = "INSERT INTO PRODOTTO VALUES (?,?,?,?)";
   String modificaPrezzo = "UPDATE PRODOTTO as p SET p.prezzo = ? WHERE p.codice=?";
-  String newTicket = "INSERT INTO TICKET VALUES (?,?,?,?,?,?,?,?,?)";
+  String newTicket = "INSERT INTO TICKET VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
   String checkScontrino ="SELECT * FROM SCONTRINO AS s WHERE s.id=? AND s.data=?" ;
 }

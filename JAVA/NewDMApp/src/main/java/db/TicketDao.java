@@ -20,13 +20,13 @@ public class TicketDao {
             prep.setLong(4, t.getNumTel());
             prep.setString(5, t.getTipo());
             prep.setString(6, t.getNomeProdotto());
-            prep.setLong(6, t.getCodiceProdotto());
-            prep.setString(7, t.getNumeroDiSerie());
-            prep.setLong(8, t.getCodiceScontrino());
-            prep.setString(9,t.getDataScontrino());
-            prep.setString(10,t.getProblema());
-            prep.setString(11,t.getDataApertura());
-            prep.setString(12, t.getStato());
+            prep.setLong(7, t.getCodiceProdotto());
+            prep.setString(8, t.getNumeroDiSerie());
+            prep.setLong(9, t.getCodiceScontrino());
+            prep.setString(10,t.getDataScontrino());
+            prep.setString(11,t.getProblema());
+            prep.setString(12,t.getDataApertura());
+            prep.setString(13, t.getStato());
             prep.executeUpdate();
 
         } catch (SQLException e) {
