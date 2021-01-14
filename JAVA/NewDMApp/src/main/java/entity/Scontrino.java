@@ -3,6 +3,7 @@ package entity;
 import exceptions.*;
 import db.ScontrinoDao;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Lo Scontrino che viene emesso al termine degli acquisti. */
-public class Scontrino {
+public class Scontrino implements Serializable {
 
   private List<Prodotto> prodottoList;
   private double tot = 0;
@@ -50,13 +51,9 @@ public class Scontrino {
       prodottoList = new ArrayList<Prodotto>();
     }
     Prodotto p = Prodotto.search(cod);
-    if (p == null) {
-      throw new ProdottoNotFoundException("Prodotto non trovato");
-    } else {
-      if (prodottoList.contains(p)) {
-        p = prodottoList.get(prodottoList.indexOf(p));
-        riepilogo =
-            riepilogo.replaceFirst(
+    if (prodottoList.contains(p)) {
+      p = prodottoList.get(prodottoList.indexOf(p));
+      riepilogo = riepilogo.replaceFirst(
                 p.getNome()
                     + "   x "
                     + p.getAcquistato()
@@ -67,10 +64,9 @@ public class Scontrino {
                     + p.updateAcquistato(1)
                     + "     € "
                     + p.getPrezzo() * p.getAcquistato());
-      } else {
-        prodottoList.add(p);
-        riepilogo +=
-            "\n"
+    } else {
+      prodottoList.add(p);
+      riepilogo += "\n"
                 + p.getNome()
                 + "   x "
                 + p.updateAcquistato(1)
@@ -78,7 +74,6 @@ public class Scontrino {
                 + p.getPrezzo() * p.getAcquistato();
       }
     }
-  }
 
   /** Calcola il totale dello scontrino */
   public void calcolaTot() {
