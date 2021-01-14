@@ -52,10 +52,10 @@ public class ScontrinoDao {
     }
   }
 
-    public static void checkScontrino(int codice, String dataScontrino) throws ScontrinoException, DatabaseException {
+    public static void checkScontrino(long codice, String dataScontrino) throws ScontrinoException, DatabaseException {
       try {
         PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.checkScontrino);
-        prep.setInt(1, codice);
+        prep.setLong(1, codice);
         prep.setString(2, dataScontrino);
 
         ResultSet res = prep.executeQuery();

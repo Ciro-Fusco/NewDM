@@ -19,7 +19,7 @@ public class Scontrino implements Serializable {
   private double versato;
   private final String data; // Da vedere
   private String riepilogo = "";
-  private int id;
+  private long id;
 
   /** Crea uno scontrino vuoto alla data corrente */
   public Scontrino() {
@@ -122,7 +122,7 @@ public class Scontrino implements Serializable {
     this.id = id;
   }
 
-  public int getId() {
+  public long getId() {
     return id;
   }
 
@@ -139,7 +139,7 @@ public class Scontrino implements Serializable {
     ScontrinoDao.save(this);
   }
 
-  public static void checkScontrino(int codice, String dataScontrino)
+  public static void checkScontrino(long codice, String dataScontrino)
       throws ScontrinoException, DatabaseException {
     ScontrinoDao.checkScontrino(codice, dataScontrino);
   }

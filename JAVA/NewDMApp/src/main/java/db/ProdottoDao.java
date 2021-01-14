@@ -67,7 +67,7 @@ public class ProdottoDao {
   /**
    *
    * @param i quantità da aggiungere al Database
-   * @param p Prodotto a cui aggiungere la quantitàs
+   * @param p Prodotto a cui aggiungere la quantità
    * @throws DatabaseException Errore del Database
    */
   public static void adddbquantity(int i,Prodotto p) throws DatabaseException{

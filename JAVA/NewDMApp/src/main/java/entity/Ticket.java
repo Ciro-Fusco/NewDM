@@ -24,7 +24,7 @@ public class Ticket {
       dataScontrino,
       tipo;
   private long numTel, codiceProdotto;
-  private int codiceScontrino;
+  private long codiceScontrino;
   private static final String APERTO = "Aperto";
   private static final String IN_LAVORAZIONE = "In Lavorazione";
   private static final String CHIUSO = "Chiuso";
@@ -37,7 +37,7 @@ public class Ticket {
       String nomeProdotto,
       String numeroDiSerie,
       long num_tel,
-      int codiceScontrino,
+      long codiceScontrino,
       String dataScontrino,
       long codiceProdotto)
       throws ScontrinoException, DatabaseException, ProdottoException, ElencaException {
@@ -162,7 +162,7 @@ public class Ticket {
     this.numTel = numTel;
   }
 
-  public int getCodiceScontrino() {
+  public long getCodiceScontrino() {
     return codiceScontrino;
   }
 
