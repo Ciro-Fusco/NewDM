@@ -30,6 +30,6 @@ insert into PRODOTTO values
 (27, "Estathé a pesca", 900, 1.19),
 (28, "Sant'Orsola-vino rosso", 200, 33.99),
 (29, "Tommaso Amarone della Valpolicella", 190, 31.90),
-(30, "Mastri Vernacoli "Muller"", 400, 4.50),
+(30, "Mastri Vernacoli 'Muller'", 400, 4.50),
 (31, "Champagne Moet&Chandon Ice Imperial 750ml", 50, 54.79),
 (32, "Dom Perognon Champagne 750ml", 10, 194.55);
