@@ -17,7 +17,7 @@ public class ElencaDao {
     for (Prodotto c : l) {
       try {
         PreparedStatement state = DatabaseConnection.con.prepareStatement(Query.elenca);
-        state.setInt(1, s.getId());
+        state.setLong(1, s.getId());
         state.setString(2, s.getData());
         state.setLong(3, c.getCodice());
         state.setInt(4, c.getAcquistato());
