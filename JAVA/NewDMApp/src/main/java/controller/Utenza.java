@@ -15,7 +15,6 @@ public class Utenza {
 
     @FXML
   public void checkLogin(MouseEvent mouseEvent) throws Exception {
-      DatabaseConnection.connect();
       if (Utente.login(us.getText(), pass.getText())) {
         App.setRoot("Dashboard");
     }

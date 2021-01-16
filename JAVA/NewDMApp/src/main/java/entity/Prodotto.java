@@ -55,8 +55,8 @@ public class Prodotto {
   }
 
   public void setPrezzo(double prezzo) throws ProdottoException {
-    if(prezzo <0 )
-      throw new ProdottoException("Il prezzo non può essere negativo");
+    if(prezzo <=0 )
+      throw new ProdottoException("Il prezzo del prodotto deve essere positivo");
 
       this.prezzo = prezzo;
   }
@@ -78,8 +78,8 @@ public class Prodotto {
   }
 
   public void setQuantity(int quantity) throws ProdottoException {
-    if(quantity<0)
-      throw new ProdottoException("La quantità non può essere negativa");
+    if(quantity<=0)
+      throw new ProdottoException("La quantità deve essere maggiore di 0");
 
     this.quantity = quantity;
   }
@@ -111,9 +111,14 @@ public class Prodotto {
    * @param i quantità da aggiungere al Database
    * @throws DatabaseException Errore del Database
    */
-  public void adddbquantity(int i) throws DatabaseException{
+  public void adddbquantity(int i) throws DatabaseException, ProdottoException {
+    if(i>0)
     ProdottoDao.adddbquantity(i,this);
+    else{
+      throw new ProdottoException("Inserire un valore maggiore di 0");
+    }
   }
+
 
   /** Salva questo Prodotto nel database
    * @throws DatabaseException Errore del Database

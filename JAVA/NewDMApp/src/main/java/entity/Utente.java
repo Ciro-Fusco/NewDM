@@ -78,7 +78,7 @@ public class Utente {
    * @throws DatabaseException Errore generico del Database
    */
   public static boolean login(String us, String pass) throws UtenteNotFoundException, DatabaseException {
-
+      DatabaseConnection.connect();
       return UtenteDao.login(us, pass);
 
   }

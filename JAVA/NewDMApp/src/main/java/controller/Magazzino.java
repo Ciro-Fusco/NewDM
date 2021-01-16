@@ -101,7 +101,7 @@ public class Magazzino implements Initializable {
     }
   }
 
-  public void inserisciProdotto(MouseEvent mouseEvent) throws DatabaseException, IOException {
+  public void inserisciProdotto(MouseEvent mouseEvent) throws DatabaseException, IOException, ProdottoException {
     prodotto.adddbquantity(tempProdotto.getQuantity() - prodotto.getQuantity());
     AlertMessage.showInformation("Quantità aggiornata correttamente");
     App.setRoot("InserisciProdotto");
