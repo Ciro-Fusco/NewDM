@@ -23,7 +23,7 @@ create table SCONTRINO
 
 create table PRODOTTO
 ( CODICE bigint not null,
-  NOME varchar(30) not null,
+  NOME varchar(255) not null,
   QUANTITY int unsigned not null,
   PREZZO double not null,
   constraint pk_codice primary key(CODICE)
