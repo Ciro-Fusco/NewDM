@@ -16,7 +16,7 @@ public class Prodotto {
   private int quantity;
 
   public Prodotto(double prezzo, long codice, String nome, int quantity) throws ProdottoException {
-    if(prezzo <=0 || quantity <=0)
+    if (prezzo <= 0 || quantity <= 0)
       throw new ProdottoException("Prezzo e quantità devono essere entrambi positivi");
     this.prezzo = prezzo;
     this.codice = codice;
@@ -24,9 +24,7 @@ public class Prodotto {
     this.quantity = quantity;
   }
 
-  public Prodotto() {
-
-  }
+  public Prodotto() {}
 
   public double getPrezzo() {
     return prezzo;
@@ -55,10 +53,9 @@ public class Prodotto {
   }
 
   public void setPrezzo(double prezzo) throws ProdottoException {
-    if(prezzo <=0 )
-      throw new ProdottoException("Il prezzo del prodotto deve essere positivo");
+    if (prezzo <= 0) throw new ProdottoException("Il prezzo del prodotto deve essere positivo");
 
-      this.prezzo = prezzo;
+    this.prezzo = prezzo;
   }
 
   public long getCodice() {
@@ -78,8 +75,7 @@ public class Prodotto {
   }
 
   public void setQuantity(int quantity) throws ProdottoException {
-    if(quantity<=0)
-      throw new ProdottoException("La quantità deve essere maggiore di 0");
+    if (quantity <= 0) throw new ProdottoException("La quantità deve essere maggiore di 0");
 
     this.quantity = quantity;
   }
@@ -97,30 +93,31 @@ public class Prodotto {
   }
 
   /**
-   * Diminuisce la quantità del Prodotto dal Database in base al numero di volte in cui
-   * il codice è stato inserito nello scontrino.
+   * Diminuisce la quantità del Prodotto dal Database in base al numero di volte in cui il codice è
+   * stato inserito nello scontrino.
    *
    * @throws DatabaseException Errore del Database
    */
   public void leavedbquantity() throws DatabaseException {
-     ProdottoDao.leavedbquantity(this);
+    ProdottoDao.leavedbquantity(this);
   }
 
   /**
    * Aumenta la quantità di questo prodotto nel database
+   *
    * @param i quantità da aggiungere al Database
    * @throws DatabaseException Errore del Database
    */
   public void adddbquantity(int i) throws DatabaseException, ProdottoException {
-    if(i>0)
-    ProdottoDao.adddbquantity(i,this);
-    else{
+    if (i > 0) ProdottoDao.adddbquantity(i, this);
+    else {
       throw new ProdottoException("Inserire un valore maggiore di 0");
     }
   }
 
-
-  /** Salva questo Prodotto nel database
+  /**
+   * Salva questo Prodotto nel database
+   *
    * @throws DatabaseException Errore del Database
    * @return true se il Prodotto è stato creato correttamente
    */
@@ -130,25 +127,32 @@ public class Prodotto {
 
   /**
    * Modifica il prezzo del Prodotto
+   *
    * @param prezzo Nuovo prezzo
    * @throws DatabaseException Errore generico nel Database
    */
   public void modificaPrezzo(double prezzo) throws DatabaseException, ProdottoException {
-    if(prezzo<0){
+    if (prezzo < 0) {
       throw new ProdottoException("Prezzo nuovo negativo.");
     }
-    ProdottoDao.modificaPrezzo(this,prezzo);
+    ProdottoDao.modificaPrezzo(this, prezzo);
   }
 
   @Override
   public String toString() {
-    return "Prodotto{" +
-            "acquistato=" + acquistato +
-            ", prezzo=" + prezzo +
-            ", codice=" + codice +
-            ", nome='" + nome + '\'' +
-            ", quantity=" + quantity +
-            '}';
+    return "Prodotto{"
+        + "acquistato="
+        + acquistato
+        + ", prezzo="
+        + prezzo
+        + ", codice="
+        + codice
+        + ", nome='"
+        + nome
+        + '\''
+        + ", quantity="
+        + quantity
+        + '}';
   }
 
   @Override
@@ -158,6 +162,4 @@ public class Prodotto {
     Prodotto prodotto = (Prodotto) o;
     return getCodice() == prodotto.getCodice();
   }
-
-
 }
