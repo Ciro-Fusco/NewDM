@@ -5,6 +5,7 @@ import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import exceptions.ProdottoNotFoundException;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class Prodotto {
@@ -14,17 +15,50 @@ public class Prodotto {
   private long codice;
   private String nome;
   private int quantity;
+  private String tipologia,scadenza,dimensioneConfezione;
 
-  public Prodotto(double prezzo, long codice, String nome, int quantity) throws ProdottoException {
+  public Prodotto(double prezzo, long codice, String nome, int quantity, String dimensione,String scade,String tipologia) throws ProdottoException {
     if (prezzo <= 0 || quantity <= 0)
       throw new ProdottoException("Prezzo e quantità devono essere entrambi positivi");
     this.prezzo = prezzo;
     this.codice = codice;
     this.nome = nome;
     this.quantity = quantity;
+    this.scadenza = scade;
+    this.dimensioneConfezione = dimensione;
+    String temp = tipologia.substring(0,1).toUpperCase();
+    tipologia=tipologia.toLowerCase();
+    this.tipologia=tipologia.replace(tipologia.substring(0,1),temp);
+
+
+
   }
 
   public Prodotto() {}
+
+  public String getTipologia() {
+    return tipologia;
+  }
+
+  public void setTipologia(String tipologia) {
+    this.tipologia = tipologia;
+  }
+
+  public String getScadenza() {
+    return scadenza;
+  }
+
+  public void setScadenza(String scadenza) {
+    this.scadenza = scadenza;
+  }
+
+  public String getDimensioneConfezione() {
+    return dimensioneConfezione;
+  }
+
+  public void setDimensioneConfezione(String dimensioneConfezione) {
+    this.dimensioneConfezione = dimensioneConfezione;
+  }
 
   public double getPrezzo() {
     return prezzo;

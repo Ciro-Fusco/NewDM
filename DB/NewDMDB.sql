@@ -26,6 +26,9 @@ create table PRODOTTO
   NOME varchar(255) not null,
   QUANTITY int unsigned not null,
   PREZZO double not null,
+  TIPOLOGIA varchar(20) not null,
+  SCADENZA varchar(10) not null,
+  DIMENSIONE_CONFEZIONE varchar(10) not null,
   constraint pk_codice primary key(CODICE)
 );
 

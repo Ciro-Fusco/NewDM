@@ -32,7 +32,11 @@ public class ProdottoDao {
             res.getDouble("Prezzo"),
             res.getLong("Codice"),
             res.getString("Nome"),
-            res.getInt("quantity"));
+            res.getInt("quantity"),
+            res.getString("Dimensione_Confezione"),
+            res.getString("Scadenza"),
+            res.getString("Tipologia"));
+
       }
       throw new ProdottoNotFoundException("Prodotto non trovato");
 
@@ -93,6 +97,9 @@ public class ProdottoDao {
       prep.setString(2, p.getNome());
       prep.setInt(3, p.getQuantity());
       prep.setDouble(4, p.getPrezzo());
+      prep.setString(5, p.getTipologia());
+      prep.setString(6, p.getScadenza());
+      prep.setString(7, p.getDimensioneConfezione());
       prep.executeUpdate();
       return true;
 
