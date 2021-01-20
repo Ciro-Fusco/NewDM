@@ -46,7 +46,7 @@ public class Cassa implements Initializable {
     if (nomeFile.equals("CassaRiepilogo.fxml")) {
       if (scontrino != null) {
         scontrino.calcolaResto();
-        restoLabel.setText(String.format("%.2f",scontrino.getResto()));
+        restoLabel.setText(String.format("%.2f", scontrino.getResto()));
         riepilogoTextArea.setText(scontrino.getRiepilogo());
       }
     }
@@ -82,7 +82,7 @@ public class Cassa implements Initializable {
   }
 
   public void inserimentoProdotto(MouseEvent mouseEvent)
-      throws ProdottoException, DatabaseException{
+      throws ProdottoException, DatabaseException {
     try {
       if (scontrino == null) {
         scontrino = new Scontrino();
@@ -99,12 +99,16 @@ public class Cassa implements Initializable {
 
   // Totale cassa
   public void openCassaRiepilogo(MouseEvent mouseEvent) throws IOException, ScontrinoException {
-    try {
-      scontrino.setVersato(Double.parseDouble(sommaVersataTextField.getText()));
-      App.setRoot("CassaRiepilogo");
-    } catch (NumberFormatException exception) {
-      exception.printStackTrace();
-      AlertMessage.showError("Compila i campi in modo corretto");
+    if (sommaVersataTextField.getText().matches("[0-9]+(\\.[0-9][0-9]?)?")) {
+      try {
+        scontrino.setVersato(Double.parseDouble(sommaVersataTextField.getText()));
+        App.setRoot("CassaRiepilogo");
+      } catch (NumberFormatException exception) {
+        exception.printStackTrace();
+        AlertMessage.showError("Compila i campi in modo corretto");
+      }
+    } else {
+      AlertMessage.showError("Inserisci una somma valida");
     }
   }
 
@@ -114,7 +118,7 @@ public class Cassa implements Initializable {
   public void confermaScontrino(MouseEvent mouseEvent) throws DatabaseException, IOException {
     scontrino.save();
     AlertMessage.showInformation("Scontrino salvato");
-    scontrino=null;
+    scontrino = null;
     App.setRoot("Cassa");
   }
 

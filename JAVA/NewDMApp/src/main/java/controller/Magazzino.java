@@ -86,22 +86,30 @@ public class Magazzino implements Initializable {
 
   public void openInserisciProdottoRiepilogo(MouseEvent mouseEvent)
       throws IOException, ProdottoException, DatabaseException {
-    try {
-      tempProdotto = new Prodotto();
-      prodotto = Prodotto.search(Long.parseLong(codiceProd.getText()));
-      tempProdotto.setQuantity(prodotto.getQuantity() + Integer.parseInt(quantitaProd.getText()));
-      tempProdotto.setCodice(prodotto.getCodice());
-      tempProdotto.setPrezzo(prodotto.getPrezzo());
-      tempProdotto.setNome(prodotto.getNome());
-      tempProdotto.setAcquistato(prodotto.getAcquistato());
-      App.setRoot("InserisciProdottoRiepilogo");
-    } catch (NumberFormatException excpt) {
-      excpt.printStackTrace();
-      AlertMessage.showError("Compila i campi in modo corretto");
+
+    // controllo che sia un codice prodotto valido
+    if (codiceProd.getText().matches("^[0-9]{13}$")) {
+      // controllo se la quantita è positiva
+      if (quantitaProd.getText().matches("^[1-9][0-9]*$")) {
+        tempProdotto = new Prodotto();
+        prodotto = Prodotto.search(Long.parseLong(codiceProd.getText()));
+        tempProdotto.setQuantity(prodotto.getQuantity() + Integer.parseInt(quantitaProd.getText()));
+        tempProdotto.setCodice(prodotto.getCodice());
+        tempProdotto.setPrezzo(prodotto.getPrezzo());
+        tempProdotto.setNome(prodotto.getNome());
+        tempProdotto.setAcquistato(prodotto.getAcquistato());
+        App.setRoot("InserisciProdottoRiepilogo");
+
+      } else {
+        AlertMessage.showError("Inserisci una quantità positiva");
+      }
+    } else {
+      AlertMessage.showError("Inserisci un codice prodotto valido");
     }
   }
 
-  public void inserisciProdotto(MouseEvent mouseEvent) throws DatabaseException, IOException, ProdottoException {
+  public void inserisciProdotto(MouseEvent mouseEvent)
+      throws DatabaseException, IOException, ProdottoException {
     prodotto.adddbquantity(tempProdotto.getQuantity() - prodotto.getQuantity());
     AlertMessage.showInformation("Quantità aggiornata correttamente");
     App.setRoot("InserisciProdotto");
@@ -109,19 +117,36 @@ public class Magazzino implements Initializable {
 
   ///////////////////////////////////////////////////////////////////////////////
 
-  // INSERISCI NUOVO PRODOTTO
+  // INSERISCI NUOVO PRODOTTO   **INSERISCI ANCHE NELLA UI I NUOVI CAMPI**
 
-  public void openNuovoProdottoRiepilogo(MouseEvent mouseEvent) throws IOException,ProdottoException {
-    try {
-      prodotto = new Prodotto();
-      prodotto.setNome(nomeProd.getText());
-      prodotto.setPrezzo(Double.parseDouble(prezzoProd.getText()));
-      prodotto.setQuantity(Integer.parseInt(quantitaProd.getText()));
-      prodotto.setCodice(Integer.parseInt(codiceProd.getText()));
-      App.setRoot("InserisciNuovoProdottoRiepilogo");
-    } catch (NumberFormatException exception) {
-      exception.printStackTrace();
-      AlertMessage.showError("Compila i campi in modo corretto");
+  public void openNuovoProdottoRiepilogo(MouseEvent mouseEvent)
+      throws IOException, ProdottoException {
+
+    // controllo se è un nome prodotto valido
+    if (nomeProd.getText().length() >= 2 && nomeProd.getText().length() <= 255) {
+      // controllo se la quantita è positiva
+      if (quantitaProd.getText().matches("^[1-9][0-9]*$")) {
+        // controllo che sia un codice prodotto valido
+        if (codiceProd.getText().matches("^[0-9]{13}$")) {
+          // controllo che sia un prezzo valido, decimale con precisione di due
+          if (prezzoProd.getText().matches("[0-9]+(\\.[0-9][0-9]?)?")) {
+            prodotto = new Prodotto();
+            prodotto.setNome(nomeProd.getText());
+            prodotto.setPrezzo(Double.parseDouble(prezzoProd.getText()));
+            prodotto.setQuantity(Integer.parseInt(quantitaProd.getText()));
+            prodotto.setCodice(Long.parseLong(codiceProd.getText()));
+            App.setRoot("InserisciNuovoProdottoRiepilogo");
+          } else {
+            AlertMessage.showError("Inserire un prezzo valido");
+          }
+        } else {
+          AlertMessage.showError("Inserisci un codice prodotto valido (13 cifre)");
+        }
+      } else {
+        AlertMessage.showError("Inserisci una quantità positiva");
+      }
+    } else {
+      AlertMessage.showError("Inserisci un nome valido");
     }
   }
 
@@ -135,26 +160,29 @@ public class Magazzino implements Initializable {
 
   // MOD PREZZO PRODOTTO
 
-  public void aggiornaPrezzo(MouseEvent mouseEvent) throws DatabaseException, ProdottoException,IOException {
-    try {
+  public void aggiornaPrezzo(MouseEvent mouseEvent)
+      throws DatabaseException, ProdottoException, IOException {
+
+    // controllo che sia un prezzo valido, decimale con precisione di due
+    if (prezzoProd.getText().matches("[0-9]+(\\.[0-9][0-9]?)?")) {
       prodotto.modificaPrezzo(Double.parseDouble(prezzoProd.getText()));
       prodotto.setPrezzo(Double.parseDouble(prezzoProd.getText()));
       AlertMessage.showInformation("Prezzo aggiornato con successo");
       App.setRoot("ModPrezzoProdotto");
-    } catch (NumberFormatException exception) {
-      exception.printStackTrace();
-      AlertMessage.showError("Compila i campi in modo corretto");
+    } else {
+      AlertMessage.showError("Inserisci un prezzo valido");
     }
   }
 
   public void openModificaPrezzoPopUp(MouseEvent mouseEvent)
       throws ProdottoException, DatabaseException, IOException {
-    try {
+
+    // controllo che sia un codice prodotto valido
+    if (codiceProd.getText().matches("^[0-9]{13}$")) {
       prodotto = Prodotto.search(Long.parseLong(codiceProd.getText()));
       App.setRoot("ModPrezzoProdottoPopUp");
-    } catch (NumberFormatException exception) {
-      exception.printStackTrace();
-      AlertMessage.showError("Compila i campi in modo corretto");
+    } else {
+      AlertMessage.showError("Inserisci un codice prodotto valido");
     }
   }
 
