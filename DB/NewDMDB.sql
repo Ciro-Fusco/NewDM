@@ -48,7 +48,7 @@ create table ELENCA
 create table RICHIESTA_ACQUISTO
 ( ID int unsigned auto_increment not null,
   QUANTITY int unsigned not null,
-  DATA date not null,
+  DATA varchar(30) not null,
   STATO varchar(20) not null,
   PRODOTTO bigint not null,
   constraint pk_id primary key(ID),
