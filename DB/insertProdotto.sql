@@ -7,7 +7,7 @@ insert into PRODOTTO values
 (04, "Coca Cola 2L", 160, 1.99,"Bevanda","media","grande"),
 (05, "Orecchiette Barilla", 180, 0.50,"Alimentare","lunga","media"),
 (06, "calamarata RUMMO", 160, 0.60,"Pesce","breve","media"),
-(07, "PAN BAULETTO", 250, 0.99,"Alimnetare","media","media"),
+(07, "PAN BAULETTO", 250, 0.99,"Alimentare","media","media"),
 (08, "Pan DI Stelle", 250, 1.99,"Alimentare","media","media"),
 (09, "Nutella 500g", 200, 5.99,"Alimentare","lunga","media"),
 (10, "Nutella 1KG", 200, 7.88,"Alimentare","lunga","grande"),

@@ -14,7 +14,9 @@ import exceptions.ProdottoNotFoundException;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 
 public class Magazzino implements Initializable {
@@ -29,6 +31,15 @@ public class Magazzino implements Initializable {
   @FXML public TextField riepilogoProdotto;
   @FXML private Label labelNomeProd;
   @FXML private Label labelPrezzoProd;
+  @FXML private TextField tipologiaProd;
+  @FXML private RadioButton piccolaDim;
+  @FXML private RadioButton medioDim;
+  @FXML private RadioButton grandeDim;
+  @FXML private RadioButton breveSca;
+  @FXML private RadioButton mediaSca;
+  @FXML private RadioButton lungaSca;
+  @FXML private ToggleGroup dimensioni;
+  @FXML private ToggleGroup scadenza;
 
   // Viene eseguito ogni volta che si carica una nuova finestra
   @Override
@@ -117,7 +128,7 @@ public class Magazzino implements Initializable {
 
   ///////////////////////////////////////////////////////////////////////////////
 
-  // INSERISCI NUOVO PRODOTTO   **INSERISCI ANCHE NELLA UI I NUOVI CAMPI**
+  // INSERISCI NUOVO PRODOTTO
 
   public void openNuovoProdottoRiepilogo(MouseEvent mouseEvent)
       throws IOException, ProdottoException {
@@ -130,12 +141,30 @@ public class Magazzino implements Initializable {
         if (codiceProd.getText().matches("^[0-9]{13}$")) {
           // controllo che sia un prezzo valido, decimale con precisione di due
           if (prezzoProd.getText().matches("[0-9]+(\\.[0-9][0-9]?)?")) {
-            prodotto = new Prodotto();
-            prodotto.setNome(nomeProd.getText());
-            prodotto.setPrezzo(Double.parseDouble(prezzoProd.getText()));
-            prodotto.setQuantity(Integer.parseInt(quantitaProd.getText()));
-            prodotto.setCodice(Long.parseLong(codiceProd.getText()));
-            App.setRoot("InserisciNuovoProdottoRiepilogo");
+            // controllo se è un tipo prodotto valido
+            if (tipologiaProd.getText().length() >= 2 && tipologiaProd.getText().length() <= 255) {
+              // Controllo se è stata selezionata una dimensione
+              if (dimensioni.getSelectedToggle() != null) {
+                // controllo se è stata selezionata una scadenza
+                if (scadenza.getSelectedToggle() != null) {
+                  prodotto = new Prodotto();
+                  prodotto.setNome(nomeProd.getText());
+                  prodotto.setPrezzo(Double.parseDouble(prezzoProd.getText()));
+                  prodotto.setQuantity(Integer.parseInt(quantitaProd.getText()));
+                  prodotto.setCodice(Long.parseLong(codiceProd.getText()));
+                  prodotto.setTipologia(tipologiaProd.getText());
+                  prodotto.setDimensioneConfezione(((RadioButton)dimensioni.getSelectedToggle()).getText());
+                  prodotto.setScadenza(((RadioButton)scadenza.getSelectedToggle()).getText());
+                  App.setRoot("InserisciNuovoProdottoRiepilogo");
+                } else {
+                  AlertMessage.showError("Selezionare una scadenza");
+                }
+              } else {
+                AlertMessage.showError("Selezionare una dimensione");
+              }
+            } else {
+              AlertMessage.showError("Inserire una tipologia valida");
+            }
           } else {
             AlertMessage.showError("Inserire un prezzo valido");
           }

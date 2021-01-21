@@ -174,19 +174,16 @@ public class Prodotto {
 
   @Override
   public String toString() {
-    return "Prodotto{"
-        + "acquistato="
-        + acquistato
-        + ", prezzo="
-        + prezzo
-        + ", codice="
-        + codice
-        + ", nome='"
-        + nome
-        + '\''
-        + ", quantity="
-        + quantity
-        + '}';
+    return "Prodotto{" +
+            "acquistato=" + acquistato +
+            ", prezzo=" + prezzo +
+            ", codice=" + codice +
+            ", nome='" + nome + '\'' +
+            ", quantity=" + quantity +
+            ", tipologia='" + tipologia + '\'' +
+            ", scadenza='" + scadenza + '\'' +
+            ", dimensioneConfezione='" + dimensioneConfezione + '\'' +
+            '}';
   }
 
   @Override
