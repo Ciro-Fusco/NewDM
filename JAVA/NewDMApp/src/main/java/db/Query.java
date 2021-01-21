@@ -13,5 +13,7 @@ public interface Query {
   String newProdotto = "INSERT INTO PRODOTTO VALUES (?,?,?,?,?,?,?)";
   String modificaPrezzo = "UPDATE PRODOTTO as p SET p.prezzo = ? WHERE p.codice=?";
   String newTicket = "INSERT INTO TICKET VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
-  String checkScontrino ="SELECT * FROM SCONTRINO AS s WHERE s.id=? AND s.data=?" ;
+  String checkScontrino ="SELECT * FROM SCONTRINO AS s WHERE s.id=? AND s.data LIKE ?";
+  String saveRichiesta="INSERT INTO RICHIESTA_ACQUISTO VALUES(?,?,?,?)";
+  String getTicket ="SELECT * FROM TICKET AS t WHERE t.DATA_APERTURA=? AND t.CODICE_FISCALE=? AND t.NUMERO_DI_SERIE=?" ;
 }

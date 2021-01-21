@@ -82,7 +82,7 @@
                                         <Insets top="-10.0" />
                                     </VBox.margin>
                                 </Label>
-                                <Button mnemonicParsing="false" onMousePressed="#confermaScontrino" style="-fx-background-color: #5ac5f1;" text="Conferma" textFill="WHITE" />
+                                <Button mnemonicParsing="false" onMousePressed="#confermaScontrino" style="-fx-background-color: #5ac5f1;" text="Stampa" textFill="WHITE" />
                             </children>
                         </VBox>
                     </children>

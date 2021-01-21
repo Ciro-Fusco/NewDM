@@ -17,7 +17,7 @@ public class Scontrino implements Serializable {
   private double tot = 0;
   private double resto;
   private double versato;
-  private final String data; // Da vedere
+  private final String data;
   private String riepilogo = "";
   private long id;
 

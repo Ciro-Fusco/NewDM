@@ -3,10 +3,7 @@ package entity;
 import db.ElencaDao;
 import db.ScontrinoDao;
 import db.TicketDao;
-import exceptions.DatabaseException;
-import exceptions.ElencaException;
-import exceptions.ProdottoException;
-import exceptions.ScontrinoException;
+import exceptions.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -57,6 +54,9 @@ public class Ticket {
     this.codiceProdotto = codiceProdotto;
     ElencaDao.checkCorrispondenza(codiceScontrino, dataScontrino, codiceProdotto);
     this.stato = APERTO;
+  }
+
+  public Ticket() {
   }
 
   private String setDataApertura() {
@@ -176,5 +176,9 @@ public class Ticket {
 
   public void setCodiceProdotto(long codiceProdotto) {
     this.codiceProdotto = codiceProdotto;
+  }
+
+  public static Ticket getTicket(String apertura,String CF,Long serie) throws DatabaseException, TicketException {
+    return TicketDao.getTicket(apertura,CF,serie);
   }
 }

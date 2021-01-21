@@ -85,7 +85,7 @@
                                 <Insets top="5.0" />
                             </VBox.margin>
                         </TextField>
-                        <Button mnemonicParsing="false" onMousePressed="#openCassaRiepilogo" style="-fx-background-color: #5ac5f1;" text="Stampa" textFill="WHITE">
+                        <Button mnemonicParsing="false" onMousePressed="#openCassaRiepilogo" style="-fx-background-color: #5ac5f1;" text="Conferma" textFill="WHITE">
                             <VBox.margin>
                                 <Insets top="20.0" />
                             </VBox.margin>

@@ -56,7 +56,7 @@ public class ScontrinoDao {
       try {
         PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.checkScontrino);
         prep.setLong(1, codice);
-        prep.setString(2, dataScontrino);
+        prep.setString(2, dataScontrino+"%");
 
         ResultSet res = prep.executeQuery();
         if (!res.next()) {
