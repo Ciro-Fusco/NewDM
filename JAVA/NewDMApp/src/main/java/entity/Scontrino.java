@@ -53,27 +53,29 @@ public class Scontrino implements Serializable {
     Prodotto p = Prodotto.search(cod);
     if (prodottoList.contains(p)) {
       p = prodottoList.get(prodottoList.indexOf(p));
-      riepilogo = riepilogo.replaceFirst(
-                p.getNome()
-                    + "   x "
-                    + p.getAcquistato()
-                    + "     € "
-                    + p.getPrezzo() * p.getAcquistato(),
-                p.getNome()
-                    + "   x "
-                    + p.updateAcquistato(1)
-                    + "     € "
-                    + p.getPrezzo() * p.getAcquistato());
+      riepilogo =
+          riepilogo.replaceFirst(
+              p.getNome()
+                  + "   x "
+                  + p.getAcquistato()
+                  + "     € "
+                  + p.getPrezzo() * p.getAcquistato(),
+              p.getNome()
+                  + "   x "
+                  + p.updateAcquistato(1)
+                  + "     € "
+                  + p.getPrezzo() * p.getAcquistato());
     } else {
       prodottoList.add(p);
-      riepilogo += "\n"
-                + p.getNome()
-                + "   x "
-                + p.updateAcquistato(1)
-                + "     € "
-                + p.getPrezzo() * p.getAcquistato();
-      }
+      riepilogo +=
+          "\n"
+              + p.getNome()
+              + "   x "
+              + p.updateAcquistato(1)
+              + "     € "
+              + p.getPrezzo() * p.getAcquistato();
     }
+  }
 
   /** Calcola il totale dello scontrino */
   public void calcolaTot() {

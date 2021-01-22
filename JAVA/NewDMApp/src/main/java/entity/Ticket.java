@@ -56,8 +56,7 @@ public class Ticket {
     this.stato = APERTO;
   }
 
-  public Ticket() {
-  }
+  public Ticket() {}
 
   private String setDataApertura() {
     LocalDateTime date = LocalDateTime.now();
@@ -178,7 +177,8 @@ public class Ticket {
     this.codiceProdotto = codiceProdotto;
   }
 
-  public static Ticket getTicket(String apertura,String CF,Long serie) throws DatabaseException, TicketException {
-    return TicketDao.getTicket(apertura,CF,serie);
+  public static Ticket getTicket(String apertura, String CF, Long serie)
+      throws DatabaseException, TicketException {
+    return TicketDao.getTicket(apertura, CF, serie);
   }
 }

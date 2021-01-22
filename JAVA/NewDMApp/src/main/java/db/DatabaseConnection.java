@@ -45,4 +45,8 @@ public class DatabaseConnection {
       throw new DatabaseException("Chiusura della connessione non riuscita");
     }
   }
+
+  public static Connection getCon() {
+    return con;
+  }
 }
