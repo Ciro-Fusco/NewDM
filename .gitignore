@@ -97,3 +97,4 @@ target/*
 *.class
 
 *.lst
+JAVA/NewDMApp/src/main/java/db/DatabaseConnection.java

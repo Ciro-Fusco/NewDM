@@ -15,9 +15,9 @@ public class Prodotto {
   private long codice;
   private String nome;
   private int quantity;
-  private String tipologia,scadenza,dimensioneConfezione;
+  private String tipologia, scadenza, dimensioneConfezione;
 
-  public Prodotto(double prezzo, long codice, String nome, int quantity, String dimensione,String scade,String tipologia) throws ProdottoException {
+  public Prodotto(double prezzo, long codice, String nome, int quantity, String dimensione, String scade, String tipologia) throws ProdottoException {
     if (prezzo <= 0 || quantity <= 0)
       throw new ProdottoException("Prezzo e quantità devono essere entrambi positivi");
     this.prezzo = prezzo;
@@ -26,15 +26,15 @@ public class Prodotto {
     this.quantity = quantity;
     this.scadenza = scade;
     this.dimensioneConfezione = dimensione;
-    String temp = tipologia.substring(0,1).toUpperCase();
-    tipologia=tipologia.toLowerCase();
-    this.tipologia=tipologia.replace(tipologia.substring(0,1),temp);
-
+    String temp = tipologia.substring(0, 1).toUpperCase();
+    tipologia = tipologia.toLowerCase();
+    this.tipologia = tipologia.replace(tipologia.substring(0, 1), temp);
 
 
   }
 
-  public Prodotto() {}
+  public Prodotto() {
+  }
 
   public String getTipologia() {
     return tipologia;
@@ -120,7 +120,7 @@ public class Prodotto {
    * @param cod Codice del prodotto da trovare
    * @return Il prodotto cercato
    * @throws ProdottoNotFoundException Prodotto non trovato
-   * @throws DatabaseException Errore nel database
+   * @throws DatabaseException         Errore nel database
    */
   public static Prodotto search(Long cod) throws ProdottoException, DatabaseException {
     return ProdottoDao.search(cod);
@@ -152,8 +152,8 @@ public class Prodotto {
   /**
    * Salva questo Prodotto nel database
    *
-   * @throws DatabaseException Errore del Database
    * @return true se il Prodotto è stato creato correttamente
+   * @throws DatabaseException Errore del Database
    */
   public boolean createProdotto() throws DatabaseException {
     return ProdottoDao.createProdotto(this);

@@ -16,7 +16,7 @@ public class ProdottoDao {
    *
    * @param cod codice del prodotto
    * @return un nuovo Prodotto contenente i dati della query
-   * @throws DatabaseException errore del database:
+   * @throws DatabaseException         errore del database:
    * @throws ProdottoNotFoundException prodotto non trovato nel database;
    */
   public static Prodotto search(Long cod) throws DatabaseException, ProdottoException {
@@ -29,13 +29,13 @@ public class ProdottoDao {
 
       if (res.next()) {
         return new Prodotto(
-            res.getDouble("Prezzo"),
-            res.getLong("Codice"),
-            res.getString("Nome"),
-            res.getInt("quantity"),
-            res.getString("Dimensione_Confezione"),
-            res.getString("Scadenza"),
-            res.getString("Tipologia"));
+                res.getDouble("Prezzo"),
+                res.getLong("Codice"),
+                res.getString("Nome"),
+                res.getInt("quantity"),
+                res.getString("Dimensione_Confezione"),
+                res.getString("Scadenza"),
+                res.getString("Tipologia"));
 
       }
       throw new ProdottoNotFoundException("Prodotto non trovato");
@@ -50,7 +50,7 @@ public class ProdottoDao {
    * Aggiorna la quantità del prodotto nel DB
    *
    * @param p prodotto da aggiornare
-   *@throws DatabaseException errore del database:
+   * @throws DatabaseException errore del database:
    */
   public static void leavedbquantity(Prodotto p) throws DatabaseException {
 
@@ -64,17 +64,16 @@ public class ProdottoDao {
     } catch (SQLException throwables) {
       throwables.printStackTrace();
       throw new DatabaseException(
-          "Errore nell'aggiornamento della quantità del Prodotto: " + p.getNome());
+              "Errore nell'aggiornamento della quantità del Prodotto: " + p.getNome());
     }
   }
 
   /**
-   *
    * @param i quantità da aggiungere al Database
    * @param p Prodotto a cui aggiungere la quantità
    * @throws DatabaseException Errore del Database
    */
-  public static void adddbquantity(int i,Prodotto p) throws DatabaseException{
+  public static void adddbquantity(int i, Prodotto p) throws DatabaseException {
     PreparedStatement prep = null;
     try {
       prep = DatabaseConnection.con.prepareStatement(Query.upDBQuant);
@@ -111,11 +110,12 @@ public class ProdottoDao {
 
   /**
    * Modifica il prezzo di un prodotto
-   * @param p Prodotto da modificare
+   *
+   * @param p      Prodotto da modificare
    * @param prezzo Nuovo prezzo da impostare
    * @throws DatabaseException Errore nel Database
    */
-  public static void modificaPrezzo(Prodotto p, double prezzo) throws DatabaseException{
+  public static void modificaPrezzo(Prodotto p, double prezzo) throws DatabaseException {
     PreparedStatement prep = null;
     try {
       prep = DatabaseConnection.con.prepareStatement(Query.modificaPrezzo);

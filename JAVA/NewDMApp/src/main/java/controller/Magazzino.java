@@ -23,29 +23,73 @@ public class Magazzino implements Initializable {
 
   private static Prodotto prodotto;
   private static Prodotto tempProdotto;
-  @FXML private TextField nomeProd;
-  @FXML private TextField prezzoProd;
-  @FXML private TextField codiceProd;
-  @FXML private TextField quantitaProd;
-  @FXML public TextField riepilogoNuovoProdotto;
-  @FXML public TextField riepilogoProdotto;
-  @FXML private Label labelNomeProd;
-  @FXML private Label labelPrezzoProd;
-  @FXML private TextField tipologiaProd;
-  @FXML private RadioButton piccolaDim;
-  @FXML private RadioButton medioDim;
-  @FXML private RadioButton grandeDim;
-  @FXML private RadioButton breveSca;
-  @FXML private RadioButton mediaSca;
-  @FXML private RadioButton lungaSca;
-  @FXML private ToggleGroup dimensioni;
-  @FXML private ToggleGroup scadenza;
+  @FXML
+  private TextField nomeProd;
+  @FXML
+  private TextField prezzoProd;
+  @FXML
+  private TextField sped;
+  @FXML
+  private TextField codiceProd;
+  @FXML
+  private TextField quantitaProd;
+  @FXML
+  public TextField riepilogoNuovoProdotto;
+  @FXML
+  public TextField riepilogoProdotto;
+  @FXML
+  private Label labelNomeProd;
+  @FXML
+  private Label labelPrezzoProd;
+  @FXML
+  private Label labelOrdineCalcSugg;
+  @FXML
+  private Label labelNomeProdSugg;
+  @FXML
+  private Label labelQuantitaProdSugg;
+  @FXML
+  private TextField tipologiaProd;
+  @FXML
+  private RadioButton piccolaDim;
+  @FXML
+  private RadioButton medioDim;
+  @FXML
+  private RadioButton grandeDim;
+  @FXML
+  private RadioButton breveSca;
+  @FXML
+  private RadioButton mediaSca;
+  @FXML
+  private RadioButton lungaSca;
+  @FXML
+  private RadioButton primavera;
+  @FXML
+  private RadioButton estate;
+  @FXML
+  private RadioButton autunno;
+  @FXML
+  private RadioButton inverno;
+  @FXML
+  private ToggleGroup dimensioni;
+  @FXML
+  private ToggleGroup scadenza;
+  @FXML
+  private ToggleGroup stagione;
+  @FXML
+  private ToggleGroup tipoSupermerc;
+  @FXML
+  private ToggleGroup festività;
+  private int ordineCalcolato;
 
   // Viene eseguito ogni volta che si carica una nuova finestra
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     String nomeFile =
-        url.toString().substring(url.toString().lastIndexOf('/') + 1, url.toString().length());
+            url.toString().substring(url.toString().lastIndexOf('/') + 1, url.toString().length());
+
+    if (nomeFile.equals("OrdinaProdotto.fxml")) {
+
+    }
 
     if (nomeFile.equals("InserisciNuovoProdottoRiepilogo.fxml")) {
       riepilogoNuovoProdotto.setText(prodotto.toString());
@@ -96,7 +140,7 @@ public class Magazzino implements Initializable {
   // INSERISCI PRODOTTO GIA PRESENTE
 
   public void openInserisciProdottoRiepilogo(MouseEvent mouseEvent)
-      throws IOException, ProdottoException, DatabaseException {
+          throws IOException, ProdottoException, DatabaseException {
 
     // controllo che sia un codice prodotto valido
     if (codiceProd.getText().matches("^[0-9]{13}$")) {
@@ -120,7 +164,7 @@ public class Magazzino implements Initializable {
   }
 
   public void inserisciProdotto(MouseEvent mouseEvent)
-      throws DatabaseException, IOException, ProdottoException {
+          throws DatabaseException, IOException, ProdottoException {
     prodotto.adddbquantity(tempProdotto.getQuantity() - prodotto.getQuantity());
     AlertMessage.showInformation("Quantità aggiornata correttamente");
     App.setRoot("InserisciProdotto");
@@ -131,7 +175,7 @@ public class Magazzino implements Initializable {
   // INSERISCI NUOVO PRODOTTO
 
   public void openNuovoProdottoRiepilogo(MouseEvent mouseEvent)
-      throws IOException, ProdottoException {
+          throws IOException, ProdottoException {
 
     // controllo se è un nome prodotto valido
     if (nomeProd.getText().length() >= 2 && nomeProd.getText().length() <= 255) {
@@ -153,8 +197,8 @@ public class Magazzino implements Initializable {
                   prodotto.setQuantity(Integer.parseInt(quantitaProd.getText()));
                   prodotto.setCodice(Long.parseLong(codiceProd.getText()));
                   prodotto.setTipologia(tipologiaProd.getText());
-                  prodotto.setDimensioneConfezione(((RadioButton)dimensioni.getSelectedToggle()).getText());
-                  prodotto.setScadenza(((RadioButton)scadenza.getSelectedToggle()).getText());
+                  prodotto.setDimensioneConfezione(((RadioButton) dimensioni.getSelectedToggle()).getText());
+                  prodotto.setScadenza(((RadioButton) scadenza.getSelectedToggle()).getText());
                   App.setRoot("InserisciNuovoProdottoRiepilogo");
                 } else {
                   AlertMessage.showError("Selezionare una scadenza");
@@ -190,7 +234,7 @@ public class Magazzino implements Initializable {
   // MOD PREZZO PRODOTTO
 
   public void aggiornaPrezzo(MouseEvent mouseEvent)
-      throws DatabaseException, ProdottoException, IOException {
+          throws DatabaseException, ProdottoException, IOException {
 
     // controllo che sia un prezzo valido, decimale con precisione di due
     if (prezzoProd.getText().matches("[0-9]+(\\.[0-9][0-9]?)?")) {
@@ -204,7 +248,7 @@ public class Magazzino implements Initializable {
   }
 
   public void openModificaPrezzoPopUp(MouseEvent mouseEvent)
-      throws ProdottoException, DatabaseException, IOException {
+          throws ProdottoException, DatabaseException, IOException {
 
     // controllo che sia un codice prodotto valido
     if (codiceProd.getText().matches("^[0-9]{13}$")) {
@@ -219,9 +263,28 @@ public class Magazzino implements Initializable {
 
   // ORDINA PRODOTTO
 
-  public void cercaProdottoOrdinaProd(MouseEvent mouseEvent) {
-    // Cerca prod by codice
-  }
+  public void cercaProdottoOrdinaProd(MouseEvent mouseEvent) throws DatabaseException, ProdottoException, IOException {
+    /*if (codiceProd.getText().matches("^[0-9]{13}$")) {
+      prodotto = Prodotto.search(Long.parseLong(codiceProd.getText()));
+      labelNomeProdSugg.setText(prodotto.getNome());
+      labelQuantitaProdSugg.setText(String.valueOf(prodotto.getQuantity()));
+      if (prezzoProd.getText().matches("[0-9]+(\\.[0-9][0-9]?)?"))
+      ordineCalcolato = ModuleIAConverter.prevedi(prodotto, Double.parseDouble(sped.getText()),
+              ((RadioButton) stagione.getSelectedToggle()).getText(),
+              ((RadioButton) tipoSupermerc.getSelectedToggle()).getText(),
+              ((RadioButton) festività.getSelectedToggle()).getText());
 
-  /////////////////////////////////////////////////////////
-}
+      labelOrdineCalcSugg.setText(String.valueOf(ordineCalcolato));*/
+
+
+      ordineCalcolato = ModuleIAConverter.prevedi(prodotto = Prodotto.search(1000000000022L),10,"estate","residenziale","lavorativo");
+      System.out.println(ordineCalcolato);
+      labelOrdineCalcSugg.setText(String.valueOf(ordineCalcolato));
+    labelNomeProdSugg.setText(prodotto.getNome());
+    labelQuantitaProdSugg.setText(String.valueOf(prodotto.getQuantity()));
+      App.setRoot("OrdinaProdottoQuantitaSugg.fxml");
+
+    }
+
+    /////////////////////////////////////////////////////////
+  }

@@ -33,8 +33,8 @@ public class ScontrinoDao {
 
     try {
       PreparedStatement prep =
-          DatabaseConnection.con.prepareStatement(
-              Query.newScontrino, Statement.RETURN_GENERATED_KEYS);
+              DatabaseConnection.con.prepareStatement(
+                      Query.newScontrino, Statement.RETURN_GENERATED_KEYS);
       prep.setString(1, s.getData());
       prep.setDouble(2, s.getVersato());
       prep.setDouble(3, s.getTot());
@@ -52,22 +52,22 @@ public class ScontrinoDao {
     }
   }
 
-    public static void checkScontrino(long codice, String dataScontrino) throws ScontrinoException, DatabaseException {
-      try {
-        PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.checkScontrino);
-        prep.setLong(1, codice);
-        prep.setString(2, dataScontrino+"%");
+  public static void checkScontrino(long codice, String dataScontrino) throws ScontrinoException, DatabaseException {
+    try {
+      PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.checkScontrino);
+      prep.setLong(1, codice);
+      prep.setString(2, dataScontrino + "%");
 
-        ResultSet res = prep.executeQuery();
-        if (!res.next()) {
-          throw new ScontrinoNotFoundException("Scontrino non trovato\nControlla il codice");
-        }else{
-          String data_temp = res.getString("data");
-          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-          LocalDateTime data_obj = LocalDateTime.parse(data_temp, formatter);
-          LocalDateTime data_2_years_ago = LocalDateTime.now().minusYears(2);
-          if(data_obj.isBefore(data_2_years_ago))
-            throw new ScontrinoException("Scontrino inserito non più in garanzia");
+      ResultSet res = prep.executeQuery();
+      if (!res.next()) {
+        throw new ScontrinoNotFoundException("Scontrino non trovato\nControlla il codice");
+      } else {
+        String data_temp = res.getString("data");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        LocalDateTime data_obj = LocalDateTime.parse(data_temp, formatter);
+        LocalDateTime data_2_years_ago = LocalDateTime.now().minusYears(2);
+        if (data_obj.isBefore(data_2_years_ago))
+          throw new ScontrinoException("Scontrino inserito non più in garanzia");
       }
     } catch (SQLException e) {
       e.printStackTrace();

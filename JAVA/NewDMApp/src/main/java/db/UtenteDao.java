@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import exceptions.DatabaseException;
 import exceptions.UtenteNotFoundException;
 import org.apache.commons.codec.digest.DigestUtils;
+
 import static entity.Utente.setUtente;
 
 public class UtenteDao {
@@ -17,7 +18,7 @@ public class UtenteDao {
    * @param user Nome utente
    * @param pass Password non ancora codificata
    * @return true -- se l'utente è stato autenticato; false -- altrimenti.
-   * @throws DatabaseException        Errore generico;
+   * @throws DatabaseException       Errore generico;
    * @throws UtenteNotFoundException Utente non trovato nel Database;
    */
   public static boolean login(String user, String pass) throws DatabaseException, UtenteNotFoundException {

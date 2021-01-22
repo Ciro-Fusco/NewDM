@@ -10,7 +10,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Lo Scontrino che viene emesso al termine degli acquisti. */
+/**
+ * Lo Scontrino che viene emesso al termine degli acquisti.
+ */
 public class Scontrino implements Serializable {
 
   private List<Prodotto> prodottoList;
@@ -21,7 +23,9 @@ public class Scontrino implements Serializable {
   private String riepilogo = "";
   private long id;
 
-  /** Crea uno scontrino vuoto alla data corrente */
+  /**
+   * Crea uno scontrino vuoto alla data corrente
+   */
   public Scontrino() {
     this.data = setData();
   }
@@ -43,10 +47,10 @@ public class Scontrino implements Serializable {
    *
    * @param cod codice del prodotto
    * @throws ProdottoNotFoundException Il codice inserito non corrisponde ad alcun prodotto.
-   * @throws DatabaseException Errore del Database
+   * @throws DatabaseException         Errore del Database
    */
   public void addProdotto(Long cod)
-      throws ProdottoNotFoundException, DatabaseException, ProdottoException {
+          throws ProdottoNotFoundException, DatabaseException, ProdottoException {
     if (prodottoList == null) {
       prodottoList = new ArrayList<Prodotto>();
     }
@@ -54,39 +58,43 @@ public class Scontrino implements Serializable {
     if (prodottoList.contains(p)) {
       p = prodottoList.get(prodottoList.indexOf(p));
       riepilogo =
-          riepilogo.replaceFirst(
-              p.getNome()
-                  + "   x "
-                  + p.getAcquistato()
-                  + "     € "
-                  + p.getPrezzo() * p.getAcquistato(),
-              p.getNome()
-                  + "   x "
-                  + p.updateAcquistato(1)
-                  + "     € "
-                  + p.getPrezzo() * p.getAcquistato());
+              riepilogo.replaceFirst(
+                      p.getNome()
+                              + "   x "
+                              + p.getAcquistato()
+                              + "     € "
+                              + p.getPrezzo() * p.getAcquistato(),
+                      p.getNome()
+                              + "   x "
+                              + p.updateAcquistato(1)
+                              + "     € "
+                              + p.getPrezzo() * p.getAcquistato());
     } else {
       prodottoList.add(p);
       riepilogo +=
-          "\n"
-              + p.getNome()
-              + "   x "
-              + p.updateAcquistato(1)
-              + "     € "
-              + p.getPrezzo() * p.getAcquistato();
+              "\n"
+                      + p.getNome()
+                      + "   x "
+                      + p.updateAcquistato(1)
+                      + "     € "
+                      + p.getPrezzo() * p.getAcquistato();
     }
   }
 
-  /** Calcola il totale dello scontrino */
+  /**
+   * Calcola il totale dello scontrino
+   */
   public void calcolaTot() {
     this.tot = 0;
     prodottoList.forEach(
-        (p) -> {
-          this.tot += p.getPrezzo() * p.getAcquistato();
-        });
+            (p) -> {
+              this.tot += p.getPrezzo() * p.getAcquistato();
+            });
   }
 
-  /** Calcola il resto da dare al Cliente */
+  /**
+   * Calcola il resto da dare al Cliente
+   */
   public void calcolaResto() {
 
     this.resto = this.versato - this.tot;
@@ -142,7 +150,7 @@ public class Scontrino implements Serializable {
   }
 
   public static void checkScontrino(long codice, String dataScontrino)
-      throws ScontrinoException, DatabaseException {
+          throws ScontrinoException, DatabaseException {
     ScontrinoDao.checkScontrino(codice, dataScontrino);
   }
 }
