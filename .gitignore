@@ -98,3 +98,6 @@ target/*
 
 *.lst
 JAVA/NewDMApp/src/main/java/db/DatabaseConnection.java
+JAVA/NewDMApp/src/main/java/db/DatabaseConnection.java
+JAVA/NewDMApp/src/main/java/db/DatabaseConnection.java
+JAVA/NewDMApp/src/main/java/controller/App.java

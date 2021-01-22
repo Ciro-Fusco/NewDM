@@ -48,10 +48,6 @@ public class RichiestaAcquisto {
     return data;
   }
 
-  public void setData(String data) {
-    this.data = data;
-  }
-
   public String getStato() {
     return stato;
   }
