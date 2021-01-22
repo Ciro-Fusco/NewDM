@@ -75,14 +75,14 @@ create table TICKET
   constraint fk_scontrino foreign key(SCONTRINO,DATA_SCONTRINO) references SCONTRINO(ID,DATA) on update cascade
 );
 
-load data local infile "C:\\Users\\Ciro\\Desktop\\IS\\NewDM\\DB\\datautente.sql"
+/*load data local infile "C:\\Users\\Ciro\\Desktop\\IS\\NewDM\\DB\\datautente.sql"
 into table UTENTE fields terminated by",";
 
 load data local infile 'C:\\Users\\Ciro\\Desktop\\IS\\NewDM\\DB\\dataprodotti.sql'
 into table PRODOTTO fields terminated by",";
 
 load data local infile 'C:\\Users\\Ciro\\Desktop\\IS\\NewDM\\DB\\datascontrini.sql'
-into table SCONTRINO fields terminated by",";
+into table SCONTRINO fields terminated by",";*/
 
 DELIMITER //
 CREATE PROCEDURE reset_id_scontrino()

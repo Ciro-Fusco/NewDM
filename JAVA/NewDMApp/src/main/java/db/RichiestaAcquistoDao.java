@@ -26,7 +26,7 @@ public class RichiestaAcquistoDao {
 
     } catch (SQLException e) {
       e.printStackTrace();
-      throw new DatabaseException("Errore nel salvataggio dello Scontrino");
+      throw new DatabaseException("Errore nella richiesta d'acquisto");
     }
   }
 

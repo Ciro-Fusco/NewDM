@@ -71,7 +71,7 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <center>
-                        <TextField alignment="CENTER" prefHeight="25.0" prefWidth="266.0" BorderPane.alignment="CENTER">
+                        <TextField fx:id="codiceProd" alignment="CENTER" prefHeight="25.0" prefWidth="266.0" BorderPane.alignment="CENTER">
                            <BorderPane.margin>
                               <Insets left="30.0" right="30.0" />
                            </BorderPane.margin>
@@ -87,7 +87,7 @@
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <center>
-                        <TextField alignment="CENTER" prefHeight="25.0" prefWidth="266.0" BorderPane.alignment="CENTER">
+                        <TextField fx:id="prezzoSped" alignment="CENTER" prefHeight="25.0" prefWidth="266.0" BorderPane.alignment="CENTER">
                            <BorderPane.margin>
                               <Insets left="30.0" right="30.0" />
                            </BorderPane.margin>
@@ -110,7 +110,7 @@
                         </Label>
                      </top>
                      <center>
-                        <GridPane BorderPane.alignment="CENTER">
+                        <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="10.0" prefWidth="89.0" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="67.0" />
@@ -136,7 +136,70 @@
                         </GridPane>
                      </center>
                   </BorderPane>
-                  <Button mnemonicParsing="false" onMouseClicked="#cercaProdottoOrdinaProd" prefHeight="25.0" prefWidth="101.0" text="Prevedi" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onMouseClicked="#cercaProdottoOrdinaProd" prefHeight="25.0" prefWidth="101.0" style="-fx-background-color: #5ac5f1;" text="Prevedi" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <top>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="200.0" text="Tipo supermercato" textFill="#f2f2f2" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </top>
+                     <center>
+                        <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="10.0" prefWidth="89.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="67.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <RadioButton fx:id="primavera1" mnemonicParsing="false" selected="true" text="Residenziale" textFill="#fcfcfc" wrapText="true">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tipoSupermerc" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="estate1" mnemonicParsing="false" text="Periferia" textFill="WHITE" toggleGroup="$tipoSupermerc" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                     </center>
+                  </BorderPane>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <top>
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="200.0" text="Festività" textFill="#f2f2f2" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </top>
+                     <center>
+                        <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="10.0" prefWidth="89.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="10.0" prefWidth="81.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <RadioButton fx:id="autunno11" mnemonicParsing="false" text="Lavorativo" textFill="WHITE" GridPane.columnIndex="1">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="festivita" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="primavera11" mnemonicParsing="false" selected="true" text="Feriale" textFill="#fcfcfc" toggleGroup="$festivita" wrapText="true">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                              </RadioButton>
+                           </children>
+                        </GridPane>
+                     </center>
+                  </BorderPane>
                </children>
             </GridPane>
             </items>
