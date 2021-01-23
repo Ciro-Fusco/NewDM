@@ -31,8 +31,8 @@ public class ElencaDao {
   }
 
   public static void checkCorrispondenza(
-          long codiceScontrino, String dataScontrino, long codiceProdotto)
-          throws DatabaseException, ElencaException {
+      long codiceScontrino, String dataScontrino, long codiceProdotto)
+      throws DatabaseException, ElencaException {
 
     try {
       PreparedStatement state = DatabaseConnection.con.prepareStatement(Query.elencaCheck);

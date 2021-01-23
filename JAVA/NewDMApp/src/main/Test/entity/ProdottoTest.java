@@ -1,10 +1,13 @@
 package entity;
 
 import db.DatabaseConnection;
+import db.ProdottoDao;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
+import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
 
 import static org.junit.Assert.*;
 
@@ -90,18 +93,17 @@ public class ProdottoTest {
 
   @Test
   public void adddbquantityCorretto() throws ProdottoException, DatabaseException {
-    //se da errore significa che è gia presente questo prodotto nel db, quindi eliminalo e riesegui
     DatabaseConnection.connect();
     Prodotto p= new Prodotto(4, 1010L, "Gigia", 5000,"Grande","Media","Frutta");
     p.createProdotto();
     p.adddbquantity(5);
     p=Prodotto.search(1010L);
     assertEquals(5005,p.getQuantity());
+    DatabaseConnection.close();
   }
 
   @Test
   public void adddbquantitySbagliata() throws ProdottoException, DatabaseException {
-    //se da errore significa che è gia presente questo prodotto nel db, quindi eliminalo e riesegui
     DatabaseConnection.connect();
     Prodotto p= new Prodotto(4, 1011L, "Gigia", 5000,"Grande","Media","Frutta");
     p.createProdotto();
@@ -111,12 +113,12 @@ public class ProdottoTest {
     String expectedMessage = "Inserire un valore maggiore di 0";
     String actualMessage = ex.getMessage();
     assertTrue(actualMessage.contains(expectedMessage));
+    DatabaseConnection.close();
   }
 
 
   @Test
   public void modificaPrezzoCorretto() throws DatabaseException, ProdottoException {
-    //se da errore significa che è gia presente questo prodotto nel db, quindi eliminalo e riesegui
     DatabaseConnection.connect();
     Prodotto p= new Prodotto(4, 1012L, "Gigia", 5000,"Grande","Media","Frutta");
     p.createProdotto();
@@ -127,7 +129,6 @@ public class ProdottoTest {
 
   @Test
   public void modificaPrezzoSbagliata() throws ProdottoException, DatabaseException {
-    //se da errore significa che è gia presente questo prodotto nel db, quindi eliminalo e riesegui
     DatabaseConnection.connect();
     Prodotto p= new Prodotto(4, 1013L, "Gigia", 5000,"Grande","Media","Frutta");
     p.createProdotto();
@@ -137,6 +138,20 @@ public class ProdottoTest {
     String expectedMessage = "Prezzo nuovo negativo.";
     String actualMessage = ex.getMessage();
     assertTrue(actualMessage.contains(expectedMessage));
+  }
+
+  @AfterClass
+  public static void pulisciDb() throws DatabaseException {
+    DatabaseConnection.connect();
+    Prodotto p = new Prodotto();
+    p.setCodice(1010L);
+    ProdottoDao.eliminaProdotto(p);
+    p.setCodice(1011l);
+    ProdottoDao.eliminaProdotto(p);
+    p.setCodice(1012l);
+    ProdottoDao.eliminaProdotto(p);
+    p.setCodice(1013l);
+    ProdottoDao.eliminaProdotto(p);
   }
 
 }

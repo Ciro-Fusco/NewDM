@@ -16,26 +16,58 @@ public class ElencaDaoTest {
       throws DatabaseException, ProdottoException, ElencaException {
     DatabaseConnection.connect();
     Scontrino s = new Scontrino();
-    s.addProdotto(1L);
+    s.addProdotto(1000000000001L);
     s.save();
-      try {
-          ElencaDao.checkCorrispondenza(s.getId(), s.getData(), 1L);
-      } catch (ElencaException e) {
-          e.printStackTrace();
-          assertFalse(true);
-      }
+    try {
+      ElencaDao.checkCorrispondenza(s.getId(), s.getData(), 1000000000001L);
+    } catch (ElencaException e) {
+      e.printStackTrace();
+      assertFalse(true);
+    } finally {
+      DatabaseConnection.close();
+    }
   }
 
-    @Test
-    public void checkCorrispondenzaSbagliato()
-            throws DatabaseException, ProdottoException {
-        DatabaseConnection.connect();
-        Scontrino s = new Scontrino();
-        Exception ex =assertThrows(ElencaException.class,()->{
-            ElencaDao.checkCorrispondenza(s.getId(),s.getData(),1L);
-        });
-        String expectedMessage = "Prodotto non correlato allo Scontrino immesso";
-        String actualMessage = ex.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
-    }
+  @Test
+  public void checkCorrispondenzaSbagliato() throws DatabaseException, ProdottoException {
+    DatabaseConnection.connect();
+    Scontrino s = new Scontrino();
+    Exception ex =
+        assertThrows(
+            ElencaException.class,
+            () -> {
+              ElencaDao.checkCorrispondenza(s.getId(), s.getData(), 1000000000001L);
+            });
+    String expectedMessage = "Prodotto non correlato allo Scontrino immesso";
+    String actualMessage = ex.getMessage();
+    assertTrue(actualMessage.contains(expectedMessage));
+    DatabaseConnection.close();
+  }
+
+  @Test
+  public void checkCorrispondenzaConnessioneErrata() throws DatabaseException, ProdottoException {
+    DatabaseConnection.connect();
+    DatabaseConnection.close();
+    Scontrino s = new Scontrino();
+    Exception ex =
+            assertThrows(
+                    DatabaseException.class,
+                    () -> {
+                      ElencaDao.checkCorrispondenza(s.getId(), s.getData(), 1000000000001L);
+                    });
+    String expectedMessage = "Errore nel Database.";
+    String actualMessage = ex.getMessage();
+    assertTrue(actualMessage.contains(expectedMessage));
+    DatabaseConnection.close();
+  }
+
+  /*METODO SAVE NON FUNZIONA
+  @Test
+  public  void saveCorretto() throws DatabaseException, ProdottoException {
+    DatabaseConnection.connect();
+    Scontrino s = new Scontrino();
+    s.addProdotto(1000000000001l);
+    ElencaDao.save(s);
+    DatabaseConnection.close();
+  }*/
 }

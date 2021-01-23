@@ -298,7 +298,7 @@ public class Magazzino implements Initializable {
       ra.setQuantity(Integer.parseInt(quantitaProd.getText()));
       ra.save();
       AlertMessage.showInformation("Ordine effettuato con successo");
-      App.setRoot("OrdineProdotto");
+      App.setRoot("OrdinaProdotto");
     } else {
       AlertMessage.showError("Inserire una quantità valida");
     }

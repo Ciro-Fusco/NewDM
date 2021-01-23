@@ -129,4 +129,18 @@ public class ProdottoDao {
     }
 
   }
+
+  public static boolean eliminaProdotto(Prodotto p) throws DatabaseException {
+    PreparedStatement prep = null;
+    try {
+      prep = DatabaseConnection.con.prepareStatement(Query.eliminaProd);
+      prep.setLong(1, p.getCodice());
+      prep.executeUpdate();
+      return true;
+
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+      throw new DatabaseException("Errore nel eliminazione del Prodotto");
+    }
+  }
 }

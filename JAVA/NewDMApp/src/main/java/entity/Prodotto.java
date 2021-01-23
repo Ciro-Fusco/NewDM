@@ -193,4 +193,8 @@ public class Prodotto {
     Prodotto prodotto = (Prodotto) o;
     return getCodice() == prodotto.getCodice();
   }
+
+  public boolean eliminaProdotto() throws DatabaseException {
+    return ProdottoDao.eliminaProdotto(this);
+  }
 }

@@ -18,4 +18,5 @@ public interface Query {
   String checkScontrino = "SELECT * FROM SCONTRINO AS s WHERE s.id=? AND s.data LIKE ?";
   String saveRichiesta = "INSERT INTO RICHIESTA_ACQUISTO(quantity,data,stato,prodotto) VALUES(?,?,?,?)";
   String getTicket = "SELECT * FROM TICKET AS t WHERE t.DATA_APERTURA=? AND t.CODICE_FISCALE=? AND t.NUMERO_DI_SERIE=?";
+  String eliminaProd="DELETE FROM PRODOTTO WHERE codice=?";
 }
