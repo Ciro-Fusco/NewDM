@@ -61,13 +61,13 @@ public class ElencaDaoTest {
     DatabaseConnection.close();
   }
 
-  /*METODO SAVE NON FUNZIONA
+
   @Test
   public  void saveCorretto() throws DatabaseException, ProdottoException {
     DatabaseConnection.connect();
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
-    ElencaDao.save(s);
+    s.save();
     DatabaseConnection.close();
-  }*/
+  }
 }
