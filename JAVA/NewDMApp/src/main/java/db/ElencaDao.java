@@ -4,6 +4,7 @@ import entity.Prodotto;
 import entity.Scontrino;
 import exceptions.DatabaseException;
 import exceptions.ElencaException;
+import exceptions.ProdottoException;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
