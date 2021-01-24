@@ -43,7 +43,9 @@ public class TicketDao {
       prep.setString(2, CF);
       prep.setLong(3, serie);
       ResultSet res = prep.executeQuery();
-      if (res.next()) {
+      if (!res.next()) {
+        throw new TicketNotFoundException("Ticket non trovato. Controllare i campi");
+      } else {
         Ticket t = new Ticket();
         t.setNomeCognome(res.getString("NOME_CLIENTE"));
         t.setCf(res.getString("CODICE_FISCALE"));
@@ -58,7 +60,6 @@ public class TicketDao {
         t.setStato(res.getString("STATO"));
         return t;
       }
-      throw new TicketNotFoundException("Ticket non trovato. Controllare i campi");
 
     } catch (SQLException e) {
       e.printStackTrace();

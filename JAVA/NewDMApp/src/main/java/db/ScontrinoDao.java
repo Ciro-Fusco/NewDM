@@ -68,6 +68,7 @@ public class ScontrinoDao {
         LocalDateTime data_2_years_ago = LocalDateTime.now().minusYears(2);
         if (data_obj.isBefore(data_2_years_ago))
           throw new ScontrinoException("Scontrino inserito non più in garanzia");
+        else{System.out.println(); }
       }
     } catch (SQLException e) {
       e.printStackTrace();

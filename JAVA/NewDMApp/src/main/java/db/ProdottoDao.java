@@ -27,7 +27,9 @@ public class ProdottoDao {
       prep.setLong(1, cod);
       ResultSet res = prep.executeQuery();
 
-      if (res.next()) {
+      if (!res.next()) {
+        throw new ProdottoNotFoundException("Prodotto non trovato");
+      } else {
         return new Prodotto(
                 res.getDouble("Prezzo"),
                 res.getLong("Codice"),
@@ -38,7 +40,6 @@ public class ProdottoDao {
                 res.getString("Tipologia"));
 
       }
-      throw new ProdottoNotFoundException("Prodotto non trovato");
 
     } catch (SQLException throwables) {
       throwables.printStackTrace();

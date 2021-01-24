@@ -28,11 +28,12 @@ public class UtenteDao {
       String shapass = DigestUtils.sha1Hex(pass);
       prep.setString(2, shapass);
       ResultSet res = prep.executeQuery();
-      if (res.next()) {
+      if (!res.next()) {
+        throw new UtenteNotFoundException("Utente non trovato\nControlla username e password");
+      } else {
         setUtente(res.getString("NOME"), res.getString("COGNOME"), res.getString("USERNAME"));
         return true;
       }
-      throw new UtenteNotFoundException("Utente non trovato\nControlla username e password");
     } catch (SQLException e) {
       e.printStackTrace();
       throw new DatabaseException("Errore generico");

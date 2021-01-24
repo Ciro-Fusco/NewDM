@@ -40,4 +40,5 @@ public class DatabaseConnectionTest {
         assertNotEquals(null,DatabaseConnection.getCon());
         DatabaseConnection.close();
     }
+
 }

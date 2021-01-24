@@ -42,7 +42,7 @@ public class ElencaDao {
       ResultSet rs = state.executeQuery();
       if (!rs.next()) {
         throw new ElencaException("Prodotto non correlato allo Scontrino immesso");
-      }
+      }else{int i =1;}
     } catch (SQLException throwables) {
       throwables.printStackTrace();
       throw new DatabaseException("Errore nel Database.");
