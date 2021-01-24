@@ -2,9 +2,11 @@ language: java
 
 sudo: false
 
+
 script:
   - mvn -f JAVA/NewDMApp/pom.xml clean verify
-  
+
+
 branches:
   only:
-    - Codice
+   - Codice

@@ -1,0 +1,5 @@
+module:org.exemple
+controller
+db
+entity
+exceptions

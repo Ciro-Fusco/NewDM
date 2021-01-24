@@ -90,5 +90,14 @@ modules.xml
 # Sonarlint plugin
 .idea/sonarlint
 
+# File di output Intellij
+target/*
+
 # End of https://www.toptal.com/developers/gitignore/api/intellij+all
 *.class
+
+*.lst
+JAVA/NewDMApp/src/main/java/db/DatabaseConnection.java
+JAVA/NewDMApp/src/main/java/db/DatabaseConnection.java
+JAVA/NewDMApp/src/main/java/db/DatabaseConnection.java
+JAVA/NewDMApp/src/main/java/controller/App.java
