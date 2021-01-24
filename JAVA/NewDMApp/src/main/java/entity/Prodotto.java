@@ -17,7 +17,15 @@ public class Prodotto {
   private int quantity;
   private String tipologia, scadenza, dimensioneConfezione;
 
-  public Prodotto(double prezzo, long codice, String nome, int quantity, String dimensione, String scade, String tipologia) throws ProdottoException {
+  public Prodotto(
+      double prezzo,
+      long codice,
+      String nome,
+      int quantity,
+      String dimensione,
+      String scade,
+      String tipologia)
+      throws ProdottoException {
     if (prezzo <= 0 || quantity <= 0)
       throw new ProdottoException("Prezzo e quantità devono essere entrambi positivi");
     this.prezzo = prezzo;
@@ -29,12 +37,9 @@ public class Prodotto {
     String temp = tipologia.substring(0, 1).toUpperCase();
     tipologia = tipologia.toLowerCase();
     this.tipologia = tipologia.replace(tipologia.substring(0, 1), temp);
-
-
   }
 
-  public Prodotto() {
-  }
+  public Prodotto() {}
 
   public String getTipologia() {
     return tipologia;
@@ -120,7 +125,7 @@ public class Prodotto {
    * @param cod Codice del prodotto da trovare
    * @return Il prodotto cercato
    * @throws ProdottoNotFoundException Prodotto non trovato
-   * @throws DatabaseException         Errore nel database
+   * @throws DatabaseException Errore nel database
    */
   public static Prodotto search(Long cod) throws ProdottoException, DatabaseException {
     return ProdottoDao.search(cod);
@@ -174,24 +179,44 @@ public class Prodotto {
 
   @Override
   public String toString() {
-    return "Prodotto{" +
-            "acquistato=" + acquistato +
-            ", prezzo=" + prezzo +
-            ", codice=" + codice +
-            ", nome='" + nome + '\'' +
-            ", quantity=" + quantity +
-            ", tipologia='" + tipologia + '\'' +
-            ", scadenza='" + scadenza + '\'' +
-            ", dimensioneConfezione='" + dimensioneConfezione + '\'' +
-            '}';
+    return "Prodotto{"
+        + "acquistato="
+        + acquistato
+        + ", prezzo="
+        + prezzo
+        + ", codice="
+        + codice
+        + ", nome='"
+        + nome
+        + '\''
+        + ", quantity="
+        + quantity
+        + ", tipologia='"
+        + tipologia
+        + '\''
+        + ", scadenza='"
+        + scadenza
+        + '\''
+        + ", dimensioneConfezione='"
+        + dimensioneConfezione
+        + '\''
+        + '}';
   }
 
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    Prodotto prodotto = (Prodotto) o;
-    return getCodice() == prodotto.getCodice();
+    else {
+      if (o == null || getClass() != o.getClass()) return false;
+      else {
+        Prodotto prodotto = (Prodotto) o;
+        if (getCodice() == prodotto.getCodice()) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
   }
 
   public boolean eliminaProdotto() throws DatabaseException {

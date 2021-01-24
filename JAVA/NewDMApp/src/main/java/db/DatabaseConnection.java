@@ -9,6 +9,7 @@ public class DatabaseConnection {
 
   /**
    * Esegue la connessione al Database.
+   *
    * @throws DatabaseException Errore del Database
    */
   public static void connect() throws DatabaseException {
@@ -23,6 +24,8 @@ public class DatabaseConnection {
         String username = "root";
         String pwd = "federernadal";
         con = DriverManager.getConnection(url, username, pwd);
+      } else {
+        System.out.println();
       }
     } catch (SQLException e) {
       e.printStackTrace();
@@ -30,10 +33,11 @@ public class DatabaseConnection {
     } catch (ClassNotFoundException e) {
       e.printStackTrace();
     }
-
   }
 
-  /** Chiude la connessione con il Database.
+  /**
+   * Chiude la connessione con il Database.
+   *
    * @throws DatabaseException Errore del database
    */
   public static void close() throws DatabaseException {
