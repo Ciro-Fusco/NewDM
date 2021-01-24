@@ -60,14 +60,4 @@ public class ElencaDaoTest {
     assertTrue(actualMessage.contains(expectedMessage));
     DatabaseConnection.close();
   }
-
-
-  @Test
-  public  void saveCorretto() throws DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
-    Scontrino s = new Scontrino();
-    s.addProdotto(1000000000001l);
-    s.save();
-    DatabaseConnection.close();
-  }
 }

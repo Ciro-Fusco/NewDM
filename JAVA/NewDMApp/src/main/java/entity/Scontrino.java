@@ -19,7 +19,7 @@ public class Scontrino implements Serializable {
   private double tot = 0;
   private double resto;
   private double versato;
-  private final String data;
+  private String data;
   private String riepilogo = "";
   private long id;
 
@@ -122,6 +122,12 @@ public class Scontrino implements Serializable {
 
   public String getData() {
     return data;
+  }
+
+  public void setDataSbagliataTEST() {
+    LocalDateTime date = LocalDateTime.of(1999,06,05,00,00);
+    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+    this.data= date.format(myFormatObj);
   }
 
   public String getRiepilogo() {
