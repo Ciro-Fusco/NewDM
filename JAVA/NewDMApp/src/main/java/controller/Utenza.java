@@ -13,10 +13,10 @@ public class Utenza {
   public TextField us;
   public PasswordField pass;
 
-    @FXML
+  @FXML
   public void checkLogin(MouseEvent mouseEvent) throws Exception {
-      if (Utente.login(us.getText(), pass.getText())) {
-        App.setRoot("Dashboard");
+    if (Utente.login(us.getText(), pass.getText())) {
+      App.setRoot("Dashboard");
     }
   }
 
@@ -39,5 +39,23 @@ public class Utenza {
   @FXML
   public void openCassa(MouseEvent mouseEvent) throws Exception {
     App.setRoot("Cassa");
+  }
+
+  // GET E SETTER PER TESTING
+
+  public TextField getUs() {
+    return us;
+  }
+
+  public void setUs(TextField us) {
+    this.us = us;
+  }
+
+  public PasswordField getPass() {
+    return pass;
+  }
+
+  public void setPass(PasswordField pass) {
+    this.pass = pass;
   }
 }

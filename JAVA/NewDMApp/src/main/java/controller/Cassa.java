@@ -35,12 +35,18 @@ public class Cassa implements Initializable {
     if (nomeFile.equals("Cassa.fxml")) {
       if (scontrino != null) {
         scontrinoTextField.appendText(scontrino.getRiepilogo());
+      } else {
+        System.out.println();
       }
+    } else {
+      System.out.println();
     }
 
     if (nomeFile.equals("CassaTotale.fxml")) {
       scontrino.calcolaTot();
       totaleLabel.setText(Double.toString(scontrino.getTot()));
+    } else {
+      System.out.println();
     }
 
     if (nomeFile.equals("CassaRiepilogo.fxml")) {
@@ -48,7 +54,11 @@ public class Cassa implements Initializable {
         scontrino.calcolaResto();
         restoLabel.setText(String.format("%.2f", scontrino.getResto()));
         riepilogoTextArea.setText(scontrino.getRiepilogo());
+      } else {
+        System.out.println();
       }
+    } else {
+      System.out.println();
     }
   }
 
@@ -86,7 +96,7 @@ public class Cassa implements Initializable {
     try {
       if (scontrino == null) {
         scontrino = new Scontrino();
-      }
+      }else{System.out.println();};
       scontrino.addProdotto(Long.parseLong(codiceProd.getText()));
       AlertMessage.showInformation("Prodotto inserito correttamente");
     } catch (NumberFormatException excpt) {
@@ -123,4 +133,62 @@ public class Cassa implements Initializable {
   }
 
   /////////////////////////////////////////////////////////////////
+
+  // GET E SETTER PER TEST
+
+  public static Scontrino getScontrino() {
+    return scontrino;
+  }
+
+  public static void setScontrino(Scontrino scontrino) {
+    Cassa.scontrino = scontrino;
+  }
+
+  public TextField getCodiceProd() {
+    return codiceProd;
+  }
+
+  public void setCodiceProd(TextField codiceProd) {
+    this.codiceProd = codiceProd;
+  }
+
+  public TextArea getScontrinoTextField() {
+    return scontrinoTextField;
+  }
+
+  public void setScontrinoTextField(TextArea scontrinoTextField) {
+    this.scontrinoTextField = scontrinoTextField;
+  }
+
+  public TextField getSommaVersataTextField() {
+    return sommaVersataTextField;
+  }
+
+  public void setSommaVersataTextField(TextField sommaVersataTextField) {
+    this.sommaVersataTextField = sommaVersataTextField;
+  }
+
+  public Label getTotaleLabel() {
+    return totaleLabel;
+  }
+
+  public void setTotaleLabel(Label totaleLabel) {
+    this.totaleLabel = totaleLabel;
+  }
+
+  public TextArea getRiepilogoTextArea() {
+    return riepilogoTextArea;
+  }
+
+  public void setRiepilogoTextArea(TextArea riepilogoTextArea) {
+    this.riepilogoTextArea = riepilogoTextArea;
+  }
+
+  public Label getRestoLabel() {
+    return restoLabel;
+  }
+
+  public void setRestoLabel(Label restoLabel) {
+    this.restoLabel = restoLabel;
+  }
 }

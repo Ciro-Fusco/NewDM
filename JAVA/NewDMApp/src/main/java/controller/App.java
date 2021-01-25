@@ -19,7 +19,7 @@ public class App extends Application {
     stage.show();
   }
 
-  static void setRoot(String fxml) throws IOException {
+  public  static void setRoot(String fxml) throws IOException {
     scene.setRoot(loadfxml(fxml));
   }
 
@@ -32,4 +32,5 @@ public class App extends Application {
   public static void main(String[] args) {
     launch();
   }
+
 }
