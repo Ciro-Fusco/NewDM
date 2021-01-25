@@ -145,4 +145,103 @@ public class Assistenza {
     }
   }
   /////////////////////////////////////////////////////
+
+  //GET E SETTER PER TESTING
+
+
+  public static Ticket getTicket() {
+    return ticket;
+  }
+
+  public static void setTicket(Ticket ticket) {
+    Assistenza.ticket = ticket;
+  }
+
+  public TextField getNomeCognCli() {
+    return nomeCognCli;
+  }
+
+  public void setNomeCognCli(TextField nomeCognCli) {
+    this.nomeCognCli = nomeCognCli;
+  }
+
+  public TextField getTelefonoCli() {
+    return telefonoCli;
+  }
+
+  public void setTelefonoCli(TextField telefonoCli) {
+    this.telefonoCli = telefonoCli;
+  }
+
+  public TextField getCodFiscCli() {
+    return codFiscCli;
+  }
+
+  public void setCodFiscCli(TextField codFiscCli) {
+    this.codFiscCli = codFiscCli;
+  }
+
+  public TextField getIndirizzoResiCli() {
+    return indirizzoResiCli;
+  }
+
+  public void setIndirizzoResiCli(TextField indirizzoResiCli) {
+    this.indirizzoResiCli = indirizzoResiCli;
+  }
+
+  public TextField getTipoProdotto() {
+    return tipoProdotto;
+  }
+
+  public void setTipoProdotto(TextField tipoProdotto) {
+    this.tipoProdotto = tipoProdotto;
+  }
+
+  public TextField getNomeProdotto() {
+    return nomeProdotto;
+  }
+
+  public void setNomeProdotto(TextField nomeProdotto) {
+    this.nomeProdotto = nomeProdotto;
+  }
+
+  public TextField getCodProdotto() {
+    return codProdotto;
+  }
+
+  public void setCodProdotto(TextField codProdotto) {
+    this.codProdotto = codProdotto;
+  }
+
+  public TextField getNumSerieProd() {
+    return numSerieProd;
+  }
+
+  public void setNumSerieProd(TextField numSerieProd) {
+    this.numSerieProd = numSerieProd;
+  }
+
+  public TextField getNumScontrino() {
+    return numScontrino;
+  }
+
+  public void setNumScontrino(TextField numScontrino) {
+    this.numScontrino = numScontrino;
+  }
+
+  public TextField getDataScontrino() {
+    return dataScontrino;
+  }
+
+  public void setDataScontrino(TextField dataScontrino) {
+    this.dataScontrino = dataScontrino;
+  }
+
+  public TextField getDettagliProb() {
+    return dettagliProb;
+  }
+
+  public void setDettagliProb(TextField dettagliProb) {
+    this.dettagliProb = dettagliProb;
+  }
 }
