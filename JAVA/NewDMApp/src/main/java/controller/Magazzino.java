@@ -61,19 +61,27 @@ public class Magazzino implements Initializable {
       labelNomeProdSugg.setText(prodotto.getNome());
       labelQuantitaProdSugg.setText(Integer.toString(prodotto.getQuantity()));
       labelOrdineCalcSugg.setText(Integer.toString(ordineCalcolato));
+    } else {
+      System.out.println();
     }
 
     if (nomeFile.equals("InserisciNuovoProdottoRiepilogo.fxml")) {
       riepilogoNuovoProdotto.setText(prodotto.toString());
+    } else {
+      System.out.println();
     }
 
     if (nomeFile.equals("InserisciProdottoRiepilogo.fxml")) {
       riepilogoProdotto.setText(tempProdotto.toString());
+    } else {
+      System.out.println();
     }
 
     if (nomeFile.equals("ModPrezzoProdottoPopUp.fxml")) {
       labelPrezzoProd.setText(Double.toString(prodotto.getPrezzo()));
       labelNomeProd.setText(prodotto.getNome());
+    } else {
+      System.out.println();
     }
   }
 
@@ -305,4 +313,359 @@ public class Magazzino implements Initializable {
   }
 
   /////////////////////////////////////////////////////////
+
+  // GET E SETTER PER TEST
+
+
+  public void setNomeProd(TextField nomeProd) {
+    this.nomeProd = nomeProd;
+  }
+
+  public void setPrezzoProd(TextField prezzoProd) {
+    this.prezzoProd = prezzoProd;
+  }
+
+  public void setCodiceProd(TextField codiceProd) {
+    this.codiceProd = codiceProd;
+  }
+
+  public void setQuantitaProd(TextField quantitaProd) {
+    this.quantitaProd = quantitaProd;
+  }
+
+  public void setRiepilogoNuovoProdotto(TextField riepilogoNuovoProdotto) {
+    this.riepilogoNuovoProdotto = riepilogoNuovoProdotto;
+  }
+
+  public void setRiepilogoProdotto(TextField riepilogoProdotto) {
+    this.riepilogoProdotto = riepilogoProdotto;
+  }
+
+  public void setLabelNomeProd(Label labelNomeProd) {
+    this.labelNomeProd = labelNomeProd;
+  }
+
+  public void setLabelPrezzoProd(Label labelPrezzoProd) {
+    this.labelPrezzoProd = labelPrezzoProd;
+  }
+
+  public void setLabelOrdineCalcSugg(Label labelOrdineCalcSugg) {
+    this.labelOrdineCalcSugg = labelOrdineCalcSugg;
+  }
+
+  public void setLabelNomeProdSugg(Label labelNomeProdSugg) {
+    this.labelNomeProdSugg = labelNomeProdSugg;
+  }
+
+  public void setLabelQuantitaProdSugg(Label labelQuantitaProdSugg) {
+    this.labelQuantitaProdSugg = labelQuantitaProdSugg;
+  }
+
+  public void setTipologiaProd(TextField tipologiaProd) {
+    this.tipologiaProd = tipologiaProd;
+  }
+
+  public void setPrezzoSped(TextField prezzoSped) {
+    this.prezzoSped = prezzoSped;
+  }
+
+  public void setPiccolaDim(RadioButton piccolaDim) {
+    this.piccolaDim = piccolaDim;
+  }
+
+  public void setMedioDim(RadioButton medioDim) {
+    this.medioDim = medioDim;
+  }
+
+  public void setGrandeDim(RadioButton grandeDim) {
+    this.grandeDim = grandeDim;
+  }
+
+  public void setBreveSca(RadioButton breveSca) {
+    this.breveSca = breveSca;
+  }
+
+  public void setMediaSca(RadioButton mediaSca) {
+    this.mediaSca = mediaSca;
+  }
+
+  public void setLungaSca(RadioButton lungaSca) {
+    this.lungaSca = lungaSca;
+  }
+
+  public void setPrimavera(RadioButton primavera) {
+    this.primavera = primavera;
+  }
+
+  public void setEstate(RadioButton estate) {
+    this.estate = estate;
+  }
+
+  public void setAutunno(RadioButton autunno) {
+    this.autunno = autunno;
+  }
+
+  public void setInverno(RadioButton inverno) {
+    this.inverno = inverno;
+  }
+
+  public void setDimensioni(ToggleGroup dimensioni) {
+    this.dimensioni = dimensioni;
+  }
+
+  public void setScadenza(ToggleGroup scadenza) {
+    this.scadenza = scadenza;
+  }
+
+  public void setStagione(ToggleGroup stagione) {
+    this.stagione = stagione;
+  }
+
+  public void setTipoSupermerc(ToggleGroup tipoSupermerc) {
+    this.tipoSupermerc = tipoSupermerc;
+  }
+
+  public void setFestivita(ToggleGroup festivita) {
+    this.festivita = festivita;
+  }
+
+  public static Prodotto getProdotto() {
+    return prodotto;
+  }
+
+  public static void setProdotto(Prodotto prodotto) {
+    Magazzino.prodotto = prodotto;
+  }
+
+  public static Prodotto getTempProdotto() {
+    return tempProdotto;
+  }
+
+  public static void setTempProdotto(Prodotto tempProdotto) {
+    Magazzino.tempProdotto = tempProdotto;
+  }
+
+  public TextField getNomeProd() {
+    return nomeProd;
+  }
+
+  public void setNomeProd(String nomeProd) {
+    this.nomeProd.setText(nomeProd);
+  }
+
+  public TextField getPrezzoProd() {
+    return prezzoProd;
+  }
+
+  public void setPrezzoProd(String prezzoProd) {
+    this.prezzoProd.setText(prezzoProd);
+  }
+
+  public TextField getCodiceProd() {
+    return codiceProd;
+  }
+
+  public void setCodiceProd(String codiceProd) {
+    this.codiceProd.setText(codiceProd);
+  }
+
+  public TextField getQuantitaProd() {
+    return quantitaProd;
+  }
+
+  public void setQuantitaProd(String quantitaProd) {
+    this.quantitaProd.setText(quantitaProd);
+  }
+
+  public TextField getRiepilogoNuovoProdotto() {
+    return riepilogoNuovoProdotto;
+  }
+
+  public void setRiepilogoNuovoProdotto(String riepilogoNuovoProdotto) {
+    this.riepilogoNuovoProdotto.setText(riepilogoNuovoProdotto);
+  }
+
+  public TextField getRiepilogoProdotto() {
+    return riepilogoProdotto;
+  }
+
+  public void setRiepilogoProdotto(String riepilogoProdotto) {
+    this.riepilogoProdotto.setText(riepilogoProdotto);
+  }
+
+  public Label getLabelNomeProd() {
+    return labelNomeProd;
+  }
+
+  public void setLabelNomeProd(String labelNomeProd) {
+    this.labelNomeProd.setText(labelNomeProd);
+  }
+
+  public Label getLabelPrezzoProd() {
+    return labelPrezzoProd;
+  }
+
+  public void setLabelPrezzoProd(String labelPrezzoProd) {
+    this.labelPrezzoProd.setText(labelPrezzoProd);
+  }
+
+  public Label getLabelOrdineCalcSugg() {
+    return labelOrdineCalcSugg;
+  }
+
+  public void setLabelOrdineCalcSugg(String labelOrdineCalcSugg) {
+    this.labelOrdineCalcSugg.setText(labelOrdineCalcSugg);
+  }
+
+  public Label getLabelNomeProdSugg() {
+    return labelNomeProdSugg;
+  }
+
+  public void setLabelNomeProdSugg(String labelNomeProdSugg) {
+    this.labelNomeProdSugg.setText(labelNomeProdSugg);
+  }
+
+  public Label getLabelQuantitaProdSugg() {
+    return labelQuantitaProdSugg;
+  }
+
+  public void setLabelQuantitaProdSugg(String labelQuantitaProdSugg) {
+    this.labelQuantitaProdSugg.setText(labelQuantitaProdSugg);
+  }
+
+  public TextField getTipologiaProd() {
+    return tipologiaProd;
+  }
+
+  public void setTipologiaProd(String tipologiaProd) {
+    this.tipologiaProd.setText(tipologiaProd);
+  }
+
+  public TextField getPrezzoSped() {
+    return prezzoSped;
+  }
+
+  public void setPrezzoSped(String prezzoSped) {
+    this.prezzoSped.setText(prezzoSped);
+  }
+
+  public RadioButton getPiccolaDim() {
+    return piccolaDim;
+  }
+
+  public void setPiccolaDim(boolean piccolaDim) {
+    this.piccolaDim.setSelected(piccolaDim);
+  }
+
+  public RadioButton getMedioDim() {
+    return medioDim;
+  }
+
+  public void setMedioDim(boolean medioDim) {
+    this.medioDim.setSelected(medioDim);
+  }
+
+  public RadioButton getGrandeDim() {
+    return grandeDim;
+  }
+
+  public void setGrandeDim(boolean grandeDim) {
+    this.grandeDim.setSelected(grandeDim);
+  }
+
+  public RadioButton getBreveSca() {
+    return breveSca;
+  }
+
+  public void setBreveSca(boolean breveSca) {
+    this.breveSca.setSelected(breveSca);
+  }
+
+  public RadioButton getMediaSca() {
+    return mediaSca;
+  }
+
+  public void setMediaSca(boolean mediaSca) {
+    this.mediaSca.setSelected(mediaSca);
+  }
+
+  public RadioButton getLungaSca() {
+    return lungaSca;
+  }
+
+  public void setLungaSca(boolean lungaSca) {
+    this.lungaSca.setSelected(lungaSca);
+  }
+
+  public RadioButton getPrimavera() {
+    return primavera;
+  }
+
+  public void setPrimavera(boolean primavera) {
+    this.primavera.setSelected(primavera);
+  }
+
+  public RadioButton getEstate() {
+    return estate;
+  }
+
+  public void setEstate(boolean estate) {
+    this.estate.setSelected(estate);
+  }
+
+  public RadioButton getAutunno() {
+    return autunno;
+  }
+
+  public void setAutunno(boolean autunno) {
+    this.autunno.setSelected(autunno);
+  }
+
+  public RadioButton getInverno() {
+    return inverno;
+  }
+
+  public void setInverno(boolean inverno) {
+    this.inverno.setSelected(inverno);
+  }
+
+  public static int getOrdineCalcolato() {
+    return ordineCalcolato;
+  }
+
+  public ToggleGroup getDimensioni() {
+    return dimensioni;
+  }
+
+  public void setDimensioni(RadioButton dimensioni) {
+    this.dimensioni.selectToggle(dimensioni);
+  }
+
+  public ToggleGroup getScadenza() {
+    return scadenza;
+  }
+
+  public void setScadenza(RadioButton scadenza) {
+    this.scadenza.selectToggle(scadenza);
+  }
+
+  public ToggleGroup getStagione() {
+    return stagione;
+  }
+
+  public void setStagione(RadioButton stagione) {
+    this.stagione.selectToggle(stagione);
+  }
+
+  public ToggleGroup getTipoSupermerc() {
+    return tipoSupermerc;
+  }
+
+  public void setTipoSupermerc(RadioButton tipoSupermerc) {
+    this.tipoSupermerc.selectToggle(tipoSupermerc);
+  }
+
+  public static void setOrdineCalcolato(int ordineCalcolato) {
+    Magazzino.ordineCalcolato = ordineCalcolato;
+  }
 }
