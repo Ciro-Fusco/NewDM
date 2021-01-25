@@ -29,7 +29,7 @@ public class Utente {
   /**
    * Elimina le informazioni circa l'utente correntemente autenticato
    */
-  public static void clear() {
+  private static void clear() {
     setUtente(null, null, null);
   }
 

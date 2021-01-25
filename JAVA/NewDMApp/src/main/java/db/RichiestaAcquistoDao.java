@@ -16,9 +16,10 @@ public class RichiestaAcquistoDao {
       PreparedStatement prep =
               DatabaseConnection.con.prepareStatement(Query.saveRichiesta, Statement.RETURN_GENERATED_KEYS);
       prep.setInt(1, r.getQuantity());
-      prep.setString(2, r.getData());
-      prep.setString(3, r.getStato());
-      prep.setLong(4, r.getCodice());
+      prep.setString(2, r.getData().substring(0,10));
+      prep.setString(3,r.getData().substring(11,19));
+      prep.setString(4, r.getStato());
+      prep.setLong(5, r.getCodice());
       prep.executeUpdate();
       ResultSet rs = prep.getGeneratedKeys();
       rs.next();

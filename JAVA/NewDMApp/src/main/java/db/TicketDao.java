@@ -36,12 +36,12 @@ public class TicketDao {
     }
   }
 
-  public static Ticket getTicket(String apertura, String CF, Long serie) throws TicketNotFoundException, DatabaseException {
+  public static Ticket getTicket(String apertura, String CF, String serie) throws TicketNotFoundException, DatabaseException {
     try {
       PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.getTicket);
-      prep.setString(1, apertura);
+      prep.setString(1, apertura+"%");
       prep.setString(2, CF);
-      prep.setLong(3, serie);
+      prep.setString(3, serie);
       ResultSet res = prep.executeQuery();
       if (!res.next()) {
         throw new TicketNotFoundException("Ticket non trovato. Controllare i campi");

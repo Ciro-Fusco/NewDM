@@ -19,7 +19,7 @@ public class ElencaDaoTest {
     s.addProdotto(1000000000001L);
     s.save();
     try {
-      ElencaDao.checkCorrispondenza(s.getId(), s.getData(), 1000000000001L);
+      ElencaDao.checkCorrispondenza(s.getId(), s.getData().substring(0,10), 1000000000001L);
     } catch (ElencaException e) {
       e.printStackTrace();
       assertFalse(true);

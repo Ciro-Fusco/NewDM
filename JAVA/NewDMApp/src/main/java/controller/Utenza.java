@@ -15,9 +15,9 @@ public class Utenza {
 
   @FXML
   public void checkLogin(MouseEvent mouseEvent) throws Exception {
-    if (Utente.login(us.getText(), pass.getText())) {
+    Utente.login(us.getText(), pass.getText());
       App.setRoot("Dashboard");
-    }
+
   }
 
   public void logout(MouseEvent mouseEvent) throws Exception {

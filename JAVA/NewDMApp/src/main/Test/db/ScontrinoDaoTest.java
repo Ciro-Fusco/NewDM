@@ -18,7 +18,7 @@ public class ScontrinoDaoTest {
     s.addProdotto(1000000000001L);
     s.save();
     try {
-      ScontrinoDao.checkScontrino(s.getId(), s.getData());
+      ScontrinoDao.checkScontrino(s.getId(), s.getData().substring(0,10));
     } catch (ScontrinoNotFoundException ex) {
       ex.printStackTrace();
       assertFalse(true);
@@ -58,7 +58,7 @@ public class ScontrinoDaoTest {
             assertThrows(
                     ScontrinoException.class,
                     () -> {
-                      ScontrinoDao.checkScontrino(s.getId(), s.getData());
+                      ScontrinoDao.checkScontrino(s.getId(), s.getData().substring(0,10));
                     });
     String expectedMessage = "Scontrino inserito non più in garanzia";
     String actualMessage = ex.getMessage();

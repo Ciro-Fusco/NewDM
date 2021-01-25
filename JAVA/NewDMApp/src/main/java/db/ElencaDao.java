@@ -18,7 +18,7 @@ public class ElencaDao {
       try {
         PreparedStatement state = DatabaseConnection.con.prepareStatement(Query.elenca);
         state.setLong(1, s.getId());
-        state.setString(2, s.getData());
+        state.setString(2, s.getData().substring(0,10));
         state.setLong(3, c.getCodice());
         state.setInt(4, c.getAcquistato());
         state.executeUpdate();
