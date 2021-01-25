@@ -178,8 +178,27 @@ public class Ticket {
     this.codiceProdotto = codiceProdotto;
   }
 
-  public static Ticket getTicket(String apertura, String CF, Long serie)
+  public static Ticket getTicket(String apertura, String CF, String serie)
           throws DatabaseException, TicketException {
     return TicketDao.getTicket(apertura, CF, serie);
+  }
+
+  @Override
+  public String toString() {
+    return "Ticket{" +
+            "nomeCognome='" + nomeCognome + '\'' +
+            ", cf='" + cf + '\'' +
+            ", indirizzo='" + indirizzo + '\'' +
+            ", numeroDiSerie='" + numeroDiSerie + '\'' +
+            ", nomeProdotto='" + nomeProdotto + '\'' +
+            ", stato='" + stato + '\'' +
+            ", problema='" + problema + '\'' +
+            ", dataApertura='" + dataApertura + '\'' +
+            ", dataScontrino='" + dataScontrino + '\'' +
+            ", tipo='" + tipo + '\'' +
+            ", numTel=" + numTel +
+            ", codiceProdotto=" + codiceProdotto +
+            ", codiceScontrino=" + codiceScontrino +
+            '}';
   }
 }
