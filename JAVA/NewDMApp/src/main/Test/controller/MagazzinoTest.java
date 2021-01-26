@@ -457,6 +457,7 @@ public class MagazzinoTest {
         DatabaseConnection.close();
     }
 
+
     @Test
     public void cercaProdottoOrdinaCodiceSbagliato() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();

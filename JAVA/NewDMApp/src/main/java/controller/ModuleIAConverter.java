@@ -30,6 +30,8 @@ public class ModuleIAConverter {
       case "pesce":
         features[6] = 1;
         break;
+
+      default: return -1;
     }
     switch (stagione.toLowerCase()) {
 
@@ -46,6 +48,8 @@ public class ModuleIAConverter {
         features[10] = 1;
         break;
 
+      default: return -1;
+
     }
 
     switch (tipoSupermerc.toLowerCase()) {
@@ -56,7 +60,7 @@ public class ModuleIAConverter {
       case "residenziale":
         features[12] = 1;
         break;
-
+      default: return -1;
     }
 
     switch (festività.toLowerCase()) {
@@ -67,7 +71,7 @@ public class ModuleIAConverter {
       case "lavorativo":
         features[14] = 1;
         break;
-
+      default: return -1;
     }
 
     switch (p.getScadenza().toLowerCase()) {
@@ -81,7 +85,7 @@ public class ModuleIAConverter {
       case "media":
         features[17] = 1;
         break;
-
+      default: return -1;
     }
 
     switch (p.getDimensioneConfezione().toLowerCase()) {
@@ -95,7 +99,7 @@ public class ModuleIAConverter {
       case "piccola":
         features[20] = 1;
         break;
-
+      default: return -1;
     }
 
     switch(RandomForestClassifier.predict(features)){
