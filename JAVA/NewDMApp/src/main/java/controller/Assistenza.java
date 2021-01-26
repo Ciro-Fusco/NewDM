@@ -50,7 +50,8 @@ public class Assistenza {
             // controllo la lunghezza del tipo del prodotto
             if (tipoProdotto.getText().length() >= 2 && tipoProdotto.getText().length() <= 255) {
               // controllo che il codice del prodotto sia scritto correttamente
-              if (codProdotto.getText().matches("^[0-9]{13}$") && Prodotto.search(Long.parseLong(codProdotto.getText())) != null) {
+              if (codProdotto.getText().matches("^[0-9]{13}$")) {
+                Prodotto.search(Long.parseLong(codProdotto.getText()));
                 // controllo la lunghezza del numero di serie del prodotto
                 if (numSerieProd.getText().length() >= 2
                     && numSerieProd.getText().length() <= 255) {
