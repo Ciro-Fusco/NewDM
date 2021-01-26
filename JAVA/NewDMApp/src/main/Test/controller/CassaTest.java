@@ -1,29 +1,20 @@
 package controller;
 
+import cassa.Cassa;
 import db.DatabaseConnection;
 import de.saxsys.javafx.test.JfxRunner;
-import entity.Scontrino;
+import cassa.Scontrino;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import exceptions.ScontrinoException;
-import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import static org.junit.Assert.*;

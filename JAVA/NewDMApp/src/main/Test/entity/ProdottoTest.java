@@ -1,15 +1,12 @@
 package entity;
 
 import db.DatabaseConnection;
-import db.ProdottoDao;
+import magazzino.Prodotto;
+import magazzino.ProdottoDao;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterAll;
-
-import java.io.PipedOutputStream;
 
 import static org.junit.Assert.*;
 

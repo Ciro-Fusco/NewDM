@@ -1,13 +1,12 @@
 package entity;
 
+import cassa.Scontrino;
 import db.DatabaseConnection;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import exceptions.ScontrinoException;
-import org.junit.Assert;
-import org.junit.FixMethodOrder;
+import magazzino.Prodotto;
 import org.junit.Test;
-import org.junit.runners.MethodSorters;
 
 import static org.junit.Assert.*;
 

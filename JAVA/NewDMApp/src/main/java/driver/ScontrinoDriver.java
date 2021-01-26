@@ -1,7 +1,7 @@
 package driver;
 
 import db.DatabaseConnection;
-import entity.Scontrino;
+import cassa.Scontrino;
 import exceptions.*;
 
 import java.util.Scanner;

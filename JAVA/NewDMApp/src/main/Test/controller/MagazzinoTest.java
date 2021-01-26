@@ -2,17 +2,17 @@ package controller;
 
 import db.DatabaseConnection;
 import de.saxsys.javafx.test.JfxRunner;
-import entity.Prodotto;
+import magazzino.Prodotto;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import magazzino.Magazzino;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;

@@ -7,4 +7,12 @@ module org.exemple {
 
     opens controller to javafx.fxml;
     exports controller;
+    opens utenza to javafx.fxml;
+    exports utenza;
+    opens cassa to javafx.fxml;
+    exports cassa;
+    opens assistenza to javafx.fxml;
+    exports assistenza;
+    opens magazzino to javafx.fxml;
+    exports magazzino;
 }

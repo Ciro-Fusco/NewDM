@@ -1,7 +1,8 @@
 package db;
 
-import entity.Scontrino;
-import entity.Ticket;
+import assistenza.TicketDao;
+import cassa.Scontrino;
+import assistenza.Ticket;
 import exceptions.*;
 import org.junit.Test;
 

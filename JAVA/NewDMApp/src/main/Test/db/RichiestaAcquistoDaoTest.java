@@ -1,7 +1,8 @@
 package db;
 
-import entity.RichiestaAcquisto;
+import magazzino.RichiestaAcquisto;
 import exceptions.DatabaseException;
+import magazzino.RichiestaAcquistoDao;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

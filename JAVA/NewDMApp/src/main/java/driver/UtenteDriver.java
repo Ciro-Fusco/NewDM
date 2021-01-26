@@ -1,7 +1,7 @@
 package driver;
 
 import db.DatabaseConnection;
-import entity.Utente;
+import utenza.Utente;
 import exceptions.DatabaseException;
 import exceptions.UtenteNotFoundException;
 

@@ -1,10 +1,10 @@
 package db;
 
-import entity.Scontrino;
+import cassa.ElencaDao;
+import cassa.Scontrino;
 import exceptions.DatabaseException;
 import exceptions.ElencaException;
 import exceptions.ProdottoException;
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

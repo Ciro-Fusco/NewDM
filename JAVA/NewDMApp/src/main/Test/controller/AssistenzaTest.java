@@ -1,17 +1,16 @@
 package controller;
 
+import assistenza.Assistenza;
 import db.DatabaseConnection;
 import de.saxsys.javafx.test.JfxRunner;
-import entity.Scontrino;
-import entity.Ticket;
+import cassa.Scontrino;
+import assistenza.Ticket;
 import exceptions.*;
 import javafx.scene.control.TextField;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import static org.junit.Assert.*;
 

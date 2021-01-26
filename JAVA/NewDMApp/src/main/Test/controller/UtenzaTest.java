@@ -2,12 +2,12 @@ package controller;
 
 import db.DatabaseConnection;
 import de.saxsys.javafx.test.JfxRunner;
-import exceptions.DatabaseException;
 import exceptions.UtenteNotFoundException;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import utenza.Utenza;
 
 import static org.junit.Assert.*;
 

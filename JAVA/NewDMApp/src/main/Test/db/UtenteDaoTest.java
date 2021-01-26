@@ -3,6 +3,7 @@ package db;
 import exceptions.DatabaseException;
 import exceptions.UtenteNotFoundException;
 import org.junit.Test;
+import utenza.UtenteDao;
 
 import static org.junit.Assert.*;
 

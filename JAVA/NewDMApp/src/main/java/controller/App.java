@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /** JavaFX App */
@@ -14,8 +15,11 @@ public class App extends Application {
 
   @Override
   public void start(Stage stage) throws IOException {
-    scene = new Scene(loadfxml("Login"), 640, 480);
+    stage.getIcons().add(new Image(App.class.getResourceAsStream("LogoIcon.png")));
+    scene = new Scene(loadfxml("Login"), 800, 620);
     stage.setScene(scene);
+    /*stage.getIcons().add(new Image(FXMLUtils.class.getClassLoader().
+            getResourceAsStream("puffo.png")));*/
     stage.show();
   }
 

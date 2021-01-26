@@ -1,7 +1,7 @@
 package driver;
 
 import db.DatabaseConnection;
-import entity.RichiestaAcquisto;
+import magazzino.RichiestaAcquisto;
 import exceptions.*;
 
 import java.util.Scanner;

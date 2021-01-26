@@ -1,9 +1,10 @@
 package db;
 
-import entity.Prodotto;
+import magazzino.Prodotto;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import exceptions.ProdottoNotFoundException;
+import magazzino.ProdottoDao;
 import org.junit.AfterClass;
 import org.junit.Test;
 
@@ -14,7 +15,7 @@ public class ProdottoDaoTest {
     @Test
     public void searchCorretto() throws DatabaseException, ProdottoException {
         DatabaseConnection.connect();
-        Prodotto p =ProdottoDao.search(1000000000001L);
+        Prodotto p = ProdottoDao.search(1000000000001L);
         assertNotEquals(null,p);
         DatabaseConnection.close();
     }
