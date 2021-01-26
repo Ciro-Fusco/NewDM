@@ -425,9 +425,6 @@ public class Magazzino implements Initializable {
     this.tipoSupermerc = tipoSupermerc;
   }
 
-  public void setFestivita(ToggleGroup festivita) {
-    this.festivita = festivita;
-  }
 
   public static Prodotto getProdotto() {
     return prodotto;
@@ -450,6 +447,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setNomeProd(String nomeProd) {
+    this.nomeProd = new TextField();
     this.nomeProd.setText(nomeProd);
   }
 
@@ -458,6 +456,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setPrezzoProd(String prezzoProd) {
+    this.prezzoProd = new TextField();
     this.prezzoProd.setText(prezzoProd);
   }
 
@@ -466,6 +465,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setCodiceProd(String codiceProd) {
+    this.codiceProd = new TextField();
     this.codiceProd.setText(codiceProd);
   }
 
@@ -474,6 +474,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setQuantitaProd(String quantitaProd) {
+    this.quantitaProd= new TextField();
     this.quantitaProd.setText(quantitaProd);
   }
 
@@ -482,6 +483,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setRiepilogoNuovoProdotto(String riepilogoNuovoProdotto) {
+    this.riepilogoNuovoProdotto= new TextField();
     this.riepilogoNuovoProdotto.setText(riepilogoNuovoProdotto);
   }
 
@@ -490,6 +492,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setRiepilogoProdotto(String riepilogoProdotto) {
+    this.riepilogoProdotto= new TextField();
     this.riepilogoProdotto.setText(riepilogoProdotto);
   }
 
@@ -498,6 +501,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setLabelNomeProd(String labelNomeProd) {
+    this.labelNomeProd= new Label();
     this.labelNomeProd.setText(labelNomeProd);
   }
 
@@ -506,6 +510,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setLabelPrezzoProd(String labelPrezzoProd) {
+    this.labelPrezzoProd= new Label();
     this.labelPrezzoProd.setText(labelPrezzoProd);
   }
 
@@ -514,6 +519,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setLabelOrdineCalcSugg(String labelOrdineCalcSugg) {
+    this.labelOrdineCalcSugg= new Label();
     this.labelOrdineCalcSugg.setText(labelOrdineCalcSugg);
   }
 
@@ -522,6 +528,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setLabelNomeProdSugg(String labelNomeProdSugg) {
+    this.labelNomeProdSugg= new Label();
     this.labelNomeProdSugg.setText(labelNomeProdSugg);
   }
 
@@ -530,6 +537,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setLabelQuantitaProdSugg(String labelQuantitaProdSugg) {
+    this.labelQuantitaProdSugg= new Label();
     this.labelQuantitaProdSugg.setText(labelQuantitaProdSugg);
   }
 
@@ -538,6 +546,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setTipologiaProd(String tipologiaProd) {
+    this.tipologiaProd= new TextField();
     this.tipologiaProd.setText(tipologiaProd);
   }
 
@@ -546,6 +555,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setPrezzoSped(String prezzoSped) {
+    this.prezzoSped= new TextField();
     this.prezzoSped.setText(prezzoSped);
   }
 
@@ -554,6 +564,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setPiccolaDim(boolean piccolaDim) {
+    this.piccolaDim = new RadioButton();
     this.piccolaDim.setSelected(piccolaDim);
   }
 
@@ -562,6 +573,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setMedioDim(boolean medioDim) {
+    this.medioDim = new RadioButton();
     this.medioDim.setSelected(medioDim);
   }
 
@@ -570,6 +582,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setGrandeDim(boolean grandeDim) {
+    this.grandeDim = new RadioButton();
     this.grandeDim.setSelected(grandeDim);
   }
 
@@ -578,6 +591,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setBreveSca(boolean breveSca) {
+    this.breveSca = new RadioButton();
     this.breveSca.setSelected(breveSca);
   }
 
@@ -586,6 +600,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setMediaSca(boolean mediaSca) {
+    this.mediaSca = new RadioButton();
     this.mediaSca.setSelected(mediaSca);
   }
 
@@ -594,6 +609,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setLungaSca(boolean lungaSca) {
+    this.lungaSca = new RadioButton();
     this.lungaSca.setSelected(lungaSca);
   }
 
@@ -602,6 +618,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setPrimavera(boolean primavera) {
+    this.primavera = new RadioButton();
     this.primavera.setSelected(primavera);
   }
 
@@ -610,6 +627,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setEstate(boolean estate) {
+    this.estate = new RadioButton();
     this.estate.setSelected(estate);
   }
 
@@ -618,6 +636,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setAutunno(boolean autunno) {
+    this.autunno = new RadioButton();
     this.autunno.setSelected(autunno);
   }
 
@@ -626,6 +645,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setInverno(boolean inverno) {
+    this.inverno = new RadioButton();
     this.inverno.setSelected(inverno);
   }
 
@@ -638,6 +658,8 @@ public class Magazzino implements Initializable {
   }
 
   public void setDimensioni(RadioButton dimensioni) {
+    this.dimensioni=new ToggleGroup();
+    dimensioni.setToggleGroup(this.dimensioni);
     this.dimensioni.selectToggle(dimensioni);
   }
 
@@ -646,6 +668,8 @@ public class Magazzino implements Initializable {
   }
 
   public void setScadenza(RadioButton scadenza) {
+    this.scadenza=new ToggleGroup();
+    scadenza.setToggleGroup(this.scadenza);
     this.scadenza.selectToggle(scadenza);
   }
 
@@ -654,6 +678,8 @@ public class Magazzino implements Initializable {
   }
 
   public void setStagione(RadioButton stagione) {
+    this.stagione=new ToggleGroup();
+    stagione.setToggleGroup(this.stagione);
     this.stagione.selectToggle(stagione);
   }
 
@@ -662,8 +688,22 @@ public class Magazzino implements Initializable {
   }
 
   public void setTipoSupermerc(RadioButton tipoSupermerc) {
+    this.tipoSupermerc=new ToggleGroup();
+    tipoSupermerc.setToggleGroup(this.tipoSupermerc);
     this.tipoSupermerc.selectToggle(tipoSupermerc);
   }
+
+  public void setFestivita(ToggleGroup festivita) {
+    this.festivita = festivita;
+  }
+
+  public void setFestivita(RadioButton festivita) {
+    this.festivita = new ToggleGroup();
+    festivita.setToggleGroup(this.festivita);
+    this.festivita.selectToggle(festivita);
+  }
+
+
 
   public static void setOrdineCalcolato(int ordineCalcolato) {
     Magazzino.ordineCalcolato = ordineCalcolato;

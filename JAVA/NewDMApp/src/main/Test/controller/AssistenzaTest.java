@@ -4,10 +4,7 @@ import db.DatabaseConnection;
 import de.saxsys.javafx.test.JfxRunner;
 import entity.Scontrino;
 import entity.Ticket;
-import exceptions.DatabaseException;
-import exceptions.ElencaException;
-import exceptions.ProdottoException;
-import exceptions.ScontrinoException;
+import exceptions.*;
 import javafx.scene.control.TextField;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -659,6 +656,8 @@ public class AssistenzaTest {
     DatabaseConnection.close();
   }
 
+
+
   @Test
   public void openAssistenzaDettagliProbDataSBagliata()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
@@ -746,6 +745,53 @@ public class AssistenzaTest {
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
     assertEquals(null, Assistenza.getTicket());
+    DatabaseConnection.close();
+  }
+
+  @Test
+  public void openAssistenzaDettagliProbCodiceProdottoSbagliato2()
+          throws DatabaseException, ProdottoException, ElencaException, IOException,
+          ScontrinoException {
+    DatabaseConnection.connect();
+    Assistenza.setTicket(null);
+    Scontrino s = new Scontrino();
+    s.addProdotto(1000000000001l);
+    s.save();
+    Assistenza a = new Assistenza();
+    TextField t = new TextField();
+    t.setText("Vincenzo Aiello");
+    a.setNomeCognCli(t);
+    TextField c = new TextField();
+    c.setText("LLAVCN99H05C129K");
+    a.setCodFiscCli(c);
+    TextField d = new TextField();
+    d.setText("Via Pasquale Vitiello n 10");
+    a.setIndirizzoResiCli(d);
+    TextField e = new TextField();
+    e.setText("Bevanda");
+    a.setTipoProdotto(e);
+    TextField f = new TextField();
+    f.setText("Barbabietole");
+    a.setNomeProdotto(f);
+    TextField g = new TextField();
+    g.setText("3404231112");
+    a.setTelefonoCli(g);
+    TextField h = new TextField();
+    h.setText("1000000000001");
+    a.setNumSerieProd(h);
+    TextField i = new TextField();
+    i.setText(Long.toString(s.getId()));
+    a.setNumScontrino(i);
+    TextField l = new TextField();
+    l.setText(s.getData().substring(0, s.getData().indexOf(" ")));
+    a.setDataScontrino(l);
+    TextField m = new TextField();
+    m.setText("1000000000300");
+    a.setCodProdotto(m);
+    Exception ex = assertThrows(ProdottoNotFoundException.class,()->{
+      a.openAssistenzaDettagliProb(null);
+    }) ;
+    assertEquals("Prodotto non trovato", ex.getMessage());
     DatabaseConnection.close();
   }
 
