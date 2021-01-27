@@ -6,7 +6,7 @@ import magazzino.RandomForestClassifier;
 public class ModuleIAConverter {
 
   public static int prevedi(
-      Prodotto p, double sped, String stagione, String tipoSupermerc, String festività) {
+      Prodotto p, double sped, String stagione, String tipoSupermerc, String festivita) {
 
     double[] features = new double[21];
     features[0] = p.getPrezzo();
@@ -63,7 +63,7 @@ public class ModuleIAConverter {
         return -1;
     }
 
-    switch (festività.toLowerCase()) {
+    switch (festivita.toLowerCase()) {
       case "feriale":
         features[13] = 1;
         break;

@@ -1,6 +1,6 @@
 package exceptions;
 
-import controller.AlertMessage;
+import start.AlertMessage;
 
 public class ElencaException extends Exception {
   public ElencaException(String message) {

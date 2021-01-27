@@ -1,6 +1,6 @@
 package utenza;
 
-import controller.App;
+import start.App;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;

@@ -1,7 +1,7 @@
 package entity;
 
 import cassa.Scontrino;
-import db.DatabaseConnection;
+import database.DatabaseConnection;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import exceptions.ScontrinoException;

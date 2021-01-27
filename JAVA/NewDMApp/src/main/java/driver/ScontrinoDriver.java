@@ -1,6 +1,6 @@
 package driver;
 
-import db.DatabaseConnection;
+import database.DatabaseConnection;
 import cassa.Scontrino;
 import exceptions.*;
 

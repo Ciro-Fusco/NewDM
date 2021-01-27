@@ -1,7 +1,7 @@
 package cassa;
 
-import db.DatabaseConnection;
-import db.Query;
+import database.DatabaseConnection;
+import database.Query;
 import exceptions.DatabaseException;
 import exceptions.ScontrinoException;
 import exceptions.ScontrinoNotFoundException;

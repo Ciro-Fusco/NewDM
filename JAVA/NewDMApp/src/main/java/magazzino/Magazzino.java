@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import controller.AlertMessage;
-import controller.App;
+import start.AlertMessage;
+import start.App;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import javafx.event.ActionEvent;

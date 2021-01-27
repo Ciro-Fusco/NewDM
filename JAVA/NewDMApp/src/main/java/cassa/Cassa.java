@@ -1,7 +1,7 @@
 package cassa;
 
-import controller.AlertMessage;
-import controller.App;
+import start.AlertMessage;
+import start.App;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import exceptions.ScontrinoException;
@@ -25,6 +25,7 @@ public class Cassa implements Initializable {
   @FXML private Label totaleLabel;
   @FXML private TextArea riepilogoTextArea;
   @FXML private Label restoLabel;
+
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -62,14 +63,30 @@ public class Cassa implements Initializable {
   }
 
   // Cassa
+
+  /**
+   * Apre la dashboard
+   * @param mouseEvent
+   * @throws IOException
+   */
   public void openDashboard(MouseEvent mouseEvent) throws IOException {
     App.setRoot("Dashboard");
   }
 
+  /**
+   * Apre la schermata di inserimento del codice Prodotto
+   * @param mouseEvent
+   * @throws IOException
+   */
   public void openCassaInsProdotto(MouseEvent mouseEvent) throws IOException {
     App.setRoot("CassaInsProdotto");
   }
 
+  /**
+   * Apre la schermata di riepilogo dello Scontrino
+   * @param mouseEvent
+   * @throws IOException
+   */
   public void openCassaTotale(MouseEvent mouseEvent) throws IOException {
     if (scontrino != null && scontrino.getList() != null) {
       App.setRoot("CassaTotale");
@@ -78,6 +95,10 @@ public class Cassa implements Initializable {
     }
   }
 
+  /**
+   * Elimina lo Scontrino attuale
+   * @param mouseEvent
+   */
   public void annullaInsProd(MouseEvent mouseEvent) {
     scontrino = new Scontrino();
     scontrinoTextField.setText("");
@@ -86,10 +107,21 @@ public class Cassa implements Initializable {
 
   // inserimento prodotto
 
+  /**
+   * Apre la schermata Cassa
+   * @param mouseEvent
+   * @throws IOException
+   */
   public void openCassa(MouseEvent mouseEvent) throws IOException {
     App.setRoot("Cassa");
   }
 
+  /**
+   * Inserisce il Prodotto nello scontrino
+   * @param mouseEvent
+   * @throws ProdottoException Prodotto non trovato
+   * @throws DatabaseException Errore nel Database
+   */
   public void inserimentoProdotto(MouseEvent mouseEvent)
       throws ProdottoException, DatabaseException {
     try {
@@ -110,6 +142,13 @@ public class Cassa implements Initializable {
   ////////////////////////////////////////////////////////////////
 
   // Totale cassa
+
+  /**
+   * Gestisce l'inserimento della somma versata
+   * @param mouseEvent
+   * @throws IOException
+   * @throws ScontrinoException
+   */
   public void openCassaRiepilogo(MouseEvent mouseEvent) throws IOException, ScontrinoException {
     if (sommaVersataTextField.getText().matches("[0-9]+(\\.[0-9][0-9]?)?")) {
       try {
@@ -127,6 +166,13 @@ public class Cassa implements Initializable {
   ////////////////////////////////////////////////////////////////
 
   // Riepilogo Cassa
+
+  /**
+   * Salva lo Scontrino
+   * @param mouseEvent
+   * @throws DatabaseException
+   * @throws IOException
+   */
   public void confermaScontrino(MouseEvent mouseEvent) throws DatabaseException, IOException {
     scontrino.save();
     AlertMessage.showInformation("Scontrino salvato");

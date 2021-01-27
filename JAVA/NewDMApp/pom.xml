@@ -63,7 +63,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
-                    <mainClass>controller.App</mainClass>
+                    <mainClass>start.App</mainClass>
                 </configuration>
             </plugin>
             <plugin>

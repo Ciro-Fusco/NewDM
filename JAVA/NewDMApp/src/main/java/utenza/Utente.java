@@ -1,6 +1,6 @@
 package utenza;
 
-import db.DatabaseConnection;
+import database.DatabaseConnection;
 import exceptions.DatabaseException;
 import exceptions.UtenteNotFoundException;
 

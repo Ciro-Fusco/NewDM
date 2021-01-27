@@ -1,6 +1,6 @@
 package exceptions;
 
-import controller.AlertMessage;
+import start.AlertMessage;
 
 public class UtenteNotFoundException extends Exception {
 

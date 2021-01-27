@@ -1,6 +1,6 @@
 package entity;
 
-import db.DatabaseConnection;
+import database.DatabaseConnection;
 import magazzino.Prodotto;
 import magazzino.ProdottoDao;
 import exceptions.DatabaseException;

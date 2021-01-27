@@ -4,8 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import db.DatabaseConnection;
-import db.Query;
+import database.DatabaseConnection;
+import database.Query;
 import exceptions.DatabaseException;
 import exceptions.UtenteNotFoundException;
 import org.apache.commons.codec.digest.DigestUtils;

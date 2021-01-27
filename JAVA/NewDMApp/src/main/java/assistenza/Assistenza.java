@@ -1,7 +1,7 @@
 package assistenza;
 
-import controller.AlertMessage;
-import controller.App;
+import start.AlertMessage;
+import start.App;
 import magazzino.Prodotto;
 import exceptions.DatabaseException;
 import exceptions.ElencaException;
@@ -28,11 +28,26 @@ public class Assistenza {
   @FXML private TextField dataScontrino;
   @FXML private TextField dettagliProb;
 
-  // Assistenza
+  /**
+   * Apre la dashboard principale
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
   public void openDashboard(MouseEvent mouseEvent) throws IOException {
     App.setRoot("Dashboard");
   }
 
+  /**
+   * Crea un nuovo Ticket con i dati forniti a video dall'utente
+   *
+   * @param mouseEvent
+   * @throws IOException
+   * @throws ScontrinoException
+   * @throws ElencaException
+   * @throws ProdottoException
+   * @throws DatabaseException
+   */
   @FXML // DIVIDI NOME E COGNOME IN DUE CAMPI SEPARATI,ANCHE NELLA UI
   public void openAssistenzaDettagliProb(MouseEvent mouseEvent)
       throws IOException, ScontrinoException, ElencaException, ProdottoException,
@@ -113,11 +128,23 @@ public class Assistenza {
 
   // Assistenza dettagli prob
 
+  /**
+   * Apre la schermata di assistenza
+   * @param mouseEvent
+   * @throws IOException
+   */
   public void openAssistenza(MouseEvent mouseEvent) throws IOException {
     ticket = null;
     App.setRoot("Assistenza");
   }
 
+  /**
+   * Usa le informazioni inserite a video per impostare il problema
+   * per cui si chiede assistenza e poi rende il Ticket persistente
+   * @param mouseEvent
+   * @throws DatabaseException
+   * @throws IOException
+   */
   public void salvaTicket(MouseEvent mouseEvent) throws DatabaseException, IOException {
     if (!dettagliProb.getText().equals("")) {
       ticket.setProblema(dettagliProb.getText());

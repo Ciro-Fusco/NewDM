@@ -1,7 +1,7 @@
 package cassa;
 
-import db.DatabaseConnection;
-import db.Query;
+import database.DatabaseConnection;
+import database.Query;
 import magazzino.Prodotto;
 import exceptions.DatabaseException;
 import exceptions.ElencaException;
@@ -12,6 +12,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ElencaDao {
+  /**
+   * Salva nel database la relazione tra uno Scontrino e i Prodotti a cui si riferisce
+   * @param s Lo Scontrino da cui ricavare le relazioni
+   * @throws DatabaseException Errore del Database
+   */
   public static void save(Scontrino s) throws DatabaseException {
 
     List<Prodotto> l = s.getList();
@@ -31,6 +36,14 @@ public class ElencaDao {
     }
   }
 
+  /**
+   * Controlla se ad uno Scontrino corrisponde
+   * @param codiceScontrino
+   * @param dataScontrino
+   * @param codiceProdotto
+   * @throws DatabaseException
+   * @throws ElencaException
+   */
   public static void checkCorrispondenza(
       long codiceScontrino, String dataScontrino, long codiceProdotto)
       throws DatabaseException, ElencaException {

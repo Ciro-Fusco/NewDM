@@ -1,7 +1,7 @@
 package assistenza;
 
-import db.DatabaseConnection;
-import db.Query;
+import database.DatabaseConnection;
+import database.Query;
 import exceptions.DatabaseException;
 import exceptions.TicketNotFoundException;
 
@@ -11,6 +11,11 @@ import java.sql.SQLException;
 
 public class TicketDao {
 
+  /**
+   * Salva il Ticket sul database
+   * @param t Il Ticket da salvare
+   * @throws DatabaseException Errore nel salvataggio del Ticket
+   */
   public static void save(Ticket t) throws DatabaseException {
     try {
       PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.newTicket);
@@ -31,10 +36,19 @@ public class TicketDao {
 
     } catch (SQLException e) {
       e.printStackTrace();
-      throw new DatabaseException("Errore nel salvataggio dello Scontrino");
+      throw new DatabaseException("Errore nel salvataggio del Ticket");
     }
   }
 
+  /**
+   * Cerca un Ticket nel database
+   * @param apertura data di apertura del Ticket
+   * @param CF Codice Fiscale del Cliente
+   * @param serie Numero di Serie del Prodotto
+   * @return il Ticket cercato
+   * @throws TicketNotFoundException Ticket non trovato
+   * @throws DatabaseException Errore del Database
+   */
   public static Ticket getTicket(String apertura, String CF, String serie)
       throws TicketNotFoundException, DatabaseException {
     try {

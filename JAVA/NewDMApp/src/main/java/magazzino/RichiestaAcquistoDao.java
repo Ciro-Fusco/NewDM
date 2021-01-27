@@ -1,8 +1,7 @@
 package magazzino;
 
-import db.DatabaseConnection;
-import db.Query;
-import magazzino.RichiestaAcquisto;
+import database.DatabaseConnection;
+import database.Query;
 import exceptions.DatabaseException;
 
 import java.sql.PreparedStatement;

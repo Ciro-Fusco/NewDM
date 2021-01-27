@@ -1,6 +1,6 @@
 package exceptions;
 
-import controller.AlertMessage;
+import start.AlertMessage;
 
 public class ScontrinoException extends Exception {
   public ScontrinoException(String message) {
