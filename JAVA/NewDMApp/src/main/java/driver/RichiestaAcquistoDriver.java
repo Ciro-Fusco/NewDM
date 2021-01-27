@@ -8,7 +8,9 @@ import java.util.Scanner;
 
 public class RichiestaAcquistoDriver {
 
-  public static void main(String[] args) throws DatabaseException, ProdottoException, ElencaException, ScontrinoException, TicketException {
+  public static void main(String[] args)
+      throws DatabaseException, ProdottoException, ElencaException, ScontrinoException,
+          TicketException {
     DatabaseConnection.connect();
     RichiestaAcquisto r = null;
     int i;
@@ -20,9 +22,8 @@ public class RichiestaAcquistoDriver {
       i = in.nextInt();
       in.nextLine();
       switch (i) {
-
         case 1:
-          r=new RichiestaAcquisto();
+          r = new RichiestaAcquisto();
           System.out.println("Inserire codice prodotto");
           r.setCodice(in.nextLong());
           System.out.println("Inserire quantità da acquistare");
@@ -41,8 +42,5 @@ public class RichiestaAcquistoDriver {
       }
 
     } while (i != -1);
-
   }
-
-
 }

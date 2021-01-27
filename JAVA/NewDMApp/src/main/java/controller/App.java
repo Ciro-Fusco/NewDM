@@ -19,11 +19,11 @@ public class App extends Application {
     scene = new Scene(loadfxml("Login"), 800, 620);
     stage.setScene(scene);
     /*stage.getIcons().add(new Image(FXMLUtils.class.getClassLoader().
-            getResourceAsStream("puffo.png")));*/
+    getResourceAsStream("puffo.png")));*/
     stage.show();
   }
 
-  public  static void setRoot(String fxml) throws IOException {
+  public static void setRoot(String fxml) throws IOException {
     scene.setRoot(loadfxml(fxml));
   }
 
@@ -32,9 +32,7 @@ public class App extends Application {
     return fxmlLoader.load();
   }
 
-
   public static void main(String[] args) {
     launch();
   }
-
 }

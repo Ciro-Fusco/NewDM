@@ -8,7 +8,9 @@ import java.util.Scanner;
 
 public class TicketDriver {
 
-  public static void main(String[] args) throws DatabaseException, ProdottoException, ElencaException, ScontrinoException, TicketException {
+  public static void main(String[] args)
+      throws DatabaseException, ProdottoException, ElencaException, ScontrinoException,
+          TicketException {
     DatabaseConnection.connect();
     Ticket t = null;
     int i;
@@ -21,35 +23,34 @@ public class TicketDriver {
       i = in.nextInt();
       in.nextLine();
       switch (i) {
-
         case 1:
           System.out.println("Inserire nome e cognome");
-          String nome= in.next()+" "+in.next();
+          String nome = in.next() + " " + in.next();
           System.out.println("Inserire codice fiscale");
-          String cf= in.next();
+          String cf = in.next();
           System.out.println("Inserire indirizzo");
-          String indirizzo= in.nextLine();
+          String indirizzo = in.nextLine();
           System.out.println("Inserire numero di telefono");
           in.nextLine();
-          Long tel= in.nextLong();
+          Long tel = in.nextLong();
           System.out.println("Inserire categoria prodotto");
-          String cat= in.next();
+          String cat = in.next();
           System.out.println("Inserire nome prodotto");
-          String nomeProd= in.next();
+          String nomeProd = in.next();
           System.out.println("Inserire numero di serie del Prodotto");
-          String serie= in.next();
+          String serie = in.next();
           System.out.println("Inserire numero dello scontrino");
           in.nextLine();
-          Long scon= in.nextLong();
+          Long scon = in.nextLong();
           System.out.println("Inserire data dello scontrino");
-          String data= in.next();
+          String data = in.next();
           System.out.println("Inserire codice prodotto");
           in.nextLine();
-          Long prod= in.nextLong();
+          Long prod = in.nextLong();
 
-          t = new Ticket(nome,cf,indirizzo,cat,nomeProd,serie,tel,scon,data,prod);
+          t = new Ticket(nome, cf, indirizzo, cat, nomeProd, serie, tel, scon, data, prod);
           System.out.println("Inserisci il problema riscontrato");
-          String prob=in.nextLine();
+          String prob = in.nextLine();
           t.setProblema(prob);
           System.out.println(t);
           break;
@@ -64,17 +65,15 @@ public class TicketDriver {
 
         case 3:
           System.out.println("Inserisci data di apertura");
-          String data3=in.next();
+          String data3 = in.next();
           System.out.println("Inserisci codice fiscale");
-          String cf3=in.next();
+          String cf3 = in.next();
           System.out.println("Inserisci numero di serie");
-          String serie3 =in.next();
-          System.out.println(Ticket.getTicket(data3,cf3,serie3));
+          String serie3 = in.next();
+          System.out.println(Ticket.getTicket(data3, cf3, serie3));
           break;
       }
 
     } while (i != -1);
-
   }
-
 }

@@ -11,15 +11,15 @@ import java.time.format.DateTimeFormatter;
 public class Ticket {
 
   private String nomeCognome,
-          cf,
-          indirizzo,
-          numeroDiSerie,
-          nomeProdotto,
-          stato,
-          problema,
-          dataApertura,
-          dataScontrino,
-          tipo;
+      cf,
+      indirizzo,
+      numeroDiSerie,
+      nomeProdotto,
+      stato,
+      problema,
+      dataApertura,
+      dataScontrino,
+      tipo;
   private long numTel, codiceProdotto;
   private long codiceScontrino;
   private static final String APERTO = "Aperto";
@@ -27,17 +27,17 @@ public class Ticket {
   private static final String CHIUSO = "Chiuso";
 
   public Ticket(
-          String nomeCognome,
-          String cf,
-          String indirizzo,
-          String tipo,
-          String nomeProdotto,
-          String numeroDiSerie,
-          long num_tel,
-          long codiceScontrino,
-          String dataScontrino,
-          long codiceProdotto)
-          throws ScontrinoException, DatabaseException, ProdottoException, ElencaException {
+      String nomeCognome,
+      String cf,
+      String indirizzo,
+      String tipo,
+      String nomeProdotto,
+      String numeroDiSerie,
+      long num_tel,
+      long codiceScontrino,
+      String dataScontrino,
+      long codiceProdotto)
+      throws ScontrinoException, DatabaseException, ProdottoException, ElencaException {
     this.nomeCognome = nomeCognome;
     this.cf = cf;
     this.indirizzo = indirizzo;
@@ -56,8 +56,7 @@ public class Ticket {
     this.stato = APERTO;
   }
 
-  public Ticket() {
-  }
+  public Ticket() {}
 
   private String setDataApertura() {
     LocalDateTime date = LocalDateTime.now();
@@ -179,26 +178,49 @@ public class Ticket {
   }
 
   public static Ticket getTicket(String apertura, String CF, String serie)
-          throws DatabaseException, TicketException {
+      throws DatabaseException, TicketException {
     return TicketDao.getTicket(apertura, CF, serie);
   }
 
   @Override
   public String toString() {
-    return "Ticket{" +
-            "nomeCognome='" + nomeCognome + '\'' +
-            ", cf='" + cf + '\'' +
-            ", indirizzo='" + indirizzo + '\'' +
-            ", numeroDiSerie='" + numeroDiSerie + '\'' +
-            ", nomeProdotto='" + nomeProdotto + '\'' +
-            ", stato='" + stato + '\'' +
-            ", problema='" + problema + '\'' +
-            ", dataApertura='" + dataApertura + '\'' +
-            ", dataScontrino='" + dataScontrino + '\'' +
-            ", tipo='" + tipo + '\'' +
-            ", numTel=" + numTel +
-            ", codiceProdotto=" + codiceProdotto +
-            ", codiceScontrino=" + codiceScontrino +
-            '}';
+    return "Ticket{"
+        + "nomeCognome='"
+        + nomeCognome
+        + '\''
+        + ", cf='"
+        + cf
+        + '\''
+        + ", indirizzo='"
+        + indirizzo
+        + '\''
+        + ", numeroDiSerie='"
+        + numeroDiSerie
+        + '\''
+        + ", nomeProdotto='"
+        + nomeProdotto
+        + '\''
+        + ", stato='"
+        + stato
+        + '\''
+        + ", problema='"
+        + problema
+        + '\''
+        + ", dataApertura='"
+        + dataApertura
+        + '\''
+        + ", dataScontrino='"
+        + dataScontrino
+        + '\''
+        + ", tipo='"
+        + tipo
+        + '\''
+        + ", numTel="
+        + numTel
+        + ", codiceProdotto="
+        + codiceProdotto
+        + ", codiceScontrino="
+        + codiceScontrino
+        + '}';
   }
 }

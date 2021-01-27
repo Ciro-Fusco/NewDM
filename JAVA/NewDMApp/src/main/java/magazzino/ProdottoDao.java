@@ -17,7 +17,7 @@ public class ProdottoDao {
    *
    * @param cod codice del prodotto
    * @return un nuovo Prodotto contenente i dati della query
-   * @throws DatabaseException         errore del database:
+   * @throws DatabaseException errore del database:
    * @throws ProdottoNotFoundException prodotto non trovato nel database;
    */
   public static Prodotto search(Long cod) throws DatabaseException, ProdottoException {
@@ -32,14 +32,13 @@ public class ProdottoDao {
         throw new ProdottoNotFoundException("Prodotto non trovato");
       } else {
         return new Prodotto(
-                res.getDouble("Prezzo"),
-                res.getLong("Codice"),
-                res.getString("Nome"),
-                res.getInt("quantity"),
-                res.getString("Dimensione_Confezione"),
-                res.getString("Scadenza"),
-                res.getString("Tipologia"));
-
+            res.getDouble("Prezzo"),
+            res.getLong("Codice"),
+            res.getString("Nome"),
+            res.getInt("quantity"),
+            res.getString("Dimensione_Confezione"),
+            res.getString("Scadenza"),
+            res.getString("Tipologia"));
       }
 
     } catch (SQLException throwables) {
@@ -66,7 +65,7 @@ public class ProdottoDao {
     } catch (SQLException throwables) {
       throwables.printStackTrace();
       throw new DatabaseException(
-              "Errore nell'aggiornamento della quantità del Prodotto: " + p.getNome());
+          "Errore nell'aggiornamento della quantità del Prodotto: " + p.getNome());
     }
   }
 
@@ -86,7 +85,7 @@ public class ProdottoDao {
     } catch (SQLException throwables) {
       throwables.printStackTrace();
       throw new DatabaseException(
-              "Errore nell'aggiornamento della quantità del Prodotto: " + p.getNome());
+          "Errore nell'aggiornamento della quantità del Prodotto: " + p.getNome());
     }
   }
 
@@ -113,7 +112,7 @@ public class ProdottoDao {
   /**
    * Modifica il prezzo di un prodotto
    *
-   * @param p      Prodotto da modificare
+   * @param p Prodotto da modificare
    * @param prezzo Nuovo prezzo da impostare
    * @throws DatabaseException Errore nel Database
    */
@@ -129,7 +128,6 @@ public class ProdottoDao {
       throwables.printStackTrace();
       throw new DatabaseException("Errore nel salvataggio del Prodotto");
     }
-
   }
 
   public static boolean eliminaProdotto(Prodotto p) throws DatabaseException {

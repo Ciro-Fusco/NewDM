@@ -8,7 +8,9 @@ import java.util.Scanner;
 
 public class ScontrinoDriver {
 
-  public static void main(String[] args) throws DatabaseException, ProdottoException, ElencaException, ScontrinoException, TicketException {
+  public static void main(String[] args)
+      throws DatabaseException, ProdottoException, ElencaException, ScontrinoException,
+          TicketException {
     DatabaseConnection.connect();
     Scontrino s = null;
     int i;
@@ -22,9 +24,8 @@ public class ScontrinoDriver {
       i = in.nextInt();
       in.nextLine();
       switch (i) {
-
         case 1:
-          s= new Scontrino();
+          s = new Scontrino();
           break;
 
         case 2:
@@ -37,26 +38,24 @@ public class ScontrinoDriver {
           break;
 
         case 3:
-          if (s == null){
+          if (s == null) {
             System.out.println("Crea prima lo scontrino");
-          }else{
-          s.save();
+          } else {
+            s.save();
           }
           break;
 
         case 4:
-            System.out.println("Inserire codice scontrino");
-            Long cod=in.nextLong();
-            in.nextLine();
-            System.out.println("Inserire data scontrino");
-            String data = in.next();
-            Scontrino.checkScontrino(cod,data);
-            System.out.println("Scontrino trovato!");
-            break;
+          System.out.println("Inserire codice scontrino");
+          Long cod = in.nextLong();
+          in.nextLine();
+          System.out.println("Inserire data scontrino");
+          String data = in.next();
+          Scontrino.checkScontrino(cod, data);
+          System.out.println("Scontrino trovato!");
+          break;
       }
 
     } while (i != -1);
-
   }
-
 }

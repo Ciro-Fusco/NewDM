@@ -15,10 +15,11 @@ public class RichiestaAcquistoDao {
   public static void save(RichiestaAcquisto r) throws DatabaseException {
     try {
       PreparedStatement prep =
-              DatabaseConnection.con.prepareStatement(Query.saveRichiesta, Statement.RETURN_GENERATED_KEYS);
+          DatabaseConnection.con.prepareStatement(
+              Query.saveRichiesta, Statement.RETURN_GENERATED_KEYS);
       prep.setInt(1, r.getQuantity());
-      prep.setString(2, r.getData().substring(0,10));
-      prep.setString(3,r.getData().substring(11,19));
+      prep.setString(2, r.getData().substring(0, 10));
+      prep.setString(3, r.getData().substring(11, 19));
       prep.setString(4, r.getStato());
       prep.setLong(5, r.getCodice());
       prep.executeUpdate();
@@ -31,6 +32,4 @@ public class RichiestaAcquistoDao {
       throw new DatabaseException("Errore nel salvataggio della richiesta d'acquisto");
     }
   }
-
 }
-

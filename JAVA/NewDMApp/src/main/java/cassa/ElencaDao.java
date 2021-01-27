@@ -19,7 +19,7 @@ public class ElencaDao {
       try {
         PreparedStatement state = DatabaseConnection.con.prepareStatement(Query.elenca);
         state.setLong(1, s.getId());
-        state.setString(2, s.getData().substring(0,10));
+        state.setString(2, s.getData().substring(0, 10));
         state.setLong(3, c.getCodice());
         state.setInt(4, c.getAcquistato());
         state.executeUpdate();
@@ -43,7 +43,9 @@ public class ElencaDao {
       ResultSet rs = state.executeQuery();
       if (!rs.next()) {
         throw new ElencaException("Prodotto non correlato allo Scontrino immesso");
-      }else{int i =1;}
+      } else {
+        int i = 1;
+      }
     } catch (SQLException throwables) {
       throwables.printStackTrace();
       throw new DatabaseException("Errore nel Database.");

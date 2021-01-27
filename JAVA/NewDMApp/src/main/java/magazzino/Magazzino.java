@@ -316,7 +316,6 @@ public class Magazzino implements Initializable {
 
   // GET E SETTER PER TEST
 
-
   public void setNomeProd(TextField nomeProd) {
     this.nomeProd = nomeProd;
   }
@@ -425,7 +424,6 @@ public class Magazzino implements Initializable {
     this.tipoSupermerc = tipoSupermerc;
   }
 
-
   public static Prodotto getProdotto() {
     return prodotto;
   }
@@ -474,7 +472,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setQuantitaProd(String quantitaProd) {
-    this.quantitaProd= new TextField();
+    this.quantitaProd = new TextField();
     this.quantitaProd.setText(quantitaProd);
   }
 
@@ -483,7 +481,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setRiepilogoNuovoProdotto(String riepilogoNuovoProdotto) {
-    this.riepilogoNuovoProdotto= new TextField();
+    this.riepilogoNuovoProdotto = new TextField();
     this.riepilogoNuovoProdotto.setText(riepilogoNuovoProdotto);
   }
 
@@ -492,7 +490,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setRiepilogoProdotto(String riepilogoProdotto) {
-    this.riepilogoProdotto= new TextField();
+    this.riepilogoProdotto = new TextField();
     this.riepilogoProdotto.setText(riepilogoProdotto);
   }
 
@@ -501,7 +499,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setLabelNomeProd(String labelNomeProd) {
-    this.labelNomeProd= new Label();
+    this.labelNomeProd = new Label();
     this.labelNomeProd.setText(labelNomeProd);
   }
 
@@ -510,7 +508,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setLabelPrezzoProd(String labelPrezzoProd) {
-    this.labelPrezzoProd= new Label();
+    this.labelPrezzoProd = new Label();
     this.labelPrezzoProd.setText(labelPrezzoProd);
   }
 
@@ -519,7 +517,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setLabelOrdineCalcSugg(String labelOrdineCalcSugg) {
-    this.labelOrdineCalcSugg= new Label();
+    this.labelOrdineCalcSugg = new Label();
     this.labelOrdineCalcSugg.setText(labelOrdineCalcSugg);
   }
 
@@ -528,7 +526,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setLabelNomeProdSugg(String labelNomeProdSugg) {
-    this.labelNomeProdSugg= new Label();
+    this.labelNomeProdSugg = new Label();
     this.labelNomeProdSugg.setText(labelNomeProdSugg);
   }
 
@@ -537,7 +535,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setLabelQuantitaProdSugg(String labelQuantitaProdSugg) {
-    this.labelQuantitaProdSugg= new Label();
+    this.labelQuantitaProdSugg = new Label();
     this.labelQuantitaProdSugg.setText(labelQuantitaProdSugg);
   }
 
@@ -546,7 +544,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setTipologiaProd(String tipologiaProd) {
-    this.tipologiaProd= new TextField();
+    this.tipologiaProd = new TextField();
     this.tipologiaProd.setText(tipologiaProd);
   }
 
@@ -555,7 +553,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setPrezzoSped(String prezzoSped) {
-    this.prezzoSped= new TextField();
+    this.prezzoSped = new TextField();
     this.prezzoSped.setText(prezzoSped);
   }
 
@@ -658,7 +656,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setDimensioni(RadioButton dimensioni) {
-    this.dimensioni=new ToggleGroup();
+    this.dimensioni = new ToggleGroup();
     dimensioni.setToggleGroup(this.dimensioni);
     this.dimensioni.selectToggle(dimensioni);
   }
@@ -668,7 +666,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setScadenza(RadioButton scadenza) {
-    this.scadenza=new ToggleGroup();
+    this.scadenza = new ToggleGroup();
     scadenza.setToggleGroup(this.scadenza);
     this.scadenza.selectToggle(scadenza);
   }
@@ -678,7 +676,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setStagione(RadioButton stagione) {
-    this.stagione=new ToggleGroup();
+    this.stagione = new ToggleGroup();
     stagione.setToggleGroup(this.stagione);
     this.stagione.selectToggle(stagione);
   }
@@ -688,7 +686,7 @@ public class Magazzino implements Initializable {
   }
 
   public void setTipoSupermerc(RadioButton tipoSupermerc) {
-    this.tipoSupermerc=new ToggleGroup();
+    this.tipoSupermerc = new ToggleGroup();
     tipoSupermerc.setToggleGroup(this.tipoSupermerc);
     this.tipoSupermerc.selectToggle(tipoSupermerc);
   }
@@ -702,8 +700,6 @@ public class Magazzino implements Initializable {
     festivita.setToggleGroup(this.festivita);
     this.festivita.selectToggle(festivita);
   }
-
-
 
   public static void setOrdineCalcolato(int ordineCalcolato) {
     Magazzino.ordineCalcolato = ordineCalcolato;

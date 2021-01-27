@@ -26,10 +26,10 @@ public class ScontrinoDao {
 
     try {
       PreparedStatement prep =
-              DatabaseConnection.con.prepareStatement(
-                      Query.newScontrino, Statement.RETURN_GENERATED_KEYS);
-      prep.setString(1, s.getData().substring(0,10));
-      prep.setString(2, s.getData().substring(11,19));
+          DatabaseConnection.con.prepareStatement(
+              Query.newScontrino, Statement.RETURN_GENERATED_KEYS);
+      prep.setString(1, s.getData().substring(0, 10));
+      prep.setString(2, s.getData().substring(11, 19));
       prep.setDouble(3, s.getVersato());
       prep.setDouble(4, s.getTot());
       prep.setDouble(5, s.getResto());
@@ -46,7 +46,8 @@ public class ScontrinoDao {
     }
   }
 
-  public static void checkScontrino(long codice, String dataScontrino) throws ScontrinoException, DatabaseException {
+  public static void checkScontrino(long codice, String dataScontrino)
+      throws ScontrinoException, DatabaseException {
     try {
       PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.checkScontrino);
       prep.setLong(1, codice);
@@ -61,8 +62,11 @@ public class ScontrinoDao {
         LocalDateTime data_obj = LocalDate.parse(data_temp, formatter).atStartOfDay();
         LocalDateTime data_2_years_ago = LocalDateTime.now().minusYears(2);
         if (data_obj.isBefore(data_2_years_ago))
-          throw new ScontrinoException("Inserire una data valida, non precedente a due anni fa e non successiva alla data odierna");
-        else{System.out.println(); }
+          throw new ScontrinoException(
+              "Inserire una data valida, non precedente a due anni fa e non successiva alla data odierna");
+        else {
+          System.out.println();
+        }
       }
     } catch (SQLException e) {
       e.printStackTrace();

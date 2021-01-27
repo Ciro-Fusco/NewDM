@@ -21,27 +21,22 @@ public class UtenteDriver {
       i = in.nextInt();
       in.nextLine();
       switch (i) {
-
         case 1:
           System.out.println("Inserisci username");
           System.out.println("Inserisci password");
-          Utente.login(in.next(),in.next());
+          Utente.login(in.next(), in.next());
           break;
-
 
         case 2:
           Utente.logout();
           break;
 
         case 3:
-          System.out.println(Utente.getUsername()+" "+Utente.getNome()+" "+Utente.getCognome());
+          System.out.println(
+              Utente.getUsername() + " " + Utente.getNome() + " " + Utente.getCognome());
           break;
-
-
       }
 
     } while (i != -1);
-
   }
-
 }

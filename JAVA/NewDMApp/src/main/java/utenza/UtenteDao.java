@@ -20,10 +20,11 @@ public class UtenteDao {
    * @param user Nome utente
    * @param pass Password non ancora codificata
    * @return true -- se l'utente è stato autenticato; false -- altrimenti.
-   * @throws DatabaseException       Errore generico;
+   * @throws DatabaseException Errore generico;
    * @throws UtenteNotFoundException Utente non trovato nel Database;
    */
-  public static boolean login(String user, String pass) throws DatabaseException, UtenteNotFoundException {
+  public static boolean login(String user, String pass)
+      throws DatabaseException, UtenteNotFoundException {
     try {
       PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.login);
       prep.setString(1, user);
@@ -41,5 +42,4 @@ public class UtenteDao {
       throw new DatabaseException("Errore generico");
     }
   }
-
 }

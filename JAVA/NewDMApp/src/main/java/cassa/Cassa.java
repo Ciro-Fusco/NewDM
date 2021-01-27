@@ -95,7 +95,10 @@ public class Cassa implements Initializable {
     try {
       if (scontrino == null) {
         scontrino = new Scontrino();
-      }else{System.out.println();};
+      } else {
+        System.out.println();
+      }
+      ;
       scontrino.addProdotto(Long.parseLong(codiceProd.getText()));
       AlertMessage.showInformation("Prodotto inserito correttamente");
     } catch (NumberFormatException excpt) {

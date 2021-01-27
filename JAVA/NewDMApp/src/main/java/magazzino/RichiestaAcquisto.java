@@ -62,12 +62,18 @@ public class RichiestaAcquisto {
 
   @Override
   public String toString() {
-    return "RichiestaAcquisto{" +
-            "codice=" + codice +
-            ", quantity=" + quantity +
-            ", data='" + data + '\'' +
-            ", stato='" + stato + '\'' +
-            '}';
+    return "RichiestaAcquisto{"
+        + "codice="
+        + codice
+        + ", quantity="
+        + quantity
+        + ", data='"
+        + data
+        + '\''
+        + ", stato='"
+        + stato
+        + '\''
+        + '}';
   }
 
   public void save() throws DatabaseException {
