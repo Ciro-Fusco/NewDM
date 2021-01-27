@@ -39,7 +39,7 @@
             <items>
                 <BorderPane maxHeight="-Infinity" prefHeight="85.0" prefWidth="598.0">
                     <left>
-                        <Label text="Inserisci prodotto - Riepilogo" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Label text="Modifica quantità - Riepilogo" textFill="WHITE" BorderPane.alignment="CENTER">
                             <font>
                                 <Font size="30.0" />
                             </font>
@@ -65,7 +65,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <TextField fx:id="riepilogoProdotto" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="200.0" prefWidth="550.0">
+                        <TextField fx:id="riepilogoProdotto" alignment="TOP_LEFT" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="200.0" prefWidth="550.0">
                             <GridPane.margin>
                                 <Insets left="20.0" right="20.0" />
                             </GridPane.margin>

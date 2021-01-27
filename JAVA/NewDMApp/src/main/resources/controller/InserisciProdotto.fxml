@@ -40,7 +40,7 @@
             <items>
                 <BorderPane maxHeight="-Infinity" prefHeight="85.0" prefWidth="598.0">
                     <left>
-                        <Label text="Inserisci prodotto" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Label text="Modifica quantità" textFill="WHITE" BorderPane.alignment="CENTER">
                             <font>
                                 <Font size="30.0" />
                             </font>
