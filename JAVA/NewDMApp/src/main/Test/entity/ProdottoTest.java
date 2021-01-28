@@ -19,7 +19,7 @@ public class ProdottoTest {
     assertNotEquals(null, p);
   }
 
-  @Test
+/*  @Test
   public void creazioneProdottoQuantNonCorrretta() {
     Exception ex =
         assertThrows(
@@ -30,10 +30,10 @@ public class ProdottoTest {
     String expectedMessage = "Prezzo e quantità devono essere entrambi positivi";
     String actualMessage = ex.getMessage();
     assertTrue(actualMessage.contains(expectedMessage));
-  }
+  }*/
 
-  @Test
-  public void creazioneProdottoPrezzoNonCorrretta() {
+ /* @Test
+  public void creazioneProdottoPrezzoNonCorretta() {
     Exception ex =
         assertThrows(
             ProdottoException.class,
@@ -43,7 +43,7 @@ public class ProdottoTest {
     String expectedMessage = "Prezzo e quantità devono essere entrambi positivi";
     String actualMessage = ex.getMessage();
     assertTrue(actualMessage.contains(expectedMessage));
-  }
+  }*/
 
   @Test
   public void getPrezzo() {}

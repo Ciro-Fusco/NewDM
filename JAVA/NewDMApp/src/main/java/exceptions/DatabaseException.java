@@ -6,6 +6,6 @@ public class DatabaseException extends Exception {
 
   public DatabaseException(String message) {
     super(message);
-    AlertMessage.showError(message);
+    //AlertMessage.showError(message);
   }
 }

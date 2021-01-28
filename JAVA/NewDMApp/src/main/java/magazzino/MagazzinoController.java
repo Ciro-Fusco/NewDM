@@ -204,7 +204,7 @@ public class MagazzinoController implements Initializable {
     }
   }
 
-  public void inserisciNuovoProdotto(MouseEvent mouseEvent) throws DatabaseException, IOException {
+  public void inserisciNuovoProdotto(MouseEvent mouseEvent) throws DatabaseException, IOException, ProdottoException {
     prodotto.createProdotto();
     AlertMessage.showInformation("Prodotto inserito correttamente!");
     App.setRoot("InserisciNuovoProdotto");

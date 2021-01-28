@@ -26,16 +26,13 @@ public class Prodotto {
    * @throws ProdottoException Errore nella creazione del Prodotto
    */
   public Prodotto(
-      double prezzo,
-      long codice,
-      String nome,
-      int quantity,
-      String dimensione,
-      String scade,
-      String tipologia)
-      throws ProdottoException {
-    if (prezzo <= 0 || quantity <= 0)
-      throw new ProdottoException("Prezzo e quantità devono essere entrambi positivi");
+          double prezzo,
+          long codice,
+          String nome,
+          int quantity,
+          String dimensione,
+          String scade,
+          String tipologia) {
     this.prezzo = prezzo;
     this.codice = codice;
     this.nome = nome;
@@ -200,6 +197,7 @@ public class Prodotto {
    * @throws DatabaseException Errore del Database
    */
   public void leavedbquantity() throws DatabaseException {
+    if (quantity > 0)
     ProdottoDao.leavedbquantity(this);
   }
 
@@ -222,7 +220,9 @@ public class Prodotto {
    * @return true se il Prodotto è stato creato correttamente
    * @throws DatabaseException Errore del Database
    */
-  public boolean createProdotto() throws DatabaseException {
+  public boolean createProdotto() throws DatabaseException, ProdottoException {
+    if (prezzo <= 0 || quantity <= 0)
+      throw new ProdottoException("Prezzo e quantità devono essere entrambi positivi");
     return ProdottoDao.createProdotto(this);
   }
 
