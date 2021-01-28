@@ -10,7 +10,8 @@ import java.util.Scanner;
 
 public class UtenteDriver {
 
-  public static void main(String[] args) throws DatabaseException, UtenteException {
+  public static void main(String[] args) throws DatabaseException,
+          UtenteException {
     DatabaseConnection.connect();
     int i;
     Scanner in = new Scanner(System.in);

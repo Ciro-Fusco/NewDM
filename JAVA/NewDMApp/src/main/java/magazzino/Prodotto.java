@@ -23,7 +23,6 @@ public class Prodotto {
    * @param dimensione Dimensione della confezione del Prodotto
    * @param scade Durata media del Prodotto prima della scadenza
    * @param tipologia Categoria di Prodotto
-   * @throws ProdottoException Errore nella creazione del Prodotto
    */
   public Prodotto(
           double prezzo,
@@ -206,6 +205,7 @@ public class Prodotto {
    *
    * @param i quantità da aggiungere al Database
    * @throws DatabaseException Errore del Database
+   * @throws ProdottoException Il prezzo deve essere positivo
    */
   public void adddbquantity(int i) throws DatabaseException, ProdottoException {
     if (i > 0) ProdottoDao.adddbquantity(i, this);
@@ -217,13 +217,13 @@ public class Prodotto {
   /**
    * Salva questo Prodotto nel database
    *
-   * @return true se il Prodotto è stato creato correttamente
    * @throws DatabaseException Errore del Database
+   * @throws ProdottoException Il prezzo e la quantita del Prodotto devono essere positivi
    */
-  public boolean createProdotto() throws DatabaseException, ProdottoException {
+  public void createProdotto() throws DatabaseException, ProdottoException {
     if (prezzo <= 0 || quantity <= 0)
       throw new ProdottoException("Prezzo e quantità devono essere entrambi positivi");
-    return ProdottoDao.createProdotto(this);
+    ProdottoDao.createProdotto(this);
   }
 
   /**
@@ -231,6 +231,7 @@ public class Prodotto {
    *
    * @param prezzo Nuovo prezzo
    * @throws DatabaseException Errore generico nel Database
+   * @throws ProdottoException Il prezzo deve essere positivo
    */
   public void modificaPrezzo(double prezzo) throws DatabaseException, ProdottoException {
     if (prezzo < 0) {

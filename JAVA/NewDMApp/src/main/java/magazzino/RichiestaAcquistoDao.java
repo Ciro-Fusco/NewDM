@@ -11,6 +11,11 @@ import java.sql.Statement;
 
 public class RichiestaAcquistoDao {
 
+  /**
+   * Salva nel database le informazioni riguardo una RichiestaAcquisto
+   * @param r La Richiesta da salvare
+   * @throws DatabaseException Errore nel database
+   */
   public static void save(RichiestaAcquisto r) throws DatabaseException {
     try {
       PreparedStatement prep =

@@ -89,7 +89,12 @@ public class ProdottoDao {
     }
   }
 
-  public static boolean createProdotto(Prodotto p) throws DatabaseException {
+  /**
+   * Salva le informazioni di un Prodotto nel database
+   * @param p il Prodotto da salvare
+   * @throws DatabaseException Errore del database
+   */
+  public static void createProdotto(Prodotto p) throws DatabaseException {
     PreparedStatement prep = null;
     try {
       prep = DatabaseConnection.con.prepareStatement(Query.newProdotto);
@@ -101,7 +106,6 @@ public class ProdottoDao {
       prep.setString(6, p.getScadenza());
       prep.setString(7, p.getDimensioneConfezione());
       prep.executeUpdate();
-      return true;
 
     } catch (SQLException throwables) {
       throwables.printStackTrace();

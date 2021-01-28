@@ -158,8 +158,7 @@ public class Ticket {
 
   /**
    * Restituisce il tipo di categoria del Prodotto
-   *
-   * @return
+   * @return il tipo di categoria del prodotto
    */
   public String getTipo() {
     return tipo;
@@ -263,7 +262,7 @@ public class Ticket {
 
   /**
    * Imposta la data dello Scontrino
-   * @param dataScontrino
+   * @param dataScontrino la data dello scontrino
    */
   public void setDataScontrino(String dataScontrino) {
     this.dataScontrino = dataScontrino;

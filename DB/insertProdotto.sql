@@ -8,7 +8,7 @@ use NEGOZIO;
 -- scadenza(breve/media/lunga), dimensione(piccola/media/grande)
 insert into PRODOTTO values
 -- FruttaVerdura
-(1000000000001, "Barbabietole", 100, 1.20,"FruttaVerdura","breve","media"),
+(1000000000001, "Barbabietole", 200, 1.20,"FruttaVerdura","breve","media"),
 (1000000000002, "coste", 66, 0.99,"FruttaVerdura","media","piccola"),
 (1000000000003, "broccoli", 200, 1.39,"FruttaVerdura","media","grande"),
 (1000000000004, "carciofi", 160, 1.99,"FruttaVerdura","media","grande"),

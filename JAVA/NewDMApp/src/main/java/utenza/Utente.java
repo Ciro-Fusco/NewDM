@@ -19,6 +19,9 @@ public class Utente {
    * @param nome nome dell'utente
    * @param cognome cognome dell'utente
    * @param username username dell'utente
+   * @param cassa flag autorizzazione cassa
+   * @param magazzino flag autorizzazione magazzino
+   * @param assistenza flag autorizzazione assistenza
    *     <p>Inserisce le informazioni riguardo l'utente nella classe.
    */
   public static void setUtente(String nome, String cognome, String username,boolean cassa, boolean magazzino,boolean assistenza) {
@@ -58,26 +61,50 @@ public class Utente {
     return username;
   }
 
+  /**
+   * Restituisce il valore del flag cassa
+   * @return il valore del flag cassa
+   */
   public static boolean isCassa() {
     return cassa;
   }
 
+  /**
+   * Imposta il valore del flag cassa
+   * @param cassa Il valore del flag cassa
+   */
   public static void setCassa(boolean cassa) {
     Utente.cassa = cassa;
   }
 
+  /**+
+   * Restituisce il valore del flag magazzino
+   * @return il valore del flag magazzino
+   */
   public static boolean isMagazzino() {
     return magazzino;
   }
 
+  /**
+   * Imposta il valore del flag magazzino
+   * @param magazzino Il valore da assegnare a magazzino
+   */
   public static void setMagazzino(boolean magazzino) {
     Utente.magazzino = magazzino;
   }
 
+  /**
+   * Restituisce il valore del flag assistenza
+   * @return il valore del flag assistenza
+   */
   public static boolean isAssistenza() {
     return assistenza;
   }
 
+  /**
+   * Imposta il valore del flag assistenza
+   * @param assistenza Il valore del flag assistenza
+   */
   public static void setAssistenza(boolean assistenza) {
     Utente.assistenza = assistenza;
   }
@@ -98,18 +125,22 @@ public class Utente {
   }
 
   /**
+   * Crea una connessione con il database e verifica se un utente esiste
    * @param us Nome utente
    * @param pass Password in chiaro
-   * @return true se login è effettuato
    * @throws UtenteNotFoundException Utente non trovato
    * @throws DatabaseException Errore generico del Database
    */
-  public static boolean login(String us, String pass)
+  public static void login(String us, String pass)
       throws UtenteException, DatabaseException {
     DatabaseConnection.connect();
-    return UtenteDao.login(us, pass);
+    UtenteDao.login(us, pass);
   }
 
+  /**
+   * Elimina le informazioni dell'utente dal sistema e chiude la connessione con il database
+   * @throws DatabaseException Errore nel database
+   */
   public static void logout() throws DatabaseException {
     clear();
     DatabaseConnection.close();
