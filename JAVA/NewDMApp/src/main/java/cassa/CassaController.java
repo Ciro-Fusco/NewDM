@@ -43,7 +43,7 @@ public class CassaController implements Initializable {
       System.out.println();
     }
 
-    if (nomeFile.equals("CassaTotale.fxml")) {
+    if (nomeFile.equals("CassaTotaleForm.fxml")) {
       scontrino.calcolaTot();
       totaleLabel.setText(Double.toString(scontrino.getTot()));
     } else {
@@ -81,7 +81,7 @@ public class CassaController implements Initializable {
    * @throws IOException
    */
   public void openCassaInsProdotto(MouseEvent mouseEvent) throws IOException {
-    App.setRoot("CassaInsProdotto");
+    App.setRoot("CassaInsProdottoForm");
   }
 
   /**
@@ -91,7 +91,7 @@ public class CassaController implements Initializable {
    */
   public void openCassaTotale(MouseEvent mouseEvent) throws IOException {
     if (scontrino != null && scontrino.getList() != null) {
-      App.setRoot("CassaTotale");
+      App.setRoot("CassaTotaleForm");
     } else {
       AlertMessage.showError("Per procedere, aggiungere almeno un prodotto allo scontrino");
     }

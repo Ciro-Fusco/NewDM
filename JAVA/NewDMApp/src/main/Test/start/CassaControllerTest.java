@@ -61,7 +61,7 @@ public class CassaControllerTest {
     DatabaseConnection.connect();
     CassaController c = new CassaController();
     URL url =
-        new File(System.getProperty("user.dir") + "\\src\\main\\resouncers\\CassaTotale.fxml")
+        new File(System.getProperty("user.dir") + "\\src\\main\\resouncers\\CassaTotaleForm.fxml")
             .toURI()
             .toURL();
     Scontrino s = new Scontrino();

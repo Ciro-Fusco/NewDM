@@ -78,7 +78,7 @@ public class MagazzinoController implements Initializable {
       System.out.println();
     }
 
-    if (nomeFile.equals("ModPrezzoProdottoPopUp.fxml")) {
+    if (nomeFile.equals("ModPrezzoProdottoPopUpForm.fxml")) {
       labelPrezzoProd.setText(Double.toString(prodotto.getPrezzo()));
       labelNomeProd.setText(prodotto.getNome());
     } else {
@@ -99,22 +99,22 @@ public class MagazzinoController implements Initializable {
 
   @FXML
   public void openInserisciProdotto(MouseEvent mouseEvent) throws Exception {
-    App.setRoot("InserisciProdotto");
+    App.setRoot("InserisciProdottoForm");
   }
 
   @FXML
   public void openInserisciNuovoProdotto(MouseEvent mouseEvent) throws Exception {
-    App.setRoot("InserisciNuovoProdotto");
+    App.setRoot("InserisciNuovoProdottoForm");
   }
 
   @FXML
   public void openOrdinaProdotto(MouseEvent mouseEvent) throws Exception {
-    App.setRoot("OrdinaProdotto");
+    App.setRoot("OrdinaProdottoForm");
   }
 
   @FXML
   public void openModificaPrezzo(MouseEvent mouseEvent) throws Exception {
-    App.setRoot("ModPrezzoProdotto");
+    App.setRoot("ModPrezzoProdottoForm");
   }
 
   ////////////////////////////////////////////////////////////////////////////
@@ -149,7 +149,7 @@ public class MagazzinoController implements Initializable {
       throws DatabaseException, IOException, ProdottoException {
     prodotto.adddbquantity(tempProdotto.getQuantity() - prodotto.getQuantity());
     AlertMessage.showInformation("Quantità aggiornata correttamente");
-    App.setRoot("InserisciProdotto");
+    App.setRoot("InserisciProdottoForm");
   }
 
   ///////////////////////////////////////////////////////////////////////////////
@@ -209,7 +209,7 @@ public class MagazzinoController implements Initializable {
   public void inserisciNuovoProdotto(MouseEvent mouseEvent) throws DatabaseException, IOException, ProdottoException {
     prodotto.createProdotto();
     AlertMessage.showInformation("Prodotto inserito correttamente!");
-    App.setRoot("InserisciNuovoProdotto");
+    App.setRoot("InserisciNuovoProdottoForm");
   }
 
   ///////////////////////////////////////////////////////////////////
@@ -224,7 +224,7 @@ public class MagazzinoController implements Initializable {
       prodotto.modificaPrezzo(Double.parseDouble(prezzoProd.getText()));
       prodotto.setPrezzo(Double.parseDouble(prezzoProd.getText()));
       AlertMessage.showInformation("Prezzo aggiornato con successo");
-      App.setRoot("ModPrezzoProdotto");
+      App.setRoot("ModPrezzoProdottoForm");
     } else {
       AlertMessage.showError("Inserisci un prezzo valido");
     }
@@ -236,7 +236,7 @@ public class MagazzinoController implements Initializable {
     // controllo che sia un codice prodotto valido
     if (codiceProd.getText().matches("^[0-9]{13}$")) {
       prodotto = Prodotto.search(Long.parseLong(codiceProd.getText()));
-      App.setRoot("ModPrezzoProdottoPopUp");
+      App.setRoot("ModPrezzoProdottoPopUpForm");
     } else {
       AlertMessage.showError("Inserisci un codice prodotto valido");
     }
@@ -288,7 +288,7 @@ public class MagazzinoController implements Initializable {
 
   @FXML
   public void openOrdinaProdottoManu(ActionEvent mouseEvent) throws Exception {
-    App.setRoot("OrdinaProdottoQuantitaManu");
+    App.setRoot("OrdinaProdottoQuantitaManuForm");
   }
 
   public void confermaOrdine(MouseEvent mousevent) throws DatabaseException, IOException {
@@ -297,7 +297,7 @@ public class MagazzinoController implements Initializable {
     ra.setQuantity(ordineCalcolato);
     ra.save();
     AlertMessage.showInformation("Ordine effettuato con successo");
-    App.setRoot("OrdineProdotto");
+    App.setRoot("OrdinaProdottoForm");
   }
 
   public void confermaOrdineManu(MouseEvent mousevent) throws DatabaseException, IOException {
@@ -308,7 +308,7 @@ public class MagazzinoController implements Initializable {
       ra.setQuantity(Integer.parseInt(quantitaProd.getText()));
       ra.save();
       AlertMessage.showInformation("Ordine effettuato con successo");
-      App.setRoot("OrdinaProdotto");
+      App.setRoot("OrdinaProdottoForm");
     } else {
       AlertMessage.showError("Inserire una quantità valida");
     }

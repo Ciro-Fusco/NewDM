@@ -21,7 +21,7 @@ public class UtenzaController {
     Utente.login(us.getText(), pass.getText());
 
     if (Utente.isAssistenza() && cliccatoAssistenza) {
-      App.setRoot("Assistenza");
+      App.setRoot("AssistenzaForm");
       return;
     }
     if (Utente.isCassa() && cliccatoCassa) {
@@ -30,7 +30,7 @@ public class UtenzaController {
     }
 
     if (Utente.isMagazzino() && cliccatoMagazzino) {
-      App.setRoot("Cassa");
+      App.setRoot("DashboardMagazzino");
       return;
     }
 
@@ -45,19 +45,25 @@ public class UtenzaController {
   @FXML
   public void openMagazzino(MouseEvent mouseEvent) throws Exception {
     this.cliccatoMagazzino = true;
-    App.setRoot("Login");
+    this.cliccatoCassa= false;
+    this.cliccatoAssistenza= false;
+    App.setRoot("LoginForm");
   }
 
   @FXML
   public void openAssistenza(MouseEvent mouseEvent) throws Exception {
     this.cliccatoAssistenza = true;
-    App.setRoot("Login");
+    this.cliccatoCassa=false;
+    this.cliccatoMagazzino=false;
+    App.setRoot("LoginForm");
   }
 
   @FXML
   public void openCassa(MouseEvent mouseEvent) throws Exception {
     this.cliccatoCassa = true;
-    App.setRoot("Login");
+    this.cliccatoMagazzino=false;
+    this.cliccatoAssistenza=false;
+    App.setRoot("LoginForm");
   }
 
   // GET E SETTER PER TESTING

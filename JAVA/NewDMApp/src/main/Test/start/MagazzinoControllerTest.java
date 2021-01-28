@@ -81,7 +81,7 @@ public class MagazzinoControllerTest {
         DatabaseConnection.connect();
         MagazzinoController c = new MagazzinoController();
         URL url =
-                new File(System.getProperty("user.dir") + "\\src\\main\\resouncers\\ModPrezzoProdottoPopUp.fxml")
+                new File(System.getProperty("user.dir") + "\\src\\main\\resouncers\\ModPrezzoProdottoPopUpForm.fxml")
                         .toURI()
                         .toURL();
         Prodotto p = new Prodotto();

@@ -94,7 +94,7 @@ public class AssistenzaController {
                                 Integer.parseInt(numScontrino.getText()),
                                 dataScontrino.getText(),
                                 Long.parseLong(codProdotto.getText()));
-                        App.setRoot("AssistenzaDettagliProb");
+                        App.setRoot("AssistenzaDettagliProbForm");
                       } else {
                         AlertMessage.showError("Inserire un codice fiscale valido");
                       }
@@ -137,7 +137,7 @@ public class AssistenzaController {
    */
   public void openAssistenza(MouseEvent mouseEvent) throws IOException {
     ticket = null;
-    App.setRoot("Assistenza");
+    App.setRoot("AssistenzaForm");
   }
 
   /**
@@ -152,7 +152,7 @@ public class AssistenzaController {
       ticket.setProblema(dettagliProb.getText());
       ticket.save();
       AlertMessage.showInformation("Ticket salvato con successo");
-      App.setRoot("Assistenza");
+      App.setRoot("AssistenzaForm");
       ticket = null;
     } else {
       AlertMessage.showError("Inserire i dettagli del problema");
