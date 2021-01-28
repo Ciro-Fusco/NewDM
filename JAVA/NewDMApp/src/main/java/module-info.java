@@ -1,9 +1,10 @@
-module org.exemple {
+/*module org.exemple {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
     requires org.apache.commons.codec;
     requires mysql.connector.java;
+    requires jfxrt;
 
     opens start to javafx.fxml;
     exports start;
@@ -15,4 +16,4 @@ module org.exemple {
     exports assistenza;
     opens magazzino to javafx.fxml;
     exports magazzino;
-}
+}*/
