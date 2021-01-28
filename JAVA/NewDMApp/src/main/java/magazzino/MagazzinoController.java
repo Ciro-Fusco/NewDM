@@ -86,32 +86,69 @@ public class MagazzinoController implements Initializable {
     }
   }
 
+  /**
+   * Apre la dashboard del magazzino
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
   public void openDashboardMagazzino(MouseEvent mouseEvent) throws IOException {
     App.setRoot("DashboardMagazzino");
   }
 
   // DASHBOARD MAGAZZINO
 
+  /**
+   * Apre la dashboard iniziale
+   *
+   * @param mouseEvent
+   * @throws IOException
+   * @throws DatabaseException Errore del Database
+   */
   public void openDashboard(MouseEvent mouseEvent) throws IOException, DatabaseException {
     Utente.logout();
     App.setRoot("Dashboard");
   }
 
+  /**
+   * Apre il form per la modifica della quantità di un prodotto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
   @FXML
   public void openInserisciProdotto(MouseEvent mouseEvent) throws Exception {
     App.setRoot("InserisciProdottoForm");
   }
 
+  /**
+   * Apre il form per l'inserimento di un nuovo prodotto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
   @FXML
   public void openInserisciNuovoProdotto(MouseEvent mouseEvent) throws Exception {
     App.setRoot("InserisciNuovoProdottoForm");
   }
 
+  /**
+   * Apre il form per la creazione di una nuova richiesta d'acquisto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
   @FXML
   public void openOrdinaProdotto(MouseEvent mouseEvent) throws Exception {
     App.setRoot("OrdinaProdottoForm");
   }
 
+  /**
+   * Apre il form per la modifica del prezzo di un prodotto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
   @FXML
   public void openModificaPrezzo(MouseEvent mouseEvent) throws Exception {
     App.setRoot("ModPrezzoProdottoForm");
@@ -121,6 +158,14 @@ public class MagazzinoController implements Initializable {
 
   // INSERISCI PRODOTTO GIA PRESENTE
 
+  /**
+   * Apre la schermata di riepilogo della quantità del prodotto modificata
+   *
+   * @param mouseEvent
+   * @throws IOException
+   * @throws ProdottoException Prodotto non trovato
+   * @throws DatabaseException Errore nel Database
+   */
   public void openInserisciProdottoRiepilogo(MouseEvent mouseEvent)
       throws IOException, ProdottoException, DatabaseException {
 
@@ -145,6 +190,12 @@ public class MagazzinoController implements Initializable {
     }
   }
 
+  /**
+   * Esegue l'aggiornamento della quantità del prodotto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
   public void inserisciProdotto(MouseEvent mouseEvent)
       throws DatabaseException, IOException, ProdottoException {
     prodotto.adddbquantity(tempProdotto.getQuantity() - prodotto.getQuantity());
@@ -156,6 +207,12 @@ public class MagazzinoController implements Initializable {
 
   // INSERISCI NUOVO PRODOTTO
 
+  /**
+   * Apre la schermata di riepilogo dell'inserimento del nuovo prodotto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
   public void openNuovoProdottoRiepilogo(MouseEvent mouseEvent)
       throws IOException, ProdottoException {
 
@@ -206,6 +263,12 @@ public class MagazzinoController implements Initializable {
     }
   }
 
+  /**
+   * Esegue il salvataggio del nuovo prodotto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
   public void inserisciNuovoProdotto(MouseEvent mouseEvent) throws DatabaseException, IOException, ProdottoException {
     prodotto.createProdotto();
     AlertMessage.showInformation("Prodotto inserito correttamente!");
@@ -216,6 +279,12 @@ public class MagazzinoController implements Initializable {
 
   // MOD PREZZO PRODOTTO
 
+  /**
+   * Esegue la modifica del prezzo del prodotto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
   public void aggiornaPrezzo(MouseEvent mouseEvent)
       throws DatabaseException, ProdottoException, IOException {
 
@@ -230,6 +299,12 @@ public class MagazzinoController implements Initializable {
     }
   }
 
+  /**
+   * Apre la schermata per l'inserimento del nuovo prezzo
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
   public void openModificaPrezzoPopUp(MouseEvent mouseEvent)
       throws ProdottoException, DatabaseException, IOException {
 
@@ -246,6 +321,12 @@ public class MagazzinoController implements Initializable {
 
   // ORDINA PRODOTTO
 
+  /**
+   * Apre la schermata di suggerimento per la richiesta d'acquisto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
   public void cercaProdottoOrdinaProd(MouseEvent mouseEvent)
       throws DatabaseException, ProdottoException, IOException {
 
@@ -286,12 +367,26 @@ public class MagazzinoController implements Initializable {
     }
   }
 
+  /**
+   * Apre il form per l'inserimento manuale della quantità per la nuova richiesta d'acquisto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
   @FXML
   public void openOrdinaProdottoManu(ActionEvent mouseEvent) throws Exception {
     App.setRoot("OrdinaProdottoQuantitaManuForm");
   }
 
-  public void confermaOrdine(MouseEvent mousevent) throws DatabaseException, IOException {
+  /**
+   * Esegue il salvataggio della richiesta d'acquisto con quantità suggerita
+   *
+   * @param mouseEvent
+   * @throws IOException
+   * @throws DatabaseException Errore nel Database
+   */
+  @FXML
+  public void confermaOrdine(MouseEvent mouseEvent) throws DatabaseException, IOException {
     RichiestaAcquisto ra = new RichiestaAcquisto();
     ra.setCodice(prodotto.getCodice());
     ra.setQuantity(ordineCalcolato);
@@ -300,7 +395,15 @@ public class MagazzinoController implements Initializable {
     App.setRoot("OrdinaProdottoForm");
   }
 
-  public void confermaOrdineManu(MouseEvent mousevent) throws DatabaseException, IOException {
+  /**
+   * Esegue il salvataggio della richiesta d'acquisto con la quantità inserita manualmente
+   *
+   * @param mouseEvent
+   * @throws IOException
+   * @throws DatabaseException Errore nel Database
+   */
+  @FXML
+  public void confermaOrdineManu(MouseEvent mouseEvent) throws DatabaseException, IOException {
     // controllo se è stata inserita una quantità valida
     if (quantitaProd.getText().matches("[0-9]+(\\.[0-9][0-9]?)?")) {
       RichiestaAcquisto ra = new RichiestaAcquisto();

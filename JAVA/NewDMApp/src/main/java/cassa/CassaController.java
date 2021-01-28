@@ -27,7 +27,6 @@ public class CassaController implements Initializable {
   @FXML private TextArea riepilogoTextArea;
   @FXML private Label restoLabel;
 
-
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     String nomeFile =
@@ -67,6 +66,7 @@ public class CassaController implements Initializable {
 
   /**
    * Apre la dashboard
+   *
    * @param mouseEvent
    * @throws IOException
    */
@@ -77,6 +77,7 @@ public class CassaController implements Initializable {
 
   /**
    * Apre la schermata di inserimento del codice Prodotto
+   *
    * @param mouseEvent
    * @throws IOException
    */
@@ -86,6 +87,7 @@ public class CassaController implements Initializable {
 
   /**
    * Apre la schermata di riepilogo dello Scontrino
+   *
    * @param mouseEvent
    * @throws IOException
    */
@@ -99,6 +101,7 @@ public class CassaController implements Initializable {
 
   /**
    * Elimina lo Scontrino attuale
+   *
    * @param mouseEvent
    */
   public void annullaInsProd(MouseEvent mouseEvent) {
@@ -111,6 +114,7 @@ public class CassaController implements Initializable {
 
   /**
    * Apre la schermata CassaController
+   *
    * @param mouseEvent
    * @throws IOException
    */
@@ -120,6 +124,7 @@ public class CassaController implements Initializable {
 
   /**
    * Inserisce il Prodotto nello scontrino
+   *
    * @param mouseEvent
    * @throws ProdottoException Prodotto non trovato
    * @throws DatabaseException Errore nel Database
@@ -147,6 +152,7 @@ public class CassaController implements Initializable {
 
   /**
    * Gestisce l'inserimento della somma versata
+   *
    * @param mouseEvent
    * @throws IOException
    * @throws ScontrinoException
@@ -171,6 +177,7 @@ public class CassaController implements Initializable {
 
   /**
    * Salva lo Scontrino
+   *
    * @param mouseEvent
    * @throws DatabaseException
    * @throws IOException
