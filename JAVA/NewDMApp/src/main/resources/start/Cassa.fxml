@@ -50,7 +50,7 @@
                         </Label>
                     </left>
                     <right>
-                        <Button mnemonicParsing="false" onMousePressed="#openDashboard" style="-fx-background-color: #ff5c66;" text="Esci" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Button mnemonicParsing="false" onMousePressed="#openDashboard" style="-fx-background-color: #ff5c66;" text="Logout" textFill="WHITE" BorderPane.alignment="CENTER">
                             <BorderPane.margin>
                                 <Insets right="20.0" />
                             </BorderPane.margin>

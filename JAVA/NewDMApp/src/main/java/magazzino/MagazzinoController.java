@@ -16,6 +16,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
+import utenza.Utente;
 
 public class MagazzinoController implements Initializable {
 
@@ -91,7 +92,8 @@ public class MagazzinoController implements Initializable {
 
   // DASHBOARD MAGAZZINO
 
-  public void openDashboard(MouseEvent mouseEvent) throws IOException {
+  public void openDashboard(MouseEvent mouseEvent) throws IOException, DatabaseException {
+    Utente.logout();
     App.setRoot("Dashboard");
   }
 

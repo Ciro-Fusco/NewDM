@@ -16,7 +16,7 @@ public class App extends Application {
   @Override
   public void start(Stage stage) throws IOException {
     stage.getIcons().add(new Image(App.class.getResourceAsStream("LogoIcon.png")));
-    scene = new Scene(loadfxml("Login"), 800, 620);
+    scene = new Scene(loadfxml("Dashboard"), 800, 620);
     stage.setScene(scene);
     stage.show();
   }

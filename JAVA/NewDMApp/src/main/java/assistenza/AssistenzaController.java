@@ -10,6 +10,7 @@ import exceptions.ScontrinoException;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import utenza.Utente;
 
 import java.io.IOException;
 
@@ -34,7 +35,8 @@ public class AssistenzaController {
    * @param mouseEvent
    * @throws IOException
    */
-  public void openDashboard(MouseEvent mouseEvent) throws IOException {
+  public void openDashboard(MouseEvent mouseEvent) throws IOException, DatabaseException {
+    Utente.logout();
     App.setRoot("Dashboard");
   }
 

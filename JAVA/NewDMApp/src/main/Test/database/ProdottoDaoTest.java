@@ -49,7 +49,7 @@ public class ProdottoDaoTest {
         DatabaseConnection.connect();
         Prodotto p = Prodotto.search(1000000000001L);
         p.setAcquistato(1);
-        ProdottoDao.leavedbquantity(p);
+        p.leavedbquantity();
         Prodotto pPost = Prodotto.search(1000000000001L);
         assertEquals(p.getQuantity()-1,pPost.getQuantity());
         DatabaseConnection.close();

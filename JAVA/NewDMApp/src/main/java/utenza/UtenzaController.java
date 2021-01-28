@@ -1,5 +1,6 @@
 package utenza;
 
+import exceptions.UtenteNotAuthorizedException;
 import start.App;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -10,32 +11,53 @@ public class UtenzaController {
 
   public TextField us;
   public PasswordField pass;
+  public static boolean cliccatoMagazzino = false;
+  public static boolean cliccatoAssistenza = false;
+  public static boolean cliccatoCassa = false;
 
   @FXML
   public void checkLogin(MouseEvent mouseEvent) throws Exception {
+
     Utente.login(us.getText(), pass.getText());
-    App.setRoot("Dashboard");
+
+    if (Utente.isAssistenza() && cliccatoAssistenza) {
+      App.setRoot("Assistenza");
+      return;
+    }
+    if (Utente.isCassa() && cliccatoCassa) {
+      App.setRoot("Cassa");
+      return;
+    }
+
+    if (Utente.isMagazzino() && cliccatoMagazzino) {
+      App.setRoot("Cassa");
+      return;
+    }
+
+    throw new UtenteNotAuthorizedException("Non hai i permessi per accedere a quest'area");
   }
 
-  public void logout(MouseEvent mouseEvent) throws Exception {
-
-    Utente.logout();
-    App.setRoot("Login");
+  @FXML
+  public void openDashboard(MouseEvent mouseEvent) throws Exception {
+    App.setRoot("Dashboard");
   }
 
   @FXML
   public void openMagazzino(MouseEvent mouseEvent) throws Exception {
-    App.setRoot("DashboardMagazzino");
+    this.cliccatoMagazzino = true;
+    App.setRoot("Login");
   }
 
   @FXML
   public void openAssistenza(MouseEvent mouseEvent) throws Exception {
-    App.setRoot("Assistenza");
+    this.cliccatoAssistenza = true;
+    App.setRoot("Login");
   }
 
   @FXML
   public void openCassa(MouseEvent mouseEvent) throws Exception {
-    App.setRoot("Cassa");
+    this.cliccatoCassa = true;
+    App.setRoot("Login");
   }
 
   // GET E SETTER PER TESTING

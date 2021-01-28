@@ -49,7 +49,7 @@
                         </Label>
                     </left>
                     <right>
-                        <Button alignment="CENTER" mnemonicParsing="false" onMousePressed="#openDashboard" style="-fx-background-color: #ff5c66;" text="Indietro" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Button alignment="CENTER" mnemonicParsing="false" onMousePressed="#openDashboard" style="-fx-background-color: #ff5c66;" text="Logout" textFill="WHITE" BorderPane.alignment="CENTER">
                             <BorderPane.margin>
                                 <Insets right="20.0" />
                             </BorderPane.margin>
