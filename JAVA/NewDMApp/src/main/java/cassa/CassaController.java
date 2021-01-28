@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Cassa implements Initializable {
+public class CassaController implements Initializable {
 
   private static Scontrino scontrino;
   @FXML private TextField codiceProd;
@@ -62,7 +62,7 @@ public class Cassa implements Initializable {
     }
   }
 
-  // Cassa
+  // CassaController
 
   /**
    * Apre la dashboard
@@ -108,7 +108,7 @@ public class Cassa implements Initializable {
   // inserimento prodotto
 
   /**
-   * Apre la schermata Cassa
+   * Apre la schermata CassaController
    * @param mouseEvent
    * @throws IOException
    */
@@ -165,7 +165,7 @@ public class Cassa implements Initializable {
 
   ////////////////////////////////////////////////////////////////
 
-  // Riepilogo Cassa
+  // Riepilogo CassaController
 
   /**
    * Salva lo Scontrino
@@ -189,7 +189,7 @@ public class Cassa implements Initializable {
   }
 
   public static void setScontrino(Scontrino scontrino) {
-    Cassa.scontrino = scontrino;
+    CassaController.scontrino = scontrino;
   }
 
   public TextField getCodiceProd() {

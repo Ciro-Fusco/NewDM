@@ -9,7 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import magazzino.Magazzino;
+import magazzino.MagazzinoController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -21,19 +21,19 @@ import java.net.URL;
 import static org.junit.Assert.*;
 
 @RunWith(JfxRunner.class)
-public class MagazzinoTest {
+public class MagazzinoControllerTest {
 
     @Test
     public void initializeCorrettoOrdinaProdottoQuantitaSugg() throws DatabaseException, MalformedURLException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         URL url =
                 new File(System.getProperty("user.dir") + "\\src\\main\\resouncers\\OrdinaProdottoQuantitaSugg.fxml")
                         .toURI()
                         .toURL();
         Prodotto p = new Prodotto();
         p.setNome("Prova");
-        Magazzino.setProdotto(p);
+        MagazzinoController.setProdotto(p);
         c.setLabelNomeProdSugg(new Label());
         c.setLabelQuantitaProdSugg(new Label());
         c.setLabelOrdineCalcSugg(new Label());
@@ -45,14 +45,14 @@ public class MagazzinoTest {
     @Test
     public void initializeCorrettoInserisciNuovoProdottoRiepilogo() throws DatabaseException, MalformedURLException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         URL url =
                 new File(System.getProperty("user.dir") + "\\src\\main\\resouncers\\InserisciNuovoProdottoRiepilogo.fxml")
                         .toURI()
                         .toURL();
         Prodotto p = new Prodotto();
         p.setNome("Prova");
-        Magazzino.setProdotto(p);
+        MagazzinoController.setProdotto(p);
         c.setRiepilogoNuovoProdotto(new TextField());
         c.initialize(url,null);
         assertEquals(p.toString(),c.getRiepilogoNuovoProdotto().getText());
@@ -62,14 +62,14 @@ public class MagazzinoTest {
     @Test
     public void initializeCorrettoInserisciProdottoRiepilogo() throws DatabaseException, MalformedURLException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         URL url =
                 new File(System.getProperty("user.dir") + "\\src\\main\\resouncers\\InserisciProdottoRiepilogo.fxml")
                         .toURI()
                         .toURL();
         Prodotto p = new Prodotto();
         p.setNome("Prova");
-        Magazzino.setTempProdotto(p);
+        MagazzinoController.setTempProdotto(p);
         c.setRiepilogoProdotto(new TextField());
         c.initialize(url,null);
         assertEquals(p.toString(),c.getRiepilogoProdotto().getText());
@@ -79,14 +79,14 @@ public class MagazzinoTest {
     @Test
     public void initializeCorrettoIModPrezzoProdottoPopUp() throws DatabaseException, MalformedURLException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         URL url =
                 new File(System.getProperty("user.dir") + "\\src\\main\\resouncers\\ModPrezzoProdottoPopUp.fxml")
                         .toURI()
                         .toURL();
         Prodotto p = new Prodotto();
         p.setNome("Prova");
-        Magazzino.setTempProdotto(p);
+        MagazzinoController.setTempProdotto(p);
         c.setLabelPrezzoProd(new Label());
         c.setLabelNomeProd(new Label());
         c.initialize(url,null);
@@ -97,7 +97,7 @@ public class MagazzinoTest {
     @Test
     public void openInserisciProdottoRiepilogoCorretto() throws DatabaseException {
         DatabaseConnection.connect();
-        Magazzino m = new Magazzino();
+        MagazzinoController m = new MagazzinoController();
         m.setCodiceProd("1000000000001");
         m.setQuantitaProd("19");
         Exception ex = assertThrows(NullPointerException.class,()->{
@@ -109,7 +109,7 @@ public class MagazzinoTest {
     @Test
     public void openInserisciProdottoRiepilogoCodiceSbagliato() throws DatabaseException {
         DatabaseConnection.connect();
-        Magazzino m = new Magazzino();
+        MagazzinoController m = new MagazzinoController();
         m.setCodiceProd("1000000");
         m.setQuantitaProd("19");
         try{
@@ -125,7 +125,7 @@ public class MagazzinoTest {
     @Test
     public void openInserisciProdottoRiepilogoQuantitaSbagliata() throws DatabaseException {
         DatabaseConnection.connect();
-        Magazzino m = new Magazzino();
+        MagazzinoController m = new MagazzinoController();
         m.setCodiceProd("1000000000001");
         m.setQuantitaProd("-5");
         try{
@@ -141,7 +141,7 @@ public class MagazzinoTest {
     @Test
     public void openNuovoProdottoRiepilogoCorretto() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setNomeProd("Shampoo");
         c.setQuantitaProd("50");
         c.setCodiceProd("5555555555555");
@@ -163,7 +163,7 @@ public class MagazzinoTest {
     @Test
     public void openNuovoProdottoRiepilogoNomeSbagliato() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setNomeProd("s");
         c.setQuantitaProd("50");
         c.setCodiceProd("5555555555555");
@@ -188,7 +188,7 @@ public class MagazzinoTest {
     @Test
     public void openNuovoProdottoRiepilogoNomeLungo() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setNomeProd("VSJAKDSJDNSJDDSAJDJLSAJDLASDJSKLDNSJLDNSJLDNDSJLNDDJNCDLNCDLNLDNFDLNLDNFDLNDFLNDALNDALFNDALFNADLFNADFLADNFLADNFADNFDLFNALFNADLFNADLFNDALFDANFLDANFDLAKKKKKKKKKNDALFNDALFNADLFNDFNDLANCLKDAKLADNCKLDNCLDANCNDANCADCNLDANCLADNCLADNFCADNFADNFADKNFDLAKNFDKANFDKANFDJANFLDANFKDFNKDNFKLDNFLADNFLADNFLADNFLADNFADLFNALFNADLFNADLFNDAL");
         c.setQuantitaProd("50");
         c.setCodiceProd("5555555555555");
@@ -213,7 +213,7 @@ public class MagazzinoTest {
     @Test
     public void openNuovoProdottoRiepilogoQuantitaSbagliata() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setNomeProd("Shampoo");
         c.setQuantitaProd("-50");
         c.setCodiceProd("5555555555555");
@@ -238,7 +238,7 @@ public class MagazzinoTest {
     @Test
     public void openNuovoProdottoRiepilogoCodiceSbagliato() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setNomeProd("Shampoo");
         c.setQuantitaProd("50");
         c.setCodiceProd("5");
@@ -263,7 +263,7 @@ public class MagazzinoTest {
     @Test
     public void openNuovoProdottoRiepilogoPrezzoSBgaliato() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setNomeProd("Shampoo");
         c.setQuantitaProd("50");
         c.setCodiceProd("5555555555555");
@@ -288,7 +288,7 @@ public class MagazzinoTest {
     @Test
     public void openNuovoProdottoRiepilogoTipologiaCorta() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setNomeProd("Shampoo");
         c.setQuantitaProd("50");
         c.setCodiceProd("5555555555555");
@@ -313,7 +313,7 @@ public class MagazzinoTest {
     @Test
     public void openNuovoProdottoRiepilogoTipologiaLunga() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setNomeProd("Shampoo");
         c.setQuantitaProd("50");
         c.setCodiceProd("5555555555555");
@@ -338,7 +338,7 @@ public class MagazzinoTest {
     @Test
     public void openNuovoProdottoRiepilogoDimensioniSbagliato() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setNomeProd("Shampoo");
         c.setQuantitaProd("50");
         c.setCodiceProd("5555555555555");
@@ -361,7 +361,7 @@ public class MagazzinoTest {
     @Test
     public void openNuovoProdottoRiepilogoScadenzaSbagliata() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setNomeProd("Shampoo");
         c.setQuantitaProd("50");
         c.setCodiceProd("5555555555555");
@@ -384,7 +384,7 @@ public class MagazzinoTest {
     @Test
     public void aggiornaPrezzoCorretto() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setPrezzoProd("5");
         Exception ex =assertThrows(NullPointerException.class,()->{
             c.aggiornaPrezzo(null);
@@ -396,7 +396,7 @@ public class MagazzinoTest {
     @Test
     public void aggiornaPrezzoSbagliato() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setPrezzoProd("-5");
         try{
             c.aggiornaPrezzo(null);
@@ -411,7 +411,7 @@ public class MagazzinoTest {
     @Test
     public void openModificaPrezzoPopUpCorretto() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setCodiceProd("1000000000001");
         Exception ex =assertThrows(NullPointerException.class,()->{
             c.openModificaPrezzoPopUp(null);
@@ -423,7 +423,7 @@ public class MagazzinoTest {
     @Test
     public void openModificaPrezzoPopUpSbagliato() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setCodiceProd("5");
         try{
             c.openModificaPrezzoPopUp(null);
@@ -438,7 +438,7 @@ public class MagazzinoTest {
     @Test
     public void cercaProdottoOrdinaProdCorretto() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setCodiceProd("1000000000001");
         c.setPrezzoSped("10");
         RadioButton r = new RadioButton();
@@ -461,7 +461,7 @@ public class MagazzinoTest {
     @Test
     public void cercaProdottoOrdinaCodiceSbagliato() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setCodiceProd("1");
         c.setPrezzoSped("10");
         RadioButton r = new RadioButton();
@@ -486,7 +486,7 @@ public class MagazzinoTest {
     @Test
     public void cercaProdottoOrdinaPrezzoSbagliato() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setCodiceProd("1000000000001");
         c.setPrezzoSped("-10");
         RadioButton r = new RadioButton();
@@ -511,7 +511,7 @@ public class MagazzinoTest {
     @Test
     public void cercaProdottoOrdinaStagioneSbagliato() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setCodiceProd("1000000000001");
         c.setPrezzoSped("10");
         c.setStagione(new ToggleGroup());
@@ -534,7 +534,7 @@ public class MagazzinoTest {
     @Test
     public void cercaProdottoOrdinaTipoSuperSbagliato() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setCodiceProd("1000000000001");
         c.setPrezzoSped("10");
         RadioButton r = new RadioButton();
@@ -557,7 +557,7 @@ public class MagazzinoTest {
     @Test
     public void cercaProdottoOrdinaFestivitaSbagliato() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setCodiceProd("1000000000001");
         c.setPrezzoSped("10");
         RadioButton r = new RadioButton();
@@ -580,7 +580,7 @@ public class MagazzinoTest {
     @Test
     public void confermaOrdineManuCorretto() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setQuantitaProd("20");
         Exception ex =assertThrows(NullPointerException.class,()->{
             c.confermaOrdineManu(null);
@@ -592,7 +592,7 @@ public class MagazzinoTest {
     @Test
     public void confermaOrdineManuSbagliato() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
-        Magazzino c = new Magazzino();
+        MagazzinoController c = new MagazzinoController();
         c.setQuantitaProd("-20");
         try{
             c.confermaOrdineManu(null);

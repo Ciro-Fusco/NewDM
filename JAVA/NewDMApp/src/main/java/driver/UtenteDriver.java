@@ -1,6 +1,7 @@
 package driver;
 
 import database.DatabaseConnection;
+import exceptions.UtenteException;
 import utenza.Utente;
 import exceptions.DatabaseException;
 import exceptions.UtenteNotFoundException;
@@ -9,7 +10,7 @@ import java.util.Scanner;
 
 public class UtenteDriver {
 
-  public static void main(String[] args) throws DatabaseException, UtenteNotFoundException {
+  public static void main(String[] args) throws DatabaseException, UtenteException {
     DatabaseConnection.connect();
     int i;
     Scanner in = new Scanner(System.in);

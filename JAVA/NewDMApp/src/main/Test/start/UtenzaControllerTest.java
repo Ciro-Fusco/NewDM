@@ -7,17 +7,17 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import utenza.Utenza;
+import utenza.UtenzaController;
 
 import static org.junit.Assert.*;
 
 @RunWith(JfxRunner.class)
-public class UtenzaTest {
+public class UtenzaControllerTest {
 
   @Test
   public void checkLoginCorretto() throws Exception {
     DatabaseConnection.connect();
-    Utenza u = new Utenza();
+    UtenzaController u = new UtenzaController();
     TextField user = new TextField();
     user.setText("cirofu");
     u.setUs(user);
@@ -39,7 +39,7 @@ public class UtenzaTest {
   @Test
   public void checkLoginSbagliato() throws Exception {
     DatabaseConnection.connect();
-    Utenza u = new Utenza();
+    UtenzaController u = new UtenzaController();
     TextField user = new TextField();
     user.setText("cirofu");
     u.setUs(user);

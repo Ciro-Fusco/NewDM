@@ -1,6 +1,6 @@
 package start;
 
-import assistenza.Assistenza;
+import assistenza.AssistenzaController;
 import database.DatabaseConnection;
 import de.saxsys.javafx.test.JfxRunner;
 import cassa.Scontrino;
@@ -15,18 +15,18 @@ import java.io.IOException;
 import static org.junit.Assert.*;
 
 @RunWith(JfxRunner.class)
-public class AssistenzaTest {
+public class AssistenzaControllerTest {
 
   @Test
   public void openAssistenzaDettagliProbCorretto()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("Vincenzo Aiello");
     a.setNomeCognCli(t);
@@ -72,11 +72,11 @@ public class AssistenzaTest {
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("Vincenzo Aiello");
     a.setNomeCognCli(t);
@@ -108,7 +108,7 @@ public class AssistenzaTest {
     m.setText("1000000000001");
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
-    assertEquals(null, Assistenza.getTicket());
+    assertEquals(null, AssistenzaController.getTicket());
     DatabaseConnection.close();
   }
 
@@ -117,11 +117,11 @@ public class AssistenzaTest {
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("V");
     a.setNomeCognCli(t);
@@ -153,7 +153,7 @@ public class AssistenzaTest {
     m.setText("1000000000001");
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
-    assertEquals(null, Assistenza.getTicket());
+    assertEquals(null, AssistenzaController.getTicket());
     DatabaseConnection.close();
   }
 
@@ -162,11 +162,11 @@ public class AssistenzaTest {
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText(
         "VSJAKDSJDNSJDDSAJDJLSAJDLASDJSKLDNSJLDNSJLDNDSJLNDDJNCDLNCDLNLDNFDLNLDNFDLNDFLNDALNDALFNDALFNADLFNADFLADNFLADNFADNFDLFNALFNADLFNADLFNDALFDANFLDANFDLAKKKKKKKKKNDALFNDALFNADLFNDFNDLANCLKDAKLADNCKLDNCLDANCNDANCADCNLDANCLADNCLADNFCADNFADNFADKNFDLAKNFDKANFDKANFDJANFLDANFKDFNKDNFKLDNFLADNFLADNFLADNFLADNFADLFNALFNADLFNADLFNDAL");
@@ -199,7 +199,7 @@ public class AssistenzaTest {
     m.setText("1000000000001");
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
-    assertEquals(null, Assistenza.getTicket());
+    assertEquals(null, AssistenzaController.getTicket());
     DatabaseConnection.close();
   }
 
@@ -208,11 +208,11 @@ public class AssistenzaTest {
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("Vincenzo Aiello");
     a.setNomeCognCli(t);
@@ -245,7 +245,7 @@ public class AssistenzaTest {
     m.setText("1000000000001");
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
-    assertEquals(null, Assistenza.getTicket());
+    assertEquals(null, AssistenzaController.getTicket());
     DatabaseConnection.close();
   }
 
@@ -254,11 +254,11 @@ public class AssistenzaTest {
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("Vincenzo Aiello");
     a.setNomeCognCli(t);
@@ -290,7 +290,7 @@ public class AssistenzaTest {
     m.setText("1000000000001");
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
-    assertEquals(null, Assistenza.getTicket());
+    assertEquals(null, AssistenzaController.getTicket());
     DatabaseConnection.close();
   }
 
@@ -299,11 +299,11 @@ public class AssistenzaTest {
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("Vincenzo Aiello");
     a.setNomeCognCli(t);
@@ -336,7 +336,7 @@ public class AssistenzaTest {
     m.setText("1000000000001");
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
-    assertEquals(null, Assistenza.getTicket());
+    assertEquals(null, AssistenzaController.getTicket());
     DatabaseConnection.close();
   }
 
@@ -345,11 +345,11 @@ public class AssistenzaTest {
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("Vincenzo Aiello");
     a.setNomeCognCli(t);
@@ -381,7 +381,7 @@ public class AssistenzaTest {
     m.setText("1000000000001");
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
-    assertEquals(null, Assistenza.getTicket());
+    assertEquals(null, AssistenzaController.getTicket());
     DatabaseConnection.close();
   }
 
@@ -390,11 +390,11 @@ public class AssistenzaTest {
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("Vincenzo Aiello");
     a.setNomeCognCli(t);
@@ -426,7 +426,7 @@ public class AssistenzaTest {
     m.setText("1000000000001");
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
-    assertEquals(null, Assistenza.getTicket());
+    assertEquals(null, AssistenzaController.getTicket());
     DatabaseConnection.close();
   }
 
@@ -435,11 +435,11 @@ public class AssistenzaTest {
           throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("Vincenzo Aiello");
     a.setNomeCognCli(t);
@@ -471,7 +471,7 @@ public class AssistenzaTest {
     m.setText("1000000000001");
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
-    assertEquals(null, Assistenza.getTicket());
+    assertEquals(null, AssistenzaController.getTicket());
     DatabaseConnection.close();
   }
 
@@ -480,11 +480,11 @@ public class AssistenzaTest {
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("Vincenzo Aiello");
     a.setNomeCognCli(t);
@@ -516,7 +516,7 @@ public class AssistenzaTest {
     m.setText("1000000000001");
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
-    assertEquals(null, Assistenza.getTicket());
+    assertEquals(null, AssistenzaController.getTicket());
     DatabaseConnection.close();
   }
 
@@ -525,11 +525,11 @@ public class AssistenzaTest {
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("Vincenzo Aiello");
     a.setNomeCognCli(t);
@@ -561,7 +561,7 @@ public class AssistenzaTest {
     m.setText("1000000000001");
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
-    assertEquals(null, Assistenza.getTicket());
+    assertEquals(null, AssistenzaController.getTicket());
     DatabaseConnection.close();
   }
 
@@ -570,11 +570,11 @@ public class AssistenzaTest {
           throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("Vincenzo Aiello");
     a.setNomeCognCli(t);
@@ -606,7 +606,7 @@ public class AssistenzaTest {
     m.setText("1000000000001");
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
-    assertEquals(null, Assistenza.getTicket());
+    assertEquals(null, AssistenzaController.getTicket());
     DatabaseConnection.close();
   }
 
@@ -615,11 +615,11 @@ public class AssistenzaTest {
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("Vincenzo Aiello");
     a.setNomeCognCli(t);
@@ -651,7 +651,7 @@ public class AssistenzaTest {
     m.setText("1000000000001");
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
-    assertEquals(null, Assistenza.getTicket());
+    assertEquals(null, AssistenzaController.getTicket());
     DatabaseConnection.close();
   }
 
@@ -662,11 +662,11 @@ public class AssistenzaTest {
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("Vincenzo Aiello");
     a.setNomeCognCli(t);
@@ -698,7 +698,7 @@ public class AssistenzaTest {
     m.setText("1000000000001");
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
-    assertEquals(null, Assistenza.getTicket());
+    assertEquals(null, AssistenzaController.getTicket());
     DatabaseConnection.close();
   }
 
@@ -707,11 +707,11 @@ public class AssistenzaTest {
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("Vincenzo Aiello");
     a.setNomeCognCli(t);
@@ -743,7 +743,7 @@ public class AssistenzaTest {
     m.setText("1");
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
-    assertEquals(null, Assistenza.getTicket());
+    assertEquals(null, AssistenzaController.getTicket());
     DatabaseConnection.close();
   }
 
@@ -752,11 +752,11 @@ public class AssistenzaTest {
           throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("Vincenzo Aiello");
     a.setNomeCognCli(t);
@@ -800,11 +800,11 @@ public class AssistenzaTest {
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
     DatabaseConnection.connect();
-    Assistenza.setTicket(null);
+    AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField t = new TextField();
     t.setText("Vincenzo Aiello");
     a.setNomeCognCli(t);
@@ -836,7 +836,7 @@ public class AssistenzaTest {
     m.setText("1000000000001");
     a.setCodProdotto(m);
     a.openAssistenzaDettagliProb(null);
-    assertEquals(null, Assistenza.getTicket());
+    assertEquals(null, AssistenzaController.getTicket());
     DatabaseConnection.close();
   }
 
@@ -848,7 +848,7 @@ public class AssistenzaTest {
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField dettagli = new TextField();
     dettagli.setText("Non è buono");
     a.setDettagliProb(dettagli);
@@ -864,7 +864,7 @@ public class AssistenzaTest {
             s.getId(),
             s.getData().substring(0, s.getData().indexOf(" ")),
             1000000000001l);
-    Assistenza.setTicket(t);
+    AssistenzaController.setTicket(t);
     Exception ex =
         assertThrows(
             NullPointerException.class,
@@ -883,7 +883,7 @@ public class AssistenzaTest {
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
-    Assistenza a = new Assistenza();
+    AssistenzaController a = new AssistenzaController();
     TextField dettagli = new TextField();
     dettagli.setText("");
     a.setDettagliProb(dettagli);
@@ -899,7 +899,7 @@ public class AssistenzaTest {
             s.getId(),
             s.getData().substring(0, s.getData().indexOf(" ")),
             1000000000001l);
-    Assistenza.setTicket(t);
+    AssistenzaController.setTicket(t);
     try {
       a.salvaTicket(null);
     } catch (NullPointerException ex) {

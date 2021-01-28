@@ -13,7 +13,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
-public class Assistenza {
+public class AssistenzaController {
 
   private static Ticket ticket;
   @FXML private TextField nomeCognCli;
@@ -126,7 +126,7 @@ public class Assistenza {
   }
   ////////////////////////////////////////////////////////////
 
-  // Assistenza dettagli prob
+  // AssistenzaController dettagli prob
 
   /**
    * Apre la schermata di assistenza
@@ -165,7 +165,7 @@ public class Assistenza {
   }
 
   public static void setTicket(Ticket ticket) {
-    Assistenza.ticket = ticket;
+    AssistenzaController.ticket = ticket;
   }
 
   public TextField getNomeCognCli() {

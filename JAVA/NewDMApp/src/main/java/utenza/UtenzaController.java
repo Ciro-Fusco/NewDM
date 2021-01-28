@@ -6,7 +6,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-public class Utenza {
+public class UtenzaController {
 
   public TextField us;
   public PasswordField pass;

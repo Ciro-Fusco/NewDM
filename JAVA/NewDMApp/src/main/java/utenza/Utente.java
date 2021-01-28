@@ -2,6 +2,7 @@ package utenza;
 
 import database.DatabaseConnection;
 import exceptions.DatabaseException;
+import exceptions.UtenteException;
 import exceptions.UtenteNotFoundException;
 
 /**
@@ -104,7 +105,7 @@ public class Utente {
    * @throws DatabaseException Errore generico del Database
    */
   public static boolean login(String us, String pass)
-      throws UtenteNotFoundException, DatabaseException {
+      throws UtenteException, DatabaseException {
     DatabaseConnection.connect();
     return UtenteDao.login(us, pass);
   }

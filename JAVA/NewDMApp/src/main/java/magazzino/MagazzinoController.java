@@ -17,7 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 
-public class Magazzino implements Initializable {
+public class MagazzinoController implements Initializable {
 
   private static Prodotto prodotto;
   private static Prodotto tempProdotto;
@@ -429,7 +429,7 @@ public class Magazzino implements Initializable {
   }
 
   public static void setProdotto(Prodotto prodotto) {
-    Magazzino.prodotto = prodotto;
+    MagazzinoController.prodotto = prodotto;
   }
 
   public static Prodotto getTempProdotto() {
@@ -437,7 +437,7 @@ public class Magazzino implements Initializable {
   }
 
   public static void setTempProdotto(Prodotto tempProdotto) {
-    Magazzino.tempProdotto = tempProdotto;
+    MagazzinoController.tempProdotto = tempProdotto;
   }
 
   public TextField getNomeProd() {
@@ -702,6 +702,6 @@ public class Magazzino implements Initializable {
   }
 
   public static void setOrdineCalcolato(int ordineCalcolato) {
-    Magazzino.ordineCalcolato = ordineCalcolato;
+    MagazzinoController.ordineCalcolato = ordineCalcolato;
   }
 }
