@@ -4,6 +4,7 @@ import database.DatabaseConnection;
 import database.Query;
 import exceptions.DatabaseException;
 import exceptions.ScontrinoException;
+import exceptions.ScontrinoNonValidoException;
 import exceptions.ScontrinoNotFoundException;
 
 import java.sql.PreparedStatement;
@@ -17,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 public class ScontrinoDao {
 
   /**
-   * Salva lo Scontrino nel Database e crea le voci della tabella ELENCA
+   * Salva le informazioni dello scontrino nel Database e crea le voci della tabella ELENCA
    *
    * @param s Scontrino da salvare
    * @throws DatabaseException Errore del Database
@@ -46,8 +47,16 @@ public class ScontrinoDao {
     }
   }
 
+  /**
+   * Cerca una stringa nel database alla tabella Scontrino contenente codice e data dello scontrino
+   * @param codice il codice dello scontrino
+   * @param dataScontrino la data dello scontrino
+   * @throws ScontrinoNotFoundException Scontrino non trovato
+   * @throws ScontrinoNonValidoException Lo Scontrino non è valido ai fini della garanzia
+   * @throws DatabaseException Errore del database
+   */
   public static void checkScontrino(long codice, String dataScontrino)
-      throws ScontrinoException, DatabaseException {
+      throws ScontrinoNonValidoException, DatabaseException,ScontrinoNotFoundException {
     try {
       PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.checkScontrino);
       prep.setLong(1, codice);
@@ -62,8 +71,8 @@ public class ScontrinoDao {
         LocalDateTime data_obj = LocalDate.parse(data_temp, formatter).atStartOfDay();
         LocalDateTime data_2_years_ago = LocalDateTime.now().minusYears(2);
         if (data_obj.isBefore(data_2_years_ago))
-          throw new ScontrinoException(
-              "Inserire una data valida, non precedente a due anni fa e non successiva alla data odierna");
+          throw new ScontrinoNonValidoException(
+              "Prodotto fuori garanzia, lo scontrino inserito è più vecchio della durata legale della garanzia");
         else {
           System.out.println();
         }

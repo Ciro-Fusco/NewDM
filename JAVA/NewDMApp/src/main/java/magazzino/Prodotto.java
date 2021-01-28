@@ -1,5 +1,6 @@
 package magazzino;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import exceptions.ProdottoNotFoundException;
@@ -13,6 +14,17 @@ public class Prodotto {
   private int quantity;
   private String tipologia, scadenza, dimensioneConfezione;
 
+  /**
+   * Crea un nuovo Prodotto
+   * @param prezzo Prezzo del Prodotto
+   * @param codice Codice generico del prodotto
+   * @param nome Nome del prodotto
+   * @param quantity Quantità del Prodotto
+   * @param dimensione Dimensione della confezione del Prodotto
+   * @param scade Durata media del Prodotto prima della scadenza
+   * @param tipologia Categoria di Prodotto
+   * @throws ProdottoException Errore nella creazione del Prodotto
+   */
   public Prodotto(
       double prezzo,
       long codice,
@@ -35,46 +47,86 @@ public class Prodotto {
     this.tipologia = tipologia.replace(tipologia.substring(0, 1), temp);
   }
 
+  /**
+   * Crea un nuovo Prodotto senza parametri
+   */
   public Prodotto() {}
 
+  /**
+   * Restituisce la categoria del Prodotto
+   * @return la categoria del Prodotto
+   */
   public String getTipologia() {
     return tipologia;
   }
 
+  /**
+   * Imposta la categoria del Prodotto
+   * @param tipologia la categoria del prodotto
+   */
   public void setTipologia(String tipologia) {
     this.tipologia = tipologia;
   }
 
+  /**
+   * Restituisce la durata media del prodotto prima di scadere
+   * @return la durata media (breve,media,lunga) del Prodotto prima di scadere
+   */
   public String getScadenza() {
     return scadenza;
   }
 
+  /**
+   * Imposta la durata media del prodotto prima di scadere
+   * @param scadenza durata media (breve,media,lunga) del Prodotto prima di scadere
+   */
   public void setScadenza(String scadenza) {
     this.scadenza = scadenza;
   }
 
+  /**
+   * Restituisce la dimensione della confezione del prodotto
+   * @return la dimensione della confezione del prodotto (piccola,media,grande)
+   */
   public String getDimensioneConfezione() {
     return dimensioneConfezione;
   }
 
+  /**
+   * Imposta la dimensione della confezione del Prodotto
+   * @param dimensioneConfezione la dimensione della confezione del prodotto(piccola,media,grande)
+   */
   public void setDimensioneConfezione(String dimensioneConfezione) {
     this.dimensioneConfezione = dimensioneConfezione;
   }
 
+  /**
+   * Restituisce il prezzo del Prodotto
+   * @return il prezzo del Prodotto
+   */
   public double getPrezzo() {
     return prezzo;
   }
 
+  /**
+   * Restituisce il nome del Prodotto
+   * @return il nome del Prodotto
+   */
   public String getNome() {
     return this.nome;
   }
 
+  /**
+   * Restituisce la quantità di pezzi del prodotto contenuti dallo scontrino che ha invocato la creazione di
+   * questo prodotto
+   * @return la quantità di pezzi contenuti
+   */
   public int getAcquistato() {
     return acquistato;
   }
 
   /**
-   * Aggiorna le unità di prodotto inserite nello scontrino presente nello scontrino
+   * Aggiorna le unità di prodotto inserite nello scontrino
    *
    * @param q unità da aggiungere
    * @return quantità totale nello scontrino
@@ -83,20 +135,34 @@ public class Prodotto {
     return this.acquistato += q;
   }
 
+  /**
+   * Imposta la quantità di pezzi acquistati nello scontrino
+   * @param acquistato la quantità di pezzi da salvare
+   */
   public void setAcquistato(int acquistato) {
     this.acquistato = acquistato;
   }
 
+  /**
+   * Imposta il prezzo del Prodotto
+   * @param prezzo il prezzo del prodotto
+   * @throws ProdottoException Il prezzo deve essere positivo
+   */
   public void setPrezzo(double prezzo) throws ProdottoException {
     if (prezzo <= 0) throw new ProdottoException("Il prezzo del prodotto deve essere positivo");
 
     this.prezzo = prezzo;
   }
 
+  /**
+   * Restituisce il codice identificativo del Prodotto
+   * @return il codice del Prodotto
+   */
   public long getCodice() {
     return codice;
   }
 
+  /** */
   public void setCodice(long codice) {
     this.codice = codice;
   }

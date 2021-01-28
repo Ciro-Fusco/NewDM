@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ElencaDao {
   /**
-   * Salva nel database la relazione tra uno Scontrino e i Prodotti a cui si riferisce
+   * Salva nel database la relazione tra un codice di uno scontrino e i codici dei prodotti a cui si riferisce
    * @param s Lo Scontrino da cui ricavare le relazioni
    * @throws DatabaseException Errore del Database
    */
@@ -37,12 +37,13 @@ public class ElencaDao {
   }
 
   /**
-   * Controlla se ad uno Scontrino corrisponde
-   * @param codiceScontrino
-   * @param dataScontrino
-   * @param codiceProdotto
-   * @throws DatabaseException
-   * @throws ElencaException
+   * Controlla se nel database alla tabella Elenca esiste una riga contenente codice e data dello Scontrino e codice Prodotto
+   * così come passato per parametro
+   * @param codiceScontrino il codice dello Scontrino
+   * @param dataScontrino la data dello Scontrino
+   * @param codiceProdotto il codice del Prodotto
+   * @throws DatabaseException Errore del Database
+   * @throws ElencaException Relazione non trovata
    */
   public static void checkCorrispondenza(
       long codiceScontrino, String dataScontrino, long codiceProdotto)

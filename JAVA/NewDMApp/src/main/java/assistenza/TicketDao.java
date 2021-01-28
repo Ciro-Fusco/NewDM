@@ -41,7 +41,7 @@ public class TicketDao {
   }
 
   /**
-   * Cerca un Ticket nel database
+   * Salva le informazioni di un Ticket nel database
    * @param apertura data di apertura del Ticket
    * @param CF Codice Fiscale del Cliente
    * @param serie Numero di Serie del Prodotto

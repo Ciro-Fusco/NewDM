@@ -10,7 +10,7 @@ import exceptions.DatabaseException;
 import exceptions.UtenteNotFoundException;
 import org.apache.commons.codec.digest.DigestUtils;
 
-import static utenza.Utente.setUtente;
+import static utenza.Utente.*;
 
 public class UtenteDao {
 
@@ -34,7 +34,8 @@ public class UtenteDao {
       if (!res.next()) {
         throw new UtenteNotFoundException("Utente non trovato\nControlla username e password");
       } else {
-        setUtente(res.getString("NOME"), res.getString("COGNOME"), res.getString("USERNAME"));
+        setUtente(res.getString("NOME"), res.getString("COGNOME"), res.getString("USERNAME"),
+                res.getBoolean("CASSA"),res.getBoolean("MAGAZZINO"),res.getBoolean("ASSISTENZA"));
         return true;
       }
     } catch (SQLException e) {

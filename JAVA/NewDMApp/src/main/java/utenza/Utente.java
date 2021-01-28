@@ -12,6 +12,7 @@ public class Utente {
   private static String nome;
   private static String cognome;
   private static String username;
+  private static boolean cassa,magazzino,assistenza;
 
   /**
    * @param nome nome dell'utente
@@ -19,15 +20,18 @@ public class Utente {
    * @param username username dell'utente
    *     <p>Inserisce le informazioni riguardo l'utente nella classe.
    */
-  public static void setUtente(String nome, String cognome, String username) {
+  public static void setUtente(String nome, String cognome, String username,boolean cassa, boolean magazzino,boolean assistenza) {
     Utente.nome = nome;
     Utente.cognome = cognome;
     Utente.username = username;
+    Utente.cassa = cassa;
+    Utente.magazzino = magazzino;
+    Utente.assistenza = assistenza;
   }
 
   /** Elimina le informazioni circa l'utente correntemente autenticato */
   private static void clear() {
-    setUtente(null, null, null);
+    setUtente(null, null, null,false,false,false);
   }
 
   /**
@@ -51,6 +55,30 @@ public class Utente {
    */
   public static String getUsername() {
     return username;
+  }
+
+  public static boolean isCassa() {
+    return cassa;
+  }
+
+  public static void setCassa(boolean cassa) {
+    Utente.cassa = cassa;
+  }
+
+  public static boolean isMagazzino() {
+    return magazzino;
+  }
+
+  public static void setMagazzino(boolean magazzino) {
+    Utente.magazzino = magazzino;
+  }
+
+  public static boolean isAssistenza() {
+    return assistenza;
+  }
+
+  public static void setAssistenza(boolean assistenza) {
+    Utente.assistenza = assistenza;
   }
 
   @Override

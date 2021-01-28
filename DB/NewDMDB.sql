@@ -9,6 +9,9 @@ create table UTENTE
   NOME varchar(30),
   COGNOME varchar(30),
   PASSWORD varchar(500) not null,
+  CASSA bool not null,
+  MAGAZZINO bool not null,
+  ASSISTENZA bool not null,
   constraint pk_username primary key (USERNAME)
   );
   

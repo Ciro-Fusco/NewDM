@@ -8,6 +8,7 @@ import magazzino.Prodotto;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/** Il Ticket contenente le informazioni che riguardano una richiesta di Assistenza*/
 public class Ticket {
 
   private String nomeCognome,
