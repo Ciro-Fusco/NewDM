@@ -72,7 +72,7 @@ public class ScontrinoDao {
         LocalDateTime data_2_years_ago = LocalDateTime.now().minusYears(2);
         if (data_obj.isBefore(data_2_years_ago))
           throw new ScontrinoNonValidoException(
-              "Prodotto fuori garanzia, lo scontrino inserito è più vecchio della durata legale della garanzia");
+              "Inserire una data valida, non precedente a 2 anni fa e non successiva alla data odierna");
         else {
           System.out.println();
         }

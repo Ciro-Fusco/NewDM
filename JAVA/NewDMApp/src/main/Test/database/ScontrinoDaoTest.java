@@ -61,7 +61,8 @@ public class ScontrinoDaoTest {
                     () -> {
                       ScontrinoDao.checkScontrino(s.getId(), s.getData().substring(0,10));
                     });
-    String expectedMessage = "Scontrino inserito non più in garanzia";
+    String expectedMessage =
+        "Inserire una data valida, non precedente a 2 anni fa e non successiva alla data odierna";
     String actualMessage = ex.getMessage();
     assertTrue(actualMessage.contains(expectedMessage));
     DatabaseConnection.close();
