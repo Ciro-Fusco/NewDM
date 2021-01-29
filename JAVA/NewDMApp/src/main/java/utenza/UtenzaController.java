@@ -32,16 +32,17 @@ public class UtenzaController {
     if (Utente.isAssistenza() && cliccatoAssistenza) {
       App.setRoot("AssistenzaForm");
       return;
-    }
+    }System.out.println();
+
     if (Utente.isCassa() && cliccatoCassa) {
       App.setRoot("Cassa");
       return;
-    }
+    }System.out.println();
 
     if (Utente.isMagazzino() && cliccatoMagazzino) {
       App.setRoot("DashboardMagazzino");
       return;
-    }
+    }System.out.println();
 
     throw new UtenteNotAuthorizedException("Non hai i permessi per accedere a quest'area");
   }
@@ -119,5 +120,29 @@ public class UtenzaController {
 
   public void setPass(PasswordField pass) {
     this.pass = pass;
+  }
+
+  public static boolean isCliccatoMagazzino() {
+    return cliccatoMagazzino;
+  }
+
+  public static void setCliccatoMagazzino(boolean cliccatoMagazzino) {
+    UtenzaController.cliccatoMagazzino = cliccatoMagazzino;
+  }
+
+  public static boolean isCliccatoAssistenza() {
+    return cliccatoAssistenza;
+  }
+
+  public static void setCliccatoAssistenza(boolean cliccatoAssistenza) {
+    UtenzaController.cliccatoAssistenza = cliccatoAssistenza;
+  }
+
+  public static boolean isCliccatoCassa() {
+    return cliccatoCassa;
+  }
+
+  public static void setCliccatoCassa(boolean cliccatoCassa) {
+    UtenzaController.cliccatoCassa = cliccatoCassa;
   }
 }

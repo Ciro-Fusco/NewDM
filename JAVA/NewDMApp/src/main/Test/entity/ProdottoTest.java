@@ -8,6 +8,8 @@ import exceptions.ProdottoException;
 import org.junit.AfterClass;
 import org.junit.Test;
 
+import javax.xml.crypto.Data;
+
 import static org.junit.Assert.*;
 
 public class ProdottoTest {
@@ -199,6 +201,80 @@ public class ProdottoTest {
     assertEquals(false, b);
   }
 
+  @Test
+  public void createProdottoCorretto() throws DatabaseException, ProdottoException {
+    DatabaseConnection.connect();
+    Prodotto p = new Prodotto(4, 1017L, "Gigia", 5000, "Grande", "Media", "Frutta");
+    try{
+      p.createProdotto();
+    }catch (ProdottoException d){
+      d.printStackTrace();
+      assertFalse(true);
+    }finally{
+      DatabaseConnection.close();
+    }
+  }
+
+  @Test
+  public void createProdottoPrezzoNegativo() throws DatabaseException, ProdottoException {
+   DatabaseConnection.connect();
+    Prodotto p = new Prodotto(-4, 1018L, "Gigia", 5000, "Grande", "Media", "Frutta");
+    Exception ex = assertThrows(ProdottoException.class,()->{
+      p.createProdotto();
+    });
+    assertEquals("Prezzo e quantità devono essere entrambi positivi", ex.getMessage());
+  DatabaseConnection.close();
+  }
+
+  @Test
+  public void createProdottoQuantitaNegativa() throws DatabaseException, ProdottoException {
+   DatabaseConnection.connect();
+    Prodotto p = new Prodotto(4, 1019L, "Gigia", -5000, "Grande", "Media", "Frutta");
+    Exception ex = assertThrows(ProdottoException.class,()->{
+      p.createProdotto();
+    });
+    assertEquals("Prezzo e quantità devono essere entrambi positivi", ex.getMessage());
+  DatabaseConnection.close();
+  }
+
+  @Test
+  public void createProdottoQuantitaPrezzoNegativi() throws DatabaseException, ProdottoException {
+   DatabaseConnection.connect();
+    Prodotto p = new Prodotto(-4, 1019L, "Gigia", -5000, "Grande", "Media", "Frutta");
+    Exception ex = assertThrows(ProdottoException.class,()->{
+      p.createProdotto();
+    });
+    assertEquals("Prezzo e quantità devono essere entrambi positivi", ex.getMessage());
+  DatabaseConnection.close();
+  }
+
+  @Test
+  public void leaveDBquantityCorretto() throws DatabaseException, ProdottoException {
+    DatabaseConnection.connect();
+    Prodotto p = Prodotto.search(1000000000001l);
+    try {
+      p.leavedbquantity();
+    }catch (ProdottoException ex ){
+      assertFalse(true);
+      ex.printStackTrace();
+    }finally{
+      DatabaseConnection.close();
+    }
+
+  }
+
+  @Test
+  public void leaveDBQuantitySbagliata() throws DatabaseException, ProdottoException {
+    DatabaseConnection.connect();
+    Prodotto p = Prodotto.search(1000000000001l);
+    p.setQuantitySenzaControllo(0);
+    Exception ex = assertThrows(ProdottoException.class,()->{
+      p.leavedbquantity();
+    });
+    assertEquals("Prodotto esaurito", ex.getMessage());
+    DatabaseConnection.close();
+  }
+
   @AfterClass
   public static void pulisciDb() throws DatabaseException {
     DatabaseConnection.connect();
@@ -210,6 +286,12 @@ public class ProdottoTest {
     p.setCodice(1012l);
     ProdottoDao.eliminaProdotto(p);
     p.setCodice(1013l);
+    ProdottoDao.eliminaProdotto(p);
+    p.setCodice(1017l);
+    ProdottoDao.eliminaProdotto(p);
+    p.setCodice(1018l);
+    ProdottoDao.eliminaProdotto(p);
+    p.setCodice(1019l);
     ProdottoDao.eliminaProdotto(p);
   }
 }

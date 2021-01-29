@@ -16,6 +16,7 @@ public class Prodotto {
 
   /**
    * Crea un nuovo Prodotto
+   *
    * @param prezzo Prezzo del Prodotto
    * @param codice Codice generico del prodotto
    * @param nome Nome del prodotto
@@ -25,13 +26,13 @@ public class Prodotto {
    * @param tipologia Categoria di Prodotto
    */
   public Prodotto(
-          double prezzo,
-          long codice,
-          String nome,
-          int quantity,
-          String dimensione,
-          String scade,
-          String tipologia) {
+      double prezzo,
+      long codice,
+      String nome,
+      int quantity,
+      String dimensione,
+      String scade,
+      String tipologia) {
     this.prezzo = prezzo;
     this.codice = codice;
     this.nome = nome;
@@ -43,13 +44,12 @@ public class Prodotto {
     this.tipologia = tipologia.replace(tipologia.substring(0, 1), temp);
   }
 
-  /**
-   * Crea un nuovo Prodotto senza parametri
-   */
+  /** Crea un nuovo Prodotto senza parametri */
   public Prodotto() {}
 
   /**
    * Restituisce la categoria del Prodotto
+   *
    * @return la categoria del Prodotto
    */
   public String getTipologia() {
@@ -58,6 +58,7 @@ public class Prodotto {
 
   /**
    * Imposta la categoria del Prodotto
+   *
    * @param tipologia la categoria del prodotto
    */
   public void setTipologia(String tipologia) {
@@ -66,6 +67,7 @@ public class Prodotto {
 
   /**
    * Restituisce la durata media del prodotto prima di scadere
+   *
    * @return la durata media (breve,media,lunga) del Prodotto prima di scadere
    */
   public String getScadenza() {
@@ -74,6 +76,7 @@ public class Prodotto {
 
   /**
    * Imposta la durata media del prodotto prima di scadere
+   *
    * @param scadenza durata media (breve,media,lunga) del Prodotto prima di scadere
    */
   public void setScadenza(String scadenza) {
@@ -82,6 +85,7 @@ public class Prodotto {
 
   /**
    * Restituisce la dimensione della confezione del prodotto
+   *
    * @return la dimensione della confezione del prodotto (piccola,media,grande)
    */
   public String getDimensioneConfezione() {
@@ -90,6 +94,7 @@ public class Prodotto {
 
   /**
    * Imposta la dimensione della confezione del Prodotto
+   *
    * @param dimensioneConfezione la dimensione della confezione del prodotto(piccola,media,grande)
    */
   public void setDimensioneConfezione(String dimensioneConfezione) {
@@ -98,6 +103,7 @@ public class Prodotto {
 
   /**
    * Restituisce il prezzo del Prodotto
+   *
    * @return il prezzo del Prodotto
    */
   public double getPrezzo() {
@@ -106,6 +112,7 @@ public class Prodotto {
 
   /**
    * Restituisce il nome del Prodotto
+   *
    * @return il nome del Prodotto
    */
   public String getNome() {
@@ -113,8 +120,9 @@ public class Prodotto {
   }
 
   /**
-   * Restituisce la quantità di pezzi del prodotto contenuti dallo scontrino che ha invocato la creazione di
-   * questo prodotto
+   * Restituisce la quantità di pezzi del prodotto contenuti dallo scontrino che ha invocato la
+   * creazione di questo prodotto
+   *
    * @return la quantità di pezzi contenuti
    */
   public int getAcquistato() {
@@ -133,6 +141,7 @@ public class Prodotto {
 
   /**
    * Imposta la quantità di pezzi acquistati nello scontrino
+   *
    * @param acquistato la quantità di pezzi da salvare
    */
   public void setAcquistato(int acquistato) {
@@ -141,6 +150,7 @@ public class Prodotto {
 
   /**
    * Imposta il prezzo del Prodotto
+   *
    * @param prezzo il prezzo del prodotto
    * @throws ProdottoException Il prezzo deve essere positivo
    */
@@ -152,6 +162,7 @@ public class Prodotto {
 
   /**
    * Restituisce il codice identificativo del Prodotto
+   *
    * @return il codice del Prodotto
    */
   public long getCodice() {
@@ -195,9 +206,12 @@ public class Prodotto {
    *
    * @throws DatabaseException Errore del Database
    */
-  public void leavedbquantity() throws DatabaseException {
-    if (quantity > 0)
-    ProdottoDao.leavedbquantity(this);
+  public void leavedbquantity() throws DatabaseException, ProdottoException {
+    if (quantity > 0) {
+      ProdottoDao.leavedbquantity(this);
+    } else {
+      throw new ProdottoException("Prodotto esaurito");
+    }
   }
 
   /**
@@ -284,5 +298,11 @@ public class Prodotto {
 
   public boolean eliminaProdotto() throws DatabaseException {
     return ProdottoDao.eliminaProdotto(this);
+  }
+
+  //PER TESTING
+
+  public void setQuantitySenzaControllo(int quantity) throws ProdottoException {
+    this.quantity = quantity;
   }
 }

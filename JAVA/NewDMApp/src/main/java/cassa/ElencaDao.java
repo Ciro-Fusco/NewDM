@@ -2,6 +2,7 @@ package cassa;
 
 import database.DatabaseConnection;
 import database.Query;
+import exceptions.ProdottoException;
 import magazzino.Prodotto;
 import exceptions.DatabaseException;
 import exceptions.ElencaException;
@@ -17,7 +18,7 @@ public class ElencaDao {
    * @param s Lo Scontrino da cui ricavare le relazioni
    * @throws DatabaseException Errore del Database
    */
-  public static void save(Scontrino s) throws DatabaseException {
+  public static void save(Scontrino s) throws DatabaseException, ProdottoException {
 
     List<Prodotto> l = s.getList();
     for (Prodotto c : l) {

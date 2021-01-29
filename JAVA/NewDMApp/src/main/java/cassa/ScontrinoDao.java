@@ -2,10 +2,7 @@ package cassa;
 
 import database.DatabaseConnection;
 import database.Query;
-import exceptions.DatabaseException;
-import exceptions.ScontrinoException;
-import exceptions.ScontrinoNonValidoException;
-import exceptions.ScontrinoNotFoundException;
+import exceptions.*;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -41,7 +38,7 @@ public class ScontrinoDao {
 
       ElencaDao.save(s);
 
-    } catch (SQLException e) {
+    } catch (SQLException | ProdottoException e) {
       e.printStackTrace();
       throw new DatabaseException("Errore nel salvataggio dello Scontrino");
     }
