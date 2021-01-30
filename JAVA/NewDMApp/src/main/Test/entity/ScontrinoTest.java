@@ -1,11 +1,11 @@
 package entity;
 
-import cassa.Scontrino;
-import database.DatabaseConnection;
+import business.cassa.Scontrino;
+import persistenza.DatabaseConnection;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import exceptions.ScontrinoException;
-import magazzino.Prodotto;
+import business.inventario.Prodotto;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

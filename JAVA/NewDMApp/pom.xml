@@ -74,7 +74,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
-                    <mainClass>start.App</mainClass>
+                    <mainClass>presentazione.App</mainClass>
                 </configuration>
             </plugin>
             <plugin>

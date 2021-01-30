@@ -1,10 +1,10 @@
 package start;
 
-import assistenza.AssistenzaController;
-import database.DatabaseConnection;
+import presentazione.AssistenzaController;
+import persistenza.DatabaseConnection;
 import de.saxsys.javafx.test.JfxRunner;
-import cassa.Scontrino;
-import assistenza.Ticket;
+import business.cassa.Scontrino;
+import business.assistenza.Ticket;
 import exceptions.*;
 import javafx.scene.control.TextField;
 import org.junit.Test;

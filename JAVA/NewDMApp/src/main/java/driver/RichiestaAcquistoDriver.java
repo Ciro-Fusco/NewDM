@@ -1,7 +1,7 @@
 package driver;
 
-import database.DatabaseConnection;
-import magazzino.RichiestaAcquisto;
+import persistenza.DatabaseConnection;
+import business.fornitura.RichiestaAcquisto;
 import exceptions.*;
 
 import java.util.Scanner;

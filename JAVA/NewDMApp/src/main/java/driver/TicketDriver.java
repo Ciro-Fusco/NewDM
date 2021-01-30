@@ -1,7 +1,7 @@
 package driver;
 
-import database.DatabaseConnection;
-import assistenza.Ticket;
+import persistenza.DatabaseConnection;
+import business.assistenza.Ticket;
 import exceptions.*;
 
 import java.util.Scanner;

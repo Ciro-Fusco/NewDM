@@ -1,6 +1,6 @@
 package start;
 
-import database.DatabaseConnection;
+import persistenza.DatabaseConnection;
 import de.saxsys.javafx.test.JfxRunner;
 import exceptions.UtenteNotAuthorizedException;
 import exceptions.UtenteNotFoundException;
@@ -8,8 +8,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import utenza.Utente;
-import utenza.UtenzaController;
+import business.utenza.Utente;
+import presentazione.UtenzaController;
 
 import static org.junit.Assert.*;
 

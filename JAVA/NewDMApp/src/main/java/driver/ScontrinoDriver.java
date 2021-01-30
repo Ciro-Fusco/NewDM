@@ -1,7 +1,7 @@
 package driver;
 
-import database.DatabaseConnection;
-import cassa.Scontrino;
+import persistenza.DatabaseConnection;
+import business.cassa.Scontrino;
 import exceptions.*;
 
 import java.util.Scanner;

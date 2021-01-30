@@ -1,15 +1,15 @@
 package start;
 
-import database.DatabaseConnection;
+import persistenza.DatabaseConnection;
 import de.saxsys.javafx.test.JfxRunner;
-import magazzino.Prodotto;
+import business.inventario.Prodotto;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import magazzino.MagazzinoController;
+import presentazione.MagazzinoController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

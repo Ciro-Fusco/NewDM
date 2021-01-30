@@ -1,10 +1,9 @@
 package driver;
 
-import database.DatabaseConnection;
+import persistenza.DatabaseConnection;
 import exceptions.UtenteException;
-import utenza.Utente;
+import business.utenza.Utente;
 import exceptions.DatabaseException;
-import exceptions.UtenteNotFoundException;
 
 import java.util.Scanner;
 

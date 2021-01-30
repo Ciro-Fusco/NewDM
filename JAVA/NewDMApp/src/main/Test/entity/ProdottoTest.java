@@ -1,14 +1,12 @@
 package entity;
 
-import database.DatabaseConnection;
-import magazzino.Prodotto;
-import magazzino.ProdottoDao;
+import persistenza.DatabaseConnection;
+import business.inventario.Prodotto;
+import persistenza.ProdottoDao;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import org.junit.AfterClass;
 import org.junit.Test;
-
-import javax.xml.crypto.Data;
 
 import static org.junit.Assert.*;
 

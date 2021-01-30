@@ -1,7 +1,5 @@
 package exceptions;
 
-import start.AlertMessage;
-
 public class UtenteException extends Exception{
 
   public UtenteException(String message){
