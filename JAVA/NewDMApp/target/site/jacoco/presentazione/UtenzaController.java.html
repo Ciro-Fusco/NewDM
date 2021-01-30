@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UtenzaController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NewDMApp</a> &gt; <a href="index.source.html" class="el_package">presentazione</a> &gt; <span class="el_source">UtenzaController.java</span></div><h1>UtenzaController.java</h1><pre class="source lang-java linenums">package presentazione;
+
+import business.utenza.Utente;
+import exceptions.UtenteNotAuthorizedException;
+import javafx.fxml.FXML;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+
+import java.io.IOException;
+
+<span class="fc" id="L12">public class UtenzaController {</span>
+
+  public TextField us;
+  public PasswordField pass;
+<span class="fc" id="L16">  public static boolean cliccatoMagazzino = false;</span>
+<span class="fc" id="L17">  public static boolean cliccatoAssistenza = false;</span>
+<span class="fc" id="L18">  public static boolean cliccatoCassa = false;</span>
+
+  /////////////////////////// LOGIN
+  /**
+   * Esegue il login controllando se le credenziali inserite sono valide
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  @FXML
+  public void checkLogin(MouseEvent mouseEvent) throws Exception {
+
+<span class="fc" id="L30">    Utente.login(us.getText(), pass.getText());</span>
+
+<span class="pc bpc" id="L32" title="1 of 4 branches missed.">    if (Utente.isAssistenza() &amp;&amp; cliccatoAssistenza) {</span>
+<span class="nc" id="L33">      App.setRoot(&quot;AssistenzaForm&quot;);</span>
+<span class="nc" id="L34">      return;</span>
+<span class="fc" id="L35">    }System.out.println();</span>
+
+<span class="pc bpc" id="L37" title="1 of 4 branches missed.">    if (Utente.isCassa() &amp;&amp; cliccatoCassa) {</span>
+<span class="nc" id="L38">      App.setRoot(&quot;Cassa&quot;);</span>
+<span class="nc" id="L39">      return;</span>
+<span class="fc" id="L40">    }System.out.println();</span>
+
+<span class="pc bpc" id="L42" title="2 of 4 branches missed.">    if (Utente.isMagazzino() &amp;&amp; cliccatoMagazzino) {</span>
+<span class="nc" id="L43">      App.setRoot(&quot;DashboardMagazzino&quot;);</span>
+<span class="nc" id="L44">      return;</span>
+<span class="fc" id="L45">    }System.out.println();</span>
+
+<span class="fc" id="L47">    throw new UtenteNotAuthorizedException(&quot;Non hai i permessi per accedere a quest'area&quot;);</span>
+  }
+
+  /**
+   * Apre la dashboard iniziale
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  @FXML
+  public void openDashboard(MouseEvent mouseEvent) throws Exception {
+<span class="nc" id="L58">    App.setRoot(&quot;Dashboard&quot;);</span>
+<span class="nc" id="L59">  }</span>
+  ////////////////////////////////////////////
+
+  /////////////////////////// Dashboard
+  /**
+   * Apre la schermata di login per il magazzino
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  @FXML
+  public void openMagazzino(MouseEvent mouseEvent) throws Exception {
+<span class="nc" id="L71">    this.cliccatoMagazzino = true;</span>
+<span class="nc" id="L72">    this.cliccatoCassa = false;</span>
+<span class="nc" id="L73">    this.cliccatoAssistenza = false;</span>
+<span class="nc" id="L74">    App.setRoot(&quot;LoginForm&quot;);</span>
+<span class="nc" id="L75">  }</span>
+
+  /**
+   * Apre la schermata di login per l'assistenza
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  @FXML
+  public void openAssistenza(MouseEvent mouseEvent) throws Exception {
+<span class="nc" id="L85">    this.cliccatoAssistenza = true;</span>
+<span class="nc" id="L86">    this.cliccatoCassa = false;</span>
+<span class="nc" id="L87">    this.cliccatoMagazzino = false;</span>
+<span class="nc" id="L88">    App.setRoot(&quot;LoginForm&quot;);</span>
+<span class="nc" id="L89">  }</span>
+
+  /**
+   * Apre la schermata di login per la cassa
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  @FXML
+  public void openCassa(MouseEvent mouseEvent) throws Exception {
+<span class="nc" id="L99">    this.cliccatoCassa = true;</span>
+<span class="nc" id="L100">    this.cliccatoMagazzino = false;</span>
+<span class="nc" id="L101">    this.cliccatoAssistenza = false;</span>
+<span class="nc" id="L102">    App.setRoot(&quot;LoginForm&quot;);</span>
+<span class="nc" id="L103">  }</span>
+
+  /////////////////////////////////////////////// 77
+
+  // GET E SETTER PER TESTING
+
+  public TextField getUs() {
+<span class="nc" id="L110">    return us;</span>
+  }
+
+  public void setUs(TextField us) {
+<span class="fc" id="L114">    this.us = us;</span>
+<span class="fc" id="L115">  }</span>
+
+  public PasswordField getPass() {
+<span class="nc" id="L118">    return pass;</span>
+  }
+
+  public void setPass(PasswordField pass) {
+<span class="fc" id="L122">    this.pass = pass;</span>
+<span class="fc" id="L123">  }</span>
+
+  public static boolean isCliccatoMagazzino() {
+<span class="nc" id="L126">    return cliccatoMagazzino;</span>
+  }
+
+  public static void setCliccatoMagazzino(boolean cliccatoMagazzino) {
+<span class="nc" id="L130">    UtenzaController.cliccatoMagazzino = cliccatoMagazzino;</span>
+<span class="nc" id="L131">  }</span>
+
+  public static boolean isCliccatoAssistenza() {
+<span class="nc" id="L134">    return cliccatoAssistenza;</span>
+  }
+
+  public static void setCliccatoAssistenza(boolean cliccatoAssistenza) {
+<span class="fc" id="L138">    UtenzaController.cliccatoAssistenza = cliccatoAssistenza;</span>
+<span class="fc" id="L139">  }</span>
+
+  public static boolean isCliccatoCassa() {
+<span class="nc" id="L142">    return cliccatoCassa;</span>
+  }
+
+  public static void setCliccatoCassa(boolean cliccatoCassa) {
+<span class="fc" id="L146">    UtenzaController.cliccatoCassa = cliccatoCassa;</span>
+<span class="fc" id="L147">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
