@@ -45,10 +45,10 @@ public class UtenzaControllerTest {
     DatabaseConnection.connect();
     UtenzaController u = new UtenzaController();
     TextField user = new TextField();
-    user.setText("cirofu");
+    user.setText("test");
     u.setUs(user);
     PasswordField pass = new PasswordField();
-    pass.setText("cirofu");
+    pass.setText("test");
     u.setPass(pass);
     Utente.setAssistenza(false);
     UtenzaController.setCliccatoAssistenza(true);
@@ -118,10 +118,10 @@ public class UtenzaControllerTest {
     DatabaseConnection.connect();
     UtenzaController u = new UtenzaController();
     TextField user = new TextField();
-    user.setText("cirofu");
+    user.setText("test");
     u.setUs(user);
     PasswordField pass = new PasswordField();
-    pass.setText("cirofu");
+    pass.setText("test");
     u.setPass(pass);
     Utente.setAssistenza(false);
     Utente.setCassa(false);
@@ -156,8 +156,8 @@ public class UtenzaControllerTest {
                     () -> {
                       u.checkLogin(null);
                     });
-    String expectedMessage = "NullPointerException";
-    String actualMessage = ex.getClass().getName();
+    String expectedMessage = "Non hai i permessi per accedere a quest'area";
+    String actualMessage = ex.getMessage();
     assertTrue(actualMessage.contains(expectedMessage));
     DatabaseConnection.close();
   }
