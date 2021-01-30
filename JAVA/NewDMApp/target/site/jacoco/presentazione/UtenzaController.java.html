@@ -34,12 +34,12 @@ import java.io.IOException;
 <span class="nc" id="L34">      return;</span>
 <span class="fc" id="L35">    }System.out.println();</span>
 
-<span class="pc bpc" id="L37" title="1 of 4 branches missed.">    if (Utente.isCassa() &amp;&amp; cliccatoCassa) {</span>
+<span class="fc bfc" id="L37" title="All 4 branches covered.">    if (Utente.isCassa() &amp;&amp; cliccatoCassa) {</span>
 <span class="nc" id="L38">      App.setRoot(&quot;Cassa&quot;);</span>
 <span class="nc" id="L39">      return;</span>
 <span class="fc" id="L40">    }System.out.println();</span>
 
-<span class="pc bpc" id="L42" title="1 of 4 branches missed.">    if (Utente.isMagazzino() &amp;&amp; cliccatoMagazzino) {</span>
+<span class="fc bfc" id="L42" title="All 4 branches covered.">    if (Utente.isMagazzino() &amp;&amp; cliccatoMagazzino) {</span>
 <span class="nc" id="L43">      App.setRoot(&quot;DashboardMagazzino&quot;);</span>
 <span class="nc" id="L44">      return;</span>
 <span class="fc" id="L45">    }System.out.println();</span>
@@ -127,8 +127,8 @@ import java.io.IOException;
   }
 
   public static void setCliccatoMagazzino(boolean cliccatoMagazzino) {
-<span class="nc" id="L130">    UtenzaController.cliccatoMagazzino = cliccatoMagazzino;</span>
-<span class="nc" id="L131">  }</span>
+<span class="fc" id="L130">    UtenzaController.cliccatoMagazzino = cliccatoMagazzino;</span>
+<span class="fc" id="L131">  }</span>
 
   public static boolean isCliccatoAssistenza() {
 <span class="nc" id="L134">    return cliccatoAssistenza;</span>

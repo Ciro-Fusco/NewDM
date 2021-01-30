@@ -50,8 +50,9 @@ public class UtenzaControllerTest {
     PasswordField pass = new PasswordField();
     pass.setText("test");
     u.setPass(pass);
-    Utente.setAssistenza(false);
     UtenzaController.setCliccatoAssistenza(true);
+    UtenzaController.setCliccatoCassa(false);
+    UtenzaController.setCliccatoMagazzino(false);
     Exception ex =
             assertThrows(
                     UtenteNotAuthorizedException.class,
@@ -74,8 +75,9 @@ public class UtenzaControllerTest {
     PasswordField pass = new PasswordField();
     pass.setText("cirofu");
     u.setPass(pass);
-    Utente.setAssistenza(true);
     UtenzaController.setCliccatoAssistenza(false);
+    UtenzaController.setCliccatoCassa(false);
+    UtenzaController.setCliccatoMagazzino(false);
     Exception ex =
             assertThrows(
                     UtenteNotAuthorizedException.class,
@@ -98,9 +100,9 @@ public class UtenzaControllerTest {
     PasswordField pass = new PasswordField();
     pass.setText("cirofu");
     u.setPass(pass);
-    Utente.setAssistenza(false);
-    Utente.setCassa(true);
+    UtenzaController.setCliccatoAssistenza(false);
     UtenzaController.setCliccatoCassa(true);
+    UtenzaController.setCliccatoMagazzino(false);
     Exception ex =
             assertThrows(
                     NullPointerException.class,
@@ -123,9 +125,9 @@ public class UtenzaControllerTest {
     PasswordField pass = new PasswordField();
     pass.setText("test");
     u.setPass(pass);
-    Utente.setAssistenza(false);
-    Utente.setCassa(false);
+    UtenzaController.setCliccatoAssistenza(false);
     UtenzaController.setCliccatoCassa(true);
+    UtenzaController.setCliccatoMagazzino(false);
     Exception ex =
             assertThrows(
                     UtenteNotAuthorizedException.class,
@@ -149,7 +151,83 @@ public class UtenzaControllerTest {
     u.setPass(pass);
     Utente.setAssistenza(false);
     Utente.setCassa(true);
+    UtenzaController.setCliccatoAssistenza(false);
+    UtenzaController.setCliccatoMagazzino(false);
     UtenzaController.setCliccatoCassa(false);
+    Exception ex =
+            assertThrows(
+                    UtenteNotAuthorizedException.class,
+                    () -> {
+                      u.checkLogin(null);
+                    });
+    String expectedMessage = "Non hai i permessi per accedere a quest'area";
+    String actualMessage = ex.getMessage();
+    assertTrue(actualMessage.contains(expectedMessage));
+    DatabaseConnection.close();
+  }
+
+  @Test
+  public void checkLoginCorrettoMagazzino() throws Exception {
+    DatabaseConnection.connect();
+    UtenzaController u = new UtenzaController();
+    TextField user = new TextField();
+    user.setText("cirofu");
+    u.setUs(user);
+    PasswordField pass = new PasswordField();
+    pass.setText("cirofu");
+    u.setPass(pass);
+    UtenzaController.setCliccatoAssistenza(false);
+    UtenzaController.setCliccatoCassa(false);
+    UtenzaController.setCliccatoMagazzino(true);
+    Exception ex =
+            assertThrows(
+                    NullPointerException.class,
+                    () -> {
+                      u.checkLogin(null);
+                    });
+    String expectedMessage = "NullPointerException";
+    String actualMessage = ex.getClass().getName();
+    assertTrue(actualMessage.contains(expectedMessage));
+    DatabaseConnection.close();
+  }
+
+  @Test
+  public void checkLoginSbaliatoMagazziniIsMagazzinoFalse() throws Exception {
+    DatabaseConnection.connect();
+    UtenzaController u = new UtenzaController();
+    TextField user = new TextField();
+    user.setText("test");
+    u.setUs(user);
+    PasswordField pass = new PasswordField();
+    pass.setText("test");
+    u.setPass(pass);
+    UtenzaController.setCliccatoAssistenza(false);
+    UtenzaController.setCliccatoCassa(false);
+    UtenzaController.setCliccatoMagazzino(true);
+    Exception ex =
+            assertThrows(
+                    UtenteNotAuthorizedException.class,
+                    () -> {
+                      u.checkLogin(null);
+                    });
+    String expectedMessage = "Non hai i permessi per accedere a quest'area";
+    String actualMessage = ex.getMessage();
+    assertTrue(actualMessage.contains(expectedMessage));
+    DatabaseConnection.close();
+  }
+  @Test
+  public void checkLoginCorrettoMagazzinoMagazzinoFalse() throws Exception {
+    DatabaseConnection.connect();
+    UtenzaController u = new UtenzaController();
+    TextField user = new TextField();
+    user.setText("cirofu");
+    u.setUs(user);
+    PasswordField pass = new PasswordField();
+    pass.setText("cirofu");
+    u.setPass(pass);
+    UtenzaController.setCliccatoAssistenza(false);
+    UtenzaController.setCliccatoCassa(false);
+    UtenzaController.setCliccatoMagazzino(false);
     Exception ex =
             assertThrows(
                     UtenteNotAuthorizedException.class,

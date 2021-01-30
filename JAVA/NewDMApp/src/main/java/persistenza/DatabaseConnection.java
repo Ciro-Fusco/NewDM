@@ -22,7 +22,7 @@ public class DatabaseConnection {
             "jdbc:mysql://localhost:3306/NEGOZIO?"
                 + "allowPublicKeyRetrieval=true&&useSSL=false&serverTimezone=UTC";
         String username = "root";
-        String pwd = "ci1ro23456";
+        String pwd = "federernadal";
         con = DriverManager.getConnection(url, username, pwd);
       } else {
         System.out.println();
