@@ -16,32 +16,34 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-Windows.startApplicationWithTitle('C:\\Users\\vinny\\Documents\\GitHub\\NewDM\\JAVA\\NewDMApp\\out\\artifacts\\NewDMApp\\bundles\\NewDMApp\\NewDMApp.exe', 
-    '')
+WebUI.callTestCase(findTestCase('BeforeAssistenza'), [:], FailureHandling.STOP_ON_FAILURE)
 
-Windows.click(findWindowsObject('Object Repository/Button'))
+Windows.click(findWindowsObject('Object Repository/NomeCognomeAssistenza'))
 
-Windows.click(findWindowsObject('Object Repository/Text'))
+Windows.setText(findWindowsObject('Object Repository/NomeCognomeAssistenzaText'), 'Franco Cirillo')
 
-Windows.setText(findWindowsObject('Object Repository/Text'), 'cirofu')
+Windows.click(findWindowsObject('Object Repository/IndirizzoAssistenza'))
 
-Windows.click(findWindowsObject('Object Repository/Edit(1)'))
+Windows.setText(findWindowsObject('Object Repository/IndirizzoAssistenzaText'), 'Via Roma')
 
-Windows.setText(findWindowsObject('Object Repository/Text(1)'), 'cirofu')
+Windows.click(findWindowsObject('TelefonoClienteAssistenza'))
 
-Windows.click(findWindowsObject('Object Repository/Button(1)'))
+Windows.setText(findWindowsObject('Object Repository/TelefonoClienteAssistenzaText'), '0123456789')
 
-Windows.click(findWindowsObject('Object Repository/Edit(2)'))
+Windows.click(findWindowsObject('NomeProdottoAssistenza'))
 
-Windows.setText(findWindowsObject('Object Repository/Text(2)'), 'a')
+Windows.setText(findWindowsObject('Object Repository/NomeProdottoAssistenzaText'), 'Notebook Asus')
 
-Windows.click(findWindowsObject('Object Repository/Button(2)'))
+Windows.click(findWindowsObject('TipoProdottoAssistenza'))
+
+Windows.setText(findWindowsObject('Object Repository/TipoProdottoAssistenzaText'), 'N')
+
+Windows.click(findWindowsObject('Object Repository/AvantiAssistenza'))
 
 Windows.switchToWindowTitle('Errore')
 
-def text = Windows.getText(findWindowsObject('Object Repository/Text(3)'))
+def text =Windows.getText(findWindowsObject('Object Repository/MessaggioErrore'))
 
-assert text == 'Inserire nome e cognome validi'
+assert text == 'Inserire un tipo di prodotto valido'
 
 Windows.closeApplication()
-
