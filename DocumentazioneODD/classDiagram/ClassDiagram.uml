@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>business.utenza.Utente</OriginalElement>
+  <nodes>
+    <node x="434.1875" y="2531.0">business.utenza.Utente</node>
+    <node x="939.2886904761908" y="691.2857142857143">business.inventario.Prodotto</node>
+    <node x="1200.6075929152153" y="0.0">persistenza.Query</node>
+    <node x="1540.6492595818818" y="4566.0">presentazione.CassaController</node>
+    <node x="220.0" y="3389.0">presentazione.MagazzinoController</node>
+    <node x="100.97436846689902" y="2542.0">business.fornitura.RichiestaAcquisto</node>
+    <node x="1617.3492595818818" y="1522.0">business.cassa.Scontrino</node>
+    <node x="1058.6875000000002" y="2110.0">persistenza.TicketDao</node>
+    <node x="1322.6875000000002" y="2110.0">persistenza.ElencaDao</node>
+    <node x="1130.974368466899" y="2245.0">business.assistenza.Ticket</node>
+    <node x="599.269461382114" y="524.0">persistenza.UtenteDao</node>
+    <node x="867.9409262485484" y="109.5">persistenza.DatabaseConnection</node>
+    <node x="1741.5140461672477" y="2729.5">persistenza.ScontrinoDao</node>
+    <node x="947.5160351335655" y="4456.0">presentazione.AssistenzaController</node>
+    <node x="0.0" y="4885.5">persistenza.RichiestaAcquistoDao</node>
+    <node x="936.1458333333335" y="469.0">persistenza.ProdottoDao</node>
+    <node x="839.1875" y="2696.0">presentazione.App</node>
+    <node x="618.0402947154473" y="4676.0">presentazione.UtenzaController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="persistenza.ProdottoDao" target="business.inventario.Prodotto">
+      <point x="84.66666666666663" y="81.5" />
+      <point x="84.0" y="-390.0" />
+    </edge>
+    <edge source="business.cassa.Scontrino" target="persistenza.ScontrinoDao">
+      <point x="96.85714285714289" y="269.0" />
+      <point x="1827.2064024390247" y="2090.0" />
+      <point x="1837.4140461672478" y="2090.0" />
+      <point x="1837.4140461672478" y="2225.0" />
+      <point x="1854.5140461672477" y="2225.0" />
+      <point x="0.0" y="-37.5" />
+    </edge>
+    <edge source="presentazione.UtenzaController" target="business.utenza.Utente">
+      <point x="-60.25" y="-236.0" />
+      <point x="678.2902947154473" y="3349.0" />
+      <point x="578.5625" y="3349.0" />
+      <point x="-48.125" y="236.0" />
+    </edge>
+    <edge source="persistenza.ScontrinoDao" target="persistenza.ElencaDao">
+      <point x="-90.40000000000009" y="-37.5" />
+      <point x="1764.1140461672476" y="2215.0" />
+      <point x="1538.6875000000002" y="2215.0" />
+      <point x="72.0" y="37.5" />
+    </edge>
+    <edge source="presentazione.CassaController" target="business.utenza.Utente">
+      <point x="-108.40000000000009" y="-346.0" />
+      <point x="1567.7492595818817" y="3319.0" />
+      <point x="771.0625" y="3319.0" />
+      <point x="144.37499999999994" y="236.0" />
+    </edge>
+    <edge source="presentazione.MagazzinoController" target="presentazione.App">
+      <point x="134.57142857142856" y="-1523.0" />
+      <point x="511.57142857142856" y="3359.0" />
+      <point x="860.6875" y="3359.0" />
+      <point x="-64.5" y="71.0" />
+    </edge>
+    <edge source="presentazione.MagazzinoController" target="business.fornitura.RichiestaAcquisto">
+      <point x="-89.71428571428575" y="-1523.0" />
+      <point x="287.2857142857142" y="3359.0" />
+      <point x="247.09936846689902" y="3359.0" />
+      <point x="62.625" y="225.0" />
+    </edge>
+    <edge source="presentazione.AssistenzaController" target="business.utenza.Utente">
+      <point x="-122.91666666666663" y="-456.0" />
+      <point x="972.099368466899" y="3339.0" />
+      <point x="674.8125" y="3339.0" />
+      <point x="48.125" y="236.0" />
+    </edge>
+    <edge source="persistenza.ScontrinoDao" target="persistenza.DatabaseConnection">
+      <point x="45.200000000000045" y="-37.5" />
+      <point x="1899.714046167248" y="2225.0" />
+      <point x="1864.7997604529621" y="2225.0" />
+      <point x="1864.7997604529621" y="369.0" />
+      <point x="1029.512354819977" y="369.0" />
+      <point x="74.57142857142856" y="60.0" />
+    </edge>
+    <edge source="persistenza.ElencaDao" target="business.cassa.Scontrino">
+      <point x="108.0" y="-37.5" />
+      <point x="1574.6875000000002" y="2080.0" />
+      <point x="1633.492116724739" y="2080.0" />
+      <point x="-96.85714285714289" y="269.0" />
+    </edge>
+    <edge source="persistenza.RichiestaAcquistoDao" target="persistenza.Query">
+      <point x="-25.0" y="-26.5" />
+      <point x="75.0" y="3369.0" />
+      <point x="66.88934378629483" y="3369.0" />
+      <point x="66.88934378629483" y="657.0" />
+      <point x="551.4409262485483" y="657.0" />
+      <point x="551.4409262485483" y="419.0" />
+      <point x="1214.3575929152153" y="419.0" />
+      <point x="-68.75" y="169.5" />
+    </edge>
+    <edge source="business.utenza.Utente" target="persistenza.DatabaseConnection">
+      <point x="-128.33333333333343" y="-236.0" />
+      <point x="498.3541666666666" y="2225.0" />
+      <point x="540.4409262485483" y="2225.0" />
+      <point x="540.4409262485483" y="399.0" />
+      <point x="905.2266405342626" y="399.0" />
+      <point x="-49.71428571428578" y="60.0" />
+    </edge>
+    <edge source="presentazione.CassaController" target="business.cassa.Scontrino">
+      <point x="54.200000000000045" y="-346.0" />
+      <point x="1730.3492595818818" y="3369.0" />
+      <point x="1720.0140461672477" y="3369.0" />
+      <point x="1720.0140461672477" y="2080.0" />
+      <point x="1730.3492595818818" y="2080.0" />
+      <point x="0.0" y="269.0" />
+    </edge>
+    <edge source="presentazione.AssistenzaController" target="business.assistenza.Ticket">
+      <point x="122.91666666666663" y="-456.0" />
+      <point x="1217.9327018002323" y="3369.0" />
+      <point x="1334.3077018002323" y="3369.0" />
+      <point x="81.33333333333326" y="522.0" />
+    </edge>
+    <edge source="presentazione.MagazzinoController" target="business.inventario.Prodotto">
+      <point x="-44.85714285714289" y="-1523.0" />
+      <point x="332.0302119628341" y="1482.0" />
+      <point x="952.8958333333335" y="1482.0" />
+      <point x="-110.25" y="390.0" />
+    </edge>
+    <edge source="business.fornitura.RichiestaAcquisto" target="persistenza.RichiestaAcquistoDao">
+      <point x="-20.875" y="225.0" />
+      <point x="163.59936846689902" y="3369.0" />
+      <point x="175.0" y="3369.0" />
+      <point x="75.0" y="-26.5" />
+    </edge>
+    <edge source="persistenza.ScontrinoDao" target="business.cassa.Scontrino">
+      <point x="-45.200000000000045" y="-37.5" />
+      <point x="1809.3140461672479" y="2225.0" />
+      <point x="1775.6640461672478" y="2225.0" />
+      <point x="1775.6640461672478" y="2090.0" />
+      <point x="1794.9206881533103" y="2090.0" />
+      <point x="64.57142857142844" y="269.0" />
+    </edge>
+    <edge source="business.assistenza.Ticket" target="business.inventario.Prodotto">
+      <point x="-101.66666666666663" y="-522.0" />
+      <point x="1151.3077018002323" y="2225.0" />
+      <point x="1044.4327018002323" y="2225.0" />
+      <point x="1044.4327018002323" y="1502.0" />
+      <point x="1078.8958333333335" y="1502.0" />
+      <point x="15.75" y="390.0" />
+    </edge>
+    <edge source="persistenza.TicketDao" target="persistenza.Query">
+      <point x="61.0" y="-37.5" />
+      <point x="1241.6875000000002" y="2090.0" />
+      <point x="1217.8077018002323" y="2090.0" />
+      <point x="1217.8077018002323" y="449.0" />
+      <point x="1296.8575929152153" y="449.0" />
+      <point x="13.75" y="169.5" />
+    </edge>
+    <edge source="business.assistenza.Ticket" target="persistenza.TicketDao">
+      <point x="-61.0" y="-522.0" />
+      <point x="1191.974368466899" y="2215.0" />
+      <point x="1099.354166666667" y="2215.0" />
+      <point x="-81.33333333333337" y="37.5" />
+    </edge>
+    <edge source="persistenza.TicketDao" target="persistenza.DatabaseConnection">
+      <point x="-61.0" y="-37.5" />
+      <point x="1119.6875000000002" y="2090.0" />
+      <point x="1206.8077018002323" y="2090.0" />
+      <point x="1206.8077018002323" y="399.0" />
+      <point x="979.7980691056912" y="399.0" />
+      <point x="24.857142857142776" y="60.0" />
+    </edge>
+    <edge source="business.assistenza.Ticket" target="persistenza.ElencaDao">
+      <point x="61.0" y="-522.0" />
+      <point x="1313.974368466899" y="2215.0" />
+      <point x="1394.6875000000002" y="2215.0" />
+      <point x="-72.0" y="37.5" />
+    </edge>
+    <edge source="presentazione.CassaController" target="presentazione.App">
+      <point x="-54.200000000000045" y="-346.0" />
+      <point x="1621.9492595818817" y="3309.0" />
+      <point x="989.6875" y="3309.0" />
+      <point x="64.5" y="71.0" />
+    </edge>
+    <edge source="persistenza.UtenteDao" target="persistenza.Query">
+      <point x="44.5" y="-26.5" />
+      <point x="732.769461382114" y="429.0" />
+      <point x="1241.8575929152153" y="429.0" />
+      <point x="-41.25" y="169.5" />
+    </edge>
+    <edge source="business.assistenza.Ticket" target="business.cassa.Scontrino">
+      <point x="101.66666666666674" y="-522.0" />
+      <point x="1354.6410351335658" y="2225.0" />
+      <point x="1621.1875000000002" y="2225.0" />
+      <point x="1621.1875000000002" y="2090.0" />
+      <point x="1665.7778310104532" y="2090.0" />
+      <point x="-64.57142857142867" y="269.0" />
+    </edge>
+    <edge source="presentazione.AssistenzaController" target="business.inventario.Prodotto">
+      <point x="-24.583333333333258" y="-456.0" />
+      <point x="1070.4327018002323" y="3369.0" />
+      <point x="1027.2708333333335" y="3369.0" />
+      <point x="1027.2708333333335" y="1492.0" />
+      <point x="1047.3958333333335" y="1492.0" />
+      <point x="-15.75" y="390.0" />
+    </edge>
+    <edge source="persistenza.UtenteDao" target="business.utenza.Utente">
+      <point x="44.5" y="26.5" />
+      <point x="732.769461382114" y="657.0" />
+      <point x="693.769461382114" y="657.0" />
+      <point x="693.769461382114" y="2225.0" />
+      <point x="755.0208333333333" y="2225.0" />
+      <point x="128.33333333333331" y="-236.0" />
+    </edge>
+    <edge source="persistenza.RichiestaAcquistoDao" target="business.fornitura.RichiestaAcquisto">
+      <point x="25.0" y="-26.5" />
+      <point x="125.0" y="3369.0" />
+      <point x="121.84936846689902" y="3369.0" />
+      <point x="-62.625" y="225.0" />
+    </edge>
+    <edge source="business.inventario.Prodotto" target="persistenza.ProdottoDao">
+      <point x="-84.0" y="-390.0" />
+      <point x="-84.66666666666663" y="81.5" />
+    </edge>
+    <edge source="persistenza.ProdottoDao" target="persistenza.Query">
+      <point x="63.5" y="-81.5" />
+      <point x="1126.6458333333335" y="439.0" />
+      <point x="1269.3575929152153" y="439.0" />
+      <point x="-13.75" y="169.5" />
+    </edge>
+    <edge source="persistenza.TicketDao" target="business.assistenza.Ticket">
+      <point x="81.33333333333326" y="37.5" />
+      <point x="1262.0208333333335" y="2225.0" />
+      <point x="1273.3077018002323" y="2225.0" />
+      <point x="20.33333333333337" y="-522.0" />
+    </edge>
+    <edge source="presentazione.UtenzaController" target="presentazione.App">
+      <point x="60.25" y="-236.0" />
+      <point x="798.7902947154473" y="3369.0" />
+      <point x="903.6875" y="3369.0" />
+      <point x="-21.5" y="71.0" />
+    </edge>
+    <edge source="persistenza.ElencaDao" target="business.inventario.Prodotto">
+      <point x="-108.0" y="-37.5" />
+      <point x="1358.6875000000002" y="2080.0" />
+      <point x="1121.3527947154473" y="2080.0" />
+      <point x="1121.3527947154473" y="1502.0" />
+      <point x="1110.3958333333335" y="1502.0" />
+      <point x="47.25" y="390.0" />
+    </edge>
+    <edge source="presentazione.MagazzinoController" target="business.utenza.Utente">
+      <point x="89.7142857142857" y="-1523.0" />
+      <point x="466.71428571428567" y="3369.0" />
+      <point x="482.3125" y="3369.0" />
+      <point x="-144.375" y="236.0" />
+    </edge>
+    <edge source="persistenza.ElencaDao" target="persistenza.DatabaseConnection">
+      <point x="-36.0" y="-37.5" />
+      <point x="1430.6875000000002" y="2090.0" />
+      <point x="1441.6875000000002" y="2090.0" />
+      <point x="1441.6875000000002" y="389.0" />
+      <point x="1004.6552119628341" y="389.0" />
+      <point x="49.714285714285666" y="60.0" />
+    </edge>
+    <edge source="business.utenza.Utente" target="persistenza.UtenteDao">
+      <point x="-5.6843418860808015E-14" y="-236.0" />
+      <point x="626.6875" y="2225.0" />
+      <point x="642.5557128339143" y="2225.0" />
+      <point x="642.5557128339143" y="657.0" />
+      <point x="643.769461382114" y="657.0" />
+      <point x="-44.5" y="26.5" />
+    </edge>
+    <edge source="persistenza.ElencaDao" target="persistenza.Query">
+      <point x="36.0" y="-37.5" />
+      <point x="1502.6875000000002" y="2090.0" />
+      <point x="1452.6875000000002" y="2090.0" />
+      <point x="1452.6875000000002" y="379.0" />
+      <point x="1324.3575929152153" y="379.0" />
+      <point x="41.25" y="169.5" />
+    </edge>
+    <edge source="business.cassa.Scontrino" target="business.inventario.Prodotto">
+      <point x="56.5" y="-269.0" />
+      <point x="1786.8492595818818" y="1492.0" />
+      <point x="1173.3958333333335" y="1492.0" />
+      <point x="110.25" y="390.0" />
+    </edge>
+    <edge source="persistenza.UtenteDao" target="persistenza.DatabaseConnection">
+      <point x="-44.5" y="-26.5" />
+      <point x="643.769461382114" y="409.0" />
+      <point x="930.0837833914055" y="409.0" />
+      <point x="-24.85714285714289" y="60.0" />
+    </edge>
+    <edge source="persistenza.RichiestaAcquistoDao" target="persistenza.DatabaseConnection">
+      <point x="-75.0" y="-26.5" />
+      <point x="25.0" y="3369.0" />
+      <point x="55.88934378629483" y="3369.0" />
+      <point x="55.88934378629483" y="389.0" />
+      <point x="880.3694976771199" y="389.0" />
+      <point x="-74.57142857142856" y="60.0" />
+    </edge>
+    <edge source="presentazione.AssistenzaController" target="presentazione.App">
+      <point x="-73.75" y="-456.0" />
+      <point x="1021.2660351335655" y="3329.0" />
+      <point x="946.6875" y="3329.0" />
+      <point x="21.5" y="71.0" />
+    </edge>
+    <edge source="persistenza.ScontrinoDao" target="persistenza.Query">
+      <point x="90.40000000000009" y="-37.5" />
+      <point x="1944.9140461672478" y="2225.0" />
+      <point x="1935.754130371661" y="2225.0" />
+      <point x="1935.754130371661" y="359.0" />
+      <point x="1351.8575929152153" y="359.0" />
+      <point x="68.75" y="169.5" />
+    </edge>
+    <edge source="persistenza.ProdottoDao" target="persistenza.DatabaseConnection">
+      <point x="-63.5" y="-81.5" />
+      <point x="999.6458333333335" y="409.0" />
+      <point x="954.9409262485484" y="409.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.4000000000000004" x="688.3333333333333" y="857.0714285714286" />
+  <SelectedNodes>
+    <node>business.inventario.Prodotto</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
