@@ -703,6 +703,53 @@ public class AssistenzaControllerTest {
   }
 
   @Test
+  public void openAssistenzaDettagliProbDataSBagliata2()
+          throws DatabaseException, ProdottoException, ElencaException, IOException,
+          ScontrinoException {
+    DatabaseConnection.connect();
+    AssistenzaController.setTicket(null);
+    Scontrino s = new Scontrino();
+    s.addProdotto(1000000000001l);
+    s.save();
+    AssistenzaController a = new AssistenzaController();
+    TextField t = new TextField();
+    t.setText("Vincenzo Aiello");
+    a.setNomeCognCli(t);
+    TextField c = new TextField();
+    c.setText("LLAVCN99H05C129K");
+    a.setCodFiscCli(c);
+    TextField d = new TextField();
+    d.setText("Via Pasquale Vitiello n 10");
+    a.setIndirizzoResiCli(d);
+    TextField e = new TextField();
+    e.setText("Bevanda");
+    a.setTipoProdotto(e);
+    TextField f = new TextField();
+    f.setText("Barbabietole");
+    a.setNomeProdotto(f);
+    TextField g = new TextField();
+    g.setText("3404231112");
+    a.setTelefonoCli(g);
+    TextField h = new TextField();
+    h.setText("1000000000001");
+    a.setNumSerieProd(h);
+    TextField i = new TextField();
+    i.setText(Long.toString(s.getId()));
+    a.setNumScontrino(i);
+    TextField l = new TextField();
+    l.setText("12-12-2017");
+    a.setDataScontrino(l);
+    TextField m = new TextField();
+    m.setText("1000000000001");
+    a.setCodProdotto(m);
+    Exception ex = assertThrows(ScontrinoNonValidoException.class,()->{
+      a.openAssistenzaDettagliProb(null);
+    });
+    assertEquals("Inserire una data valida, non precedente a 2 anni fa e non successiva alla data odierna",ex.getMessage());
+    DatabaseConnection.close();
+  }
+
+  @Test
   public void openAssistenzaDettagliProbCodiceProdottoSbagliato()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {

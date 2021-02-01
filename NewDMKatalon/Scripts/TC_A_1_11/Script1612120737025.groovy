@@ -56,7 +56,7 @@ Windows.switchToWindowTitle('Errore')
 
 def text = Windows.getText(findWindowsObject('Object Repository/MessaggioErrore'))
 
-assert text == 'Inserire una data valida, non precedente a 2 anni fa e non successiva alla data  odierna'
+assert text == 'Inserire una data valida, non precedente a 2 anni fa e non successiva alla data odierna'
 
 Windows.closeApplication()
 

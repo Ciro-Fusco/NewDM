@@ -3,7 +3,7 @@
    <description></description>
    <name>Magazzino</name>
    <tag></tag>
-   <locator>//Window/Button[1]</locator>
+   <locator>//Window/Button[1]/Text[1]/Text[1]</locator>
    <locatorStrategy>XPATH</locatorStrategy>
    <properties>
       <isSelected>false</isSelected>
@@ -24,7 +24,7 @@
       <matchCondition>equals</matchCondition>
       <name>Name</name>
       <type>Main</type>
-      <value></value>
+      <value>Magazzino</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>
@@ -66,7 +66,7 @@
       <matchCondition>equals</matchCondition>
       <name>RuntimeId</name>
       <type>Main</type>
-      <value>42.3278144.4.2</value>
+      <value>42.265252.4.21</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>
@@ -80,7 +80,7 @@
       <matchCondition>equals</matchCondition>
       <name>height</name>
       <type>Main</type>
-      <value>188</value>
+      <value>45</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>
@@ -94,7 +94,7 @@
       <matchCondition>equals</matchCondition>
       <name>HasKeyboardFocus</name>
       <type>Main</type>
-      <value>True</value>
+      <value>False</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>
@@ -115,7 +115,7 @@
       <matchCondition>equals</matchCondition>
       <name>AutomationId</name>
       <type>Main</type>
-      <value>JavaFX2</value>
+      <value>JavaFX21</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>
@@ -136,35 +136,35 @@
       <matchCondition>equals</matchCondition>
       <name>LocalizedControlType</name>
       <type>Main</type>
-      <value>Pulsante</value>
+      <value>testo</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>width</name>
       <type>Main</type>
-      <value>359</value>
+      <value>144</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>x</name>
       <type>Main</type>
-      <value>21</value>
+      <value>129</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>y</name>
       <type>Main</type>
-      <value>220</value>
+      <value>284</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>ProcessId</name>
       <type>Main</type>
-      <value>146568</value>
+      <value>100728</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>

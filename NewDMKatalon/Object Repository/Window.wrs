@@ -10,7 +10,7 @@
       <matchCondition>equals</matchCondition>
       <name>CanMinimize</name>
       <type>Main</type>
-      <value>True</value>
+      <value>False</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>
@@ -52,7 +52,7 @@
       <matchCondition>equals</matchCondition>
       <name>CanMaximize</name>
       <type>Main</type>
-      <value>True</value>
+      <value>False</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>
@@ -101,7 +101,7 @@
       <matchCondition>equals</matchCondition>
       <name>CanMove</name>
       <type>Main</type>
-      <value>True</value>
+      <value>False</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>
@@ -115,7 +115,7 @@
       <matchCondition>equals</matchCondition>
       <name>RuntimeId</name>
       <type>Main</type>
-      <value>42.4458284</value>
+      <value>42.9440016</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>
@@ -129,7 +129,7 @@
       <matchCondition>equals</matchCondition>
       <name>CanResize</name>
       <type>Main</type>
-      <value>True</value>
+      <value>False</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>
@@ -164,7 +164,7 @@
       <matchCondition>equals</matchCondition>
       <name>WindowInteractionState</name>
       <type>Main</type>
-      <value>ReadyForUserInteraction</value>
+      <value>Running</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>
@@ -234,7 +234,7 @@
       <matchCondition>equals</matchCondition>
       <name>ProcessId</name>
       <type>Main</type>
-      <value>155440</value>
+      <value>13676</value>
    </properties>
    <properties>
       <isSelected>false</isSelected>

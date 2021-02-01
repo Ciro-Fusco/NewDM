@@ -286,6 +286,31 @@ public class MagazzinoControllerTest {
     }
 
     @Test
+    public void openNuovoProdottoRiepilogoPrezzoZero() throws DatabaseException, IOException, ProdottoException {
+        DatabaseConnection.connect();
+        MagazzinoController c = new MagazzinoController();
+        c.setNomeProd("Shampoo");
+        c.setQuantitaProd("50");
+        c.setCodiceProd("5555555555555");
+        c.setPrezzoProd("0");
+        c.setTipologiaProd("Casa");
+        RadioButton r = new RadioButton();
+        r.setText("media");
+        c.setDimensioni(r);
+        RadioButton d = new RadioButton();
+        d.setText("media");
+        c.setScadenza(d);
+        try{
+            c.openNuovoProdottoRiepilogo(null);
+        }catch (NullPointerException ex){
+            ex.printStackTrace();
+            assertFalse(true);
+        }finally{
+            DatabaseConnection.close();
+        }
+    }
+
+    @Test
     public void openNuovoProdottoRiepilogoTipologiaCorta() throws DatabaseException, IOException, ProdottoException {
         DatabaseConnection.connect();
         MagazzinoController c = new MagazzinoController();

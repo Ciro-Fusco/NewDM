@@ -224,7 +224,7 @@ public class MagazzinoController implements Initializable {
         // controllo che sia un codice prodotto valido
         if (codiceProd.getText().matches("^[0-9]{13}$")) {
           // controllo che sia un prezzo valido, decimale con precisione di due
-          if (prezzoProd.getText().matches("[0-9]+(\\.[0-9][0-9]?)?")) {
+          if (prezzoProd.getText().matches("[0-9]+(\\.[0-9][0-9]?)?") && Double.parseDouble(prezzoProd.getText())>0) {
             // controllo se è un tipo prodotto valido
             if (tipologiaProd.getText().length() >= 2 && tipologiaProd.getText().length() <= 255) {
               // Controllo se è stata selezionata una dimensione

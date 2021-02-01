@@ -60,7 +60,7 @@ Windows.switchToWindowTitle('Errore')
 
 def text = Windows.getText(findWindowsObject('Object Repository/MessaggioErrore'))
 
-assert text == 'Inserire un numero di scontrino valido'
+assert text == 'Scontrino non trovato\nControlla il codice'
 
 Windows.closeApplication()
 

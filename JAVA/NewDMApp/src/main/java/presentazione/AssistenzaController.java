@@ -1,17 +1,18 @@
 package presentazione;
 
 import business.assistenza.Ticket;
+import business.cassa.Scontrino;
 import business.inventario.Prodotto;
-import exceptions.DatabaseException;
-import exceptions.ElencaException;
-import exceptions.ProdottoException;
-import exceptions.ScontrinoException;
+import exceptions.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import business.utenza.Utente;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class AssistenzaController {
 
@@ -74,9 +75,18 @@ public class AssistenzaController {
                   if (dataScontrino
                       .getText()
                       .matches(
-                          "^([0]?[1-9]|[1|2][0-9]|[3][0|1])[-]([0]?[1-9]|[1][0-2])[-]([0-9]{4}|[0-9]{2})$")) {
+                          "^([0]?[1-9]|[1|2][0-9]|[3][0|1])[-]([0]?[1-9]|[1][0-2])[-]([0-9]{4})$")) {
+                    String data_temp = dataScontrino.getText();
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                    LocalDateTime data_obj = LocalDate.parse(data_temp, formatter).atStartOfDay();
+                    LocalDateTime data_2_years_ago = LocalDateTime.now().minusYears(2);
+                    if (data_obj.isBefore(data_2_years_ago))
+                      throw new ScontrinoNonValidoException(
+                          "Inserire una data valida, non precedente a 2 anni fa e non successiva alla data odierna");
                     // controllo che il numero delo scontrino sia scritto correttamente
                     if (numScontrino.getText().matches("^[1-9][0-9]*$")) {
+                      Scontrino.checkScontrino(
+                          Long.parseLong(numScontrino.getText()), dataScontrino.getText());
                       // controllo che il codice fiscale sia scritto correttamente
                       if (codFiscCli
                           .getText()
@@ -131,6 +141,7 @@ public class AssistenzaController {
 
   /**
    * Apre la schermata di assistenza
+   *
    * @param mouseEvent
    * @throws IOException
    */
@@ -140,8 +151,9 @@ public class AssistenzaController {
   }
 
   /**
-   * Usa le informazioni inserite a video per impostare il problema
-   * per cui si chiede assistenza e poi rende il Ticket persistente
+   * Usa le informazioni inserite a video per impostare il problema per cui si chiede assistenza e
+   * poi rende il Ticket persistente
+   *
    * @param mouseEvent
    * @throws DatabaseException
    * @throws IOException

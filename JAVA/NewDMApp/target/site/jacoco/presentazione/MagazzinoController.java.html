@@ -224,7 +224,7 @@ import business.utenza.Utente;
         // controllo che sia un codice prodotto valido
 <span class="fc bfc" id="L225" title="All 2 branches covered.">        if (codiceProd.getText().matches(&quot;^[0-9]{13}$&quot;)) {</span>
           // controllo che sia un prezzo valido, decimale con precisione di due
-<span class="fc bfc" id="L227" title="All 2 branches covered.">          if (prezzoProd.getText().matches(&quot;[0-9]+(\\.[0-9][0-9]?)?&quot;)) {</span>
+<span class="fc bfc" id="L227" title="All 4 branches covered.">          if (prezzoProd.getText().matches(&quot;[0-9]+(\\.[0-9][0-9]?)?&quot;) &amp;&amp; Double.parseDouble(prezzoProd.getText())&gt;0) {</span>
             // controllo se è un tipo prodotto valido
 <span class="fc bfc" id="L229" title="All 4 branches covered.">            if (tipologiaProd.getText().length() &gt;= 2 &amp;&amp; tipologiaProd.getText().length() &lt;= 255) {</span>
               // Controllo se è stata selezionata una dimensione
