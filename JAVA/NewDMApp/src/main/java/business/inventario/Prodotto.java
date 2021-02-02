@@ -169,19 +169,35 @@ public class Prodotto {
     return codice;
   }
 
-  /** */
+  /**
+   * Imposta il codice del Prodotto
+   * @param codice il codice del Prodotto
+   */
   public void setCodice(long codice) {
     this.codice = codice;
   }
 
+  /**
+   * Imposta il nome del Prodotto
+   * @param nome il nome del Prodotto
+   */
   public void setNome(String nome) {
     this.nome = nome;
   }
 
+  /**
+   * Restituisce la qunatità di un Prodotto
+   * @return la quantità di un prodotto
+   */
   public int getQuantity() {
     return quantity;
   }
 
+  /**
+   * Imposta la quantitò di un Prodotto
+   * @param quantity la quantità del prdotto
+   * @throws ProdottoException Errore nella modifica della quantità
+   */
   public void setQuantity(int quantity) throws ProdottoException {
     if (quantity <= 0) throw new ProdottoException("La quantità deve essere maggiore di 0");
 

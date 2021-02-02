@@ -1,9 +1,8 @@
-assistenza
-cassa
-database
-driver
-entity
+business.assistenza
+business.cassa
+business.fornitura
+business.inventario
+business.utenza
 exceptions
-magazzino
-start
-utenza
+persistenza
+presentazione

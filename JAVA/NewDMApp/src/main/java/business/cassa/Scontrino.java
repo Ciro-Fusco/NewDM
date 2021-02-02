@@ -92,6 +92,11 @@ public class Scontrino implements Serializable {
     this.resto = this.versato - this.tot;
   }
 
+  /**
+   * Imposta l'importo versato dal cliente
+   * @param versato l'importo dato dal cliente
+   * @throws ScontrinoException Importo pagato non sufficiente
+   */
   public void setVersato(double versato) throws ScontrinoException {
     if (versato < this.tot) {
       throw new ScontrinoException("Importo versato non sufficiente");
@@ -100,18 +105,34 @@ public class Scontrino implements Serializable {
     calcolaResto();
   }
 
+  /**
+   * Restituisce il totale dello Scontrino
+   * @return il totale dello Scontrino
+   */
   public double getTot() {
     return tot;
   }
 
+  /**
+   * Restituisce il resto da dare al cliente
+   * @return il resto da dare al cliente
+   */
   public double getResto() {
     return resto;
   }
 
+  /**+
+   * Restituisce l'importo versato dal cliente
+   * @return l'importo versato dal cliente
+   */
   public double getVersato() {
     return versato;
   }
 
+  /**
+   * Restituisce la data di apertura dello Scontrino
+   * @return la data di apertura dello Scontrino
+   */
   public String getData() {
     return data;
   }
@@ -122,18 +143,34 @@ public class Scontrino implements Serializable {
     this.data = date.format(myFormatObj);
   }
 
+  /**
+   * Restituisce il riepilogo dei prodotti inseriti nello Scontrino
+   * @return il riepilogo dello scontrino
+   */
   public String getRiepilogo() {
     return riepilogo;
   }
 
+  /**
+   * Imposta l'id dello Scontrino
+   * @param id l'id dello scontrino
+   */
   public void setId(int id) {
     this.id = id;
   }
 
+  /**
+   * Restituisce l'id dello Scontrino
+   * @return l'id dello Scontrino
+   */
   public long getId() {
     return id;
   }
 
+  /**
+   * Restituisce la lista di prodotti inseriti nello Scontrino
+   * @return la lista dei prodotti
+   */
   public List<Prodotto> getList() {
     return prodottoList;
   }
@@ -147,6 +184,13 @@ public class Scontrino implements Serializable {
     ScontrinoDao.save(this);
   }
 
+  /**
+   * Verifica l'esistenza di uno Scontrino
+   * @param codice il codice dello scontrino da verificare
+   * @param dataScontrino la data dello scontrino da verificare
+   * @throws ScontrinoException Errore nella ricerca dello scontrino
+    * @throws DatabaseException Errore del database
+   */
   public static void checkScontrino(long codice, String dataScontrino)
       throws ScontrinoException, DatabaseException {
     ScontrinoDao.checkScontrino(codice, dataScontrino);

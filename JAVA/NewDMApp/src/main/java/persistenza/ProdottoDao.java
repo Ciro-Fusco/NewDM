@@ -135,6 +135,12 @@ public class ProdottoDao {
     }
   }
 
+  /**
+   * Elimina una riga dalla tabella Prodotto
+   * @param p il Prodotto da eliminare
+   * @return true se l'eliminazione è avvenuta con successo
+   * @throws DatabaseException Errore del database
+   */
   public static boolean eliminaProdotto(Prodotto p) throws DatabaseException {
     PreparedStatement prep = null;
     try {
