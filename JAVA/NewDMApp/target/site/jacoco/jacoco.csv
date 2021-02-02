@@ -10,7 +10,7 @@ NewDMApp,persistenza,ElencaDao,11,87,0,4,4,25,1,4,1,2
 NewDMApp,business.inventario,Prodotto,3,264,0,22,1,64,1,38,1,27
 NewDMApp,business.assistenza,Ticket,101,157,0,0,4,62,3,29,3,29
 NewDMApp,business.utenza,Utente,46,32,0,0,11,18,7,8,7,8
-NewDMApp,presentazione,MagazzinoController,390,594,0,48,148,162,70,61,70,37
+NewDMApp,presentazione,MagazzinoController,390,601,0,48,148,163,70,61,70,37
 NewDMApp,presentazione,App,36,18,0,0,10,2,4,1,4,1
 NewDMApp,presentazione,UtenzaController,69,57,0,12,28,22,9,14,9,8
 NewDMApp,presentazione,AlertMessage,3,2,0,0,1,2,1,2,1,2

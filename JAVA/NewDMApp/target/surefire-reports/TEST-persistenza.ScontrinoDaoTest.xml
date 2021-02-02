@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="persistenza.ScontrinoDaoTest" time="0.797" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="persistenza.ScontrinoDaoTest" time="1.094" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2020.3"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -64,7 +64,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="persistenza.ScontrinoDaoTest" name="checkScontrinoCorretto" time="0.344"/>
-  <testcase classname="persistenza.ScontrinoDaoTest" name="checkScontrinoNonPiuInGaranzia" time="0.438"/>
-  <testcase classname="persistenza.ScontrinoDaoTest" name="checkScontrinoNonTrovato" time="0.015"/>
+  <testcase classname="persistenza.ScontrinoDaoTest" name="checkScontrinoCorretto" time="0.5"/>
+  <testcase classname="persistenza.ScontrinoDaoTest" name="checkScontrinoNonPiuInGaranzia" time="0.547"/>
+  <testcase classname="persistenza.ScontrinoDaoTest" name="checkScontrinoNonTrovato" time="0.047"/>
 </testsuite>

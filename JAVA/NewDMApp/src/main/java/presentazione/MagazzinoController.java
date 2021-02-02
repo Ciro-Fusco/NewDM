@@ -172,6 +172,7 @@ public class MagazzinoController implements Initializable {
 
     // controllo che sia un codice prodotto valido
     if (codiceProd.getText().matches("^[0-9]{13}$")) {
+        Prodotto.search(Long.parseLong(codiceProd.getText()));
       // controllo se la quantita è positiva
       if (quantitaProd.getText().matches("^[1-9][0-9]*$")) {
         tempProdotto = new Prodotto();

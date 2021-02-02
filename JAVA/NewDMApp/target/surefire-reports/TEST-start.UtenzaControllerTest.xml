@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="start.UtenzaControllerTest" time="0.312" errors="0" skipped="0">
+<testsuite tests="10" failures="0" name="start.UtenzaControllerTest" time="0.435" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2020.3"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -64,14 +64,14 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="start.UtenzaControllerTest" name="checkLoginCorrettoAssistenzaCliccatoAsssistenzaFalse" time="0.076"/>
-  <testcase classname="start.UtenzaControllerTest" name="checkLoginCorrettoMagazzinoMagazzinoFalse" time="0.006"/>
-  <testcase classname="start.UtenzaControllerTest" name="checkLoginSbaliatoCassaIsCassaFalse" time="0.006"/>
-  <testcase classname="start.UtenzaControllerTest" name="checkLoginSbaliatoMagazziniIsMagazzinoFalse" time="0.005"/>
+  <testcase classname="start.UtenzaControllerTest" name="checkLoginCorrettoAssistenzaCliccatoAsssistenzaFalse" time="0.16"/>
+  <testcase classname="start.UtenzaControllerTest" name="checkLoginCorrettoMagazzinoMagazzinoFalse" time="0.005"/>
+  <testcase classname="start.UtenzaControllerTest" name="checkLoginSbaliatoCassaIsCassaFalse" time="0.008"/>
+  <testcase classname="start.UtenzaControllerTest" name="checkLoginSbaliatoMagazziniIsMagazzinoFalse" time="0.007"/>
   <testcase classname="start.UtenzaControllerTest" name="checkLoginCorrettoCassaCassaFalse" time="0.006"/>
-  <testcase classname="start.UtenzaControllerTest" name="checkLoginCorrettoAssistenzaIsAssistenzaFalse" time="0.005"/>
-  <testcase classname="start.UtenzaControllerTest" name="checkLoginCorrettoCassa" time="0.058"/>
+  <testcase classname="start.UtenzaControllerTest" name="checkLoginCorrettoAssistenzaIsAssistenzaFalse" time="0.008"/>
+  <testcase classname="start.UtenzaControllerTest" name="checkLoginCorrettoCassa" time="0.072"/>
   <testcase classname="start.UtenzaControllerTest" name="checkLoginSbagliato" time="0.007"/>
-  <testcase classname="start.UtenzaControllerTest" name="checkLoginCorrettoAssistenza" time="0.078"/>
-  <testcase classname="start.UtenzaControllerTest" name="checkLoginCorrettoMagazzino" time="0.065"/>
+  <testcase classname="start.UtenzaControllerTest" name="checkLoginCorrettoAssistenza" time="0.079"/>
+  <testcase classname="start.UtenzaControllerTest" name="checkLoginCorrettoMagazzino" time="0.083"/>
 </testsuite>

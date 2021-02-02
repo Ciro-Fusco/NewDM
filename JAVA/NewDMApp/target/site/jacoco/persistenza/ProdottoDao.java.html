@@ -135,17 +135,23 @@ import java.sql.SQLException;
 <span class="fc" id="L135">    }</span>
 <span class="fc" id="L136">  }</span>
 
+  /**
+   * Elimina una riga dalla tabella Prodotto
+   * @param p il Prodotto da eliminare
+   * @return true se l'eliminazione è avvenuta con successo
+   * @throws DatabaseException Errore del database
+   */
   public static boolean eliminaProdotto(Prodotto p) throws DatabaseException {
-<span class="fc" id="L139">    PreparedStatement prep = null;</span>
+<span class="fc" id="L145">    PreparedStatement prep = null;</span>
     try {
-<span class="fc" id="L141">      prep = DatabaseConnection.con.prepareStatement(Query.eliminaProd);</span>
-<span class="fc" id="L142">      prep.setLong(1, p.getCodice());</span>
-<span class="fc" id="L143">      prep.executeUpdate();</span>
-<span class="fc" id="L144">      return true;</span>
+<span class="fc" id="L147">      prep = DatabaseConnection.con.prepareStatement(Query.eliminaProd);</span>
+<span class="fc" id="L148">      prep.setLong(1, p.getCodice());</span>
+<span class="fc" id="L149">      prep.executeUpdate();</span>
+<span class="fc" id="L150">      return true;</span>
 
-<span class="nc" id="L146">    } catch (SQLException throwables) {</span>
-<span class="nc" id="L147">      throwables.printStackTrace();</span>
-<span class="nc" id="L148">      throw new DatabaseException(&quot;Errore nel eliminazione del Prodotto&quot;);</span>
+<span class="nc" id="L152">    } catch (SQLException throwables) {</span>
+<span class="nc" id="L153">      throwables.printStackTrace();</span>
+<span class="nc" id="L154">      throw new DatabaseException(&quot;Errore nel eliminazione del Prodotto&quot;);</span>
     }
   }
 }

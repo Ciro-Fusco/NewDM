@@ -92,50 +92,87 @@ public class Scontrino implements Serializable {
 <span class="fc" id="L92">    this.resto = this.versato - this.tot;</span>
 <span class="fc" id="L93">  }</span>
 
+  /**
+   * Imposta l'importo versato dal cliente
+   * @param versato l'importo dato dal cliente
+   * @throws ScontrinoException Importo pagato non sufficiente
+   */
   public void setVersato(double versato) throws ScontrinoException {
-<span class="fc bfc" id="L96" title="All 2 branches covered.">    if (versato &lt; this.tot) {</span>
-<span class="fc" id="L97">      throw new ScontrinoException(&quot;Importo versato non sufficiente&quot;);</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">    if (versato &lt; this.tot) {</span>
+<span class="fc" id="L102">      throw new ScontrinoException(&quot;Importo versato non sufficiente&quot;);</span>
     }
-<span class="fc" id="L99">    this.versato = versato;</span>
-<span class="fc" id="L100">    calcolaResto();</span>
-<span class="fc" id="L101">  }</span>
+<span class="fc" id="L104">    this.versato = versato;</span>
+<span class="fc" id="L105">    calcolaResto();</span>
+<span class="fc" id="L106">  }</span>
 
+  /**
+   * Restituisce il totale dello Scontrino
+   * @return il totale dello Scontrino
+   */
   public double getTot() {
-<span class="fc" id="L104">    return tot;</span>
+<span class="fc" id="L113">    return tot;</span>
   }
 
+  /**
+   * Restituisce il resto da dare al cliente
+   * @return il resto da dare al cliente
+   */
   public double getResto() {
-<span class="fc" id="L108">    return resto;</span>
+<span class="fc" id="L121">    return resto;</span>
   }
 
+  /**+
+   * Restituisce l'importo versato dal cliente
+   * @return l'importo versato dal cliente
+   */
   public double getVersato() {
-<span class="fc" id="L112">    return versato;</span>
+<span class="fc" id="L129">    return versato;</span>
   }
 
+  /**
+   * Restituisce la data di apertura dello Scontrino
+   * @return la data di apertura dello Scontrino
+   */
   public String getData() {
-<span class="fc" id="L116">    return data;</span>
+<span class="fc" id="L137">    return data;</span>
   }
 
   public void setDataSbagliataTEST() {
-<span class="fc" id="L120">    LocalDateTime date = LocalDateTime.of(1999, 06, 05, 00, 00);</span>
-<span class="fc" id="L121">    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy HH:mm:ss&quot;);</span>
-<span class="fc" id="L122">    this.data = date.format(myFormatObj);</span>
-<span class="fc" id="L123">  }</span>
+<span class="fc" id="L141">    LocalDateTime date = LocalDateTime.of(1999, 06, 05, 00, 00);</span>
+<span class="fc" id="L142">    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy HH:mm:ss&quot;);</span>
+<span class="fc" id="L143">    this.data = date.format(myFormatObj);</span>
+<span class="fc" id="L144">  }</span>
 
+  /**
+   * Restituisce il riepilogo dei prodotti inseriti nello Scontrino
+   * @return il riepilogo dello scontrino
+   */
   public String getRiepilogo() {
-<span class="fc" id="L126">    return riepilogo;</span>
+<span class="fc" id="L151">    return riepilogo;</span>
   }
 
+  /**
+   * Imposta l'id dello Scontrino
+   * @param id l'id dello scontrino
+   */
   public void setId(int id) {
-<span class="fc" id="L130">    this.id = id;</span>
-<span class="fc" id="L131">  }</span>
+<span class="fc" id="L159">    this.id = id;</span>
+<span class="fc" id="L160">  }</span>
 
+  /**
+   * Restituisce l'id dello Scontrino
+   * @return l'id dello Scontrino
+   */
   public long getId() {
-<span class="fc" id="L134">    return id;</span>
+<span class="fc" id="L167">    return id;</span>
   }
 
+  /**
+   * Restituisce la lista di prodotti inseriti nello Scontrino
+   * @return la lista dei prodotti
+   */
   public List&lt;Prodotto&gt; getList() {
-<span class="fc" id="L138">    return prodottoList;</span>
+<span class="fc" id="L175">    return prodottoList;</span>
   }
 
   /**
@@ -144,12 +181,19 @@ public class Scontrino implements Serializable {
    * @throws DatabaseException Errore nel Database
    */
   public void save() throws DatabaseException {
-<span class="fc" id="L147">    ScontrinoDao.save(this);</span>
-<span class="fc" id="L148">  }</span>
+<span class="fc" id="L184">    ScontrinoDao.save(this);</span>
+<span class="fc" id="L185">  }</span>
 
+  /**
+   * Verifica l'esistenza di uno Scontrino
+   * @param codice il codice dello scontrino da verificare
+   * @param dataScontrino la data dello scontrino da verificare
+   * @throws ScontrinoException Errore nella ricerca dello scontrino
+    * @throws DatabaseException Errore del database
+   */
   public static void checkScontrino(long codice, String dataScontrino)
       throws ScontrinoException, DatabaseException {
-<span class="fc" id="L152">    ScontrinoDao.checkScontrino(codice, dataScontrino);</span>
-<span class="fc" id="L153">  }</span>
+<span class="fc" id="L196">    ScontrinoDao.checkScontrino(codice, dataScontrino);</span>
+<span class="fc" id="L197">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
