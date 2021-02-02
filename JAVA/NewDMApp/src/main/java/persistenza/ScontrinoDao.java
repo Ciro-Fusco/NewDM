@@ -23,8 +23,9 @@ public class ScontrinoDao {
 
     try {
       PreparedStatement prep =
-          DatabaseConnection.con.prepareStatement(
-              Query.newScontrino, Statement.RETURN_GENERATED_KEYS);
+          DatabaseConnection.getInstance()
+              .getCon()
+              .prepareStatement(Query.newScontrino, Statement.RETURN_GENERATED_KEYS);
       prep.setString(1, s.getData().substring(0, 10));
       prep.setString(2, s.getData().substring(11, 19));
       prep.setDouble(3, s.getVersato());
@@ -44,7 +45,9 @@ public class ScontrinoDao {
   }
 
   /**
-   * Cerca una stringa nel persistenza alla tabella Scontrino contenente codice e data dello scontrino
+   * Cerca una stringa nel persistenza alla tabella Scontrino contenente codice e data dello
+   * scontrino
+   *
    * @param codice il codice dello scontrino
    * @param dataScontrino la data dello scontrino
    * @throws ScontrinoNotFoundException Scontrino non trovato
@@ -52,9 +55,10 @@ public class ScontrinoDao {
    * @throws DatabaseException Errore del persistenza
    */
   public static void checkScontrino(long codice, String dataScontrino)
-      throws ScontrinoNonValidoException, DatabaseException,ScontrinoNotFoundException {
+      throws ScontrinoNonValidoException, DatabaseException, ScontrinoNotFoundException {
     try {
-      PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.checkScontrino);
+      PreparedStatement prep =
+          DatabaseConnection.getInstance().getCon().prepareStatement(Query.checkScontrino);
       prep.setLong(1, codice);
       prep.setString(2, dataScontrino);
 

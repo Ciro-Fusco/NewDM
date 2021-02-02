@@ -13,7 +13,7 @@ public class ScontrinoDaoTest {
 
   @Test
   public void checkScontrinoCorretto() throws DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
+    
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001L);
     s.save();
@@ -32,7 +32,7 @@ public class ScontrinoDaoTest {
 
   @Test
   public void checkScontrinoNonTrovato() throws DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
+    
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001L);
     Exception ex =
@@ -49,7 +49,7 @@ public class ScontrinoDaoTest {
 
   @Test
   public void checkScontrinoNonPiuInGaranzia() throws DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
+    
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001L);
     s.setDataSbagliataTEST();

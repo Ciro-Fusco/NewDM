@@ -15,7 +15,9 @@ import java.util.List;
 
 public class ElencaDao {
   /**
-   * Salva nel persistenza la relazione tra un codice di uno scontrino e i codici dei prodotti a cui si riferisce
+   * Salva nel persistenza la relazione tra un codice di uno scontrino e i codici dei prodotti a cui
+   * si riferisce
+   *
    * @param s Lo Scontrino da cui ricavare le relazioni
    * @throws DatabaseException Errore del Database
    */
@@ -24,7 +26,8 @@ public class ElencaDao {
     List<Prodotto> l = s.getList();
     for (Prodotto c : l) {
       try {
-        PreparedStatement state = DatabaseConnection.con.prepareStatement(Query.elenca);
+        PreparedStatement state =
+            DatabaseConnection.getInstance().getCon().prepareStatement(Query.elenca);
         state.setLong(1, s.getId());
         state.setString(2, s.getData().substring(0, 10));
         state.setLong(3, c.getCodice());
@@ -39,8 +42,9 @@ public class ElencaDao {
   }
 
   /**
-   * Controlla se nel persistenza alla tabella Elenca esiste una riga contenente codice e data dello Scontrino e codice Prodotto
-   * così come passato per parametro
+   * Controlla se nel persistenza alla tabella Elenca esiste una riga contenente codice e data dello
+   * Scontrino e codice Prodotto così come passato per parametro
+   *
    * @param codiceScontrino il codice dello Scontrino
    * @param dataScontrino la data dello Scontrino
    * @param codiceProdotto il codice del Prodotto
@@ -52,7 +56,8 @@ public class ElencaDao {
       throws DatabaseException, ElencaException {
 
     try {
-      PreparedStatement state = DatabaseConnection.con.prepareStatement(Query.elencaCheck);
+      PreparedStatement state =
+          DatabaseConnection.getInstance().getCon().prepareStatement(Query.elencaCheck);
       state.setLong(1, codiceScontrino);
       state.setString(2, dataScontrino);
       state.setLong(3, codiceProdotto);

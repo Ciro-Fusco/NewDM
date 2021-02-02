@@ -2,38 +2,60 @@
 
 import exceptions.DatabaseException;
 
+import javax.xml.crypto.Data;
 import java.sql.*;
 
-<span class="nc" id="L7">public class DatabaseConnection {</span>
-<span class="fc" id="L8">  public static Connection con = null;</span>
+public class DatabaseConnection {
+<span class="fc" id="L9">  private static Connection con = null;</span>
+<span class="fc" id="L10">  private static DatabaseConnection instance = null;</span>
 
   /**
    * Esegue la connessione al Database.
    *
    * @throws DatabaseException Errore del Database
    */
-  public static void connect() throws DatabaseException {
+  private static void connect() throws DatabaseException {
 
     try {
-<span class="fc bfc" id="L18" title="All 4 branches covered.">      if ((con == null) || con.isClosed()) {</span>
+<span class="fc bfc" id="L20" title="All 4 branches covered.">      if ((con == null) || con.isClosed()) {</span>
         // caricamento e registrazione driver
-<span class="fc" id="L20">        Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;); // Carica il driver</span>
-<span class="fc" id="L21">        String url =</span>
+<span class="fc" id="L22">        Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;); // Carica il driver</span>
+<span class="fc" id="L23">        String url =</span>
             &quot;jdbc:mysql://localhost:3306/NEGOZIO?&quot;
                 + &quot;allowPublicKeyRetrieval=true&amp;&amp;useSSL=false&amp;serverTimezone=UTC&quot;;
-<span class="fc" id="L24">        String username = &quot;root&quot;;</span>
-<span class="fc" id="L25">        String pwd = &quot;federernadal&quot;;</span>
-<span class="fc" id="L26">        con = DriverManager.getConnection(url, username, pwd);</span>
-<span class="fc" id="L27">      } else {</span>
-<span class="fc" id="L28">        System.out.println();</span>
+<span class="fc" id="L26">        String username = &quot;root&quot;;</span>
+<span class="fc" id="L27">        String pwd = &quot;federernadal&quot;;</span>
+<span class="fc" id="L28">        con = DriverManager.getConnection(url, username, pwd);</span>
+<span class="fc" id="L29">      } else {</span>
+<span class="fc" id="L30">        System.out.println();</span>
       }
-<span class="nc" id="L30">    } catch (SQLException e) {</span>
-<span class="nc" id="L31">      e.printStackTrace();</span>
-<span class="nc" id="L32">      throw new DatabaseException(&quot;Connessione al Database non riuscita&quot;);</span>
-<span class="nc" id="L33">    } catch (ClassNotFoundException e) {</span>
-<span class="nc" id="L34">      e.printStackTrace();</span>
-<span class="fc" id="L35">    }</span>
-<span class="fc" id="L36">  }</span>
+<span class="nc" id="L32">    } catch (SQLException e) {</span>
+<span class="nc" id="L33">      e.printStackTrace();</span>
+<span class="nc" id="L34">      throw new DatabaseException(&quot;Connessione al Database non riuscita&quot;);</span>
+<span class="nc" id="L35">    } catch (ClassNotFoundException e) {</span>
+<span class="nc" id="L36">      e.printStackTrace();</span>
+<span class="fc" id="L37">    }</span>
+<span class="fc" id="L38">  }</span>
+
+  /** Costruttore per il singleton */
+  private DatabaseConnection() {}
+
+  /**
+   * Restituisce l'istanza di DatabaseConnection
+   *
+   * @return l'istanza
+   * @throws DatabaseException Errore nel Database
+   */
+  public static DatabaseConnection getInstance() throws DatabaseException {
+<span class="fc bfc" id="L50" title="All 2 branches covered.">    if (instance == null) {</span>
+<span class="fc" id="L51">      instance = new DatabaseConnection();</span>
+<span class="fc" id="L52">      connect();</span>
+<span class="fc" id="L53">      return instance;</span>
+    } else {
+<span class="fc" id="L55">      connect();</span>
+<span class="fc" id="L56">      return instance;</span>
+    }
+  }
 
   /**
    * Chiude la connessione con il Database.
@@ -43,15 +65,20 @@ import java.sql.*;
   public static void close() throws DatabaseException {
 
     try {
-<span class="fc" id="L46">      con.close();</span>
-<span class="nc" id="L47">    } catch (SQLException e) {</span>
-<span class="nc" id="L48">      e.printStackTrace();</span>
-<span class="nc" id="L49">      throw new DatabaseException(&quot;Chiusura della connessione non riuscita&quot;);</span>
-<span class="fc" id="L50">    }</span>
-<span class="fc" id="L51">  }</span>
+<span class="fc" id="L68">      con.close();</span>
+<span class="nc" id="L69">    } catch (SQLException e) {</span>
+<span class="nc" id="L70">      e.printStackTrace();</span>
+<span class="nc" id="L71">      throw new DatabaseException(&quot;Chiusura della connessione non riuscita&quot;);</span>
+<span class="fc" id="L72">    }</span>
+<span class="fc" id="L73">  }</span>
 
-  public static Connection getCon() {
-<span class="fc" id="L54">    return con;</span>
+  public Connection getCon() {
+<span class="fc" id="L76">    return con;</span>
+  }
+
+  //METODO PER IL TEST
+  public static DatabaseConnection getInstanceTEST() throws DatabaseException {
+<span class="fc" id="L81">    return  instance;</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

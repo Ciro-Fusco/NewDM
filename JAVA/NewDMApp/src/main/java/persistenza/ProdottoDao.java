@@ -25,7 +25,7 @@ public class ProdottoDao {
 
     PreparedStatement prep = null;
     try {
-      prep = DatabaseConnection.con.prepareStatement(Query.prodotto);
+      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.prodotto);
       prep.setLong(1, cod);
       ResultSet res = prep.executeQuery();
 
@@ -58,7 +58,7 @@ public class ProdottoDao {
 
     PreparedStatement prep = null;
     try {
-      prep = DatabaseConnection.con.prepareStatement(Query.downDBQuant);
+      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.downDBQuant);
       prep.setInt(1, p.getAcquistato());
       prep.setLong(2, p.getCodice());
       prep.executeUpdate();
@@ -78,7 +78,7 @@ public class ProdottoDao {
   public static void adddbquantity(int i, Prodotto p) throws DatabaseException {
     PreparedStatement prep = null;
     try {
-      prep = DatabaseConnection.con.prepareStatement(Query.upDBQuant);
+      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.upDBQuant);
       prep.setInt(1, i);
       prep.setLong(2, p.getCodice());
       prep.executeUpdate();
@@ -98,7 +98,7 @@ public class ProdottoDao {
   public static void createProdotto(Prodotto p) throws DatabaseException {
     PreparedStatement prep = null;
     try {
-      prep = DatabaseConnection.con.prepareStatement(Query.newProdotto);
+      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.newProdotto);
       prep.setLong(1, p.getCodice());
       prep.setString(2, p.getNome());
       prep.setInt(3, p.getQuantity());
@@ -124,7 +124,7 @@ public class ProdottoDao {
   public static void modificaPrezzo(Prodotto p, double prezzo) throws DatabaseException {
     PreparedStatement prep = null;
     try {
-      prep = DatabaseConnection.con.prepareStatement(Query.modificaPrezzo);
+      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.modificaPrezzo);
       prep.setDouble(1, prezzo);
       prep.setLong(2, p.getCodice());
       prep.executeUpdate();
@@ -144,7 +144,7 @@ public class ProdottoDao {
   public static boolean eliminaProdotto(Prodotto p) throws DatabaseException {
     PreparedStatement prep = null;
     try {
-      prep = DatabaseConnection.con.prepareStatement(Query.eliminaProd);
+      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.eliminaProd);
       prep.setLong(1, p.getCodice());
       prep.executeUpdate();
       return true;

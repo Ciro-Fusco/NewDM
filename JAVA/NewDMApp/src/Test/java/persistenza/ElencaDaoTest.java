@@ -13,7 +13,7 @@ public class ElencaDaoTest {
   @Test
   public void checkCorrispondenzaCorretta()
       throws DatabaseException, ProdottoException, ElencaException {
-    DatabaseConnection.connect();
+    
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001L);
     s.save();
@@ -29,7 +29,7 @@ public class ElencaDaoTest {
 
   @Test
   public void checkCorrispondenzaSbagliato() throws DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
+    
     Scontrino s = new Scontrino();
     Exception ex =
         assertThrows(
@@ -43,20 +43,4 @@ public class ElencaDaoTest {
     DatabaseConnection.close();
   }
 
-  @Test
-  public void checkCorrispondenzaConnessioneErrata() throws DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
-    DatabaseConnection.close();
-    Scontrino s = new Scontrino();
-    Exception ex =
-            assertThrows(
-                    DatabaseException.class,
-                    () -> {
-                      ElencaDao.checkCorrispondenza(s.getId(), s.getData(), 1000000000001L);
-                    });
-    String expectedMessage = "Errore nel Database.";
-    String actualMessage = ex.getMessage();
-    assertTrue(actualMessage.contains(expectedMessage));
-    DatabaseConnection.close();
-  }
 }

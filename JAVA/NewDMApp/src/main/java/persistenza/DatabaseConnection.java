@@ -2,17 +2,19 @@ package persistenza;
 
 import exceptions.DatabaseException;
 
+import javax.xml.crypto.Data;
 import java.sql.*;
 
 public class DatabaseConnection {
-  public static Connection con = null;
+  private static Connection con = null;
+  private static DatabaseConnection instance = null;
 
   /**
    * Esegue la connessione al Database.
    *
    * @throws DatabaseException Errore del Database
    */
-  public static void connect() throws DatabaseException {
+  private static void connect() throws DatabaseException {
 
     try {
       if ((con == null) || con.isClosed()) {
@@ -35,6 +37,26 @@ public class DatabaseConnection {
     }
   }
 
+  /** Costruttore per il singleton */
+  private DatabaseConnection() {}
+
+  /**
+   * Restituisce l'istanza di DatabaseConnection
+   *
+   * @return l'istanza
+   * @throws DatabaseException Errore nel Database
+   */
+  public static DatabaseConnection getInstance() throws DatabaseException {
+    if (instance == null) {
+      instance = new DatabaseConnection();
+      connect();
+      return instance;
+    } else {
+      connect();
+      return instance;
+    }
+  }
+
   /**
    * Chiude la connessione con il Database.
    *
@@ -50,7 +72,12 @@ public class DatabaseConnection {
     }
   }
 
-  public static Connection getCon() {
+  public Connection getCon() {
     return con;
+  }
+
+  //METODO PER IL TEST
+  public static DatabaseConnection getInstanceTEST() throws DatabaseException {
+    return  instance;
   }
 }

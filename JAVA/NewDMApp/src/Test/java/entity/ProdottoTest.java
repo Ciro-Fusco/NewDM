@@ -104,7 +104,7 @@ public class ProdottoTest {
 
   @Test
   public void adddbquantityCorretto() throws ProdottoException, DatabaseException {
-    DatabaseConnection.connect();
+    ;
     Prodotto p = new Prodotto(4, 1010L, "Gigia", 5000, "Grande", "Media", "Frutta");
     p.createProdotto();
     p.adddbquantity(5);
@@ -115,7 +115,7 @@ public class ProdottoTest {
 
   @Test
   public void adddbquantitySbagliata() throws ProdottoException, DatabaseException {
-    DatabaseConnection.connect();
+    ;
     Prodotto p = new Prodotto(4, 1011L, "Gigia", 5000, "Grande", "Media", "Frutta");
     p.createProdotto();
     Exception ex =
@@ -132,7 +132,7 @@ public class ProdottoTest {
 
   @Test
   public void modificaPrezzoCorretto() throws DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
+    ;
     Prodotto p = new Prodotto(4, 1012L, "Gigia", 5000, "Grande", "Media", "Frutta");
     p.createProdotto();
     p.modificaPrezzo(5);
@@ -142,7 +142,7 @@ public class ProdottoTest {
 
   @Test
   public void modificaPrezzoSbagliata() throws ProdottoException, DatabaseException {
-    DatabaseConnection.connect();
+    ;
     Prodotto p = new Prodotto(4, 1013L, "Gigia", 5000, "Grande", "Media", "Frutta");
     p.createProdotto();
     Exception ex =
@@ -201,7 +201,7 @@ public class ProdottoTest {
 
   @Test
   public void createProdottoCorretto() throws DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
+    ;
     Prodotto p = new Prodotto(4, 1017L, "Gigia", 5000, "Grande", "Media", "Frutta");
     try{
       p.createProdotto();
@@ -215,7 +215,7 @@ public class ProdottoTest {
 
   @Test
   public void createProdottoPrezzoNegativo() throws DatabaseException, ProdottoException {
-   DatabaseConnection.connect();
+   ;
     Prodotto p = new Prodotto(-4, 1018L, "Gigia", 5000, "Grande", "Media", "Frutta");
     Exception ex = assertThrows(ProdottoException.class,()->{
       p.createProdotto();
@@ -226,7 +226,7 @@ public class ProdottoTest {
 
   @Test
   public void createProdottoQuantitaNegativa() throws DatabaseException, ProdottoException {
-   DatabaseConnection.connect();
+   ;
     Prodotto p = new Prodotto(4, 1019L, "Gigia", -5000, "Grande", "Media", "Frutta");
     Exception ex = assertThrows(ProdottoException.class,()->{
       p.createProdotto();
@@ -237,7 +237,7 @@ public class ProdottoTest {
 
   @Test
   public void createProdottoQuantitaPrezzoNegativi() throws DatabaseException, ProdottoException {
-   DatabaseConnection.connect();
+   ;
     Prodotto p = new Prodotto(-4, 1019L, "Gigia", -5000, "Grande", "Media", "Frutta");
     Exception ex = assertThrows(ProdottoException.class,()->{
       p.createProdotto();
@@ -248,7 +248,7 @@ public class ProdottoTest {
 
   @Test
   public void leaveDBquantityCorretto() throws DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
+    ;
     Prodotto p = Prodotto.search(1000000000001l);
     try {
       p.leavedbquantity();
@@ -263,7 +263,7 @@ public class ProdottoTest {
 
   @Test
   public void leaveDBQuantitySbagliata() throws DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
+    ;
     Prodotto p = Prodotto.search(1000000000001l);
     p.setQuantitySenzaControllo(0);
     Exception ex = assertThrows(ProdottoException.class,()->{
@@ -275,7 +275,7 @@ public class ProdottoTest {
 
   @AfterClass
   public static void pulisciDb() throws DatabaseException {
-    DatabaseConnection.connect();
+    ;
     Prodotto p = new Prodotto();
     p.setCodice(1010L);
     ProdottoDao.eliminaProdotto(p);

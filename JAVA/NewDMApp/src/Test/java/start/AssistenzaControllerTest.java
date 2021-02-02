@@ -21,7 +21,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbCorretto()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -71,7 +71,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbCFSbagliato()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -116,7 +116,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbNomeSbagliato()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -161,7 +161,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbNomeSbagliato2()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -207,7 +207,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbNomeProdottoSbagliato2()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -253,7 +253,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbNomeProdottoSbagliato()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -298,7 +298,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbIndirizzoSbagliato2()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -344,7 +344,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbIndirizzoSbagliato()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -389,7 +389,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbTipologiaProdottoSbagliato()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -434,7 +434,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbTipologiaProdottoSbagliato2()
           throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -479,7 +479,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliNumeroDiTelefonoSbagliato()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -524,7 +524,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbNumeroDiserieSbagliato()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -569,7 +569,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbNumeroDiserieSbagliato2()
           throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -614,7 +614,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbCodiceScontrinoSbagliato()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -661,7 +661,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbDataSBagliata()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -706,7 +706,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbDataSBagliata2()
           throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -753,7 +753,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbCodiceProdottoSbagliato()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -798,7 +798,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliProbCodiceProdottoSbagliato2()
           throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -846,7 +846,7 @@ public class AssistenzaControllerTest {
   public void openAssistenzaDettagliNumeroScontrino()
       throws DatabaseException, ProdottoException, ElencaException, IOException,
           ScontrinoException {
-    DatabaseConnection.connect();
+    
     AssistenzaController.setTicket(null);
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -891,7 +891,7 @@ public class AssistenzaControllerTest {
   public void salvaTicketCorretto()
       throws DatabaseException, ProdottoException, ElencaException, ScontrinoException,
           IOException {
-    DatabaseConnection.connect();
+    
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();
@@ -926,7 +926,7 @@ public class AssistenzaControllerTest {
   public void salvaTicketSbagliato()
       throws DatabaseException, ProdottoException, ElencaException, ScontrinoException,
           IOException {
-    DatabaseConnection.connect();
+    
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
     s.save();

@@ -65,9 +65,9 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase classname="entity.ScontrinoTest" name="setVersatoCorretto" time="0"/>
-  <testcase classname="entity.ScontrinoTest" name="addProdottoListNotContains" time="0"/>
+  <testcase classname="entity.ScontrinoTest" name="addProdottoListNotContains" time="0.016"/>
   <testcase classname="entity.ScontrinoTest" name="addProdottoListContains" time="0"/>
-  <testcase classname="entity.ScontrinoTest" name="addProdottoListNull" time="0"/>
-  <testcase classname="entity.ScontrinoTest" name="addProdottoListNotNull" time="0.047"/>
-  <testcase classname="entity.ScontrinoTest" name="setVersatoSbagliata" time="0"/>
+  <testcase classname="entity.ScontrinoTest" name="addProdottoListNull" time="0.015"/>
+  <testcase classname="entity.ScontrinoTest" name="addProdottoListNotNull" time="0"/>
+  <testcase classname="entity.ScontrinoTest" name="setVersatoSbagliata" time="0.016"/>
 </testsuite>

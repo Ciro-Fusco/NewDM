@@ -65,7 +65,7 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase classname="persistenza.DatabaseConnectionTest" name="connectConNotNull" time="0"/>
-  <testcase classname="persistenza.DatabaseConnectionTest" name="connectConClosed" time="0.015"/>
-  <testcase classname="persistenza.DatabaseConnectionTest" name="connectConNotClosed" time="0.016"/>
-  <testcase classname="persistenza.DatabaseConnectionTest" name="connectConNull" time="0"/>
+  <testcase classname="persistenza.DatabaseConnectionTest" name="connectConClosed" time="0.016"/>
+  <testcase classname="persistenza.DatabaseConnectionTest" name="connectConNotClosed" time="0"/>
+  <testcase classname="persistenza.DatabaseConnectionTest" name="connectConNull" time="0.015"/>
 </testsuite>

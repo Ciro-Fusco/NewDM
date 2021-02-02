@@ -9,33 +9,33 @@ public class DatabaseConnectionTest {
 
     @Test
     public void connectConNull() throws DatabaseException {
-        DatabaseConnection.connect();
-        assertNotEquals(null,DatabaseConnection.getCon());
+        DatabaseConnection.getInstance();
+        assertNotEquals(null,DatabaseConnection.getInstance());
         DatabaseConnection.close();
     }
 
     @Test
     public void connectConNotNull() throws DatabaseException {
-        DatabaseConnection.connect();
-        DatabaseConnection.connect();
-        assertNotEquals(null,DatabaseConnection.getCon());
+        DatabaseConnection.getInstance();
+        DatabaseConnection.getInstance();
+        assertNotEquals(null,DatabaseConnection.getInstanceTEST());
         DatabaseConnection.close();
     }
 
     @Test
     public void connectConClosed() throws DatabaseException {
-        DatabaseConnection.connect();
+        DatabaseConnection.getInstance();
         DatabaseConnection.close();
-        DatabaseConnection.connect();
-        assertNotEquals(null,DatabaseConnection.getCon());
+        DatabaseConnection.getInstance();
+        assertNotEquals(null,DatabaseConnection.getInstanceTEST());
         DatabaseConnection.close();
     }
 
     @Test
     public void connectConNotClosed() throws DatabaseException {
-        DatabaseConnection.connect();
-        DatabaseConnection.connect();
-        assertNotEquals(null,DatabaseConnection.getCon());
+        DatabaseConnection.getInstance();
+        DatabaseConnection.getInstance();
+        assertNotEquals(null,DatabaseConnection.getInstanceTEST());
         DatabaseConnection.close();
     }
 

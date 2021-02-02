@@ -24,7 +24,7 @@ public class CassaControllerTest {
 
   @Test
   public void initializeCorrettoCassa() throws IOException, DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
+    
     CassaController c = new CassaController();
     URL url =
         new File(System.getProperty("user.dir") + "\\src\\main\\resouncers\\Cassa.fxml")
@@ -42,7 +42,7 @@ public class CassaControllerTest {
   @Test
   public void initializeScontrinoNullCassa()
       throws IOException, DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
+    
     CassaController c = new CassaController();
     URL url =
         new File(System.getProperty("user.dir") + "\\src\\main\\resouncers\\Cassa.fxml")
@@ -58,7 +58,7 @@ public class CassaControllerTest {
   @Test
   public void initializeCorrettoCassaTotale()
       throws IOException, DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
+    
     CassaController c = new CassaController();
     URL url =
         new File(System.getProperty("user.dir") + "\\src\\main\\resouncers\\CassaTotaleForm.fxml")
@@ -76,7 +76,7 @@ public class CassaControllerTest {
   @Test
   public void initializeCorrettoCassaRiepilogo()
       throws IOException, DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
+    
     CassaController c = new CassaController();
     URL url =
         new File(System.getProperty("user.dir") + "\\src\\main\\resouncers\\CassaRiepilogo.fxml")
@@ -96,7 +96,7 @@ public class CassaControllerTest {
   @Test
   public void initializeSbagliatoScontrinoNullCassaRiepilogo()
       throws IOException, DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
+    
     CassaController c = new CassaController();
     URL url =
         new File(System.getProperty("user.dir") + "\\src\\main\\resouncers\\CassaRiepilogo.fxml")
@@ -115,7 +115,7 @@ public class CassaControllerTest {
   public void openCassaTotaleCorretto() throws DatabaseException, ProdottoException, IOException {
     // uso l'eccezzione per controllare se il test è andato a buon fine perchè App.setRoot(..) manda
     // nullPointerException
-    DatabaseConnection.connect();
+    
     CassaController c = new CassaController();
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -135,7 +135,7 @@ public class CassaControllerTest {
   @Test
   public void openCassaTotaleSbagliatoScontrinoNull()
       throws DatabaseException, ProdottoException, IOException {
-    DatabaseConnection.connect();
+    
     CassaController c = new CassaController();
     CassaController.setScontrino(null);
     try {
@@ -151,7 +151,7 @@ public class CassaControllerTest {
   @Test
   public void openCassaTotaleSbagliatoScontrinoVuoto()
       throws DatabaseException, ProdottoException, IOException {
-    DatabaseConnection.connect();
+    
     CassaController c = new CassaController();
     Scontrino s = new Scontrino();
     CassaController.setScontrino(s);
@@ -167,7 +167,7 @@ public class CassaControllerTest {
 
   @Test
   public void inserimentoProdottoCorretto() throws DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
+    
     CassaController c = new CassaController();
     Scontrino s = new Scontrino();
     CassaController.setScontrino(s);
@@ -181,7 +181,7 @@ public class CassaControllerTest {
 
   @Test
   public void inserimentoProdottoScontrinoNull() throws DatabaseException, ProdottoException {
-    DatabaseConnection.connect();
+    
     CassaController c = new CassaController();
     CassaController.setScontrino(null);
     TextField t = new TextField();
@@ -195,7 +195,7 @@ public class CassaControllerTest {
   @Test
   public void openCassaRiepilogoCorretto()
       throws DatabaseException, ProdottoException, IOException, ScontrinoException {
-    DatabaseConnection.connect();
+    
     CassaController c = new CassaController();
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);
@@ -219,7 +219,7 @@ public class CassaControllerTest {
   @Test
   public void openCassaRiepilogoSommaVersataSbagliata()
       throws DatabaseException, ProdottoException, IOException, ScontrinoException {
-    DatabaseConnection.connect();
+    
     CassaController c = new CassaController();
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001l);

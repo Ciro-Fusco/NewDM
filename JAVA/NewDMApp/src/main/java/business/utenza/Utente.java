@@ -134,7 +134,7 @@ public class Utente {
    */
   public static void login(String us, String pass)
       throws UtenteException, DatabaseException {
-    DatabaseConnection.connect();
+    DatabaseConnection.getInstance();
     UtenteDao.login(us, pass);
   }
 

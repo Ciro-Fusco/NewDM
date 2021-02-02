@@ -18,7 +18,7 @@ public class UtenzaControllerTest {
 
   @Test
   public void checkLoginCorrettoAssistenza() throws Exception {
-    DatabaseConnection.connect();
+    
     UtenzaController u = new UtenzaController();
     TextField user = new TextField();
     user.setText("cirofu");
@@ -42,7 +42,7 @@ public class UtenzaControllerTest {
 
   @Test
   public void checkLoginCorrettoAssistenzaIsAssistenzaFalse() throws Exception {
-    DatabaseConnection.connect();
+    
     UtenzaController u = new UtenzaController();
     TextField user = new TextField();
     user.setText("test");
@@ -67,7 +67,7 @@ public class UtenzaControllerTest {
 
   @Test
   public void checkLoginCorrettoAssistenzaCliccatoAsssistenzaFalse() throws Exception {
-    DatabaseConnection.connect();
+    
     UtenzaController u = new UtenzaController();
     TextField user = new TextField();
     user.setText("cirofu");
@@ -92,7 +92,7 @@ public class UtenzaControllerTest {
 
   @Test
   public void checkLoginCorrettoCassa() throws Exception {
-    DatabaseConnection.connect();
+    
     UtenzaController u = new UtenzaController();
     TextField user = new TextField();
     user.setText("cirofu");
@@ -117,7 +117,7 @@ public class UtenzaControllerTest {
 
   @Test
   public void checkLoginSbaliatoCassaIsCassaFalse() throws Exception {
-    DatabaseConnection.connect();
+    
     UtenzaController u = new UtenzaController();
     TextField user = new TextField();
     user.setText("test");
@@ -141,7 +141,7 @@ public class UtenzaControllerTest {
   }
   @Test
   public void checkLoginCorrettoCassaCassaFalse() throws Exception {
-    DatabaseConnection.connect();
+    
     UtenzaController u = new UtenzaController();
     TextField user = new TextField();
     user.setText("cirofu");
@@ -168,7 +168,7 @@ public class UtenzaControllerTest {
 
   @Test
   public void checkLoginCorrettoMagazzino() throws Exception {
-    DatabaseConnection.connect();
+    
     UtenzaController u = new UtenzaController();
     TextField user = new TextField();
     user.setText("cirofu");
@@ -193,7 +193,7 @@ public class UtenzaControllerTest {
 
   @Test
   public void checkLoginSbaliatoMagazziniIsMagazzinoFalse() throws Exception {
-    DatabaseConnection.connect();
+    
     UtenzaController u = new UtenzaController();
     TextField user = new TextField();
     user.setText("test");
@@ -217,7 +217,7 @@ public class UtenzaControllerTest {
   }
   @Test
   public void checkLoginCorrettoMagazzinoMagazzinoFalse() throws Exception {
-    DatabaseConnection.connect();
+    
     UtenzaController u = new UtenzaController();
     TextField user = new TextField();
     user.setText("cirofu");
@@ -242,7 +242,7 @@ public class UtenzaControllerTest {
 
   @Test
   public void checkLoginSbagliato() throws Exception {
-    DatabaseConnection.connect();
+    
     UtenzaController u = new UtenzaController();
     TextField user = new TextField();
     user.setText("cirofu");

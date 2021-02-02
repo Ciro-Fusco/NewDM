@@ -25,7 +25,7 @@ import static business.utenza.Utente.*;
   public static void login(String user, String pass)
       throws DatabaseException, UtenteNotFoundException {
     try {
-<span class="fc" id="L28">      PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.login);</span>
+<span class="fc" id="L28">      PreparedStatement prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.login);</span>
 <span class="fc" id="L29">      prep.setString(1, user);</span>
 <span class="fc" id="L30">      String shapass = DigestUtils.sha1Hex(pass);</span>
 <span class="fc" id="L31">      prep.setString(2, shapass);</span>

@@ -134,7 +134,7 @@ import persistenza.UtenteDao;
    */
   public static void login(String us, String pass)
       throws UtenteException, DatabaseException {
-<span class="fc" id="L137">    DatabaseConnection.connect();</span>
+<span class="fc" id="L137">    DatabaseConnection.getInstance();</span>
 <span class="fc" id="L138">    UtenteDao.login(us, pass);</span>
 <span class="fc" id="L139">  }</span>
 

@@ -11,7 +11,7 @@ public class UtenteDaoTest {
 
   @Test
   public void loginCorretta() throws DatabaseException, UtenteNotFoundException {
-    DatabaseConnection.connect();
+    
     UtenteDao.login("cirofu", "cirofu");
     assertEquals("cirofu", Utente.getUsername());
     DatabaseConnection.close();
@@ -19,7 +19,7 @@ public class UtenteDaoTest {
 
   @Test
   public void loginSbagliato() throws DatabaseException, UtenteNotFoundException {
-    DatabaseConnection.connect();
+    
     Exception ex =
         assertThrows(
             UtenteNotFoundException.class,

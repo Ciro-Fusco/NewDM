@@ -19,7 +19,7 @@ public class TicketDao {
    */
   public static void save(Ticket t) throws DatabaseException {
     try {
-      PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.newTicket);
+      PreparedStatement prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.newTicket);
       prep.setString(1, t.getNomeCognome());
       prep.setString(2, t.getCf());
       prep.setString(3, t.getIndirizzo());
@@ -53,7 +53,7 @@ public class TicketDao {
   public static Ticket getTicket(String apertura, String CF, String serie)
       throws TicketNotFoundException, DatabaseException {
     try {
-      PreparedStatement prep = DatabaseConnection.con.prepareStatement(Query.getTicket);
+      PreparedStatement prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.getTicket);
       prep.setString(1, apertura + "%");
       prep.setString(2, CF);
       prep.setString(3, serie);

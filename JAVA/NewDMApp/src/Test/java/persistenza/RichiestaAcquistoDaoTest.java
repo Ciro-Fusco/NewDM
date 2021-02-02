@@ -10,7 +10,7 @@ public class RichiestaAcquistoDaoTest {
 
   @Test
   public void saveCorretto() throws DatabaseException {
-    DatabaseConnection.connect();
+    
     RichiestaAcquisto ra = new RichiestaAcquisto();
     ra.setQuantity(5);
     ra.setCodice(1000000000001L);
@@ -23,20 +23,4 @@ public class RichiestaAcquistoDaoTest {
       DatabaseConnection.close();
     }
   }
-
-    @Test
-    public void saveConnessioneErrata() throws DatabaseException {
-        DatabaseConnection.connect();
-        RichiestaAcquisto ra = new RichiestaAcquisto();
-        ra.setQuantity(5);
-        ra.setCodice(1000000000001L);
-        DatabaseConnection.close();
-        Exception ex = assertThrows(DatabaseException.class,()->{
-            RichiestaAcquistoDao.save(ra);
-        });
-        String expectedMessage =
-                ("Errore nel salvataggio della richiesta d'acquisto");
-        String actualMessage = ex.getMessage();
-        assertTrue(actualMessage.contains(expectedMessage));
-    }
 }
