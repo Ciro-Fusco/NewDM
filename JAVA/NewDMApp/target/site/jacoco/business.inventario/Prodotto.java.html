@@ -5,6 +5,9 @@ import exceptions.ProdottoException;
 import exceptions.ProdottoNotFoundException;
 import persistenza.ProdottoDao;
 
+/**
+ * Un Prodotto disponibile nel punto vendita
+ */
 public class Prodotto {
 
   private int acquistato; /* Numero di volte in cui il prodotto è stato inserito nello scontrino */
@@ -32,20 +35,20 @@ public class Prodotto {
       int quantity,
       String dimensione,
       String scade,
-<span class="fc" id="L35">      String tipologia) {</span>
-<span class="fc" id="L36">    this.prezzo = prezzo;</span>
-<span class="fc" id="L37">    this.codice = codice;</span>
-<span class="fc" id="L38">    this.nome = nome;</span>
-<span class="fc" id="L39">    this.quantity = quantity;</span>
-<span class="fc" id="L40">    this.scadenza = scade;</span>
-<span class="fc" id="L41">    this.dimensioneConfezione = dimensione;</span>
-<span class="fc" id="L42">    String temp = tipologia.substring(0, 1).toUpperCase();</span>
-<span class="fc" id="L43">    tipologia = tipologia.toLowerCase();</span>
-<span class="fc" id="L44">    this.tipologia = tipologia.replace(tipologia.substring(0, 1), temp);</span>
-<span class="fc" id="L45">  }</span>
+<span class="fc" id="L38">      String tipologia) {</span>
+<span class="fc" id="L39">    this.prezzo = prezzo;</span>
+<span class="fc" id="L40">    this.codice = codice;</span>
+<span class="fc" id="L41">    this.nome = nome;</span>
+<span class="fc" id="L42">    this.quantity = quantity;</span>
+<span class="fc" id="L43">    this.scadenza = scade;</span>
+<span class="fc" id="L44">    this.dimensioneConfezione = dimensione;</span>
+<span class="fc" id="L45">    String temp = tipologia.substring(0, 1).toUpperCase();</span>
+<span class="fc" id="L46">    tipologia = tipologia.toLowerCase();</span>
+<span class="fc" id="L47">    this.tipologia = tipologia.replace(tipologia.substring(0, 1), temp);</span>
+<span class="fc" id="L48">  }</span>
 
   /** Crea un nuovo Prodotto senza parametri */
-<span class="fc" id="L48">  public Prodotto() {}</span>
+<span class="fc" id="L51">  public Prodotto() {}</span>
 
   /**
    * Restituisce la categoria del Prodotto
@@ -53,7 +56,7 @@ public class Prodotto {
    * @return la categoria del Prodotto
    */
   public String getTipologia() {
-<span class="fc" id="L56">    return tipologia;</span>
+<span class="fc" id="L59">    return tipologia;</span>
   }
 
   /**
@@ -62,8 +65,8 @@ public class Prodotto {
    * @param tipologia la categoria del prodotto
    */
   public void setTipologia(String tipologia) {
-<span class="fc" id="L65">    this.tipologia = tipologia;</span>
-<span class="fc" id="L66">  }</span>
+<span class="fc" id="L68">    this.tipologia = tipologia;</span>
+<span class="fc" id="L69">  }</span>
 
   /**
    * Restituisce la durata media del prodotto prima di scadere
@@ -71,7 +74,7 @@ public class Prodotto {
    * @return la durata media (breve,media,lunga) del Prodotto prima di scadere
    */
   public String getScadenza() {
-<span class="fc" id="L74">    return scadenza;</span>
+<span class="fc" id="L77">    return scadenza;</span>
   }
 
   /**
@@ -80,8 +83,8 @@ public class Prodotto {
    * @param scadenza durata media (breve,media,lunga) del Prodotto prima di scadere
    */
   public void setScadenza(String scadenza) {
-<span class="fc" id="L83">    this.scadenza = scadenza;</span>
-<span class="fc" id="L84">  }</span>
+<span class="fc" id="L86">    this.scadenza = scadenza;</span>
+<span class="fc" id="L87">  }</span>
 
   /**
    * Restituisce la dimensione della confezione del prodotto
@@ -89,7 +92,7 @@ public class Prodotto {
    * @return la dimensione della confezione del prodotto (piccola,media,grande)
    */
   public String getDimensioneConfezione() {
-<span class="fc" id="L92">    return dimensioneConfezione;</span>
+<span class="fc" id="L95">    return dimensioneConfezione;</span>
   }
 
   /**
@@ -98,8 +101,8 @@ public class Prodotto {
    * @param dimensioneConfezione la dimensione della confezione del prodotto(piccola,media,grande)
    */
   public void setDimensioneConfezione(String dimensioneConfezione) {
-<span class="fc" id="L101">    this.dimensioneConfezione = dimensioneConfezione;</span>
-<span class="fc" id="L102">  }</span>
+<span class="fc" id="L104">    this.dimensioneConfezione = dimensioneConfezione;</span>
+<span class="fc" id="L105">  }</span>
 
   /**
    * Restituisce il prezzo del Prodotto
@@ -107,7 +110,7 @@ public class Prodotto {
    * @return il prezzo del Prodotto
    */
   public double getPrezzo() {
-<span class="fc" id="L110">    return prezzo;</span>
+<span class="fc" id="L113">    return prezzo;</span>
   }
 
   /**
@@ -116,7 +119,7 @@ public class Prodotto {
    * @return il nome del Prodotto
    */
   public String getNome() {
-<span class="fc" id="L119">    return this.nome;</span>
+<span class="fc" id="L122">    return this.nome;</span>
   }
 
   /**
@@ -126,7 +129,7 @@ public class Prodotto {
    * @return la quantità di pezzi contenuti
    */
   public int getAcquistato() {
-<span class="fc" id="L129">    return acquistato;</span>
+<span class="fc" id="L132">    return acquistato;</span>
   }
 
   /**
@@ -136,7 +139,7 @@ public class Prodotto {
    * @return quantità totale nello scontrino
    */
   public int updateAcquistato(int q) {
-<span class="fc" id="L139">    return this.acquistato += q;</span>
+<span class="fc" id="L142">    return this.acquistato += q;</span>
   }
 
   /**
@@ -145,20 +148,20 @@ public class Prodotto {
    * @param acquistato la quantità di pezzi da salvare
    */
   public void setAcquistato(int acquistato) {
-<span class="fc" id="L148">    this.acquistato = acquistato;</span>
-<span class="fc" id="L149">  }</span>
+<span class="fc" id="L151">    this.acquistato = acquistato;</span>
+<span class="fc" id="L152">  }</span>
 
   /**
-   * Imposta il prezzo del Prodotto
+   * Imposta il prezzo del Prodotto. Se il prezzo non è positivo lancia eccezione
    *
    * @param prezzo il prezzo del prodotto
    * @throws ProdottoException Il prezzo deve essere positivo
    */
   public void setPrezzo(double prezzo) throws ProdottoException {
-<span class="fc bfc" id="L158" title="All 2 branches covered.">    if (prezzo &lt;= 0) throw new ProdottoException(&quot;Il prezzo del prodotto deve essere positivo&quot;);</span>
+<span class="fc bfc" id="L161" title="All 2 branches covered.">    if (prezzo &lt;= 0) throw new ProdottoException(&quot;Il prezzo del prodotto deve essere positivo&quot;);</span>
 
-<span class="fc" id="L160">    this.prezzo = prezzo;</span>
-<span class="fc" id="L161">  }</span>
+<span class="fc" id="L163">    this.prezzo = prezzo;</span>
+<span class="fc" id="L164">  }</span>
 
   /**
    * Restituisce il codice identificativo del Prodotto
@@ -166,7 +169,7 @@ public class Prodotto {
    * @return il codice del Prodotto
    */
   public long getCodice() {
-<span class="fc" id="L169">    return codice;</span>
+<span class="fc" id="L172">    return codice;</span>
   }
 
   /**
@@ -174,35 +177,35 @@ public class Prodotto {
    * @param codice il codice del Prodotto
    */
   public void setCodice(long codice) {
-<span class="fc" id="L177">    this.codice = codice;</span>
-<span class="fc" id="L178">  }</span>
+<span class="fc" id="L180">    this.codice = codice;</span>
+<span class="fc" id="L181">  }</span>
 
   /**
    * Imposta il nome del Prodotto
    * @param nome il nome del Prodotto
    */
   public void setNome(String nome) {
-<span class="fc" id="L185">    this.nome = nome;</span>
-<span class="fc" id="L186">  }</span>
+<span class="fc" id="L188">    this.nome = nome;</span>
+<span class="fc" id="L189">  }</span>
 
   /**
    * Restituisce la qunatità di un Prodotto
    * @return la quantità di un prodotto
    */
   public int getQuantity() {
-<span class="fc" id="L193">    return quantity;</span>
+<span class="fc" id="L196">    return quantity;</span>
   }
 
   /**
-   * Imposta la quantitò di un Prodotto
+   * Imposta la quantitò di un Prodotto. Se la quantità non è maggiore di 0 lancia eccezione
    * @param quantity la quantità del prdotto
    * @throws ProdottoException Errore nella modifica della quantità
    */
   public void setQuantity(int quantity) throws ProdottoException {
-<span class="fc bfc" id="L202" title="All 2 branches covered.">    if (quantity &lt;= 0) throw new ProdottoException(&quot;La quantità deve essere maggiore di 0&quot;);</span>
+<span class="fc bfc" id="L205" title="All 2 branches covered.">    if (quantity &lt;= 0) throw new ProdottoException(&quot;La quantità deve essere maggiore di 0&quot;);</span>
 
-<span class="fc" id="L204">    this.quantity = quantity;</span>
-<span class="fc" id="L205">  }</span>
+<span class="fc" id="L207">    this.quantity = quantity;</span>
+<span class="fc" id="L208">  }</span>
 
   /**
    * Cerca un prodotto dato il codice
@@ -213,48 +216,46 @@ public class Prodotto {
    * @throws DatabaseException Errore nel persistenza
    */
   public static Prodotto search(Long cod) throws ProdottoException, DatabaseException {
-<span class="fc" id="L216">    return ProdottoDao.search(cod);</span>
+<span class="fc" id="L219">    return ProdottoDao.search(cod);</span>
   }
 
   /**
    * Diminuisce la quantità del Prodotto dal Database in base al numero di volte in cui il codice è
-   * stato inserito nello scontrino.
+   * stato inserito nello scontrino. Se la quantità del prodotto è già zero non esegue nulla
    *
    * @throws DatabaseException Errore del Database
    */
   public void leavedbquantity() throws DatabaseException, ProdottoException {
-<span class="fc bfc" id="L226" title="All 2 branches covered.">    if (quantity &gt; 0) {</span>
-<span class="fc" id="L227">      ProdottoDao.leavedbquantity(this);</span>
-    } else {
-<span class="fc" id="L229">      throw new ProdottoException(&quot;Prodotto esaurito&quot;);</span>
+<span class="fc bfc" id="L229" title="All 2 branches covered.">    if (quantity &gt; 0) {</span>
+<span class="fc" id="L230">      ProdottoDao.leavedbquantity(this);</span>
     }
-<span class="fc" id="L231">  }</span>
+<span class="fc" id="L232">  }</span>
 
   /**
-   * Aumenta la quantità di questo prodotto nel persistenza
+   * Aumenta la quantità di questo prodotto nel persistenza se la quantità da aggiungere è positiva
    *
    * @param i quantità da aggiungere al Database
    * @throws DatabaseException Errore del Database
-   * @throws ProdottoException Il prezzo deve essere positivo
+   * @throws ProdottoException La quantità deve essere positiva
    */
   public void adddbquantity(int i) throws DatabaseException, ProdottoException {
-<span class="fc bfc" id="L241" title="All 2 branches covered.">    if (i &gt; 0) ProdottoDao.adddbquantity(i, this);</span>
+<span class="fc bfc" id="L242" title="All 2 branches covered.">    if (i &gt; 0) ProdottoDao.adddbquantity(i, this);</span>
     else {
-<span class="fc" id="L243">      throw new ProdottoException(&quot;Inserire un valore maggiore di 0&quot;);</span>
+<span class="fc" id="L244">      throw new ProdottoException(&quot;Inserire un valore maggiore di 0&quot;);</span>
     }
-<span class="fc" id="L245">  }</span>
+<span class="fc" id="L246">  }</span>
 
   /**
-   * Salva questo Prodotto nel persistenza
+   * Salva questo Prodotto nel persistenza. Il prezzo e la quantità del prodotto devono essere positivi
    *
    * @throws DatabaseException Errore del Database
    * @throws ProdottoException Il prezzo e la quantita del Prodotto devono essere positivi
    */
   public void createProdotto() throws DatabaseException, ProdottoException {
-<span class="fc bfc" id="L254" title="All 4 branches covered.">    if (prezzo &lt;= 0 || quantity &lt;= 0)</span>
-<span class="fc" id="L255">      throw new ProdottoException(&quot;Prezzo e quantità devono essere entrambi positivi&quot;);</span>
-<span class="fc" id="L256">    ProdottoDao.createProdotto(this);</span>
-<span class="fc" id="L257">  }</span>
+<span class="fc bfc" id="L255" title="All 4 branches covered.">    if (prezzo &lt;= 0 || quantity &lt;= 0)</span>
+<span class="fc" id="L256">      throw new ProdottoException(&quot;Prezzo e quantità devono essere entrambi positivi&quot;);</span>
+<span class="fc" id="L257">    ProdottoDao.createProdotto(this);</span>
+<span class="fc" id="L258">  }</span>
 
   /**
    * Modifica il prezzo del Prodotto
@@ -264,15 +265,15 @@ public class Prodotto {
    * @throws ProdottoException Il prezzo deve essere positivo
    */
   public void modificaPrezzo(double prezzo) throws DatabaseException, ProdottoException {
-<span class="fc bfc" id="L267" title="All 2 branches covered.">    if (prezzo &lt; 0) {</span>
-<span class="fc" id="L268">      throw new ProdottoException(&quot;Prezzo nuovo negativo.&quot;);</span>
+<span class="fc bfc" id="L268" title="All 2 branches covered.">    if (prezzo &lt; 0) {</span>
+<span class="fc" id="L269">      throw new ProdottoException(&quot;Prezzo nuovo negativo.&quot;);</span>
     }
-<span class="fc" id="L270">    ProdottoDao.modificaPrezzo(this, prezzo);</span>
-<span class="fc" id="L271">  }</span>
+<span class="fc" id="L271">    ProdottoDao.modificaPrezzo(this, prezzo);</span>
+<span class="fc" id="L272">  }</span>
 
   @Override
   public String toString() {
-<span class="fc" id="L275">    return &quot;Prodotto{&quot;</span>
+<span class="fc" id="L276">    return &quot;Prodotto{&quot;</span>
         + &quot;acquistato=&quot;
         + acquistato
         + &quot;, prezzo=&quot;
@@ -298,28 +299,33 @@ public class Prodotto {
 
   @Override
   public boolean equals(Object o) {
-<span class="fc bfc" id="L301" title="All 2 branches covered.">    if (this == o) return true;</span>
+<span class="fc bfc" id="L302" title="All 2 branches covered.">    if (this == o) return true;</span>
     else {
-<span class="fc bfc" id="L303" title="All 4 branches covered.">      if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc bfc" id="L304" title="All 4 branches covered.">      if (o == null || getClass() != o.getClass()) return false;</span>
       else {
-<span class="fc" id="L305">        Prodotto prodotto = (Prodotto) o;</span>
-<span class="fc bfc" id="L306" title="All 2 branches covered.">        if (getCodice() == prodotto.getCodice()) {</span>
-<span class="fc" id="L307">          return true;</span>
+<span class="fc" id="L306">        Prodotto prodotto = (Prodotto) o;</span>
+<span class="fc bfc" id="L307" title="All 2 branches covered.">        if (getCodice() == prodotto.getCodice()) {</span>
+<span class="fc" id="L308">          return true;</span>
         } else {
-<span class="fc" id="L309">          return false;</span>
+<span class="fc" id="L310">          return false;</span>
         }
       }
     }
   }
 
+  /**
+   * Elimina un prodotto dal database
+   * @return true se il prodotto è stato eliminato
+   * @throws DatabaseException Errore del database
+   */
   public boolean eliminaProdotto() throws DatabaseException {
-<span class="nc" id="L316">    return ProdottoDao.eliminaProdotto(this);</span>
+<span class="nc" id="L322">    return ProdottoDao.eliminaProdotto(this);</span>
   }
 
   //PER TESTING
 
   public void setQuantitySenzaControllo(int quantity) throws ProdottoException {
-<span class="fc" id="L322">    this.quantity = quantity;</span>
-<span class="fc" id="L323">  }</span>
+<span class="fc" id="L328">    this.quantity = quantity;</span>
+<span class="fc" id="L329">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

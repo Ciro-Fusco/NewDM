@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: start.AssistenzaControllerTest
 -------------------------------------------------------------------------------
-Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.377 sec
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.907 sec

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="7" failures="0" name="persistenza.ProdottoDaoTest" time="0.766" errors="0" skipped="0">
+<testsuite tests="7" failures="0" name="persistenza.ProdottoDaoTest" time="0.748" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2020.3"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -64,11 +64,11 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="persistenza.ProdottoDaoTest" name="leavedbquantityCorretto" time="0.157"/>
-  <testcase classname="persistenza.ProdottoDaoTest" name="modificaPrezzoCorretto" time="0"/>
-  <testcase classname="persistenza.ProdottoDaoTest" name="createProdottoConnesioneErrata" time="0.062"/>
-  <testcase classname="persistenza.ProdottoDaoTest" name="createProdottoCorretto" time="0.172"/>
-  <testcase classname="persistenza.ProdottoDaoTest" name="searchSbagliatoProdottoNonPresente" time="0.031"/>
-  <testcase classname="persistenza.ProdottoDaoTest" name="adddbquantityCorretto" time="0.344"/>
-  <testcase classname="persistenza.ProdottoDaoTest" name="searchCorretto" time="0"/>
+  <testcase classname="persistenza.ProdottoDaoTest" name="leavedbquantityCorretto" time="0.177"/>
+  <testcase classname="persistenza.ProdottoDaoTest" name="modificaPrezzoCorretto" time="0.009"/>
+  <testcase classname="persistenza.ProdottoDaoTest" name="createProdottoConnesioneErrata" time="0.08"/>
+  <testcase classname="persistenza.ProdottoDaoTest" name="createProdottoCorretto" time="0.237"/>
+  <testcase classname="persistenza.ProdottoDaoTest" name="searchSbagliatoProdottoNonPresente" time="0.011"/>
+  <testcase classname="persistenza.ProdottoDaoTest" name="adddbquantityCorretto" time="0.228"/>
+  <testcase classname="persistenza.ProdottoDaoTest" name="searchCorretto" time="0.006"/>
 </testsuite>

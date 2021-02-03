@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="25" failures="0" name="entity.ProdottoTest" time="2.093" errors="0" skipped="0">
+<testsuite tests="25" failures="0" name="entity.ProdottoTest" time="2.376" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2020.3"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -64,29 +64,29 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="entity.ProdottoTest" name="adddbquantitySbagliata" time="1.312"/>
-  <testcase classname="entity.ProdottoTest" name="leaveDBQuantitySbagliata" time="0.031"/>
+  <testcase classname="entity.ProdottoTest" name="adddbquantitySbagliata" time="1.423"/>
+  <testcase classname="entity.ProdottoTest" name="leaveDBQuantitySbagliata" time="0.061"/>
   <testcase classname="entity.ProdottoTest" name="equalsClasseSbagliata" time="0"/>
-  <testcase classname="entity.ProdottoTest" name="createProdottoQuantitaPrezzoNegativi" time="0"/>
-  <testcase classname="entity.ProdottoTest" name="getAcquistato" time="0"/>
-  <testcase classname="entity.ProdottoTest" name="equalsSbagliatoNull" time="0.016"/>
-  <testcase classname="entity.ProdottoTest" name="modificaPrezzoCorretto" time="0.219"/>
-  <testcase classname="entity.ProdottoTest" name="setQuantitySbagliato" time="0"/>
+  <testcase classname="entity.ProdottoTest" name="createProdottoQuantitaPrezzoNegativi" time="0.002"/>
+  <testcase classname="entity.ProdottoTest" name="getAcquistato" time="0.002"/>
+  <testcase classname="entity.ProdottoTest" name="equalsSbagliatoNull" time="0.004"/>
+  <testcase classname="entity.ProdottoTest" name="modificaPrezzoCorretto" time="0.213"/>
+  <testcase classname="entity.ProdottoTest" name="setQuantitySbagliato" time="0.001"/>
   <testcase classname="entity.ProdottoTest" name="setAcquistato" time="0"/>
-  <testcase classname="entity.ProdottoTest" name="equalsSbagliatoOggettiDiversi" time="0"/>
+  <testcase classname="entity.ProdottoTest" name="equalsSbagliatoOggettiDiversi" time="0.003"/>
   <testcase classname="entity.ProdottoTest" name="equalsCorretto" time="0"/>
-  <testcase classname="entity.ProdottoTest" name="modificaPrezzoSbagliata" time="0.125"/>
+  <testcase classname="entity.ProdottoTest" name="modificaPrezzoSbagliata" time="0.294"/>
   <testcase classname="entity.ProdottoTest" name="getNome" time="0"/>
-  <testcase classname="entity.ProdottoTest" name="leaveDBquantityCorretto" time="0"/>
-  <testcase classname="entity.ProdottoTest" name="createProdottoPrezzoNegativo" time="0"/>
-  <testcase classname="entity.ProdottoTest" name="createProdottoCorretto" time="0.093"/>
+  <testcase classname="entity.ProdottoTest" name="leaveDBquantityCorretto" time="0.004"/>
+  <testcase classname="entity.ProdottoTest" name="createProdottoPrezzoNegativo" time="0.001"/>
+  <testcase classname="entity.ProdottoTest" name="createProdottoCorretto" time="0.115"/>
   <testcase classname="entity.ProdottoTest" name="getPrezzo" time="0"/>
-  <testcase classname="entity.ProdottoTest" name="adddbquantityCorretto" time="0.297"/>
+  <testcase classname="entity.ProdottoTest" name="adddbquantityCorretto" time="0.25"/>
   <testcase classname="entity.ProdottoTest" name="setQuantityCorretto" time="0"/>
-  <testcase classname="entity.ProdottoTest" name="setPrezzoSbagliato" time="0"/>
-  <testcase classname="entity.ProdottoTest" name="createProdottoQuantitaNegativa" time="0"/>
+  <testcase classname="entity.ProdottoTest" name="setPrezzoSbagliato" time="0.001"/>
+  <testcase classname="entity.ProdottoTest" name="createProdottoQuantitaNegativa" time="0.001"/>
   <testcase classname="entity.ProdottoTest" name="equalsCorrettoOggettiDiversi" time="0"/>
   <testcase classname="entity.ProdottoTest" name="setPrezzoCorretto" time="0"/>
   <testcase classname="entity.ProdottoTest" name="updateAcquistato" time="0"/>
-  <testcase classname="entity.ProdottoTest" name="creazioneProdottoCorretta" time="0"/>
+  <testcase classname="entity.ProdottoTest" name="creazioneProdottoCorretta" time="0.001"/>
 </testsuite>

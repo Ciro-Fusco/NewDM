@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Richiesta di acquisto di un Prodotto
+ * Richiesta di rifornimento di un Prodotto
  */
 public class RichiestaAcquisto {
 
@@ -124,7 +124,7 @@ public class RichiestaAcquisto {
   }
 
   /**
-   * Salva la Richiesta di acquisto nel persistenza
+   * Salva la Richiesta di acquisto in maniera persistente.
    * @throws DatabaseException Errore nel Database
    */
   public void save() throws DatabaseException {

@@ -10,7 +10,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-<span class="nc" id="L13">public class RichiestaAcquistoDao {</span>
+/**
+ * DAO per il salvataggio persistente di una richiesta di acquisto
+ */
+<span class="nc" id="L16">public class RichiestaAcquistoDao {</span>
 
   /**
    * Salva nel persistenza le informazioni riguardo una RichiestaAcquisto
@@ -21,23 +24,23 @@ import java.sql.Statement;
   public static void save(RichiestaAcquisto r) throws DatabaseException {
     try {
       PreparedStatement prep =
-<span class="fc" id="L24">          DatabaseConnection.getInstance()</span>
-<span class="fc" id="L25">              .getCon()</span>
-<span class="fc" id="L26">              .prepareStatement(Query.saveRichiesta, Statement.RETURN_GENERATED_KEYS);</span>
-<span class="fc" id="L27">      prep.setInt(1, r.getQuantity());</span>
-<span class="fc" id="L28">      prep.setString(2, r.getData().substring(0, 10));</span>
-<span class="fc" id="L29">      prep.setString(3, r.getData().substring(11, 19));</span>
-<span class="fc" id="L30">      prep.setString(4, r.getStato());</span>
-<span class="fc" id="L31">      prep.setLong(5, r.getCodice());</span>
-<span class="fc" id="L32">      prep.executeUpdate();</span>
-<span class="fc" id="L33">      ResultSet rs = prep.getGeneratedKeys();</span>
-<span class="fc" id="L34">      rs.next();</span>
-<span class="fc" id="L35">      r.setId(rs.getLong(1));</span>
+<span class="fc" id="L27">          DatabaseConnection.getInstance()</span>
+<span class="fc" id="L28">              .getCon()</span>
+<span class="fc" id="L29">              .prepareStatement(Query.saveRichiesta, Statement.RETURN_GENERATED_KEYS);</span>
+<span class="fc" id="L30">      prep.setInt(1, r.getQuantity());</span>
+<span class="fc" id="L31">      prep.setString(2, r.getData().substring(0, 10));</span>
+<span class="fc" id="L32">      prep.setString(3, r.getData().substring(11, 19));</span>
+<span class="fc" id="L33">      prep.setString(4, r.getStato());</span>
+<span class="fc" id="L34">      prep.setLong(5, r.getCodice());</span>
+<span class="fc" id="L35">      prep.executeUpdate();</span>
+<span class="fc" id="L36">      ResultSet rs = prep.getGeneratedKeys();</span>
+<span class="fc" id="L37">      rs.next();</span>
+<span class="fc" id="L38">      r.setId(rs.getLong(1));</span>
 
-<span class="nc" id="L37">    } catch (SQLException e) {</span>
-<span class="nc" id="L38">      e.printStackTrace();</span>
-<span class="nc" id="L39">      throw new DatabaseException(&quot;Errore nel salvataggio della richiesta d'acquisto&quot;);</span>
-<span class="fc" id="L40">    }</span>
-<span class="fc" id="L41">  }</span>
+<span class="nc" id="L40">    } catch (SQLException e) {</span>
+<span class="nc" id="L41">      e.printStackTrace();</span>
+<span class="nc" id="L42">      throw new DatabaseException(&quot;Errore nel salvataggio della richiesta d'acquisto&quot;);</span>
+<span class="fc" id="L43">    }</span>
+<span class="fc" id="L44">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

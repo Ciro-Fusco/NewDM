@@ -16,7 +16,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-<span class="fc" id="L19">public class CassaController implements Initializable {</span>
+/**
+ * Controller per le interazioni della sezione Cassa
+ */
+<span class="fc" id="L22">public class CassaController implements Initializable {</span>
 
   private static Scontrino scontrino;
   @FXML private TextField codiceProd;
@@ -28,38 +31,38 @@ import java.util.ResourceBundle;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-<span class="fc" id="L31">    String nomeFile =</span>
-<span class="fc" id="L32">        url.toString().substring(url.toString().lastIndexOf('/') + 1, url.toString().length());</span>
+<span class="fc" id="L34">    String nomeFile =</span>
+<span class="fc" id="L35">        url.toString().substring(url.toString().lastIndexOf('/') + 1, url.toString().length());</span>
 
-<span class="fc bfc" id="L34" title="All 2 branches covered.">    if (nomeFile.equals(&quot;Cassa.fxml&quot;)) {</span>
-<span class="fc bfc" id="L35" title="All 2 branches covered.">      if (scontrino != null) {</span>
-<span class="fc" id="L36">        scontrinoTextField.appendText(scontrino.getRiepilogo());</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">    if (nomeFile.equals(&quot;Cassa.fxml&quot;)) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">      if (scontrino != null) {</span>
+<span class="fc" id="L39">        scontrinoTextField.appendText(scontrino.getRiepilogo());</span>
       } else {
-<span class="fc" id="L38">        System.out.println();</span>
+<span class="fc" id="L41">        System.out.println();</span>
       }
     } else {
-<span class="fc" id="L41">      System.out.println();</span>
+<span class="fc" id="L44">      System.out.println();</span>
     }
 
-<span class="fc bfc" id="L44" title="All 2 branches covered.">    if (nomeFile.equals(&quot;CassaTotaleForm.fxml&quot;)) {</span>
-<span class="fc" id="L45">      scontrino.calcolaTot();</span>
-<span class="fc" id="L46">      totaleLabel.setText(Double.toString(scontrino.getTot()));</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">    if (nomeFile.equals(&quot;CassaTotaleForm.fxml&quot;)) {</span>
+<span class="fc" id="L48">      scontrino.calcolaTot();</span>
+<span class="fc" id="L49">      totaleLabel.setText(Double.toString(scontrino.getTot()));</span>
     } else {
-<span class="fc" id="L48">      System.out.println();</span>
+<span class="fc" id="L51">      System.out.println();</span>
     }
 
-<span class="fc bfc" id="L51" title="All 2 branches covered.">    if (nomeFile.equals(&quot;CassaRiepilogo.fxml&quot;)) {</span>
-<span class="fc bfc" id="L52" title="All 2 branches covered.">      if (scontrino != null) {</span>
-<span class="fc" id="L53">        scontrino.calcolaResto();</span>
-<span class="fc" id="L54">        restoLabel.setText(String.format(&quot;%.2f&quot;, scontrino.getResto()));</span>
-<span class="fc" id="L55">        riepilogoTextArea.setText(scontrino.getRiepilogo());</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">    if (nomeFile.equals(&quot;CassaRiepilogo.fxml&quot;)) {</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">      if (scontrino != null) {</span>
+<span class="fc" id="L56">        scontrino.calcolaResto();</span>
+<span class="fc" id="L57">        restoLabel.setText(String.format(&quot;%.2f&quot;, scontrino.getResto()));</span>
+<span class="fc" id="L58">        riepilogoTextArea.setText(scontrino.getRiepilogo());</span>
       } else {
-<span class="fc" id="L57">        System.out.println();</span>
+<span class="fc" id="L60">        System.out.println();</span>
       }
     } else {
-<span class="fc" id="L60">      System.out.println();</span>
+<span class="fc" id="L63">      System.out.println();</span>
     }
-<span class="fc" id="L62">  }</span>
+<span class="fc" id="L65">  }</span>
 
   // CassaController
 
@@ -70,9 +73,9 @@ import java.util.ResourceBundle;
    * @throws IOException
    */
   public void openDashboard(MouseEvent mouseEvent) throws IOException, DatabaseException {
-<span class="nc" id="L73">    Utente.logout();</span>
-<span class="nc" id="L74">    App.setRoot(&quot;Dashboard&quot;);</span>
-<span class="nc" id="L75">  }</span>
+<span class="nc" id="L76">    Utente.logout();</span>
+<span class="nc" id="L77">    App.setRoot(&quot;Dashboard&quot;);</span>
+<span class="nc" id="L78">  }</span>
 
   /**
    * Apre la schermata di inserimento del codice Prodotto
@@ -81,8 +84,8 @@ import java.util.ResourceBundle;
    * @throws IOException
    */
   public void openCassaInsProdotto(MouseEvent mouseEvent) throws IOException {
-<span class="nc" id="L84">    App.setRoot(&quot;CassaInsProdottoForm&quot;);</span>
-<span class="nc" id="L85">  }</span>
+<span class="nc" id="L87">    App.setRoot(&quot;CassaInsProdottoForm&quot;);</span>
+<span class="nc" id="L88">  }</span>
 
   /**
    * Apre la schermata di riepilogo dello Scontrino
@@ -91,12 +94,12 @@ import java.util.ResourceBundle;
    * @throws IOException
    */
   public void openCassaTotale(MouseEvent mouseEvent) throws IOException {
-<span class="fc bfc" id="L94" title="All 4 branches covered.">    if (scontrino != null &amp;&amp; scontrino.getList() != null) {</span>
-<span class="nc" id="L95">      App.setRoot(&quot;CassaTotaleForm&quot;);</span>
+<span class="fc bfc" id="L97" title="All 4 branches covered.">    if (scontrino != null &amp;&amp; scontrino.getList() != null) {</span>
+<span class="nc" id="L98">      App.setRoot(&quot;CassaTotaleForm&quot;);</span>
     } else {
-<span class="fc" id="L97">      AlertMessage.showError(&quot;Per procedere, aggiungere almeno un prodotto allo scontrino&quot;);</span>
+<span class="fc" id="L100">      AlertMessage.showError(&quot;Per procedere, aggiungere almeno un prodotto allo scontrino&quot;);</span>
     }
-<span class="fc" id="L99">  }</span>
+<span class="fc" id="L102">  }</span>
 
   /**
    * Elimina lo Scontrino attuale
@@ -104,9 +107,9 @@ import java.util.ResourceBundle;
    * @param mouseEvent
    */
   public void annullaInsProd(MouseEvent mouseEvent) {
-<span class="nc" id="L107">    scontrino = new Scontrino();</span>
-<span class="nc" id="L108">    scontrinoTextField.setText(&quot;&quot;);</span>
-<span class="nc" id="L109">  }</span>
+<span class="nc" id="L110">    scontrino = new Scontrino();</span>
+<span class="nc" id="L111">    scontrinoTextField.setText(&quot;&quot;);</span>
+<span class="nc" id="L112">  }</span>
   //////////////////////////////////////////////////////////////////
 
   // inserimento prodotto
@@ -118,8 +121,8 @@ import java.util.ResourceBundle;
    * @throws IOException
    */
   public void openCassa(MouseEvent mouseEvent) throws IOException {
-<span class="nc" id="L121">    App.setRoot(&quot;Cassa&quot;);</span>
-<span class="nc" id="L122">  }</span>
+<span class="nc" id="L124">    App.setRoot(&quot;Cassa&quot;);</span>
+<span class="nc" id="L125">  }</span>
 
   /**
    * Inserisce il Prodotto nello scontrino
@@ -131,19 +134,19 @@ import java.util.ResourceBundle;
   public void inserimentoProdotto(MouseEvent mouseEvent)
       throws ProdottoException, DatabaseException {
     try {
-<span class="fc bfc" id="L134" title="All 2 branches covered.">      if (scontrino == null) {</span>
-<span class="fc" id="L135">        scontrino = new Scontrino();</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">      if (scontrino == null) {</span>
+<span class="fc" id="L138">        scontrino = new Scontrino();</span>
       } else {
-<span class="fc" id="L137">        System.out.println();</span>
+<span class="fc" id="L140">        System.out.println();</span>
       }
       ;
-<span class="fc" id="L140">      scontrino.addProdotto(Long.parseLong(codiceProd.getText()));</span>
-<span class="fc" id="L141">      AlertMessage.showInformation(&quot;Prodotto inserito correttamente&quot;);</span>
-<span class="nc" id="L142">    } catch (NumberFormatException excpt) {</span>
-<span class="nc" id="L143">      excpt.printStackTrace();</span>
-<span class="nc" id="L144">      AlertMessage.showError(&quot;Compilare i campi in modo corretto&quot;);</span>
-<span class="fc" id="L145">    }</span>
-<span class="fc" id="L146">  }</span>
+<span class="fc" id="L143">      scontrino.addProdotto(Long.parseLong(codiceProd.getText()));</span>
+<span class="fc" id="L144">      AlertMessage.showInformation(&quot;Prodotto inserito correttamente&quot;);</span>
+<span class="nc" id="L145">    } catch (NumberFormatException excpt) {</span>
+<span class="nc" id="L146">      excpt.printStackTrace();</span>
+<span class="nc" id="L147">      AlertMessage.showError(&quot;Compilare i campi in modo corretto&quot;);</span>
+<span class="fc" id="L148">    }</span>
+<span class="fc" id="L149">  }</span>
 
   ////////////////////////////////////////////////////////////////
 
@@ -157,18 +160,18 @@ import java.util.ResourceBundle;
    * @throws ScontrinoException
    */
   public void openCassaRiepilogo(MouseEvent mouseEvent) throws IOException, ScontrinoException {
-<span class="fc bfc" id="L160" title="All 2 branches covered.">    if (sommaVersataTextField.getText().matches(&quot;[0-9]+(\\.[0-9][0-9]?)?&quot;)) {</span>
+<span class="fc bfc" id="L163" title="All 2 branches covered.">    if (sommaVersataTextField.getText().matches(&quot;[0-9]+(\\.[0-9][0-9]?)?&quot;)) {</span>
       try {
-<span class="fc" id="L162">        scontrino.setVersato(Double.parseDouble(sommaVersataTextField.getText()));</span>
-<span class="nc" id="L163">        App.setRoot(&quot;CassaRiepilogo&quot;);</span>
-<span class="nc" id="L164">      } catch (NumberFormatException exception) {</span>
-<span class="nc" id="L165">        exception.printStackTrace();</span>
-<span class="nc" id="L166">        AlertMessage.showError(&quot;Compila i campi in modo corretto&quot;);</span>
-<span class="nc" id="L167">      }</span>
+<span class="fc" id="L165">        scontrino.setVersato(Double.parseDouble(sommaVersataTextField.getText()));</span>
+<span class="nc" id="L166">        App.setRoot(&quot;CassaRiepilogo&quot;);</span>
+<span class="nc" id="L167">      } catch (NumberFormatException exception) {</span>
+<span class="nc" id="L168">        exception.printStackTrace();</span>
+<span class="nc" id="L169">        AlertMessage.showError(&quot;Compila i campi in modo corretto&quot;);</span>
+<span class="nc" id="L170">      }</span>
     } else {
-<span class="fc" id="L169">      AlertMessage.showError(&quot;Inserisci una somma valida&quot;);</span>
+<span class="fc" id="L172">      AlertMessage.showError(&quot;Inserisci una somma valida&quot;);</span>
     }
-<span class="fc" id="L171">  }</span>
+<span class="fc" id="L174">  }</span>
 
   ////////////////////////////////////////////////////////////////
 
@@ -182,70 +185,70 @@ import java.util.ResourceBundle;
    * @throws IOException
    */
   public void confermaScontrino(MouseEvent mouseEvent) throws DatabaseException, IOException {
-<span class="nc" id="L185">    scontrino.save();</span>
-<span class="nc" id="L186">    AlertMessage.showInformation(&quot;Scontrino salvato&quot;);</span>
-<span class="nc" id="L187">    scontrino = null;</span>
-<span class="nc" id="L188">    App.setRoot(&quot;Cassa&quot;);</span>
-<span class="nc" id="L189">  }</span>
+<span class="nc" id="L188">    scontrino.save();</span>
+<span class="nc" id="L189">    AlertMessage.showInformation(&quot;Scontrino salvato&quot;);</span>
+<span class="nc" id="L190">    scontrino = null;</span>
+<span class="nc" id="L191">    App.setRoot(&quot;Cassa&quot;);</span>
+<span class="nc" id="L192">  }</span>
 
   /////////////////////////////////////////////////////////////////
 
   // GET E SETTER PER TEST
 
   public static Scontrino getScontrino() {
-<span class="fc" id="L196">    return scontrino;</span>
+<span class="fc" id="L199">    return scontrino;</span>
   }
 
   public static void setScontrino(Scontrino scontrino) {
-<span class="fc" id="L200">    CassaController.scontrino = scontrino;</span>
-<span class="fc" id="L201">  }</span>
+<span class="fc" id="L203">    CassaController.scontrino = scontrino;</span>
+<span class="fc" id="L204">  }</span>
 
   public TextField getCodiceProd() {
-<span class="nc" id="L204">    return codiceProd;</span>
+<span class="nc" id="L207">    return codiceProd;</span>
   }
 
   public void setCodiceProd(TextField codiceProd) {
-<span class="fc" id="L208">    this.codiceProd = codiceProd;</span>
-<span class="fc" id="L209">  }</span>
+<span class="fc" id="L211">    this.codiceProd = codiceProd;</span>
+<span class="fc" id="L212">  }</span>
 
   public TextArea getScontrinoTextField() {
-<span class="fc" id="L212">    return scontrinoTextField;</span>
+<span class="fc" id="L215">    return scontrinoTextField;</span>
   }
 
   public void setScontrinoTextField(TextArea scontrinoTextField) {
-<span class="fc" id="L216">    this.scontrinoTextField = scontrinoTextField;</span>
-<span class="fc" id="L217">  }</span>
+<span class="fc" id="L219">    this.scontrinoTextField = scontrinoTextField;</span>
+<span class="fc" id="L220">  }</span>
 
   public TextField getSommaVersataTextField() {
-<span class="nc" id="L220">    return sommaVersataTextField;</span>
+<span class="nc" id="L223">    return sommaVersataTextField;</span>
   }
 
   public void setSommaVersataTextField(TextField sommaVersataTextField) {
-<span class="fc" id="L224">    this.sommaVersataTextField = sommaVersataTextField;</span>
-<span class="fc" id="L225">  }</span>
+<span class="fc" id="L227">    this.sommaVersataTextField = sommaVersataTextField;</span>
+<span class="fc" id="L228">  }</span>
 
   public Label getTotaleLabel() {
-<span class="fc" id="L228">    return totaleLabel;</span>
+<span class="fc" id="L231">    return totaleLabel;</span>
   }
 
   public void setTotaleLabel(Label totaleLabel) {
-<span class="fc" id="L232">    this.totaleLabel = totaleLabel;</span>
-<span class="fc" id="L233">  }</span>
+<span class="fc" id="L235">    this.totaleLabel = totaleLabel;</span>
+<span class="fc" id="L236">  }</span>
 
   public TextArea getRiepilogoTextArea() {
-<span class="fc" id="L236">    return riepilogoTextArea;</span>
+<span class="fc" id="L239">    return riepilogoTextArea;</span>
   }
 
   public void setRiepilogoTextArea(TextArea riepilogoTextArea) {
-<span class="fc" id="L240">    this.riepilogoTextArea = riepilogoTextArea;</span>
-<span class="fc" id="L241">  }</span>
+<span class="fc" id="L243">    this.riepilogoTextArea = riepilogoTextArea;</span>
+<span class="fc" id="L244">  }</span>
 
   public Label getRestoLabel() {
-<span class="fc" id="L244">    return restoLabel;</span>
+<span class="fc" id="L247">    return restoLabel;</span>
   }
 
   public void setRestoLabel(Label restoLabel) {
-<span class="fc" id="L248">    this.restoLabel = restoLabel;</span>
-<span class="fc" id="L249">  }</span>
+<span class="fc" id="L251">    this.restoLabel = restoLabel;</span>
+<span class="fc" id="L252">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

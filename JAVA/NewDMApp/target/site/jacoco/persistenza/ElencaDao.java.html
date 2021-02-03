@@ -13,7 +13,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-<span class="nc" id="L16">public class ElencaDao {</span>
+/**
+ * DAO per la persistenza della relazione tra un codice di uno scontrino e i codici dei prodotti a cui
+ * si riferisce
+ */
+<span class="nc" id="L20">public class ElencaDao {</span>
   /**
    * Salva nel persistenza la relazione tra un codice di uno scontrino e i codici dei prodotti a cui
    * si riferisce
@@ -23,23 +27,23 @@ import java.util.List;
    */
   public static void save(Scontrino s) throws DatabaseException, ProdottoException {
 
-<span class="fc" id="L26">    List&lt;Prodotto&gt; l = s.getList();</span>
-<span class="fc bfc" id="L27" title="All 2 branches covered.">    for (Prodotto c : l) {</span>
+<span class="fc" id="L30">    List&lt;Prodotto&gt; l = s.getList();</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">    for (Prodotto c : l) {</span>
       try {
         PreparedStatement state =
-<span class="fc" id="L30">            DatabaseConnection.getInstance().getCon().prepareStatement(Query.elenca);</span>
-<span class="fc" id="L31">        state.setLong(1, s.getId());</span>
-<span class="fc" id="L32">        state.setString(2, s.getData().substring(0, 10));</span>
-<span class="fc" id="L33">        state.setLong(3, c.getCodice());</span>
-<span class="fc" id="L34">        state.setInt(4, c.getAcquistato());</span>
-<span class="fc" id="L35">        state.executeUpdate();</span>
-<span class="nc" id="L36">      } catch (SQLException throwables) {</span>
-<span class="nc" id="L37">        throwables.printStackTrace();</span>
-<span class="nc" id="L38">        throw new DatabaseException(&quot;Errore non fatale nel Database.&quot;);</span>
-<span class="fc" id="L39">      }</span>
-<span class="fc" id="L40">      c.leavedbquantity();</span>
-<span class="fc" id="L41">    }</span>
-<span class="fc" id="L42">  }</span>
+<span class="fc" id="L34">            DatabaseConnection.getInstance().getCon().prepareStatement(Query.elenca);</span>
+<span class="fc" id="L35">        state.setLong(1, s.getId());</span>
+<span class="fc" id="L36">        state.setString(2, s.getData().substring(0, 10));</span>
+<span class="fc" id="L37">        state.setLong(3, c.getCodice());</span>
+<span class="fc" id="L38">        state.setInt(4, c.getAcquistato());</span>
+<span class="fc" id="L39">        state.executeUpdate();</span>
+<span class="nc" id="L40">      } catch (SQLException throwables) {</span>
+<span class="nc" id="L41">        throwables.printStackTrace();</span>
+<span class="nc" id="L42">        throw new DatabaseException(&quot;Errore non fatale nel Database.&quot;);</span>
+<span class="fc" id="L43">      }</span>
+<span class="fc" id="L44">      c.leavedbquantity();</span>
+<span class="fc" id="L45">    }</span>
+<span class="fc" id="L46">  }</span>
 
   /**
    * Controlla se nel persistenza alla tabella Elenca esiste una riga contenente codice e data dello
@@ -57,20 +61,20 @@ import java.util.List;
 
     try {
       PreparedStatement state =
-<span class="fc" id="L60">          DatabaseConnection.getInstance().getCon().prepareStatement(Query.elencaCheck);</span>
-<span class="fc" id="L61">      state.setLong(1, codiceScontrino);</span>
-<span class="fc" id="L62">      state.setString(2, dataScontrino);</span>
-<span class="fc" id="L63">      state.setLong(3, codiceProdotto);</span>
-<span class="fc" id="L64">      ResultSet rs = state.executeQuery();</span>
-<span class="fc bfc" id="L65" title="All 2 branches covered.">      if (!rs.next()) {</span>
-<span class="fc" id="L66">        throw new ElencaException(&quot;Prodotto non correlato allo Scontrino immesso&quot;);</span>
+<span class="fc" id="L64">          DatabaseConnection.getInstance().getCon().prepareStatement(Query.elencaCheck);</span>
+<span class="fc" id="L65">      state.setLong(1, codiceScontrino);</span>
+<span class="fc" id="L66">      state.setString(2, dataScontrino);</span>
+<span class="fc" id="L67">      state.setLong(3, codiceProdotto);</span>
+<span class="fc" id="L68">      ResultSet rs = state.executeQuery();</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">      if (!rs.next()) {</span>
+<span class="fc" id="L70">        throw new ElencaException(&quot;Prodotto non correlato allo Scontrino immesso&quot;);</span>
       } else {
-<span class="fc" id="L68">        int i = 1;</span>
+<span class="fc" id="L72">        int i = 1;</span>
       }
-<span class="nc" id="L70">    } catch (SQLException throwables) {</span>
-<span class="nc" id="L71">      throwables.printStackTrace();</span>
-<span class="nc" id="L72">      throw new DatabaseException(&quot;Errore nel Database.&quot;);</span>
-<span class="fc" id="L73">    }</span>
-<span class="fc" id="L74">  }</span>
+<span class="nc" id="L74">    } catch (SQLException throwables) {</span>
+<span class="nc" id="L75">      throwables.printStackTrace();</span>
+<span class="nc" id="L76">      throw new DatabaseException(&quot;Errore nel Database.&quot;);</span>
+<span class="fc" id="L77">    }</span>
+<span class="fc" id="L78">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

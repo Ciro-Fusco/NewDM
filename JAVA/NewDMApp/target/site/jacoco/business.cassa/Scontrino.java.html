@@ -93,7 +93,7 @@ public class Scontrino implements Serializable {
 <span class="fc" id="L93">  }</span>
 
   /**
-   * Imposta l'importo versato dal cliente
+   * Imposta l'importo versato dal cliente, se l'importo non è sufficiente lancia eccezione
    * @param versato l'importo dato dal cliente
    * @throws ScontrinoException Importo pagato non sufficiente
    */
@@ -121,7 +121,7 @@ public class Scontrino implements Serializable {
 <span class="fc" id="L121">    return resto;</span>
   }
 
-  /**+
+  /**
    * Restituisce l'importo versato dal cliente
    * @return l'importo versato dal cliente
    */
@@ -185,7 +185,7 @@ public class Scontrino implements Serializable {
 <span class="fc" id="L185">  }</span>
 
   /**
-   * Verifica l'esistenza di uno Scontrino
+   * Verifica l'esistenza di uno Scontrino.
    * @param codice il codice dello scontrino da verificare
    * @param dataScontrino la data dello scontrino da verificare
    * @throws ScontrinoException Errore nella ricerca dello scontrino
@@ -195,5 +195,22 @@ public class Scontrino implements Serializable {
       throws ScontrinoException, DatabaseException {
 <span class="fc" id="L196">    ScontrinoDao.checkScontrino(codice, dataScontrino);</span>
 <span class="fc" id="L197">  }</span>
+
+  /**
+   * Metodo toString() del Ticket
+   * @return una stringa contenente la conversione canonica dell'oggetto
+   */
+  @Override
+  public String toString() {
+<span class="nc" id="L205">    return &quot;Scontrino{&quot; +</span>
+            &quot;prodottoList=&quot; + prodottoList +
+            &quot;, tot=&quot; + tot +
+            &quot;, resto=&quot; + resto +
+            &quot;, versato=&quot; + versato +
+            &quot;, data='&quot; + data + '\'' +
+            &quot;, riepilogo='&quot; + riepilogo + '\'' +
+            &quot;, id=&quot; + id +
+            '}';
+  }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

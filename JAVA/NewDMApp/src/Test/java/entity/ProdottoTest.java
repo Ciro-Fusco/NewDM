@@ -265,11 +265,9 @@ public class ProdottoTest {
   public void leaveDBQuantitySbagliata() throws DatabaseException, ProdottoException {
     ;
     Prodotto p = Prodotto.search(1000000000001l);
-    p.setQuantitySenzaControllo(0);
-    Exception ex = assertThrows(ProdottoException.class,()->{
-      p.leavedbquantity();
-    });
-    assertEquals("Prodotto esaurito", ex.getMessage());
+    p.leavedbquantity();
+    Prodotto c = Prodotto.search(1000000000001l);
+    assertEquals(p.getQuantity(), c.getQuantity());
     DatabaseConnection.close();
   }
 

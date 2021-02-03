@@ -11,7 +11,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-<span class="nc" id="L14">public class ProdottoDao {</span>
+/**
+ * DAO per il salvataggio persistente di un Prodotto
+ */
+<span class="nc" id="L17">public class ProdottoDao {</span>
 
   /**
    * Cerca un prodotto nel Database dato il codice
@@ -23,28 +26,28 @@ import java.sql.SQLException;
    */
   public static Prodotto search(Long cod) throws DatabaseException, ProdottoException {
 
-<span class="fc" id="L26">    PreparedStatement prep = null;</span>
+<span class="fc" id="L29">    PreparedStatement prep = null;</span>
     try {
-<span class="fc" id="L28">      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.prodotto);</span>
-<span class="fc" id="L29">      prep.setLong(1, cod);</span>
-<span class="fc" id="L30">      ResultSet res = prep.executeQuery();</span>
+<span class="fc" id="L31">      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.prodotto);</span>
+<span class="fc" id="L32">      prep.setLong(1, cod);</span>
+<span class="fc" id="L33">      ResultSet res = prep.executeQuery();</span>
 
-<span class="fc bfc" id="L32" title="All 2 branches covered.">      if (!res.next()) {</span>
-<span class="fc" id="L33">        throw new ProdottoNotFoundException(&quot;Prodotto non trovato&quot;);</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">      if (!res.next()) {</span>
+<span class="fc" id="L36">        throw new ProdottoNotFoundException(&quot;Prodotto non trovato&quot;);</span>
       } else {
-<span class="fc" id="L35">        return new Prodotto(</span>
-<span class="fc" id="L36">            res.getDouble(&quot;Prezzo&quot;),</span>
-<span class="fc" id="L37">            res.getLong(&quot;Codice&quot;),</span>
-<span class="fc" id="L38">            res.getString(&quot;Nome&quot;),</span>
-<span class="fc" id="L39">            res.getInt(&quot;quantity&quot;),</span>
-<span class="fc" id="L40">            res.getString(&quot;Dimensione_Confezione&quot;),</span>
-<span class="fc" id="L41">            res.getString(&quot;Scadenza&quot;),</span>
-<span class="fc" id="L42">            res.getString(&quot;Tipologia&quot;));</span>
+<span class="fc" id="L38">        return new Prodotto(</span>
+<span class="fc" id="L39">            res.getDouble(&quot;Prezzo&quot;),</span>
+<span class="fc" id="L40">            res.getLong(&quot;Codice&quot;),</span>
+<span class="fc" id="L41">            res.getString(&quot;Nome&quot;),</span>
+<span class="fc" id="L42">            res.getInt(&quot;quantity&quot;),</span>
+<span class="fc" id="L43">            res.getString(&quot;Dimensione_Confezione&quot;),</span>
+<span class="fc" id="L44">            res.getString(&quot;Scadenza&quot;),</span>
+<span class="fc" id="L45">            res.getString(&quot;Tipologia&quot;));</span>
       }
 
-<span class="nc" id="L45">    } catch (SQLException throwables) {</span>
-<span class="nc" id="L46">      throwables.printStackTrace();</span>
-<span class="nc" id="L47">      throw new DatabaseException(&quot;Errore generico del Database&quot;);</span>
+<span class="nc" id="L48">    } catch (SQLException throwables) {</span>
+<span class="nc" id="L49">      throwables.printStackTrace();</span>
+<span class="nc" id="L50">      throw new DatabaseException(&quot;Errore generico del Database&quot;);</span>
     }
   }
 
@@ -56,19 +59,19 @@ import java.sql.SQLException;
    */
   public static void leavedbquantity(Prodotto p) throws DatabaseException {
 
-<span class="fc" id="L59">    PreparedStatement prep = null;</span>
+<span class="fc" id="L62">    PreparedStatement prep = null;</span>
     try {
-<span class="fc" id="L61">      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.downDBQuant);</span>
-<span class="fc" id="L62">      prep.setInt(1, p.getAcquistato());</span>
-<span class="fc" id="L63">      prep.setLong(2, p.getCodice());</span>
-<span class="fc" id="L64">      prep.executeUpdate();</span>
+<span class="fc" id="L64">      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.downDBQuant);</span>
+<span class="fc" id="L65">      prep.setInt(1, p.getAcquistato());</span>
+<span class="fc" id="L66">      prep.setLong(2, p.getCodice());</span>
+<span class="fc" id="L67">      prep.executeUpdate();</span>
 
-<span class="nc" id="L66">    } catch (SQLException throwables) {</span>
-<span class="nc" id="L67">      throwables.printStackTrace();</span>
-<span class="nc" id="L68">      throw new DatabaseException(</span>
-<span class="nc" id="L69">          &quot;Errore nell'aggiornamento della quantità del Prodotto: &quot; + p.getNome());</span>
-<span class="fc" id="L70">    }</span>
-<span class="fc" id="L71">  }</span>
+<span class="nc" id="L69">    } catch (SQLException throwables) {</span>
+<span class="nc" id="L70">      throwables.printStackTrace();</span>
+<span class="nc" id="L71">      throw new DatabaseException(</span>
+<span class="nc" id="L72">          &quot;Errore nell'aggiornamento della quantità del Prodotto: &quot; + p.getNome());</span>
+<span class="fc" id="L73">    }</span>
+<span class="fc" id="L74">  }</span>
 
   /**
    * @param i quantità da aggiungere al Database
@@ -76,19 +79,19 @@ import java.sql.SQLException;
    * @throws DatabaseException Errore del Database
    */
   public static void adddbquantity(int i, Prodotto p) throws DatabaseException {
-<span class="fc" id="L79">    PreparedStatement prep = null;</span>
+<span class="fc" id="L82">    PreparedStatement prep = null;</span>
     try {
-<span class="fc" id="L81">      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.upDBQuant);</span>
-<span class="fc" id="L82">      prep.setInt(1, i);</span>
-<span class="fc" id="L83">      prep.setLong(2, p.getCodice());</span>
-<span class="fc" id="L84">      prep.executeUpdate();</span>
+<span class="fc" id="L84">      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.upDBQuant);</span>
+<span class="fc" id="L85">      prep.setInt(1, i);</span>
+<span class="fc" id="L86">      prep.setLong(2, p.getCodice());</span>
+<span class="fc" id="L87">      prep.executeUpdate();</span>
 
-<span class="nc" id="L86">    } catch (SQLException throwables) {</span>
-<span class="nc" id="L87">      throwables.printStackTrace();</span>
-<span class="nc" id="L88">      throw new DatabaseException(</span>
-<span class="nc" id="L89">          &quot;Errore nell'aggiornamento della quantità del Prodotto: &quot; + p.getNome());</span>
-<span class="fc" id="L90">    }</span>
-<span class="fc" id="L91">  }</span>
+<span class="nc" id="L89">    } catch (SQLException throwables) {</span>
+<span class="nc" id="L90">      throwables.printStackTrace();</span>
+<span class="nc" id="L91">      throw new DatabaseException(</span>
+<span class="nc" id="L92">          &quot;Errore nell'aggiornamento della quantità del Prodotto: &quot; + p.getNome());</span>
+<span class="fc" id="L93">    }</span>
+<span class="fc" id="L94">  }</span>
 
   /**
    * Salva le informazioni di un Prodotto nel persistenza
@@ -96,23 +99,23 @@ import java.sql.SQLException;
    * @throws DatabaseException Errore del persistenza
    */
   public static void createProdotto(Prodotto p) throws DatabaseException {
-<span class="fc" id="L99">    PreparedStatement prep = null;</span>
+<span class="fc" id="L102">    PreparedStatement prep = null;</span>
     try {
-<span class="fc" id="L101">      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.newProdotto);</span>
-<span class="fc" id="L102">      prep.setLong(1, p.getCodice());</span>
-<span class="fc" id="L103">      prep.setString(2, p.getNome());</span>
-<span class="fc" id="L104">      prep.setInt(3, p.getQuantity());</span>
-<span class="fc" id="L105">      prep.setDouble(4, p.getPrezzo());</span>
-<span class="fc" id="L106">      prep.setString(5, p.getTipologia());</span>
-<span class="fc" id="L107">      prep.setString(6, p.getScadenza());</span>
-<span class="fc" id="L108">      prep.setString(7, p.getDimensioneConfezione());</span>
-<span class="fc" id="L109">      prep.executeUpdate();</span>
+<span class="fc" id="L104">      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.newProdotto);</span>
+<span class="fc" id="L105">      prep.setLong(1, p.getCodice());</span>
+<span class="fc" id="L106">      prep.setString(2, p.getNome());</span>
+<span class="fc" id="L107">      prep.setInt(3, p.getQuantity());</span>
+<span class="fc" id="L108">      prep.setDouble(4, p.getPrezzo());</span>
+<span class="fc" id="L109">      prep.setString(5, p.getTipologia());</span>
+<span class="fc" id="L110">      prep.setString(6, p.getScadenza());</span>
+<span class="fc" id="L111">      prep.setString(7, p.getDimensioneConfezione());</span>
+<span class="fc" id="L112">      prep.executeUpdate();</span>
 
-<span class="fc" id="L111">    } catch (SQLException throwables) {</span>
-<span class="fc" id="L112">      throwables.printStackTrace();</span>
-<span class="fc" id="L113">      throw new DatabaseException(&quot;Errore nel salvataggio del Prodotto&quot;);</span>
-<span class="fc" id="L114">    }</span>
-<span class="fc" id="L115">  }</span>
+<span class="fc" id="L114">    } catch (SQLException throwables) {</span>
+<span class="fc" id="L115">      throwables.printStackTrace();</span>
+<span class="fc" id="L116">      throw new DatabaseException(&quot;Errore nel salvataggio del Prodotto&quot;);</span>
+<span class="fc" id="L117">    }</span>
+<span class="fc" id="L118">  }</span>
 
   /**
    * Modifica il prezzo di un prodotto
@@ -122,18 +125,18 @@ import java.sql.SQLException;
    * @throws DatabaseException Errore nel Database
    */
   public static void modificaPrezzo(Prodotto p, double prezzo) throws DatabaseException {
-<span class="fc" id="L125">    PreparedStatement prep = null;</span>
+<span class="fc" id="L128">    PreparedStatement prep = null;</span>
     try {
-<span class="fc" id="L127">      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.modificaPrezzo);</span>
-<span class="fc" id="L128">      prep.setDouble(1, prezzo);</span>
-<span class="fc" id="L129">      prep.setLong(2, p.getCodice());</span>
-<span class="fc" id="L130">      prep.executeUpdate();</span>
+<span class="fc" id="L130">      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.modificaPrezzo);</span>
+<span class="fc" id="L131">      prep.setDouble(1, prezzo);</span>
+<span class="fc" id="L132">      prep.setLong(2, p.getCodice());</span>
+<span class="fc" id="L133">      prep.executeUpdate();</span>
 
-<span class="nc" id="L132">    } catch (SQLException throwables) {</span>
-<span class="nc" id="L133">      throwables.printStackTrace();</span>
-<span class="nc" id="L134">      throw new DatabaseException(&quot;Errore nel salvataggio del Prodotto&quot;);</span>
-<span class="fc" id="L135">    }</span>
-<span class="fc" id="L136">  }</span>
+<span class="nc" id="L135">    } catch (SQLException throwables) {</span>
+<span class="nc" id="L136">      throwables.printStackTrace();</span>
+<span class="nc" id="L137">      throw new DatabaseException(&quot;Errore nel salvataggio del Prodotto&quot;);</span>
+<span class="fc" id="L138">    }</span>
+<span class="fc" id="L139">  }</span>
 
   /**
    * Elimina una riga dalla tabella Prodotto
@@ -142,16 +145,16 @@ import java.sql.SQLException;
    * @throws DatabaseException Errore del database
    */
   public static boolean eliminaProdotto(Prodotto p) throws DatabaseException {
-<span class="fc" id="L145">    PreparedStatement prep = null;</span>
+<span class="fc" id="L148">    PreparedStatement prep = null;</span>
     try {
-<span class="fc" id="L147">      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.eliminaProd);</span>
-<span class="fc" id="L148">      prep.setLong(1, p.getCodice());</span>
-<span class="fc" id="L149">      prep.executeUpdate();</span>
-<span class="fc" id="L150">      return true;</span>
+<span class="fc" id="L150">      prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.eliminaProd);</span>
+<span class="fc" id="L151">      prep.setLong(1, p.getCodice());</span>
+<span class="fc" id="L152">      prep.executeUpdate();</span>
+<span class="fc" id="L153">      return true;</span>
 
-<span class="nc" id="L152">    } catch (SQLException throwables) {</span>
-<span class="nc" id="L153">      throwables.printStackTrace();</span>
-<span class="nc" id="L154">      throw new DatabaseException(&quot;Errore nel eliminazione del Prodotto&quot;);</span>
+<span class="nc" id="L155">    } catch (SQLException throwables) {</span>
+<span class="nc" id="L156">      throwables.printStackTrace();</span>
+<span class="nc" id="L157">      throw new DatabaseException(&quot;Errore nel eliminazione del Prodotto&quot;);</span>
     }
   }
 }
