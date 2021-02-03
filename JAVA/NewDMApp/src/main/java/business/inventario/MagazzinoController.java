@@ -1,13 +1,13 @@
 package business.inventario;
 
+import business.fornitura.ModuleIAConverter;
+import business.fornitura.RichiestaAcquisto;
+import business.utenza.Utente;
+import exceptions.DatabaseException;
+import exceptions.ProdottoException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import business.fornitura.ModuleIAConverter;
-import business.fornitura.RichiestaAcquisto;
-import exceptions.DatabaseException;
-import exceptions.ProdottoException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,7 +16,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
-import business.utenza.Utente;
 import presentazione.AlertMessage;
 import presentazione.App;
 

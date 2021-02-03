@@ -1,16 +1,14 @@
 package persistenza.dao;
 
+import exceptions.DatabaseException;
+import exceptions.UtenteNotFoundException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import persistenza.DatabaseConnection;
-import persistenza.dao.Query;
-import exceptions.DatabaseException;
-import exceptions.UtenteNotFoundException;
 import org.apache.commons.codec.digest.DigestUtils;
+import persistenza.DatabaseConnection;
 
-import static business.utenza.Utente.*;
+import static business.utenza.Utente.setUtente;
 
 /**
  * DAO per la ricerca di un utente.

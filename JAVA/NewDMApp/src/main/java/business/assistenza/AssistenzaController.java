@@ -4,44 +4,42 @@ import business.cassa.Scontrino;
 import business.inventario.Prodotto;
 import business.utenza.Utente;
 import exceptions.*;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import presentazione.AlertMessage;
 import presentazione.App;
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
-/**
- * Controller per le interazioni della sezione Assistenza
- */
+/** Controller per le interazioni della sezione Assistenza */
 public class AssistenzaController {
 
   private static Ticket ticket;
-  @FXML
-  private TextField nomeCognCli;
-  @FXML
-  private TextField telefonoCli;
-  @FXML
-  private TextField codFiscCli;
-  @FXML
-  private TextField indirizzoResiCli;
-  @FXML
-  private TextField tipoProdotto;
-  @FXML
-  private TextField nomeProdotto;
-  @FXML
-  private TextField codProdotto;
-  @FXML
-  private TextField numSerieProd;
-  @FXML
-  private TextField numScontrino;
-  @FXML
-  private TextField dataScontrino;
-  @FXML
-  private TextField dettagliProb;
+  @FXML private TextField nomeCognCli;
+  @FXML private TextField telefonoCli;
+  @FXML private TextField codFiscCli;
+  @FXML private TextField indirizzoResiCli;
+  @FXML private TextField tipoProdotto;
+  @FXML private TextField nomeProdotto;
+  @FXML private TextField codProdotto;
+  @FXML private TextField numSerieProd;
+  @FXML private TextField numScontrino;
+  @FXML private TextField dataScontrino;
+  @FXML private TextField dettagliProb;
+
+  public static Ticket getTicket() {
+    return ticket;
+  }
+
+  public static void setTicket(Ticket ticket) {
+    AssistenzaController.ticket = ticket;
+  }
+  ////////////////////////////////////////////////////////////
+
+  // AssistenzaController dettagli prob
 
   /**
    * Apre la dashboard principale
@@ -66,7 +64,7 @@ public class AssistenzaController {
    */
   @FXML // DIVIDI NOME E COGNOME IN DUE CAMPI SEPARATI,ANCHE NELLA UI
   public void openAssistenzaDettagliProb(MouseEvent mouseEvent)
-          throws IOException, ScontrinoException, ElencaException, ProdottoException,
+      throws IOException, ScontrinoException, ElencaException, ProdottoException,
           DatabaseException {
 
     // controllo la lunghezza del nome del cliente
@@ -84,39 +82,40 @@ public class AssistenzaController {
                 Prodotto.search(Long.parseLong(codProdotto.getText()));
                 // controllo la lunghezza del numero di serie del prodotto
                 if (numSerieProd.getText().length() >= 2
-                        && numSerieProd.getText().length() <= 255) {
+                    && numSerieProd.getText().length() <= 255) {
                   // controllo se la data è scritta correttamente
                   if (dataScontrino
-                          .getText()
-                          .matches(
-                                  "^([0]?[1-9]|[1|2][0-9]|[3][0|1])[-]([0]?[1-9]|[1][0-2])[-]([0-9]{4})$")) {
+                      .getText()
+                      .matches(
+                          "^([0]?[1-9]|[1|2][0-9]|[3][0|1])[-]([0]?[1-9]|[1][0-2])[-]([0-9]{4})$")) {
                     String data_temp = dataScontrino.getText();
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                     LocalDateTime data_obj = LocalDate.parse(data_temp, formatter).atStartOfDay();
                     LocalDateTime data_2_years_ago = LocalDateTime.now().minusYears(2);
-                    if (data_obj.isBefore(data_2_years_ago))
+                    if (data_obj.isBefore(data_2_years_ago)) {
                       throw new ScontrinoNonValidoException(
-                              "Inserire una data valida, non precedente a 2 anni fa e non successiva alla data odierna");
+                          "Inserire una data valida, non precedente a 2 anni fa e non successiva alla data odierna");
+                    }
                     // controllo che il numero delo scontrino sia scritto correttamente
                     if (numScontrino.getText().matches("^[1-9][0-9]*$")) {
                       Scontrino.checkScontrino(
-                              Long.parseLong(numScontrino.getText()), dataScontrino.getText());
+                          Long.parseLong(numScontrino.getText()), dataScontrino.getText());
                       // controllo che il codice fiscale sia scritto correttamente
                       if (codFiscCli
-                              .getText()
-                              .matches("^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$")) {
+                          .getText()
+                          .matches("^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$")) {
                         ticket =
-                                new Ticket(
-                                        nomeCognCli.getText(),
-                                        codFiscCli.getText(),
-                                        indirizzoResiCli.getText(),
-                                        tipoProdotto.getText(),
-                                        nomeProdotto.getText(),
-                                        numSerieProd.getText(),
-                                        Long.parseLong(telefonoCli.getText()),
-                                        Integer.parseInt(numScontrino.getText()),
-                                        dataScontrino.getText(),
-                                        Long.parseLong(codProdotto.getText()));
+                            new Ticket(
+                                nomeCognCli.getText(),
+                                codFiscCli.getText(),
+                                indirizzoResiCli.getText(),
+                                tipoProdotto.getText(),
+                                nomeProdotto.getText(),
+                                numSerieProd.getText(),
+                                Long.parseLong(telefonoCli.getText()),
+                                Integer.parseInt(numScontrino.getText()),
+                                dataScontrino.getText(),
+                                Long.parseLong(codProdotto.getText()));
                         App.setRoot("AssistenzaDettagliProbForm");
                       } else {
                         AlertMessage.showError("Inserire un codice fiscale valido");
@@ -149,9 +148,9 @@ public class AssistenzaController {
       AlertMessage.showError("Inserire nome e cognome validi");
     }
   }
-  ////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////
 
-  // AssistenzaController dettagli prob
+  // GET E SETTER PER TESTING
 
   /**
    * Apre la schermata di assistenza
@@ -182,17 +181,6 @@ public class AssistenzaController {
     } else {
       AlertMessage.showError("Inserire i dettagli del problema");
     }
-  }
-  /////////////////////////////////////////////////////
-
-  // GET E SETTER PER TESTING
-
-  public static Ticket getTicket() {
-    return ticket;
-  }
-
-  public static void setTicket(Ticket ticket) {
-    AssistenzaController.ticket = ticket;
   }
 
   public TextField getNomeCognCli() {

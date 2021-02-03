@@ -1,9 +1,9 @@
 package business.utenza;
 
-import persistenza.DatabaseConnection;
 import exceptions.DatabaseException;
 import exceptions.UtenteException;
 import exceptions.UtenteNotFoundException;
+import persistenza.DatabaseConnection;
 import persistenza.dao.UtenteDao;
 
 /**

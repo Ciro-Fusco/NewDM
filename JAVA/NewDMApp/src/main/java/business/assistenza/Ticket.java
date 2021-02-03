@@ -1,13 +1,12 @@
 package business.assistenza;
 
-import persistenza.dao.TicketDao;
 import business.cassa.Scontrino;
-import persistenza.dao.ElencaDao;
-import exceptions.*;
 import business.inventario.Prodotto;
-
+import exceptions.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import persistenza.dao.ElencaDao;
+import persistenza.dao.TicketDao;
 
 /**
  * Il Ticket contenente le informazioni che riguardano una richiesta di Assistenza

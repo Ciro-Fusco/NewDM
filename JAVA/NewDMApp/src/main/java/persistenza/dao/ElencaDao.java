@@ -1,16 +1,15 @@
 package persistenza.dao;
 
 import business.cassa.Scontrino;
-import persistenza.DatabaseConnection;
-import exceptions.ProdottoException;
 import business.inventario.Prodotto;
 import exceptions.DatabaseException;
 import exceptions.ElencaException;
-
+import exceptions.ProdottoException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import persistenza.DatabaseConnection;
 
 /**
  * DAO per la persistenza della relazione tra un codice di uno scontrino e i codici dei prodotti a cui

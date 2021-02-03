@@ -1,14 +1,12 @@
 package persistenza.dao;
 
 import business.assistenza.Ticket;
-import persistenza.DatabaseConnection;
-import persistenza.dao.Query;
 import exceptions.DatabaseException;
 import exceptions.TicketNotFoundException;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import persistenza.DatabaseConnection;
 
 /**
  * DAO per il salvataggio persistente di un Ticket

@@ -1,13 +1,12 @@
 package business.utenza;
 
 import exceptions.UtenteNotAuthorizedException;
+import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import presentazione.App;
-
-import java.io.IOException;
 
 /**
  * Controller per le interazioni della fase di Login

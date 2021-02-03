@@ -1,9 +1,9 @@
 package persistenza;
 
 import exceptions.DatabaseException;
-
-import javax.xml.crypto.Data;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  * Crea la connessione al database. Singleton.

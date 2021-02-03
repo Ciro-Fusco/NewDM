@@ -1,11 +1,10 @@
 package persistenza.dao;
 
 import business.cassa.Scontrino;
-import exceptions.*;
-import persistenza.DatabaseConnection;
-import persistenza.dao.ElencaDao;
-import persistenza.dao.Query;
-
+import exceptions.DatabaseException;
+import exceptions.ProdottoException;
+import exceptions.ScontrinoNonValidoException;
+import exceptions.ScontrinoNotFoundException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,6 +12,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import persistenza.DatabaseConnection;
 
 /**
  * DAO per il salvataggio persistente di uno Scontrino

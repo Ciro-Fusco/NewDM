@@ -1,14 +1,12 @@
 package persistenza.dao;
 
 import business.fornitura.RichiestaAcquisto;
-import persistenza.DatabaseConnection;
-import persistenza.dao.Query;
 import exceptions.DatabaseException;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import persistenza.DatabaseConnection;
 
 /**
  * DAO per il salvataggio persistente di una richiesta di acquisto

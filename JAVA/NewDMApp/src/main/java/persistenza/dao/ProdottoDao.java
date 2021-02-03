@@ -1,14 +1,13 @@
 package persistenza.dao;
 
 import business.inventario.Prodotto;
-import persistenza.DatabaseConnection;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import exceptions.ProdottoNotFoundException;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import persistenza.DatabaseConnection;
 
 /**
  * DAO per il salvataggio persistente di un Prodotto

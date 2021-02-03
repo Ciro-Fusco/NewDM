@@ -1,14 +1,16 @@
 package business.cassa;
 
-import persistenza.dao.ScontrinoDao;
 import business.inventario.Prodotto;
-import exceptions.*;
-
+import exceptions.DatabaseException;
+import exceptions.ProdottoException;
+import exceptions.ProdottoNotFoundException;
+import exceptions.ScontrinoException;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import persistenza.dao.ScontrinoDao;
 
 /**
  * Lo Scontrino che viene emesso al termine degli acquisti.
