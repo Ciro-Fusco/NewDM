@@ -24,9 +24,9 @@ public class RichiestaAcquistoDao {
   public static void save(RichiestaAcquisto r) throws DatabaseException {
     try {
       PreparedStatement prep =
-          DatabaseConnection.getInstance()
-              .getCon()
-              .prepareStatement(Query.saveRichiesta, Statement.RETURN_GENERATED_KEYS);
+              DatabaseConnection.getInstance()
+                      .getCon()
+                      .prepareStatement(Query.saveRichiesta, Statement.RETURN_GENERATED_KEYS);
       prep.setInt(1, r.getQuantity());
       prep.setString(2, r.getData().substring(0, 10));
       prep.setString(3, r.getData().substring(11, 19));

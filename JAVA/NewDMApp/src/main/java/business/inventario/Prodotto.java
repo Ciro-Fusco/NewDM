@@ -20,22 +20,22 @@ public class Prodotto {
   /**
    * Crea un nuovo Prodotto
    *
-   * @param prezzo Prezzo del Prodotto
-   * @param codice Codice generico del prodotto
-   * @param nome Nome del prodotto
-   * @param quantity Quantità del Prodotto
+   * @param prezzo     Prezzo del Prodotto
+   * @param codice     Codice generico del prodotto
+   * @param nome       Nome del prodotto
+   * @param quantity   Quantità del Prodotto
    * @param dimensione Dimensione della confezione del Prodotto
-   * @param scade Durata media del Prodotto prima della scadenza
-   * @param tipologia Categoria di Prodotto
+   * @param scade      Durata media del Prodotto prima della scadenza
+   * @param tipologia  Categoria di Prodotto
    */
   public Prodotto(
-      double prezzo,
-      long codice,
-      String nome,
-      int quantity,
-      String dimensione,
-      String scade,
-      String tipologia) {
+          double prezzo,
+          long codice,
+          String nome,
+          int quantity,
+          String dimensione,
+          String scade,
+          String tipologia) {
     this.prezzo = prezzo;
     this.codice = codice;
     this.nome = nome;
@@ -47,8 +47,11 @@ public class Prodotto {
     this.tipologia = tipologia.replace(tipologia.substring(0, 1), temp);
   }
 
-  /** Crea un nuovo Prodotto senza parametri */
-  public Prodotto() {}
+  /**
+   * Crea un nuovo Prodotto senza parametri
+   */
+  public Prodotto() {
+  }
 
   /**
    * Restituisce la categoria del Prodotto
@@ -174,6 +177,7 @@ public class Prodotto {
 
   /**
    * Imposta il codice del Prodotto
+   *
    * @param codice il codice del Prodotto
    */
   public void setCodice(long codice) {
@@ -182,6 +186,7 @@ public class Prodotto {
 
   /**
    * Imposta il nome del Prodotto
+   *
    * @param nome il nome del Prodotto
    */
   public void setNome(String nome) {
@@ -190,6 +195,7 @@ public class Prodotto {
 
   /**
    * Restituisce la qunatità di un Prodotto
+   *
    * @return la quantità di un prodotto
    */
   public int getQuantity() {
@@ -198,6 +204,7 @@ public class Prodotto {
 
   /**
    * Imposta la quantitò di un Prodotto. Se la quantità non è maggiore di 0 lancia eccezione
+   *
    * @param quantity la quantità del prdotto
    * @throws ProdottoException Errore nella modifica della quantità
    */
@@ -213,7 +220,7 @@ public class Prodotto {
    * @param cod Codice del prodotto da trovare
    * @return Il prodotto cercato
    * @throws ProdottoNotFoundException Prodotto non trovato
-   * @throws DatabaseException Errore nel persistenza
+   * @throws DatabaseException         Errore nel persistenza
    */
   public static Prodotto search(Long cod) throws ProdottoException, DatabaseException {
     return ProdottoDao.search(cod);
@@ -274,27 +281,27 @@ public class Prodotto {
   @Override
   public String toString() {
     return "Prodotto{"
-        + "acquistato="
-        + acquistato
-        + ", prezzo="
-        + prezzo
-        + ", codice="
-        + codice
-        + ", nome='"
-        + nome
-        + '\''
-        + ", quantity="
-        + quantity
-        + ", tipologia='"
-        + tipologia
-        + '\''
-        + ", scadenza='"
-        + scadenza
-        + '\''
-        + ", dimensioneConfezione='"
-        + dimensioneConfezione
-        + '\''
-        + '}';
+            + "acquistato="
+            + acquistato
+            + ", prezzo="
+            + prezzo
+            + ", codice="
+            + codice
+            + ", nome='"
+            + nome
+            + '\''
+            + ", quantity="
+            + quantity
+            + ", tipologia='"
+            + tipologia
+            + '\''
+            + ", scadenza='"
+            + scadenza
+            + '\''
+            + ", dimensioneConfezione='"
+            + dimensioneConfezione
+            + '\''
+            + '}';
   }
 
   @Override
@@ -315,6 +322,7 @@ public class Prodotto {
 
   /**
    * Elimina un prodotto dal database
+   *
    * @return true se il prodotto è stato eliminato
    * @throws DatabaseException Errore del database
    */

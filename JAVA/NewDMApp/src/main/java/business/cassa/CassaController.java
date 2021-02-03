@@ -23,17 +23,23 @@ import java.util.ResourceBundle;
 public class CassaController implements Initializable {
 
   private static Scontrino scontrino;
-  @FXML private TextField codiceProd;
-  @FXML private TextArea scontrinoTextField;
-  @FXML private TextField sommaVersataTextField;
-  @FXML private Label totaleLabel;
-  @FXML private TextArea riepilogoTextArea;
-  @FXML private Label restoLabel;
+  @FXML
+  private TextField codiceProd;
+  @FXML
+  private TextArea scontrinoTextField;
+  @FXML
+  private TextField sommaVersataTextField;
+  @FXML
+  private Label totaleLabel;
+  @FXML
+  private TextArea riepilogoTextArea;
+  @FXML
+  private Label restoLabel;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     String nomeFile =
-        url.toString().substring(url.toString().lastIndexOf('/') + 1, url.toString().length());
+            url.toString().substring(url.toString().lastIndexOf('/') + 1, url.toString().length());
 
     if (nomeFile.equals("Cassa.fxml")) {
       if (scontrino != null) {
@@ -133,7 +139,7 @@ public class CassaController implements Initializable {
    * @throws DatabaseException Errore nel Database
    */
   public void inserimentoProdotto(MouseEvent mouseEvent)
-      throws ProdottoException, DatabaseException {
+          throws ProdottoException, DatabaseException {
     try {
       if (scontrino == null) {
         scontrino = new Scontrino();

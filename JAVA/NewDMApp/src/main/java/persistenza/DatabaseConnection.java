@@ -24,8 +24,8 @@ public class DatabaseConnection {
         // caricamento e registrazione driver
         Class.forName("com.mysql.cj.jdbc.Driver"); // Carica il driver
         String url =
-            "jdbc:mysql://localhost:3306/NEGOZIO?"
-                + "allowPublicKeyRetrieval=true&&useSSL=false&serverTimezone=UTC";
+                "jdbc:mysql://localhost:3306/NEGOZIO?"
+                        + "allowPublicKeyRetrieval=true&&useSSL=false&serverTimezone=UTC";
         String username = "root";
         String pwd = "federernadal";
         con = DriverManager.getConnection(url, username, pwd);
@@ -40,8 +40,11 @@ public class DatabaseConnection {
     }
   }
 
-  /** Costruttore per il singleton */
-  private DatabaseConnection() {}
+  /**
+   * Costruttore per il singleton
+   */
+  private DatabaseConnection() {
+  }
 
   /**
    * Restituisce l'istanza di DatabaseConnection
@@ -74,6 +77,7 @@ public class DatabaseConnection {
 
   /**
    * Restituisce l'istanza di connesione al database
+   *
    * @return l'istanza di connesione al database
    */
   public Connection getCon() {
@@ -82,6 +86,6 @@ public class DatabaseConnection {
 
   //METODO PER IL TEST
   public static DatabaseConnection getInstanceTEST() throws DatabaseException {
-    return  instance;
+    return instance;
   }
 }

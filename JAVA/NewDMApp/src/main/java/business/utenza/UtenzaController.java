@@ -21,6 +21,7 @@ public class UtenzaController {
   public static boolean cliccatoCassa = false;
 
   /////////////////////////// LOGIN
+
   /**
    * Esegue il login controllando se le credenziali inserite sono valide
    *
@@ -35,17 +36,20 @@ public class UtenzaController {
     if (Utente.isAssistenza() && cliccatoAssistenza) {
       App.setRoot("AssistenzaForm");
       return;
-    }System.out.println();
+    }
+    System.out.println();
 
     if (Utente.isCassa() && cliccatoCassa) {
       App.setRoot("Cassa");
       return;
-    }System.out.println();
+    }
+    System.out.println();
 
     if (Utente.isMagazzino() && cliccatoMagazzino) {
       App.setRoot("DashboardMagazzino");
       return;
-    }System.out.println();
+    }
+    System.out.println();
 
     throw new UtenteNotAuthorizedException("Non hai i permessi per accedere a quest'area");
   }
@@ -63,6 +67,7 @@ public class UtenzaController {
   ////////////////////////////////////////////
 
   /////////////////////////// Dashboard
+
   /**
    * Apre la schermata di login per il magazzino
    *

@@ -22,11 +22,11 @@ public class UtenteDao {
    *
    * @param user Nome utente
    * @param pass Password non ancora codificata
-   * @throws DatabaseException Errore generico;
+   * @throws DatabaseException       Errore generico;
    * @throws UtenteNotFoundException Utente non trovato nel Database;
    */
   public static void login(String user, String pass)
-      throws DatabaseException, UtenteNotFoundException {
+          throws DatabaseException, UtenteNotFoundException {
     try {
       PreparedStatement prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.login);
       prep.setString(1, user);
@@ -37,7 +37,7 @@ public class UtenteDao {
         throw new UtenteNotFoundException("Utente non trovato\nControlla username e password");
       } else {
         setUtente(res.getString("NOME"), res.getString("COGNOME"), res.getString("USERNAME"),
-                res.getBoolean("CASSA"),res.getBoolean("MAGAZZINO"),res.getBoolean("ASSISTENZA"));
+                res.getBoolean("CASSA"), res.getBoolean("MAGAZZINO"), res.getBoolean("ASSISTENZA"));
       }
     } catch (SQLException e) {
       e.printStackTrace();

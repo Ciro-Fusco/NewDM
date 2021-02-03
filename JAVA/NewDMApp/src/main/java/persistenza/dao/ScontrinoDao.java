@@ -29,9 +29,9 @@ public class ScontrinoDao {
 
     try {
       PreparedStatement prep =
-          DatabaseConnection.getInstance()
-              .getCon()
-              .prepareStatement(Query.newScontrino, Statement.RETURN_GENERATED_KEYS);
+              DatabaseConnection.getInstance()
+                      .getCon()
+                      .prepareStatement(Query.newScontrino, Statement.RETURN_GENERATED_KEYS);
       prep.setString(1, s.getData().substring(0, 10));
       prep.setString(2, s.getData().substring(11, 19));
       prep.setDouble(3, s.getVersato());
@@ -54,17 +54,17 @@ public class ScontrinoDao {
    * Cerca una stringa nel persistenza alla tabella Scontrino contenente codice e data dello
    * scontrino
    *
-   * @param codice il codice dello scontrino
+   * @param codice        il codice dello scontrino
    * @param dataScontrino la data dello scontrino
-   * @throws ScontrinoNotFoundException Scontrino non trovato
+   * @throws ScontrinoNotFoundException  Scontrino non trovato
    * @throws ScontrinoNonValidoException Lo Scontrino non è valido ai fini della garanzia
-   * @throws DatabaseException Errore del persistenza
+   * @throws DatabaseException           Errore del persistenza
    */
   public static void checkScontrino(long codice, String dataScontrino)
-      throws ScontrinoNonValidoException, DatabaseException, ScontrinoNotFoundException {
+          throws ScontrinoNonValidoException, DatabaseException, ScontrinoNotFoundException {
     try {
       PreparedStatement prep =
-          DatabaseConnection.getInstance().getCon().prepareStatement(Query.checkScontrino);
+              DatabaseConnection.getInstance().getCon().prepareStatement(Query.checkScontrino);
       prep.setLong(1, codice);
       prep.setString(2, dataScontrino);
 
@@ -78,7 +78,7 @@ public class ScontrinoDao {
         LocalDateTime data_2_years_ago = LocalDateTime.now().minusYears(2);
         if (data_obj.isBefore(data_2_years_ago))
           throw new ScontrinoNonValidoException(
-              "Inserire una data valida, non precedente a 2 anni fa e non successiva alla data odierna");
+                  "Inserire una data valida, non precedente a 2 anni fa e non successiva alla data odierna");
         else {
           System.out.println();
         }

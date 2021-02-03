@@ -17,6 +17,7 @@ public class TicketDao {
 
   /**
    * Salva il Ticket sul persistenza
+   *
    * @param t Il Ticket da salvare
    * @throws DatabaseException Errore nel salvataggio del Ticket
    */
@@ -46,15 +47,16 @@ public class TicketDao {
 
   /**
    * Salva le informazioni di un Ticket nel persistenza
+   *
    * @param apertura data di apertura del Ticket
-   * @param CF Codice Fiscale del Cliente
-   * @param serie Numero di Serie del Prodotto
+   * @param CF       Codice Fiscale del Cliente
+   * @param serie    Numero di Serie del Prodotto
    * @return il Ticket cercato
    * @throws TicketNotFoundException Ticket non trovato
-   * @throws DatabaseException Errore del Database
+   * @throws DatabaseException       Errore del Database
    */
   public static Ticket getTicket(String apertura, String CF, String serie)
-      throws TicketNotFoundException, DatabaseException {
+          throws TicketNotFoundException, DatabaseException {
     try {
       PreparedStatement prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.getTicket);
       prep.setString(1, apertura + "%");

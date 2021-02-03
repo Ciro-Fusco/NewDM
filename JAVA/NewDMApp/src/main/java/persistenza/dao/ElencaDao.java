@@ -30,7 +30,7 @@ public class ElencaDao {
     for (Prodotto c : l) {
       try {
         PreparedStatement state =
-            DatabaseConnection.getInstance().getCon().prepareStatement(Query.elenca);
+                DatabaseConnection.getInstance().getCon().prepareStatement(Query.elenca);
         state.setLong(1, s.getId());
         state.setString(2, s.getData().substring(0, 10));
         state.setLong(3, c.getCodice());
@@ -49,18 +49,18 @@ public class ElencaDao {
    * Scontrino e codice Prodotto così come passato per parametro
    *
    * @param codiceScontrino il codice dello Scontrino
-   * @param dataScontrino la data dello Scontrino
-   * @param codiceProdotto il codice del Prodotto
+   * @param dataScontrino   la data dello Scontrino
+   * @param codiceProdotto  il codice del Prodotto
    * @throws DatabaseException Errore del Database
-   * @throws ElencaException Relazione non trovata
+   * @throws ElencaException   Relazione non trovata
    */
   public static void checkCorrispondenza(
-      long codiceScontrino, String dataScontrino, long codiceProdotto)
-      throws DatabaseException, ElencaException {
+          long codiceScontrino, String dataScontrino, long codiceProdotto)
+          throws DatabaseException, ElencaException {
 
     try {
       PreparedStatement state =
-          DatabaseConnection.getInstance().getCon().prepareStatement(Query.elencaCheck);
+              DatabaseConnection.getInstance().getCon().prepareStatement(Query.elencaCheck);
       state.setLong(1, codiceScontrino);
       state.setString(2, dataScontrino);
       state.setLong(3, codiceProdotto);

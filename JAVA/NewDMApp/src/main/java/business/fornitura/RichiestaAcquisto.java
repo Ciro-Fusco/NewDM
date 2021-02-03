@@ -27,6 +27,7 @@ public class RichiestaAcquisto {
 
   /**
    * Restituisce il codice del Prodotto per cui si richiede l'approvvigionamento
+   *
    * @return Il codice del Prodotto
    */
   public Long getCodice() {
@@ -35,6 +36,7 @@ public class RichiestaAcquisto {
 
   /**
    * Imposta il codice del Prodotto per cui si richiede l'approvvigionamento
+   *
    * @param codice il codice del Prodotto
    */
   public void setCodice(Long codice) {
@@ -43,6 +45,7 @@ public class RichiestaAcquisto {
 
   /**
    * Restituisce l'identificativo della Richiesta
+   *
    * @return
    */
   public Long getId() {
@@ -51,6 +54,7 @@ public class RichiestaAcquisto {
 
   /**
    * Imposta l'identificativo della Richiesta
+   *
    * @param id Il codice identificativo della Richiesta
    */
   public void setId(Long id) {
@@ -59,6 +63,7 @@ public class RichiestaAcquisto {
 
   /**
    * Restituisce la quantità di Prodotto da acquistare
+   *
    * @return La quantità di prodotto da acquistare
    */
   public int getQuantity() {
@@ -67,6 +72,7 @@ public class RichiestaAcquisto {
 
   /**
    * Imposta la quantità di prodotto da acquistare
+   *
    * @param quantity La quantità del prodotto
    */
   public void setQuantity(int quantity) {
@@ -75,6 +81,7 @@ public class RichiestaAcquisto {
 
   /**
    * Restituisce la data di apertura della Richiesta
+   *
    * @return La data di apertura della Richiesta
    */
   public String getData() {
@@ -83,6 +90,7 @@ public class RichiestaAcquisto {
 
   /**
    * Restituisce lo stato di esecuzione della Richiesta
+   *
    * @return Lo stato della Richiesta
    */
   public String getStato() {
@@ -91,6 +99,7 @@ public class RichiestaAcquisto {
 
   /**
    * Imposta lo stato di esecuzione della Richiesta
+   *
    * @param stato Lo stato della Richiesta
    */
   public void setStato(String stato) {
@@ -99,6 +108,7 @@ public class RichiestaAcquisto {
 
   /**
    * Imposta la data di apertura della Richiesta
+   *
    * @return La data di apertura della richiesta
    */
   private String setData() {
@@ -110,21 +120,22 @@ public class RichiestaAcquisto {
   @Override
   public String toString() {
     return "RichiestaAcquisto{"
-        + "codice="
-        + codice
-        + ", quantity="
-        + quantity
-        + ", data='"
-        + data
-        + '\''
-        + ", stato='"
-        + stato
-        + '\''
-        + '}';
+            + "codice="
+            + codice
+            + ", quantity="
+            + quantity
+            + ", data='"
+            + data
+            + '\''
+            + ", stato='"
+            + stato
+            + '\''
+            + '}';
   }
 
   /**
    * Salva la Richiesta di acquisto in maniera persistente.
+   *
    * @throws DatabaseException Errore nel Database
    */
   public void save() throws DatabaseException {

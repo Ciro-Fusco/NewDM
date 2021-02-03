@@ -9,7 +9,9 @@ import business.inventario.Prodotto;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/** Il Ticket contenente le informazioni che riguardano una richiesta di Assistenza*/
+/**
+ * Il Ticket contenente le informazioni che riguardano una richiesta di Assistenza
+ */
 public class Ticket {
 
   private String nomeCognome,
@@ -160,6 +162,7 @@ public class Ticket {
 
   /**
    * Restituisce il tipo di categoria del Prodotto
+   *
    * @return il tipo di categoria del prodotto
    */
   public String getTipo() {
@@ -168,6 +171,7 @@ public class Ticket {
 
   /**
    * Imposta la categoria del Prodotto
+   *
    * @param tipo il tipo di categoria del Prodotto
    */
   public void setTipo(String tipo) {
@@ -176,6 +180,7 @@ public class Ticket {
 
   /**
    * Restituisce il Numero di Serie del Prodotto
+   *
    * @return il Numero di Serie del Prodotto
    */
   public String getNumeroDiSerie() {
@@ -184,6 +189,7 @@ public class Ticket {
 
   /**
    * Restituisce il nome del Prodotto
+   *
    * @return il nome del Prodotto
    */
   public String getNomeProdotto() {
@@ -192,6 +198,7 @@ public class Ticket {
 
   /**
    * Imposta il nome del Prodotto
+   *
    * @param nomeProdotto il nome del Prodotto
    */
   public void setNomeProdotto(String nomeProdotto) {
@@ -200,6 +207,7 @@ public class Ticket {
 
   /**
    * Imposta il Numero di Serie del Prodotto
+   *
    * @param numeroDiSerie il Numero di Serie del Prodotto
    */
   public void setNumeroDiSerie(String numeroDiSerie) {
@@ -208,6 +216,7 @@ public class Ticket {
 
   /**
    * Restituisce lo stato di lavorazione del Ticket
+   *
    * @return lo stato di lavorazione del Ticket
    */
   public String getStato() {
@@ -216,6 +225,7 @@ public class Ticket {
 
   /**
    * Imposta lo stato di lavorazione del Ticket
+   *
    * @param stato lo stato di lavorazione del Ticket
    */
   public void setStato(String stato) {
@@ -224,6 +234,7 @@ public class Ticket {
 
   /**
    * Restituisce il problema per cui è stato creato il Ticket
+   *
    * @return il problema relativo al Prodotto
    */
   public String getProblema() {
@@ -232,6 +243,7 @@ public class Ticket {
 
   /**
    * Imposta il problema per cui è stato creato il Ticket
+   *
    * @param problema il problema relativo al Prodotto
    */
   public void setProblema(String problema) {
@@ -240,6 +252,7 @@ public class Ticket {
 
   /**
    * Restituisce la data di apertura del Ticket
+   *
    * @return una stringa contenente la data di apertura del Ticket
    */
   public String getDataApertura() {
@@ -248,6 +261,7 @@ public class Ticket {
 
   /**
    * Imposta la data di apertura del Ticket, utile per la creazione di un Ticket a partire da uno persistente
+   *
    * @param dataApertura una stringa contenente la data di apertura del Ticket
    */
   public void setDataApertura(String dataApertura) {
@@ -256,6 +270,7 @@ public class Ticket {
 
   /**
    * Restituisce la data dello Scontrino
+   *
    * @return la data dello Scontrino
    */
   public String getDataScontrino() {
@@ -264,6 +279,7 @@ public class Ticket {
 
   /**
    * Imposta la data dello Scontrino
+   *
    * @param dataScontrino la data dello scontrino
    */
   public void setDataScontrino(String dataScontrino) {
@@ -272,6 +288,7 @@ public class Ticket {
 
   /**
    * Restituisce il numero di telefono del Cliente
+   *
    * @return il numero di telefono
    */
   public long getNumTel() {
@@ -280,6 +297,7 @@ public class Ticket {
 
   /**
    * Imposta il numero di telefono del Cliente
+   *
    * @param numTel il numero di telefono
    */
   public void setNumTel(long numTel) {
@@ -288,6 +306,7 @@ public class Ticket {
 
   /**
    * Restituisce il codice dello Scontrino
+   *
    * @return il codice dello Scontrino
    */
   public long getCodiceScontrino() {
@@ -296,6 +315,7 @@ public class Ticket {
 
   /**
    * Imposta il codice dello Scontrino
+   *
    * @param codiceScontrino il codice dello scontrino
    */
   public void setCodiceScontrino(int codiceScontrino) {
@@ -304,6 +324,7 @@ public class Ticket {
 
   /**
    * Restituisce il codice generico del Prodotto
+   *
    * @return il codice generico del Prodotto
    */
   public long getCodiceProdotto() {
@@ -312,6 +333,7 @@ public class Ticket {
 
   /**
    * Imposta il codice generico del Prodotto
+   *
    * @param codiceProdotto il codice generico del Prodotto
    */
   public void setCodiceProdotto(long codiceProdotto) {
@@ -322,11 +344,11 @@ public class Ticket {
    * Cerca un Ticket dati tutti i parametri.
    *
    * @param apertura Data di apertura del Ticket
-   * @param CF Codice Fiscale del Cliente
-   * @param serie Numero di Serie del Prodotto
+   * @param CF       Codice Fiscale del Cliente
+   * @param serie    Numero di Serie del Prodotto
    * @return il Ticket cercato
    * @throws DatabaseException Errore del Database
-   * @throws TicketException Errore nella ricerca del Ticket
+   * @throws TicketException   Errore nella ricerca del Ticket
    */
   public static Ticket getTicket(String apertura, String CF, String serie)
           throws DatabaseException, TicketException {
@@ -335,6 +357,7 @@ public class Ticket {
 
   /**
    * Metodo toString() del Ticket
+   *
    * @return una stringa contenente la conversione canonica dell'oggetto
    */
   @Override
