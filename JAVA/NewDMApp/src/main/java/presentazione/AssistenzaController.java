@@ -14,6 +14,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Controller per le interazioni della sezione Assistenza
+ */
 public class AssistenzaController {
 
   private static Ticket ticket;
@@ -170,7 +173,7 @@ public class AssistenzaController {
     }
   }
   /////////////////////////////////////////////////////
-
+/*
   // GET E SETTER PER TESTING
 
   public static Ticket getTicket() {
@@ -267,5 +270,5 @@ public class AssistenzaController {
 
   public void setDettagliProb(TextField dettagliProb) {
     this.dettagliProb = dettagliProb;
-  }
+  }*/
 }

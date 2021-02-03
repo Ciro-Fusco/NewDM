@@ -9,6 +9,9 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
+/**
+ * Controller per le interazioni della fase di Login
+ */
 public class UtenzaController {
 
   public TextField us;
@@ -103,7 +106,7 @@ public class UtenzaController {
   }
 
   /////////////////////////////////////////////// 77
-
+/*
   // GET E SETTER PER TESTING
 
   public TextField getUs() {
@@ -144,5 +147,5 @@ public class UtenzaController {
 
   public static void setCliccatoCassa(boolean cliccatoCassa) {
     UtenzaController.cliccatoCassa = cliccatoCassa;
-  }
+  }*/
 }

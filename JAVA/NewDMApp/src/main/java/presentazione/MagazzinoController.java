@@ -19,6 +19,9 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import business.utenza.Utente;
 
+/**
+ * Controller per le interazioni della sezione Magazzino
+ */
 public class MagazzinoController implements Initializable {
 
   private static Prodotto prodotto;
@@ -420,7 +423,7 @@ public class MagazzinoController implements Initializable {
   }
 
   /////////////////////////////////////////////////////////
-
+/*
   // GET E SETTER PER TEST
 
   public void setNomeProd(TextField nomeProd) {
@@ -810,5 +813,5 @@ public class MagazzinoController implements Initializable {
 
   public static void setOrdineCalcolato(int ordineCalcolato) {
     MagazzinoController.ordineCalcolato = ordineCalcolato;
-  }
+  }*/
 }
