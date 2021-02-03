@@ -52,12 +52,9 @@ public class DatabaseConnection {
   public static DatabaseConnection getInstance() throws DatabaseException {
     if (instance == null) {
       instance = new DatabaseConnection();
-      connect();
-      return instance;
-    } else {
-      connect();
-      return instance;
     }
+    connect();
+    return instance;
   }
 
   /**
