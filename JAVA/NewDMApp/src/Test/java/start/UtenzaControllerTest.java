@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import business.utenza.Utente;
-import presentazione.UtenzaController;
+import business.utenza.UtenzaController;
 
 import static org.junit.Assert.*;
 

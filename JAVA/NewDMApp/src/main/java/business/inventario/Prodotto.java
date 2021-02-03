@@ -3,7 +3,7 @@ package business.inventario;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import exceptions.ProdottoNotFoundException;
-import persistenza.ProdottoDao;
+import persistenza.dao.ProdottoDao;
 
 /**
  * Un Prodotto disponibile nel punto vendita

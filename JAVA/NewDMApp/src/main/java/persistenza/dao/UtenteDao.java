@@ -1,11 +1,11 @@
-package persistenza;
+package persistenza.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import persistenza.DatabaseConnection;
-import persistenza.Query;
+import persistenza.dao.Query;
 import exceptions.DatabaseException;
 import exceptions.UtenteNotFoundException;
 import org.apache.commons.codec.digest.DigestUtils;

@@ -2,7 +2,7 @@ package entity;
 
 import persistenza.DatabaseConnection;
 import business.inventario.Prodotto;
-import persistenza.ProdottoDao;
+import persistenza.dao.ProdottoDao;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import org.junit.AfterClass;

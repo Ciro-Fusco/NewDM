@@ -6,6 +6,7 @@ import exceptions.ProdottoException;
 import exceptions.ProdottoNotFoundException;
 import org.junit.AfterClass;
 import org.junit.Test;
+import persistenza.dao.ProdottoDao;
 
 import static org.junit.Assert.*;
 

@@ -1,7 +1,10 @@
-package persistenza;
+package persistenza.dao;
 
 import business.cassa.Scontrino;
 import exceptions.*;
+import persistenza.DatabaseConnection;
+import persistenza.dao.ElencaDao;
+import persistenza.dao.Query;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

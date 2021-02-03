@@ -1,4 +1,4 @@
-package presentazione;
+package business.inventario;
 
 import java.io.IOException;
 import java.net.URL;
@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 
 import business.fornitura.ModuleIAConverter;
 import business.fornitura.RichiestaAcquisto;
-import business.inventario.Prodotto;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import javafx.event.ActionEvent;
@@ -18,6 +17,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import business.utenza.Utente;
+import presentazione.AlertMessage;
+import presentazione.App;
 
 /**
  * Controller per le interazioni della sezione Magazzino

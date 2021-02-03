@@ -1,8 +1,7 @@
-package persistenza;
+package persistenza.dao;
 
 import business.inventario.Prodotto;
 import persistenza.DatabaseConnection;
-import persistenza.Query;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import exceptions.ProdottoNotFoundException;

@@ -1,6 +1,6 @@
 package start;
 
-import presentazione.CassaController;
+import business.cassa.CassaController;
 import persistenza.DatabaseConnection;
 import de.saxsys.javafx.test.JfxRunner;
 import business.cassa.Scontrino;

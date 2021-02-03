@@ -9,7 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import presentazione.MagazzinoController;
+import business.inventario.MagazzinoController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

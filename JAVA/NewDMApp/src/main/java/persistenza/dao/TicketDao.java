@@ -1,8 +1,8 @@
-package persistenza;
+package persistenza.dao;
 
 import business.assistenza.Ticket;
 import persistenza.DatabaseConnection;
-import persistenza.Query;
+import persistenza.dao.Query;
 import exceptions.DatabaseException;
 import exceptions.TicketNotFoundException;
 

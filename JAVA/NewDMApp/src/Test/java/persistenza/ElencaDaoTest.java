@@ -5,6 +5,7 @@ import exceptions.DatabaseException;
 import exceptions.ElencaException;
 import exceptions.ProdottoException;
 import org.junit.Test;
+import persistenza.dao.ElencaDao;
 
 import static org.junit.Assert.*;
 

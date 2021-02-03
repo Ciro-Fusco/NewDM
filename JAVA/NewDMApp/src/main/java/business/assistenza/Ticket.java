@@ -1,8 +1,8 @@
 package business.assistenza;
 
-import persistenza.TicketDao;
+import persistenza.dao.TicketDao;
 import business.cassa.Scontrino;
-import persistenza.ElencaDao;
+import persistenza.dao.ElencaDao;
 import exceptions.*;
 import business.inventario.Prodotto;
 

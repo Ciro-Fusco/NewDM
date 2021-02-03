@@ -1,6 +1,5 @@
-package presentazione;
+package business.cassa;
 
-import business.cassa.Scontrino;
 import exceptions.DatabaseException;
 import exceptions.ProdottoException;
 import exceptions.ScontrinoException;
@@ -11,6 +10,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import business.utenza.Utente;
+import presentazione.AlertMessage;
+import presentazione.App;
 
 import java.io.IOException;
 import java.net.URL;

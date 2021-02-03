@@ -4,6 +4,7 @@ import exceptions.DatabaseException;
 import exceptions.UtenteNotFoundException;
 import org.junit.Test;
 import business.utenza.Utente;
+import persistenza.dao.UtenteDao;
 
 import static org.junit.Assert.*;
 

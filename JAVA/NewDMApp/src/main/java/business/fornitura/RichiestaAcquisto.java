@@ -1,7 +1,7 @@
 package business.fornitura;
 
 import exceptions.DatabaseException;
-import persistenza.RichiestaAcquistoDao;
+import persistenza.dao.RichiestaAcquistoDao;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

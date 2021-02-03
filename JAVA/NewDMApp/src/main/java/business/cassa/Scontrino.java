@@ -1,6 +1,6 @@
 package business.cassa;
 
-import persistenza.ScontrinoDao;
+import persistenza.dao.ScontrinoDao;
 import business.inventario.Prodotto;
 import exceptions.*;
 

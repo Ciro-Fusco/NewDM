@@ -1,6 +1,5 @@
-package presentazione;
+package business.assistenza;
 
-import business.assistenza.Ticket;
 import business.cassa.Scontrino;
 import business.inventario.Prodotto;
 import exceptions.*;
@@ -8,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import business.utenza.Utente;
+import presentazione.AlertMessage;
+import presentazione.App;
 
 import java.io.IOException;
 import java.time.LocalDate;

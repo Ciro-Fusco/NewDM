@@ -3,6 +3,7 @@ package persistenza;
 import business.fornitura.RichiestaAcquisto;
 import exceptions.DatabaseException;
 import org.junit.Test;
+import persistenza.dao.RichiestaAcquistoDao;
 
 import static org.junit.Assert.*;
 

@@ -1,4 +1,4 @@
-package persistenza;
+package persistenza.dao;
 
 /** Interface contenente tutte le query che il sistema potrà eseguire. */
 public interface Query {

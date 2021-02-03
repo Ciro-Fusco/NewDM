@@ -6,6 +6,7 @@ import exceptions.ProdottoException;
 import exceptions.ScontrinoException;
 import exceptions.ScontrinoNotFoundException;
 import org.junit.Test;
+import persistenza.dao.ScontrinoDao;
 
 import static org.junit.Assert.*;
 

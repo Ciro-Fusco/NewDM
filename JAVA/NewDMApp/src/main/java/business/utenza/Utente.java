@@ -4,7 +4,7 @@ import persistenza.DatabaseConnection;
 import exceptions.DatabaseException;
 import exceptions.UtenteException;
 import exceptions.UtenteNotFoundException;
-import persistenza.UtenteDao;
+import persistenza.dao.UtenteDao;
 
 /**
  * Classe statica che può contenere una sola istanza di utente alla volta; non possiede costruttori.

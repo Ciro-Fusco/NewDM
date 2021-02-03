@@ -1,8 +1,7 @@
-package persistenza;
+package persistenza.dao;
 
 import business.cassa.Scontrino;
 import persistenza.DatabaseConnection;
-import persistenza.Query;
 import exceptions.ProdottoException;
 import business.inventario.Prodotto;
 import exceptions.DatabaseException;

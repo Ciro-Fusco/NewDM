@@ -1,8 +1,8 @@
-package persistenza;
+package persistenza.dao;
 
 import business.fornitura.RichiestaAcquisto;
 import persistenza.DatabaseConnection;
-import persistenza.Query;
+import persistenza.dao.Query;
 import exceptions.DatabaseException;
 
 import java.sql.PreparedStatement;

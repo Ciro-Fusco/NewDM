@@ -1,6 +1,6 @@
 package start;
 
-import presentazione.AssistenzaController;
+import business.assistenza.AssistenzaController;
 import persistenza.DatabaseConnection;
 import de.saxsys.javafx.test.JfxRunner;
 import business.cassa.Scontrino;

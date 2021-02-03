@@ -4,6 +4,7 @@ import business.cassa.Scontrino;
 import business.assistenza.Ticket;
 import exceptions.*;
 import org.junit.Test;
+import persistenza.dao.TicketDao;
 
 import static org.junit.Assert.*;
 
