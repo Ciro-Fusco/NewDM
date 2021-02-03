@@ -174,7 +174,7 @@ public class AssistenzaController {
     }
   }
   /////////////////////////////////////////////////////
-
+  /*
   // GET E SETTER PER TESTING
 
   public static Ticket getTicket() {
@@ -271,5 +271,5 @@ public class AssistenzaController {
 
   public void setDettagliProb(TextField dettagliProb) {
     this.dettagliProb = dettagliProb;
-  }
+  }*/
 }

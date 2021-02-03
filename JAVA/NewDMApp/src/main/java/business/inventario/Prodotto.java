@@ -323,8 +323,8 @@ public class Prodotto {
   }
 
   //PER TESTING
-
+/*
   public void setQuantitySenzaControllo(int quantity) throws ProdottoException {
     this.quantity = quantity;
-  }
+  }*/
 }
