@@ -423,7 +423,7 @@ public class MagazzinoController implements Initializable {
   }
 
   /////////////////////////////////////////////////////////
-/*
+
   // GET E SETTER PER TEST
 
   public void setNomeProd(TextField nomeProd) {
@@ -813,5 +813,5 @@ public class MagazzinoController implements Initializable {
 
   public static void setOrdineCalcolato(int ordineCalcolato) {
     MagazzinoController.ordineCalcolato = ordineCalcolato;
-  }*/
+  }
 }

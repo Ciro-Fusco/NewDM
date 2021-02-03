@@ -106,7 +106,7 @@ public class UtenzaController {
   }
 
   /////////////////////////////////////////////// 77
-/*
+
   // GET E SETTER PER TESTING
 
   public TextField getUs() {
@@ -147,5 +147,5 @@ public class UtenzaController {
 
   public static void setCliccatoCassa(boolean cliccatoCassa) {
     UtenzaController.cliccatoCassa = cliccatoCassa;
-  }*/
+  }
 }
