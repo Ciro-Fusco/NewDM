@@ -16,29 +16,21 @@ import javafx.scene.input.MouseEvent;
 import presentazione.AlertMessage;
 import presentazione.App;
 
-/**
- * Controller per le interazioni della sezione Cassa
- */
+/** Controller per le interazioni della sezione Cassa. */
 public class CassaController implements Initializable {
 
   private static Scontrino scontrino;
-  @FXML
-  private TextField codiceProd;
-  @FXML
-  private TextArea scontrinoTextField;
-  @FXML
-  private TextField sommaVersataTextField;
-  @FXML
-  private Label totaleLabel;
-  @FXML
-  private TextArea riepilogoTextArea;
-  @FXML
-  private Label restoLabel;
+  @FXML private TextField codiceProd;
+  @FXML private TextArea scontrinoTextField;
+  @FXML private TextField sommaVersataTextField;
+  @FXML private Label totaleLabel;
+  @FXML private TextArea riepilogoTextArea;
+  @FXML private Label restoLabel;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     String nomeFile =
-            url.toString().substring(url.toString().lastIndexOf('/') + 1, url.toString().length());
+        url.toString().substring(url.toString().lastIndexOf('/') + 1, url.toString().length());
 
     if (nomeFile.equals("Cassa.fxml")) {
       if (scontrino != null) {
@@ -73,10 +65,10 @@ public class CassaController implements Initializable {
   // CassaController
 
   /**
-   * Apre la dashboard
+   * Apre la dashboard.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   public void openDashboard(MouseEvent mouseEvent) throws IOException, DatabaseException {
     Utente.logout();
@@ -84,20 +76,20 @@ public class CassaController implements Initializable {
   }
 
   /**
-   * Apre la schermata di inserimento del codice Prodotto
+   * Apre la schermata di inserimento del codice Prodotto.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   public void openCassaInsProdotto(MouseEvent mouseEvent) throws IOException {
     App.setRoot("CassaInsProdottoForm");
   }
 
   /**
-   * Apre la schermata di riepilogo dello Scontrino
+   * Apre la schermata di riepilogo dello Scontrino.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   public void openCassaTotale(MouseEvent mouseEvent) throws IOException {
     if (scontrino != null && scontrino.getList() != null) {
@@ -108,9 +100,9 @@ public class CassaController implements Initializable {
   }
 
   /**
-   * Elimina lo Scontrino attuale
+   * Elimina lo Scontrino attuale.
    *
-   * @param mouseEvent
+   * @param mouseEvent mouseEvent
    */
   public void annullaInsProd(MouseEvent mouseEvent) {
     scontrino = new Scontrino();
@@ -121,24 +113,24 @@ public class CassaController implements Initializable {
   // inserimento prodotto
 
   /**
-   * Apre la schermata CassaController
+   * Apre la schermata CassaController.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   public void openCassa(MouseEvent mouseEvent) throws IOException {
     App.setRoot("Cassa");
   }
 
   /**
-   * Inserisce il Prodotto nello scontrino
+   * Inserisce il Prodotto nello scontrino.
    *
-   * @param mouseEvent
+   * @param mouseEvent mouseEvent
    * @throws ProdottoException Prodotto non trovato
    * @throws DatabaseException Errore nel Database
    */
   public void inserimentoProdotto(MouseEvent mouseEvent)
-          throws ProdottoException, DatabaseException {
+      throws ProdottoException, DatabaseException {
     try {
       if (scontrino == null) {
         scontrino = new Scontrino();
@@ -159,11 +151,11 @@ public class CassaController implements Initializable {
   // Totale cassa
 
   /**
-   * Gestisce l'inserimento della somma versata
+   * Gestisce l'inserimento della somma versata.
    *
-   * @param mouseEvent
-   * @throws IOException
-   * @throws ScontrinoException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
+   * @throws ScontrinoException Errore nell'inserimento della quantità versata
    */
   public void openCassaRiepilogo(MouseEvent mouseEvent) throws IOException, ScontrinoException {
     if (sommaVersataTextField.getText().matches("[0-9]+(\\.[0-9][0-9]?)?")) {
@@ -184,11 +176,11 @@ public class CassaController implements Initializable {
   // Riepilogo CassaController
 
   /**
-   * Salva lo Scontrino
+   * Salva lo Scontrino.
    *
-   * @param mouseEvent
-   * @throws DatabaseException
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws DatabaseException Errore nel Database
+   * @throws IOException Errore cambio scena
    */
   public void confermaScontrino(MouseEvent mouseEvent) throws DatabaseException, IOException {
     scontrino.save();

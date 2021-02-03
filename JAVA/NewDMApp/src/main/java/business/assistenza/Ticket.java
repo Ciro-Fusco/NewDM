@@ -8,59 +8,60 @@ import java.time.format.DateTimeFormatter;
 import persistenza.dao.ElencaDao;
 import persistenza.dao.TicketDao;
 
-/**
- * Il Ticket contenente le informazioni che riguardano una richiesta di Assistenza
- */
+/** Il Ticket contenente le informazioni che riguardano una richiesta di Assistenza. */
 public class Ticket {
 
-  private String nomeCognome,
-          cf,
-          indirizzo,
-          numeroDiSerie,
-          nomeProdotto,
-          stato,
-          problema,
-          dataApertura,
-          dataScontrino,
-          tipo;
-  private long numTel, codiceProdotto;
+  private String nomeCognome;
+  private String cf;
+  private String indirizzo;
+  private String numeroDiSerie;
+  private String nomeProdotto;
+  private String stato;
+  private String problema;
+  private String dataApertura;
+  private String dataScontrino;
+  private String tipo;
+  private long numTel;
+  private long codiceProdotto;
   private long codiceScontrino;
   private static final String APERTO = "Aperto";
   private static final String IN_LAVORAZIONE = "In Lavorazione";
   private static final String CHIUSO = "Chiuso";
 
   /**
-   * Crea un nuovo Ticket. Lo scontrino deve esistere, il prodotto deve esistere
-   * e lo scontrino deve riferirsi al prodotto
+   * Crea un nuovo Ticket. Lo scontrino deve esistere, il prodotto deve esistere e lo scontrino deve
+   * riferirsi al prodotto
    *
-   * @param nomeCognome     Nome e Cognome del cliente
-   * @param cf              Codice Fiscale del cliente
-   * @param indirizzo       Indirizzo di residenza del cliente
-   * @param tipo            Tipo di prodotto per cui si chiede assistenza
-   * @param nomeProdotto    Nome del prodotto per cui si chiede assistenza
-   * @param numeroDiSerie   Numero di serie del prodotto per cui si richiede assistenza
-   * @param num_tel         Numero di telefono del cliente
-   * @param codiceScontrino Codice dello scontrino di acquisto del prodotto per cui si richiede assistenza
-   * @param dataScontrino   Data dello scontrino di acquisto del prodotto per cui si richiede assistenza
-   * @param codiceProdotto  Codice identificativo comune (codice a barre o codice utilizzato nel negozio per identificare
-   *                        un prodotto) del prodotto per cui si richiede assistenza
+   * @param nomeCognome Nome e Cognome del cliente
+   * @param cf Codice Fiscale del cliente
+   * @param indirizzo Indirizzo di residenza del cliente
+   * @param tipo Tipo di prodotto per cui si chiede assistenza
+   * @param nomeProdotto Nome del prodotto per cui si chiede assistenza
+   * @param numeroDiSerie Numero di serie del prodotto per cui si richiede assistenza
+   * @param num_tel Numero di telefono del cliente
+   * @param codiceScontrino Codice dello scontrino di acquisto del prodotto per cui si richiede
+   *     assistenza
+   * @param dataScontrino Data dello scontrino di acquisto del prodotto per cui si richiede
+   *     assistenza
+   * @param codiceProdotto Codice identificativo comune (codice a barre o codice utilizzato nel
+   *     negozio per identificare un prodotto) del prodotto per cui si richiede assistenza
    * @throws ScontrinoException Scontrino non esistente
-   * @throws DatabaseException  Errore nel uso della persistenza
-   * @throws ProdottoException  Prodotto non esistente
-   * @throws ElencaException    Lo Scontrino e il Prodotto non corrispondono
+   * @throws DatabaseException Errore nel uso della persistenza
+   * @throws ProdottoException Prodotto non esistente
+   * @throws ElencaException Lo Scontrino e il Prodotto non corrispondono
    */
   public Ticket(
-          String nomeCognome,
-          String cf,
-          String indirizzo,
-          String tipo,
-          String nomeProdotto,
-          String numeroDiSerie,
-          long num_tel,
-          long codiceScontrino,
-          String dataScontrino,
-          long codiceProdotto)
-          throws ScontrinoException, DatabaseException, ProdottoException, ElencaException {
+      String nomeCognome,
+      String cf,
+      String indirizzo,
+      String tipo,
+      String nomeProdotto,
+      String numeroDiSerie,
+      long num_tel,
+      long codiceScontrino,
+      String dataScontrino,
+      long codiceProdotto)
+      throws ScontrinoException, DatabaseException, ProdottoException, ElencaException {
     this.nomeCognome = nomeCognome;
     this.cf = cf;
     this.indirizzo = indirizzo;
@@ -79,14 +80,11 @@ public class Ticket {
     this.stato = APERTO;
   }
 
-  /**
-   * Crea uno scontrino senza inizializzarlo
-   */
-  public Ticket() {
-  }
+  /** Crea uno scontrino senza inizializzarlo. */
+  public Ticket() {}
 
   /**
-   * Imposta la data di apertura del Ticket alla data e ora corrente
+   * Imposta la data di apertura del Ticket alla data e ora corrente.
    *
    * @return la stringa contenente data e ora di creazione del Ticket
    */
@@ -97,7 +95,7 @@ public class Ticket {
   }
 
   /**
-   * Salva il ticket nel Database
+   * Salva il ticket nel Database.
    *
    * @throws DatabaseException Errore nel Database
    */
@@ -106,7 +104,7 @@ public class Ticket {
   }
 
   /**
-   * Resituisce Nome e Cognome del CLiente
+   * Resituisce Nome e Cognome del CLiente.
    *
    * @return una stringa contente il nome e il cognome del cliente
    */
@@ -115,7 +113,7 @@ public class Ticket {
   }
 
   /**
-   * Imposta Nome e Cognome del Cliente
+   * Imposta Nome e Cognome del Cliente.
    *
    * @param nomeCognome Stringa contente Nome e Cognome del Cliente
    */
@@ -124,7 +122,7 @@ public class Ticket {
   }
 
   /**
-   * Restituisce il Codice Fiscale del Cliente
+   * Restituisce il Codice Fiscale del Cliente.
    *
    * @return il Codice Fiscale del Cliente
    */
@@ -133,7 +131,7 @@ public class Ticket {
   }
 
   /**
-   * Imposta il Codice Fiscale del Cliente
+   * Imposta il Codice Fiscale del Cliente.
    *
    * @param cf Il codice fiscale del Cliente
    */
@@ -142,7 +140,7 @@ public class Ticket {
   }
 
   /**
-   * Restituisce l'indirizzo di residenza del Cliente
+   * Restituisce l'indirizzo di residenza del Cliente.
    *
    * @return l'indirizzo di residenza del Cliente
    */
@@ -151,7 +149,7 @@ public class Ticket {
   }
 
   /**
-   * Imposta l'indirizzo di residenza del Cliente
+   * Imposta l'indirizzo di residenza del Cliente.
    *
    * @param indirizzo l'indirizzo di Residenza del Cliente
    */
@@ -160,7 +158,7 @@ public class Ticket {
   }
 
   /**
-   * Restituisce il tipo di categoria del Prodotto
+   * Restituisce il tipo di categoria del Prodotto.
    *
    * @return il tipo di categoria del prodotto
    */
@@ -169,7 +167,7 @@ public class Ticket {
   }
 
   /**
-   * Imposta la categoria del Prodotto
+   * Imposta la categoria del Prodotto.
    *
    * @param tipo il tipo di categoria del Prodotto
    */
@@ -178,7 +176,7 @@ public class Ticket {
   }
 
   /**
-   * Restituisce il Numero di Serie del Prodotto
+   * Restituisce il Numero di Serie del Prodotto.
    *
    * @return il Numero di Serie del Prodotto
    */
@@ -187,7 +185,7 @@ public class Ticket {
   }
 
   /**
-   * Restituisce il nome del Prodotto
+   * Restituisce il nome del Prodotto.
    *
    * @return il nome del Prodotto
    */
@@ -196,7 +194,7 @@ public class Ticket {
   }
 
   /**
-   * Imposta il nome del Prodotto
+   * Imposta il nome del Prodotto.
    *
    * @param nomeProdotto il nome del Prodotto
    */
@@ -205,7 +203,7 @@ public class Ticket {
   }
 
   /**
-   * Imposta il Numero di Serie del Prodotto
+   * Imposta il Numero di Serie del Prodotto.
    *
    * @param numeroDiSerie il Numero di Serie del Prodotto
    */
@@ -214,7 +212,7 @@ public class Ticket {
   }
 
   /**
-   * Restituisce lo stato di lavorazione del Ticket
+   * Restituisce lo stato di lavorazione del Ticket.
    *
    * @return lo stato di lavorazione del Ticket
    */
@@ -223,7 +221,7 @@ public class Ticket {
   }
 
   /**
-   * Imposta lo stato di lavorazione del Ticket
+   * Imposta lo stato di lavorazione del Ticket.
    *
    * @param stato lo stato di lavorazione del Ticket
    */
@@ -232,7 +230,7 @@ public class Ticket {
   }
 
   /**
-   * Restituisce il problema per cui è stato creato il Ticket
+   * Restituisce il problema per cui è stato creato il Ticket.
    *
    * @return il problema relativo al Prodotto
    */
@@ -241,7 +239,7 @@ public class Ticket {
   }
 
   /**
-   * Imposta il problema per cui è stato creato il Ticket
+   * Imposta il problema per cui è stato creato il Ticket.
    *
    * @param problema il problema relativo al Prodotto
    */
@@ -250,7 +248,7 @@ public class Ticket {
   }
 
   /**
-   * Restituisce la data di apertura del Ticket
+   * Restituisce la data di apertura del Ticket.
    *
    * @return una stringa contenente la data di apertura del Ticket
    */
@@ -259,7 +257,8 @@ public class Ticket {
   }
 
   /**
-   * Imposta la data di apertura del Ticket, utile per la creazione di un Ticket a partire da uno persistente
+   * Imposta la data di apertura del Ticket, utile per la creazione di un Ticket a partire da uno
+   * persistente.
    *
    * @param dataApertura una stringa contenente la data di apertura del Ticket
    */
@@ -268,7 +267,7 @@ public class Ticket {
   }
 
   /**
-   * Restituisce la data dello Scontrino
+   * Restituisce la data dello Scontrino.
    *
    * @return la data dello Scontrino
    */
@@ -277,7 +276,7 @@ public class Ticket {
   }
 
   /**
-   * Imposta la data dello Scontrino
+   * Imposta la data dello Scontrino.
    *
    * @param dataScontrino la data dello scontrino
    */
@@ -286,7 +285,7 @@ public class Ticket {
   }
 
   /**
-   * Restituisce il numero di telefono del Cliente
+   * Restituisce il numero di telefono del Cliente.
    *
    * @return il numero di telefono
    */
@@ -295,7 +294,7 @@ public class Ticket {
   }
 
   /**
-   * Imposta il numero di telefono del Cliente
+   * Imposta il numero di telefono del Cliente.
    *
    * @param numTel il numero di telefono
    */
@@ -304,7 +303,7 @@ public class Ticket {
   }
 
   /**
-   * Restituisce il codice dello Scontrino
+   * Restituisce il codice dello Scontrino.
    *
    * @return il codice dello Scontrino
    */
@@ -313,7 +312,7 @@ public class Ticket {
   }
 
   /**
-   * Imposta il codice dello Scontrino
+   * Imposta il codice dello Scontrino.
    *
    * @param codiceScontrino il codice dello scontrino
    */
@@ -322,7 +321,7 @@ public class Ticket {
   }
 
   /**
-   * Restituisce il codice generico del Prodotto
+   * Restituisce il codice generico del Prodotto.
    *
    * @return il codice generico del Prodotto
    */
@@ -331,7 +330,7 @@ public class Ticket {
   }
 
   /**
-   * Imposta il codice generico del Prodotto
+   * Imposta il codice generico del Prodotto.
    *
    * @param codiceProdotto il codice generico del Prodotto
    */
@@ -343,61 +342,61 @@ public class Ticket {
    * Cerca un Ticket dati tutti i parametri.
    *
    * @param apertura Data di apertura del Ticket
-   * @param CF       Codice Fiscale del Cliente
-   * @param serie    Numero di Serie del Prodotto
+   * @param CF Codice Fiscale del Cliente
+   * @param serie Numero di Serie del Prodotto
    * @return il Ticket cercato
    * @throws DatabaseException Errore del Database
-   * @throws TicketException   Errore nella ricerca del Ticket
+   * @throws TicketException Errore nella ricerca del Ticket
    */
   public static Ticket getTicket(String apertura, String CF, String serie)
-          throws DatabaseException, TicketException {
+      throws DatabaseException, TicketException {
     return TicketDao.getTicket(apertura, CF, serie);
   }
 
   /**
-   * Metodo toString() del Ticket
+   * Metodo toString() del Ticket.
    *
    * @return una stringa contenente la conversione canonica dell'oggetto
    */
   @Override
   public String toString() {
     return "Ticket{"
-            + "nomeCognome='"
-            + nomeCognome
-            + '\''
-            + ", cf='"
-            + cf
-            + '\''
-            + ", indirizzo='"
-            + indirizzo
-            + '\''
-            + ", numeroDiSerie='"
-            + numeroDiSerie
-            + '\''
-            + ", nomeProdotto='"
-            + nomeProdotto
-            + '\''
-            + ", stato='"
-            + stato
-            + '\''
-            + ", problema='"
-            + problema
-            + '\''
-            + ", dataApertura='"
-            + dataApertura
-            + '\''
-            + ", dataScontrino='"
-            + dataScontrino
-            + '\''
-            + ", tipo='"
-            + tipo
-            + '\''
-            + ", numTel="
-            + numTel
-            + ", codiceProdotto="
-            + codiceProdotto
-            + ", codiceScontrino="
-            + codiceScontrino
-            + '}';
+        + "nomeCognome='"
+        + nomeCognome
+        + '\''
+        + ", cf='"
+        + cf
+        + '\''
+        + ", indirizzo='"
+        + indirizzo
+        + '\''
+        + ", numeroDiSerie='"
+        + numeroDiSerie
+        + '\''
+        + ", nomeProdotto='"
+        + nomeProdotto
+        + '\''
+        + ", stato='"
+        + stato
+        + '\''
+        + ", problema='"
+        + problema
+        + '\''
+        + ", dataApertura='"
+        + dataApertura
+        + '\''
+        + ", dataScontrino='"
+        + dataScontrino
+        + '\''
+        + ", tipo='"
+        + tipo
+        + '\''
+        + ", numTel="
+        + numTel
+        + ", codiceProdotto="
+        + codiceProdotto
+        + ", codiceScontrino="
+        + codiceScontrino
+        + '}';
   }
 }

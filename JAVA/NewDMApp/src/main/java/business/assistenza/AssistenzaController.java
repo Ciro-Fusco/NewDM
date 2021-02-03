@@ -14,7 +14,7 @@ import javafx.scene.input.MouseEvent;
 import presentazione.AlertMessage;
 import presentazione.App;
 
-/** Controller per le interazioni della sezione Assistenza */
+/** Controller per le interazioni della sezione Assistenza. */
 public class AssistenzaController {
 
   private static Ticket ticket;
@@ -42,10 +42,10 @@ public class AssistenzaController {
   // AssistenzaController dettagli prob
 
   /**
-   * Apre la dashboard principale
+   * Apre la dashboard principale.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   public void openDashboard(MouseEvent mouseEvent) throws IOException, DatabaseException {
     Utente.logout();
@@ -53,16 +53,16 @@ public class AssistenzaController {
   }
 
   /**
-   * Crea un nuovo Ticket con i dati forniti a video dall'utente
+   * Crea un nuovo Ticket con i dati forniti a video dall'utente.
    *
    * @param mouseEvent
-   * @throws IOException
-   * @throws ScontrinoException
-   * @throws ElencaException
-   * @throws ProdottoException
-   * @throws DatabaseException
+   * @throws IOException Errore cambio di scena
+   * @throws ScontrinoException Scontrino non trovato
+   * @throws ElencaException  Lo scontrino non contiene quel prodotto
+   * @throws ProdottoException  Prodotto non trovato
+   * @throws DatabaseException  Errore nel Database
    */
-  @FXML // DIVIDI NOME E COGNOME IN DUE CAMPI SEPARATI,ANCHE NELLA UI
+  @FXML
   public void openAssistenzaDettagliProb(MouseEvent mouseEvent)
       throws IOException, ScontrinoException, ElencaException, ProdottoException,
           DatabaseException {
@@ -153,10 +153,10 @@ public class AssistenzaController {
   // GET E SETTER PER TESTING
 
   /**
-   * Apre la schermata di assistenza
+   * Apre la schermata di assistenza.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio di scena
    */
   public void openAssistenza(MouseEvent mouseEvent) throws IOException {
     ticket = null;
@@ -165,11 +165,11 @@ public class AssistenzaController {
 
   /**
    * Usa le informazioni inserite a video per impostare il problema per cui si chiede assistenza e
-   * poi rende il Ticket persistente
+   * poi rende il Ticket persistente.
    *
-   * @param mouseEvent
-   * @throws DatabaseException
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws DatabaseException Errore nel Database
+   * @throws IOException Errore cambio di scena
    */
   public void salvaTicket(MouseEvent mouseEvent) throws DatabaseException, IOException {
     if (!dettagliProb.getText().equals("")) {

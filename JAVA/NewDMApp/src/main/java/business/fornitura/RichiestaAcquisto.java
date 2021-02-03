@@ -5,27 +5,25 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import persistenza.dao.RichiestaAcquistoDao;
 
-/**
- * Richiesta di rifornimento di un Prodotto
- */
+/** Richiesta di rifornimento di un Prodotto. */
 public class RichiestaAcquisto {
 
-  Long codice, id;
+  Long codice;
+  Long id;
   int quantity;
-  String data, stato;
+  String data;
+  String stato;
   private static final String DA_ESEGUIRE = "Da Eseguire";
   private static final String ESEGUITO = "Eseguito";
 
-  /**
-   * Crea un richiesta di acquisto alla data corrente ee con lo stato "DA ESEGUIRE"
-   */
+  /** Crea un richiesta di acquisto alla data corrente ee con lo stato "DA ESEGUIRE". */
   public RichiestaAcquisto() {
     this.data = setData();
     this.stato = DA_ESEGUIRE;
   }
 
   /**
-   * Restituisce il codice del Prodotto per cui si richiede l'approvvigionamento
+   * Restituisce il codice del Prodotto per cui si richiede l'approvvigionamento.
    *
    * @return Il codice del Prodotto
    */
@@ -34,7 +32,7 @@ public class RichiestaAcquisto {
   }
 
   /**
-   * Imposta il codice del Prodotto per cui si richiede l'approvvigionamento
+   * Imposta il codice del Prodotto per cui si richiede l'approvvigionamento.
    *
    * @param codice il codice del Prodotto
    */
@@ -43,16 +41,16 @@ public class RichiestaAcquisto {
   }
 
   /**
-   * Restituisce l'identificativo della Richiesta
+   * Restituisce l'identificativo della Richiesta.
    *
-   * @return
+   * @return Il codice identificativo della Richiesta
    */
   public Long getId() {
     return id;
   }
 
   /**
-   * Imposta l'identificativo della Richiesta
+   * Imposta l'identificativo della Richiesta.
    *
    * @param id Il codice identificativo della Richiesta
    */
@@ -61,7 +59,7 @@ public class RichiestaAcquisto {
   }
 
   /**
-   * Restituisce la quantità di Prodotto da acquistare
+   * Restituisce la quantità di Prodotto da acquistare.
    *
    * @return La quantità di prodotto da acquistare
    */
@@ -70,7 +68,7 @@ public class RichiestaAcquisto {
   }
 
   /**
-   * Imposta la quantità di prodotto da acquistare
+   * Imposta la quantità di prodotto da acquistare.
    *
    * @param quantity La quantità del prodotto
    */
@@ -79,7 +77,7 @@ public class RichiestaAcquisto {
   }
 
   /**
-   * Restituisce la data di apertura della Richiesta
+   * Restituisce la data di apertura della Richiesta.
    *
    * @return La data di apertura della Richiesta
    */
@@ -88,7 +86,7 @@ public class RichiestaAcquisto {
   }
 
   /**
-   * Restituisce lo stato di esecuzione della Richiesta
+   * Restituisce lo stato di esecuzione della Richiesta.
    *
    * @return Lo stato della Richiesta
    */
@@ -97,7 +95,7 @@ public class RichiestaAcquisto {
   }
 
   /**
-   * Imposta lo stato di esecuzione della Richiesta
+   * Imposta lo stato di esecuzione della Richiesta.
    *
    * @param stato Lo stato della Richiesta
    */
@@ -106,7 +104,7 @@ public class RichiestaAcquisto {
   }
 
   /**
-   * Imposta la data di apertura della Richiesta
+   * Imposta la data di apertura della Richiesta.
    *
    * @return La data di apertura della richiesta
    */
@@ -119,17 +117,17 @@ public class RichiestaAcquisto {
   @Override
   public String toString() {
     return "RichiestaAcquisto{"
-            + "codice="
-            + codice
-            + ", quantity="
-            + quantity
-            + ", data='"
-            + data
-            + '\''
-            + ", stato='"
-            + stato
-            + '\''
-            + '}';
+        + "codice="
+        + codice
+        + ", quantity="
+        + quantity
+        + ", data='"
+        + data
+        + '\''
+        + ", stato='"
+        + stato
+        + '\''
+        + '}';
   }
 
   /**

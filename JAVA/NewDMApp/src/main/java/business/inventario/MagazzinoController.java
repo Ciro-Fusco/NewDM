@@ -19,76 +19,46 @@ import javafx.scene.input.MouseEvent;
 import presentazione.AlertMessage;
 import presentazione.App;
 
-/**
- * Controller per le interazioni della sezione Magazzino
- */
+/** Controller per le interazioni della sezione Magazzino. */
 public class MagazzinoController implements Initializable {
 
   private static Prodotto prodotto;
   private static Prodotto tempProdotto;
-  @FXML
-  private TextField nomeProd;
-  @FXML
-  private TextField prezzoProd;
-  @FXML
-  private TextField codiceProd;
-  @FXML
-  private TextField quantitaProd;
-  @FXML
-  public TextField riepilogoNuovoProdotto;
-  @FXML
-  public TextField riepilogoProdotto;
-  @FXML
-  private Label labelNomeProd;
-  @FXML
-  private Label labelPrezzoProd;
-  @FXML
-  private Label labelOrdineCalcSugg;
-  @FXML
-  private Label labelNomeProdSugg;
-  @FXML
-  private Label labelQuantitaProdSugg;
-  @FXML
-  private TextField tipologiaProd;
-  @FXML
-  private TextField prezzoSped;
-  @FXML
-  private RadioButton piccolaDim;
-  @FXML
-  private RadioButton medioDim;
-  @FXML
-  private RadioButton grandeDim;
-  @FXML
-  private RadioButton breveSca;
-  @FXML
-  private RadioButton mediaSca;
-  @FXML
-  private RadioButton lungaSca;
-  @FXML
-  private RadioButton primavera;
-  @FXML
-  private RadioButton estate;
-  @FXML
-  private RadioButton autunno;
-  @FXML
-  private RadioButton inverno;
-  @FXML
-  private ToggleGroup dimensioni;
-  @FXML
-  private ToggleGroup scadenza;
-  @FXML
-  private ToggleGroup stagione;
-  @FXML
-  private ToggleGroup tipoSupermerc;
-  @FXML
-  private ToggleGroup festivita;
+  @FXML private TextField nomeProd;
+  @FXML private TextField prezzoProd;
+  @FXML private TextField codiceProd;
+  @FXML private TextField quantitaProd;
+  @FXML public TextField riepilogoNuovoProdotto;
+  @FXML public TextField riepilogoProdotto;
+  @FXML private Label labelNomeProd;
+  @FXML private Label labelPrezzoProd;
+  @FXML private Label labelOrdineCalcSugg;
+  @FXML private Label labelNomeProdSugg;
+  @FXML private Label labelQuantitaProdSugg;
+  @FXML private TextField tipologiaProd;
+  @FXML private TextField prezzoSped;
+  @FXML private RadioButton piccolaDim;
+  @FXML private RadioButton medioDim;
+  @FXML private RadioButton grandeDim;
+  @FXML private RadioButton breveSca;
+  @FXML private RadioButton mediaSca;
+  @FXML private RadioButton lungaSca;
+  @FXML private RadioButton primavera;
+  @FXML private RadioButton estate;
+  @FXML private RadioButton autunno;
+  @FXML private RadioButton inverno;
+  @FXML private ToggleGroup dimensioni;
+  @FXML private ToggleGroup scadenza;
+  @FXML private ToggleGroup stagione;
+  @FXML private ToggleGroup tipoSupermerc;
+  @FXML private ToggleGroup festivita;
   private static int ordineCalcolato;
 
   // Viene eseguito ogni volta che si carica una nuova finestra
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     String nomeFile =
-            url.toString().substring(url.toString().lastIndexOf('/') + 1, url.toString().length());
+        url.toString().substring(url.toString().lastIndexOf('/') + 1, url.toString().length());
 
     if (nomeFile.equals("OrdinaProdottoQuantitaSugg.fxml")) {
       labelNomeProdSugg.setText(prodotto.getNome());
@@ -119,7 +89,7 @@ public class MagazzinoController implements Initializable {
   }
 
   /**
-   * Apre la dashboard del magazzino
+   * Apre la dashboard del magazzino.
    *
    * @param mouseEvent
    * @throws IOException
@@ -131,7 +101,7 @@ public class MagazzinoController implements Initializable {
   // DASHBOARD MAGAZZINO
 
   /**
-   * Apre la dashboard iniziale
+   * Apre la dashboard iniziale.
    *
    * @param mouseEvent
    * @throws IOException
@@ -143,7 +113,7 @@ public class MagazzinoController implements Initializable {
   }
 
   /**
-   * Apre il form per la modifica della quantità di un prodotto
+   * Apre il form per la modifica della quantità di un prodotto.
    *
    * @param mouseEvent
    * @throws IOException
@@ -154,7 +124,7 @@ public class MagazzinoController implements Initializable {
   }
 
   /**
-   * Apre il form per l'inserimento di un nuovo prodotto
+   * Apre il form per l'inserimento di un nuovo prodotto.
    *
    * @param mouseEvent
    * @throws IOException
@@ -165,7 +135,7 @@ public class MagazzinoController implements Initializable {
   }
 
   /**
-   * Apre il form per la creazione di una nuova richiesta d'acquisto
+   * Apre il form per la creazione di una nuova richiesta d'acquisto.
    *
    * @param mouseEvent
    * @throws IOException
@@ -176,7 +146,7 @@ public class MagazzinoController implements Initializable {
   }
 
   /**
-   * Apre il form per la modifica del prezzo di un prodotto
+   * Apre il form per la modifica del prezzo di un prodotto.
    *
    * @param mouseEvent
    * @throws IOException
@@ -191,7 +161,7 @@ public class MagazzinoController implements Initializable {
   // INSERISCI PRODOTTO GIA PRESENTE
 
   /**
-   * Apre la schermata di riepilogo della quantità del prodotto modificata
+   * Apre la schermata di riepilogo della quantità del prodotto modificata.
    *
    * @param mouseEvent
    * @throws IOException
@@ -199,7 +169,7 @@ public class MagazzinoController implements Initializable {
    * @throws DatabaseException Errore nel Database
    */
   public void openInserisciProdottoRiepilogo(MouseEvent mouseEvent)
-          throws IOException, ProdottoException, DatabaseException {
+      throws IOException, ProdottoException, DatabaseException {
 
     // controllo che sia un codice prodotto valido
     if (codiceProd.getText().matches("^[0-9]{13}$")) {
@@ -224,13 +194,13 @@ public class MagazzinoController implements Initializable {
   }
 
   /**
-   * Esegue l'aggiornamento della quantità del prodotto
+   * Esegue l'aggiornamento della quantità del prodotto.
    *
    * @param mouseEvent
    * @throws IOException
    */
   public void inserisciProdotto(MouseEvent mouseEvent)
-          throws DatabaseException, IOException, ProdottoException {
+      throws DatabaseException, IOException, ProdottoException {
     prodotto.adddbquantity(tempProdotto.getQuantity() - prodotto.getQuantity());
     AlertMessage.showInformation("Quantità aggiornata correttamente");
     App.setRoot("InserisciProdottoForm");
@@ -241,13 +211,13 @@ public class MagazzinoController implements Initializable {
   // INSERISCI NUOVO PRODOTTO
 
   /**
-   * Apre la schermata di riepilogo dell'inserimento del nuovo prodotto
+   * Apre la schermata di riepilogo dell'inserimento del nuovo prodotto.
    *
    * @param mouseEvent
    * @throws IOException
    */
   public void openNuovoProdottoRiepilogo(MouseEvent mouseEvent)
-          throws IOException, ProdottoException {
+      throws IOException, ProdottoException {
 
     // controllo se è un nome prodotto valido
     if (nomeProd.getText().length() >= 2 && nomeProd.getText().length() <= 255) {
@@ -256,7 +226,8 @@ public class MagazzinoController implements Initializable {
         // controllo che sia un codice prodotto valido
         if (codiceProd.getText().matches("^[0-9]{13}$")) {
           // controllo che sia un prezzo valido, decimale con precisione di due
-          if (prezzoProd.getText().matches("[0-9]+(\\.[0-9][0-9]?)?") && Double.parseDouble(prezzoProd.getText()) > 0) {
+          if (prezzoProd.getText().matches("[0-9]+(\\.[0-9][0-9]?)?")
+              && Double.parseDouble(prezzoProd.getText()) > 0) {
             // controllo se è un tipo prodotto valido
             if (tipologiaProd.getText().length() >= 2 && tipologiaProd.getText().length() <= 255) {
               // Controllo se è stata selezionata una dimensione
@@ -270,7 +241,7 @@ public class MagazzinoController implements Initializable {
                   prodotto.setCodice(Long.parseLong(codiceProd.getText()));
                   prodotto.setTipologia(tipologiaProd.getText());
                   prodotto.setDimensioneConfezione(
-                          ((RadioButton) dimensioni.getSelectedToggle()).getText());
+                      ((RadioButton) dimensioni.getSelectedToggle()).getText());
                   prodotto.setScadenza(((RadioButton) scadenza.getSelectedToggle()).getText());
                   App.setRoot("InserisciNuovoProdottoRiepilogo");
                 } else {
@@ -297,12 +268,13 @@ public class MagazzinoController implements Initializable {
   }
 
   /**
-   * Esegue il salvataggio del nuovo prodotto
+   * Esegue il salvataggio del nuovo prodotto.
    *
    * @param mouseEvent
    * @throws IOException
    */
-  public void inserisciNuovoProdotto(MouseEvent mouseEvent) throws DatabaseException, IOException, ProdottoException {
+  public void inserisciNuovoProdotto(MouseEvent mouseEvent)
+      throws DatabaseException, IOException, ProdottoException {
     prodotto.createProdotto();
     AlertMessage.showInformation("Prodotto inserito correttamente!");
     App.setRoot("InserisciNuovoProdottoForm");
@@ -313,13 +285,13 @@ public class MagazzinoController implements Initializable {
   // MOD PREZZO PRODOTTO
 
   /**
-   * Esegue la modifica del prezzo del prodotto
+   * Esegue la modifica del prezzo del prodotto.
    *
    * @param mouseEvent
    * @throws IOException
    */
   public void aggiornaPrezzo(MouseEvent mouseEvent)
-          throws DatabaseException, ProdottoException, IOException {
+      throws DatabaseException, ProdottoException, IOException {
 
     // controllo che sia un prezzo valido, decimale con precisione di due
     if (prezzoProd.getText().matches("[0-9]+(\\.[0-9][0-9]?)?")) {
@@ -333,13 +305,13 @@ public class MagazzinoController implements Initializable {
   }
 
   /**
-   * Apre la schermata per l'inserimento del nuovo prezzo
+   * Apre la schermata per l'inserimento del nuovo prezzo.
    *
    * @param mouseEvent
    * @throws IOException
    */
   public void openModificaPrezzoPopUp(MouseEvent mouseEvent)
-          throws ProdottoException, DatabaseException, IOException {
+      throws ProdottoException, DatabaseException, IOException {
 
     // controllo che sia un codice prodotto valido
     if (codiceProd.getText().matches("^[0-9]{13}$")) {
@@ -355,13 +327,13 @@ public class MagazzinoController implements Initializable {
   // ORDINA PRODOTTO
 
   /**
-   * Apre la schermata di suggerimento per la richiesta d'acquisto
+   * Apre la schermata di suggerimento per la richiesta d'acquisto.
    *
    * @param mouseEvent
    * @throws IOException
    */
   public void cercaProdottoOrdinaProd(MouseEvent mouseEvent)
-          throws DatabaseException, ProdottoException, IOException {
+      throws DatabaseException, ProdottoException, IOException {
 
     // controlllo se codice inserito è valido
     if (codiceProd.getText().matches("^[0-9]{13}$")) {
@@ -375,12 +347,12 @@ public class MagazzinoController implements Initializable {
             if (festivita.getSelectedToggle() != null) {
               prodotto = Prodotto.search(Long.parseLong(codiceProd.getText()));
               ordineCalcolato =
-                      ModuleIAConverter.prevedi(
-                              prodotto,
-                              Double.parseDouble(prezzoSped.getText()),
-                              ((RadioButton) stagione.getSelectedToggle()).getText(),
-                              ((RadioButton) tipoSupermerc.getSelectedToggle()).getText(),
-                              ((RadioButton) festivita.getSelectedToggle()).getText());
+                  ModuleIAConverter.prevedi(
+                      prodotto,
+                      Double.parseDouble(prezzoSped.getText()),
+                      ((RadioButton) stagione.getSelectedToggle()).getText(),
+                      ((RadioButton) tipoSupermerc.getSelectedToggle()).getText(),
+                      ((RadioButton) festivita.getSelectedToggle()).getText());
               System.out.println(ordineCalcolato);
               App.setRoot("OrdinaProdottoQuantitaSugg");
             } else {
@@ -401,7 +373,7 @@ public class MagazzinoController implements Initializable {
   }
 
   /**
-   * Apre il form per l'inserimento manuale della quantità per la nuova richiesta d'acquisto
+   * Apre il form per l'inserimento manuale della quantità per la nuova richiesta d'acquisto.
    *
    * @param mouseEvent
    * @throws IOException
@@ -412,7 +384,7 @@ public class MagazzinoController implements Initializable {
   }
 
   /**
-   * Esegue il salvataggio della richiesta d'acquisto con quantità suggerita
+   * Esegue il salvataggio della richiesta d'acquisto con quantità suggerita.
    *
    * @param mouseEvent
    * @throws IOException
@@ -429,7 +401,7 @@ public class MagazzinoController implements Initializable {
   }
 
   /**
-   * Esegue il salvataggio della richiesta d'acquisto con la quantità inserita manualmente
+   * Esegue il salvataggio della richiesta d'acquisto con la quantità inserita manualmente.
    *
    * @param mouseEvent
    * @throws IOException
