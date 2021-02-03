@@ -75,6 +75,10 @@ public class DatabaseConnection {
     }
   }
 
+  /**
+   * Restituisce l'istanza di connesione al database
+   * @return l'istanza di connesione al database
+   */
   public Connection getCon() {
     return con;
   }

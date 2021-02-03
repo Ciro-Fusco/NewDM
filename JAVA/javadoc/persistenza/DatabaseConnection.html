@@ -187,17 +187,14 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>java.sql.Connection</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../persistenza/DatabaseConnection.html#getCon--">getCon</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../persistenza/DatabaseConnection.html#getCon--">getCon</a></span>()</code>&nbsp;
+  <div class="block">Restituisce l'istanza di connessione al Database</div></td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="../persistenza/DatabaseConnection.html" title="class in persistenza">DatabaseConnection</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../persistenza/DatabaseConnection.html#getInstance--">getInstance</a></span>()</code>
 <div class="block">Restituisce l'istanza di DatabaseConnection</div>
 </td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>static <a href="../persistenza/DatabaseConnection.html" title="class in persistenza">DatabaseConnection</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../persistenza/DatabaseConnection.html#getInstanceTEST--">getInstanceTEST</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -308,7 +305,7 @@ extends java.lang.Object</pre>
 <div class="block">Chiude la connessione con il Database.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../exceptions/DatabaseException.html" title="class in exceptions">DatabaseException</a></code> - Errore del persistenza</dd>
+<dd><code><a href="../exceptions/DatabaseException.html" title="class in exceptions">DatabaseException</a></code> - Errore nel Database</dd>
 </dl>
 </li>
 </ul>
@@ -319,20 +316,13 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getCon</h4>
 <pre>public&nbsp;java.sql.Connection&nbsp;getCon()</pre>
+<div class="block">Restituisce l'istanza di connessione al database.</div>
+<dl>
+  <dt><span class="returnLabel">Returns:</span></dt>
+  <dd>l'istanza</dd>
+  </dl>
 </li>
 </ul>
-<a name="getInstanceTEST--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>getInstanceTEST</h4>
-<pre>public static&nbsp;<a href="../persistenza/DatabaseConnection.html" title="class in persistenza">DatabaseConnection</a>&nbsp;getInstanceTEST()
-                                          throws <a href="../exceptions/DatabaseException.html" title="class in exceptions">DatabaseException</a></pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="../exceptions/DatabaseException.html" title="class in exceptions">DatabaseException</a></code></dd>
-</dl>
 </li>
 </ul>
 </li>
