@@ -2,6 +2,9 @@ package presentazione;
 
 import javafx.scene.control.Alert;
 
+/**
+ * Crea i popup con gli errori e le info
+ */
 public class AlertMessage {
 
   private static Alert alert;

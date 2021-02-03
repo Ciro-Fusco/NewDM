@@ -11,6 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * DAO per il salvataggio persistente di un Prodotto
+ */
 public class ProdottoDao {
 
   /**

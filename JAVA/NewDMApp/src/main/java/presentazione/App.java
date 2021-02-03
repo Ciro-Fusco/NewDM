@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-/** JavaFX App */
+/** JavaFX App. Crea le interfacce grafiche a partire dai file .fxml */
 public class App extends Application {
 
   private static Scene scene;

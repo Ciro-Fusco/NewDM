@@ -5,6 +5,9 @@ import exceptions.DatabaseException;
 import javax.xml.crypto.Data;
 import java.sql.*;
 
+/**
+ * Crea la connessione al database. Singleton.
+ */
 public class DatabaseConnection {
   private static Connection con = null;
   private static DatabaseConnection instance = null;

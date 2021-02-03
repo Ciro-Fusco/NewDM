@@ -29,7 +29,8 @@ public class Ticket {
   private static final String CHIUSO = "Chiuso";
 
   /**
-   * Crea un nuovo Ticket
+   * Crea un nuovo Ticket. Lo scontrino deve esistere, il prodotto deve esistere
+   * e lo scontrino deve riferirsi al prodotto
    *
    * @param nomeCognome     Nome e Cognome del cliente
    * @param cf              Codice Fiscale del cliente
@@ -43,7 +44,7 @@ public class Ticket {
    * @param codiceProdotto  Codice identificativo comune (codice a barre o codice utilizzato nel negozio per identificare
    *                        un prodotto) del prodotto per cui si richiede assistenza
    * @throws ScontrinoException Scontrino non esistente
-   * @throws DatabaseException  Errore nel uso del persistenza
+   * @throws DatabaseException  Errore nel uso della persistenza
    * @throws ProdottoException  Prodotto non esistente
    * @throws ElencaException    Lo Scontrino e il Prodotto non corrispondono
    */
@@ -318,7 +319,8 @@ public class Ticket {
   }
 
   /**
-   * Cerca un Ticket dati tutti i parametri
+   * Cerca un Ticket dati tutti i parametri.
+   *
    * @param apertura Data di apertura del Ticket
    * @param CF Codice Fiscale del Cliente
    * @param serie Numero di Serie del Prodotto

@@ -13,6 +13,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * DAO per la persistenza della relazione tra un codice di uno scontrino e i codici dei prodotti a cui
+ * si riferisce
+ */
 public class ElencaDao {
   /**
    * Salva nel persistenza la relazione tra un codice di uno scontrino e i codici dei prodotti a cui

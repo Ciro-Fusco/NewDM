@@ -5,6 +5,9 @@ import exceptions.ProdottoException;
 import exceptions.ProdottoNotFoundException;
 import persistenza.ProdottoDao;
 
+/**
+ * Un Prodotto disponibile nel punto vendita
+ */
 public class Prodotto {
 
   private int acquistato; /* Numero di volte in cui il prodotto è stato inserito nello scontrino */
@@ -149,7 +152,7 @@ public class Prodotto {
   }
 
   /**
-   * Imposta il prezzo del Prodotto
+   * Imposta il prezzo del Prodotto. Se il prezzo non è positivo lancia eccezione
    *
    * @param prezzo il prezzo del prodotto
    * @throws ProdottoException Il prezzo deve essere positivo
@@ -194,7 +197,7 @@ public class Prodotto {
   }
 
   /**
-   * Imposta la quantitò di un Prodotto
+   * Imposta la quantitò di un Prodotto. Se la quantità non è maggiore di 0 lancia eccezione
    * @param quantity la quantità del prdotto
    * @throws ProdottoException Errore nella modifica della quantità
    */
@@ -218,24 +221,22 @@ public class Prodotto {
 
   /**
    * Diminuisce la quantità del Prodotto dal Database in base al numero di volte in cui il codice è
-   * stato inserito nello scontrino.
+   * stato inserito nello scontrino. Se la quantità del prodotto è già zero non esegue nulla
    *
    * @throws DatabaseException Errore del Database
    */
   public void leavedbquantity() throws DatabaseException, ProdottoException {
     if (quantity > 0) {
       ProdottoDao.leavedbquantity(this);
-    } else {
-      throw new ProdottoException("Prodotto esaurito");
     }
   }
 
   /**
-   * Aumenta la quantità di questo prodotto nel persistenza
+   * Aumenta la quantità di questo prodotto nel persistenza se la quantità da aggiungere è positiva
    *
    * @param i quantità da aggiungere al Database
    * @throws DatabaseException Errore del Database
-   * @throws ProdottoException Il prezzo deve essere positivo
+   * @throws ProdottoException La quantità deve essere positiva
    */
   public void adddbquantity(int i) throws DatabaseException, ProdottoException {
     if (i > 0) ProdottoDao.adddbquantity(i, this);
@@ -245,7 +246,7 @@ public class Prodotto {
   }
 
   /**
-   * Salva questo Prodotto nel persistenza
+   * Salva questo Prodotto nel persistenza. Il prezzo e la quantità del prodotto devono essere positivi
    *
    * @throws DatabaseException Errore del Database
    * @throws ProdottoException Il prezzo e la quantita del Prodotto devono essere positivi
@@ -312,13 +313,18 @@ public class Prodotto {
     }
   }
 
+  /**
+   * Elimina un prodotto dal database
+   * @return true se il prodotto è stato eliminato
+   * @throws DatabaseException Errore del database
+   */
   public boolean eliminaProdotto() throws DatabaseException {
     return ProdottoDao.eliminaProdotto(this);
   }
 
   //PER TESTING
 
-  public void setQuantitySenzaControllo(int quantity) throws ProdottoException {
+ /* public void setQuantitySenzaControllo(int quantity) throws ProdottoException {
     this.quantity = quantity;
-  }
+  }*/
 }

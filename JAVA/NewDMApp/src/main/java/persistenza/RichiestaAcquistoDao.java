@@ -10,6 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * DAO per il salvataggio persistente di una richiesta di acquisto
+ */
 public class RichiestaAcquistoDao {
 
   /**

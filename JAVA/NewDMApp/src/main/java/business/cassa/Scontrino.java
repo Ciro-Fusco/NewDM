@@ -93,7 +93,7 @@ public class Scontrino implements Serializable {
   }
 
   /**
-   * Imposta l'importo versato dal cliente
+   * Imposta l'importo versato dal cliente, se l'importo non è sufficiente lancia eccezione
    * @param versato l'importo dato dal cliente
    * @throws ScontrinoException Importo pagato non sufficiente
    */
@@ -121,7 +121,7 @@ public class Scontrino implements Serializable {
     return resto;
   }
 
-  /**+
+  /**
    * Restituisce l'importo versato dal cliente
    * @return l'importo versato dal cliente
    */
@@ -137,11 +137,11 @@ public class Scontrino implements Serializable {
     return data;
   }
 
-  public void setDataSbagliataTEST() {
+  /*public void setDataSbagliataTEST() {
     LocalDateTime date = LocalDateTime.of(1999, 06, 05, 00, 00);
     DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     this.data = date.format(myFormatObj);
-  }
+  }*/
 
   /**
    * Restituisce il riepilogo dei prodotti inseriti nello Scontrino
@@ -185,7 +185,7 @@ public class Scontrino implements Serializable {
   }
 
   /**
-   * Verifica l'esistenza di uno Scontrino
+   * Verifica l'esistenza di uno Scontrino.
    * @param codice il codice dello scontrino da verificare
    * @param dataScontrino la data dello scontrino da verificare
    * @throws ScontrinoException Errore nella ricerca dello scontrino
@@ -194,5 +194,22 @@ public class Scontrino implements Serializable {
   public static void checkScontrino(long codice, String dataScontrino)
       throws ScontrinoException, DatabaseException {
     ScontrinoDao.checkScontrino(codice, dataScontrino);
+  }
+
+  /**
+   * Metodo toString() del Ticket
+   * @return una stringa contenente la conversione canonica dell'oggetto
+   */
+  @Override
+  public String toString() {
+    return "Scontrino{" +
+            "prodottoList=" + prodottoList +
+            ", tot=" + tot +
+            ", resto=" + resto +
+            ", versato=" + versato +
+            ", data='" + data + '\'' +
+            ", riepilogo='" + riepilogo + '\'' +
+            ", id=" + id +
+            '}';
   }
 }

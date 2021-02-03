@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller per le interazioni della sezione Cassa
+ */
 public class CassaController implements Initializable {
 
   private static Scontrino scontrino;
@@ -189,7 +192,7 @@ public class CassaController implements Initializable {
   }
 
   /////////////////////////////////////////////////////////////////
-
+/*
   // GET E SETTER PER TEST
 
   public static Scontrino getScontrino() {
@@ -246,5 +249,5 @@ public class CassaController implements Initializable {
 
   public void setRestoLabel(Label restoLabel) {
     this.restoLabel = restoLabel;
-  }
+  }*/
 }

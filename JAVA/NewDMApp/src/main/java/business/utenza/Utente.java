@@ -7,7 +7,7 @@ import exceptions.UtenteNotFoundException;
 import persistenza.UtenteDao;
 
 /**
- * Classe statica. Può contenere una sola istanza di utente alla volta. Non possiede costruttori.
+ * Classe statica che può contenere una sola istanza di utente alla volta; non possiede costruttori.
  */
 public class Utente {
 

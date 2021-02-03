@@ -12,6 +12,9 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import static business.utenza.Utente.*;
 
+/**
+ * DAO per la ricerca di un utente.
+ */
 public class UtenteDao {
 
   /**
