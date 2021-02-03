@@ -1,0 +1,847 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MagazzinoController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NewDMApp</a> &gt; <a href="index.source.html" class="el_package">business.inventario</a> &gt; <span class="el_source">MagazzinoController.java</span></div><h1>MagazzinoController.java</h1><pre class="source lang-java linenums">package business.inventario;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import business.fornitura.ModuleIAConverter;
+import business.fornitura.RichiestaAcquisto;
+import exceptions.DatabaseException;
+import exceptions.ProdottoException;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseEvent;
+import business.utenza.Utente;
+import presentazione.AlertMessage;
+import presentazione.App;
+
+/**
+ * Controller per le interazioni della sezione Magazzino
+ */
+<span class="fc" id="L26">public class MagazzinoController implements Initializable {</span>
+
+  private static Prodotto prodotto;
+  private static Prodotto tempProdotto;
+  @FXML
+  private TextField nomeProd;
+  @FXML
+  private TextField prezzoProd;
+  @FXML
+  private TextField codiceProd;
+  @FXML
+  private TextField quantitaProd;
+  @FXML
+  public TextField riepilogoNuovoProdotto;
+  @FXML
+  public TextField riepilogoProdotto;
+  @FXML
+  private Label labelNomeProd;
+  @FXML
+  private Label labelPrezzoProd;
+  @FXML
+  private Label labelOrdineCalcSugg;
+  @FXML
+  private Label labelNomeProdSugg;
+  @FXML
+  private Label labelQuantitaProdSugg;
+  @FXML
+  private TextField tipologiaProd;
+  @FXML
+  private TextField prezzoSped;
+  @FXML
+  private RadioButton piccolaDim;
+  @FXML
+  private RadioButton medioDim;
+  @FXML
+  private RadioButton grandeDim;
+  @FXML
+  private RadioButton breveSca;
+  @FXML
+  private RadioButton mediaSca;
+  @FXML
+  private RadioButton lungaSca;
+  @FXML
+  private RadioButton primavera;
+  @FXML
+  private RadioButton estate;
+  @FXML
+  private RadioButton autunno;
+  @FXML
+  private RadioButton inverno;
+  @FXML
+  private ToggleGroup dimensioni;
+  @FXML
+  private ToggleGroup scadenza;
+  @FXML
+  private ToggleGroup stagione;
+  @FXML
+  private ToggleGroup tipoSupermerc;
+  @FXML
+  private ToggleGroup festivita;
+  private static int ordineCalcolato;
+
+  // Viene eseguito ogni volta che si carica una nuova finestra
+  @Override
+  public void initialize(URL url, ResourceBundle resourceBundle) {
+<span class="fc" id="L91">    String nomeFile =</span>
+<span class="fc" id="L92">            url.toString().substring(url.toString().lastIndexOf('/') + 1, url.toString().length());</span>
+
+<span class="fc bfc" id="L94" title="All 2 branches covered.">    if (nomeFile.equals(&quot;OrdinaProdottoQuantitaSugg.fxml&quot;)) {</span>
+<span class="fc" id="L95">      labelNomeProdSugg.setText(prodotto.getNome());</span>
+<span class="fc" id="L96">      labelQuantitaProdSugg.setText(Integer.toString(prodotto.getQuantity()));</span>
+<span class="fc" id="L97">      labelOrdineCalcSugg.setText(Integer.toString(ordineCalcolato));</span>
+    } else {
+<span class="fc" id="L99">      System.out.println();</span>
+    }
+
+<span class="fc bfc" id="L102" title="All 2 branches covered.">    if (nomeFile.equals(&quot;InserisciNuovoProdottoRiepilogo.fxml&quot;)) {</span>
+<span class="fc" id="L103">      riepilogoNuovoProdotto.setText(prodotto.toString());</span>
+    } else {
+<span class="fc" id="L105">      System.out.println();</span>
+    }
+
+<span class="fc bfc" id="L108" title="All 2 branches covered.">    if (nomeFile.equals(&quot;InserisciProdottoRiepilogo.fxml&quot;)) {</span>
+<span class="fc" id="L109">      riepilogoProdotto.setText(tempProdotto.toString());</span>
+    } else {
+<span class="fc" id="L111">      System.out.println();</span>
+    }
+
+<span class="fc bfc" id="L114" title="All 2 branches covered.">    if (nomeFile.equals(&quot;ModPrezzoProdottoPopUpForm.fxml&quot;)) {</span>
+<span class="fc" id="L115">      labelPrezzoProd.setText(Double.toString(prodotto.getPrezzo()));</span>
+<span class="fc" id="L116">      labelNomeProd.setText(prodotto.getNome());</span>
+    } else {
+<span class="fc" id="L118">      System.out.println();</span>
+    }
+<span class="fc" id="L120">  }</span>
+
+  /**
+   * Apre la dashboard del magazzino
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  public void openDashboardMagazzino(MouseEvent mouseEvent) throws IOException {
+<span class="nc" id="L129">    App.setRoot(&quot;DashboardMagazzino&quot;);</span>
+<span class="nc" id="L130">  }</span>
+
+  // DASHBOARD MAGAZZINO
+
+  /**
+   * Apre la dashboard iniziale
+   *
+   * @param mouseEvent
+   * @throws IOException
+   * @throws DatabaseException Errore del Database
+   */
+  public void openDashboard(MouseEvent mouseEvent) throws IOException, DatabaseException {
+<span class="nc" id="L142">    Utente.logout();</span>
+<span class="nc" id="L143">    App.setRoot(&quot;Dashboard&quot;);</span>
+<span class="nc" id="L144">  }</span>
+
+  /**
+   * Apre il form per la modifica della quantità di un prodotto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  @FXML
+  public void openInserisciProdotto(MouseEvent mouseEvent) throws Exception {
+<span class="nc" id="L154">    App.setRoot(&quot;InserisciProdottoForm&quot;);</span>
+<span class="nc" id="L155">  }</span>
+
+  /**
+   * Apre il form per l'inserimento di un nuovo prodotto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  @FXML
+  public void openInserisciNuovoProdotto(MouseEvent mouseEvent) throws Exception {
+<span class="nc" id="L165">    App.setRoot(&quot;InserisciNuovoProdottoForm&quot;);</span>
+<span class="nc" id="L166">  }</span>
+
+  /**
+   * Apre il form per la creazione di una nuova richiesta d'acquisto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  @FXML
+  public void openOrdinaProdotto(MouseEvent mouseEvent) throws Exception {
+<span class="nc" id="L176">    App.setRoot(&quot;OrdinaProdottoForm&quot;);</span>
+<span class="nc" id="L177">  }</span>
+
+  /**
+   * Apre il form per la modifica del prezzo di un prodotto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  @FXML
+  public void openModificaPrezzo(MouseEvent mouseEvent) throws Exception {
+<span class="nc" id="L187">    App.setRoot(&quot;ModPrezzoProdottoForm&quot;);</span>
+<span class="nc" id="L188">  }</span>
+
+  ////////////////////////////////////////////////////////////////////////////
+
+  // INSERISCI PRODOTTO GIA PRESENTE
+
+  /**
+   * Apre la schermata di riepilogo della quantità del prodotto modificata
+   *
+   * @param mouseEvent
+   * @throws IOException
+   * @throws ProdottoException Prodotto non trovato
+   * @throws DatabaseException Errore nel Database
+   */
+  public void openInserisciProdottoRiepilogo(MouseEvent mouseEvent)
+          throws IOException, ProdottoException, DatabaseException {
+
+    // controllo che sia un codice prodotto valido
+<span class="fc bfc" id="L206" title="All 2 branches covered.">    if (codiceProd.getText().matches(&quot;^[0-9]{13}$&quot;)) {</span>
+<span class="fc" id="L207">      Prodotto.search(Long.parseLong(codiceProd.getText()));</span>
+      // controllo se la quantita è positiva
+<span class="fc bfc" id="L209" title="All 2 branches covered.">      if (quantitaProd.getText().matches(&quot;^[1-9][0-9]*$&quot;)) {</span>
+<span class="fc" id="L210">        tempProdotto = new Prodotto();</span>
+<span class="fc" id="L211">        prodotto = Prodotto.search(Long.parseLong(codiceProd.getText()));</span>
+<span class="fc" id="L212">        tempProdotto.setQuantity(prodotto.getQuantity() + Integer.parseInt(quantitaProd.getText()));</span>
+<span class="fc" id="L213">        tempProdotto.setCodice(prodotto.getCodice());</span>
+<span class="fc" id="L214">        tempProdotto.setPrezzo(prodotto.getPrezzo());</span>
+<span class="fc" id="L215">        tempProdotto.setNome(prodotto.getNome());</span>
+<span class="fc" id="L216">        tempProdotto.setAcquistato(prodotto.getAcquistato());</span>
+<span class="nc" id="L217">        App.setRoot(&quot;InserisciProdottoRiepilogo&quot;);</span>
+
+      } else {
+<span class="fc" id="L220">        AlertMessage.showError(&quot;Inserisci una quantità positiva&quot;);</span>
+      }
+    } else {
+<span class="fc" id="L223">      AlertMessage.showError(&quot;Inserisci un codice prodotto valido&quot;);</span>
+    }
+<span class="fc" id="L225">  }</span>
+
+  /**
+   * Esegue l'aggiornamento della quantità del prodotto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  public void inserisciProdotto(MouseEvent mouseEvent)
+          throws DatabaseException, IOException, ProdottoException {
+<span class="nc" id="L235">    prodotto.adddbquantity(tempProdotto.getQuantity() - prodotto.getQuantity());</span>
+<span class="nc" id="L236">    AlertMessage.showInformation(&quot;Quantità aggiornata correttamente&quot;);</span>
+<span class="nc" id="L237">    App.setRoot(&quot;InserisciProdottoForm&quot;);</span>
+<span class="nc" id="L238">  }</span>
+
+  ///////////////////////////////////////////////////////////////////////////////
+
+  // INSERISCI NUOVO PRODOTTO
+
+  /**
+   * Apre la schermata di riepilogo dell'inserimento del nuovo prodotto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  public void openNuovoProdottoRiepilogo(MouseEvent mouseEvent)
+          throws IOException, ProdottoException {
+
+    // controllo se è un nome prodotto valido
+<span class="fc bfc" id="L254" title="All 4 branches covered.">    if (nomeProd.getText().length() &gt;= 2 &amp;&amp; nomeProd.getText().length() &lt;= 255) {</span>
+      // controllo se la quantita è positiva
+<span class="fc bfc" id="L256" title="All 2 branches covered.">      if (quantitaProd.getText().matches(&quot;^[1-9][0-9]*$&quot;)) {</span>
+        // controllo che sia un codice prodotto valido
+<span class="fc bfc" id="L258" title="All 2 branches covered.">        if (codiceProd.getText().matches(&quot;^[0-9]{13}$&quot;)) {</span>
+          // controllo che sia un prezzo valido, decimale con precisione di due
+<span class="fc bfc" id="L260" title="All 4 branches covered.">          if (prezzoProd.getText().matches(&quot;[0-9]+(\\.[0-9][0-9]?)?&quot;) &amp;&amp; Double.parseDouble(prezzoProd.getText()) &gt; 0) {</span>
+            // controllo se è un tipo prodotto valido
+<span class="fc bfc" id="L262" title="All 4 branches covered.">            if (tipologiaProd.getText().length() &gt;= 2 &amp;&amp; tipologiaProd.getText().length() &lt;= 255) {</span>
+              // Controllo se è stata selezionata una dimensione
+<span class="fc bfc" id="L264" title="All 2 branches covered.">              if (dimensioni.getSelectedToggle() != null) {</span>
+                // controllo se è stata selezionata una scadenza
+<span class="fc bfc" id="L266" title="All 2 branches covered.">                if (scadenza.getSelectedToggle() != null) {</span>
+<span class="fc" id="L267">                  prodotto = new Prodotto();</span>
+<span class="fc" id="L268">                  prodotto.setNome(nomeProd.getText());</span>
+<span class="fc" id="L269">                  prodotto.setPrezzo(Double.parseDouble(prezzoProd.getText()));</span>
+<span class="fc" id="L270">                  prodotto.setQuantity(Integer.parseInt(quantitaProd.getText()));</span>
+<span class="fc" id="L271">                  prodotto.setCodice(Long.parseLong(codiceProd.getText()));</span>
+<span class="fc" id="L272">                  prodotto.setTipologia(tipologiaProd.getText());</span>
+<span class="fc" id="L273">                  prodotto.setDimensioneConfezione(</span>
+<span class="fc" id="L274">                          ((RadioButton) dimensioni.getSelectedToggle()).getText());</span>
+<span class="fc" id="L275">                  prodotto.setScadenza(((RadioButton) scadenza.getSelectedToggle()).getText());</span>
+<span class="nc" id="L276">                  App.setRoot(&quot;InserisciNuovoProdottoRiepilogo&quot;);</span>
+                } else {
+<span class="fc" id="L278">                  AlertMessage.showError(&quot;Selezionare una scadenza&quot;);</span>
+                }
+              } else {
+<span class="fc" id="L281">                AlertMessage.showError(&quot;Selezionare una dimensione&quot;);</span>
+              }
+            } else {
+<span class="fc" id="L284">              AlertMessage.showError(&quot;Inserire una tipologia valida&quot;);</span>
+            }
+          } else {
+<span class="fc" id="L287">            AlertMessage.showError(&quot;Inserire un prezzo valido&quot;);</span>
+          }
+        } else {
+<span class="fc" id="L290">          AlertMessage.showError(&quot;Inserisci un codice prodotto valido (13 cifre)&quot;);</span>
+        }
+      } else {
+<span class="fc" id="L293">        AlertMessage.showError(&quot;Inserisci una quantità positiva&quot;);</span>
+      }
+    } else {
+<span class="fc" id="L296">      AlertMessage.showError(&quot;Inserisci un nome valido&quot;);</span>
+    }
+<span class="fc" id="L298">  }</span>
+
+  /**
+   * Esegue il salvataggio del nuovo prodotto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  public void inserisciNuovoProdotto(MouseEvent mouseEvent) throws DatabaseException, IOException, ProdottoException {
+<span class="nc" id="L307">    prodotto.createProdotto();</span>
+<span class="nc" id="L308">    AlertMessage.showInformation(&quot;Prodotto inserito correttamente!&quot;);</span>
+<span class="nc" id="L309">    App.setRoot(&quot;InserisciNuovoProdottoForm&quot;);</span>
+<span class="nc" id="L310">  }</span>
+
+  ///////////////////////////////////////////////////////////////////
+
+  // MOD PREZZO PRODOTTO
+
+  /**
+   * Esegue la modifica del prezzo del prodotto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  public void aggiornaPrezzo(MouseEvent mouseEvent)
+          throws DatabaseException, ProdottoException, IOException {
+
+    // controllo che sia un prezzo valido, decimale con precisione di due
+<span class="fc bfc" id="L326" title="All 2 branches covered.">    if (prezzoProd.getText().matches(&quot;[0-9]+(\\.[0-9][0-9]?)?&quot;)) {</span>
+<span class="fc" id="L327">      prodotto.modificaPrezzo(Double.parseDouble(prezzoProd.getText()));</span>
+<span class="fc" id="L328">      prodotto.setPrezzo(Double.parseDouble(prezzoProd.getText()));</span>
+<span class="fc" id="L329">      AlertMessage.showInformation(&quot;Prezzo aggiornato con successo&quot;);</span>
+<span class="nc" id="L330">      App.setRoot(&quot;ModPrezzoProdottoForm&quot;);</span>
+    } else {
+<span class="fc" id="L332">      AlertMessage.showError(&quot;Inserisci un prezzo valido&quot;);</span>
+    }
+<span class="fc" id="L334">  }</span>
+
+  /**
+   * Apre la schermata per l'inserimento del nuovo prezzo
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  public void openModificaPrezzoPopUp(MouseEvent mouseEvent)
+          throws ProdottoException, DatabaseException, IOException {
+
+    // controllo che sia un codice prodotto valido
+<span class="fc bfc" id="L346" title="All 2 branches covered.">    if (codiceProd.getText().matches(&quot;^[0-9]{13}$&quot;)) {</span>
+<span class="fc" id="L347">      prodotto = Prodotto.search(Long.parseLong(codiceProd.getText()));</span>
+<span class="nc" id="L348">      App.setRoot(&quot;ModPrezzoProdottoPopUpForm&quot;);</span>
+    } else {
+<span class="fc" id="L350">      AlertMessage.showError(&quot;Inserisci un codice prodotto valido&quot;);</span>
+    }
+<span class="fc" id="L352">  }</span>
+
+  /////////////////////////////////////////////////////////
+
+  // ORDINA PRODOTTO
+
+  /**
+   * Apre la schermata di suggerimento per la richiesta d'acquisto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  public void cercaProdottoOrdinaProd(MouseEvent mouseEvent)
+          throws DatabaseException, ProdottoException, IOException {
+
+    // controlllo se codice inserito è valido
+<span class="fc bfc" id="L368" title="All 2 branches covered.">    if (codiceProd.getText().matches(&quot;^[0-9]{13}$&quot;)) {</span>
+      // controllo se è un prezzo valido
+<span class="fc bfc" id="L370" title="All 2 branches covered.">      if (prezzoSped.getText().matches(&quot;[0-9]+(\\.[0-9][0-9]?)?&quot;)) {</span>
+        // controllo se è stato selezionata una stagione
+<span class="fc bfc" id="L372" title="All 2 branches covered.">        if (stagione.getSelectedToggle() != null) {</span>
+          // controllo se è stato selezionato un tipo di supermercato
+<span class="fc bfc" id="L374" title="All 2 branches covered.">          if (tipoSupermerc.getSelectedToggle() != null) {</span>
+            // controllo se è stato selezionato un giorno feriale o lavorativo
+<span class="fc bfc" id="L376" title="All 2 branches covered.">            if (festivita.getSelectedToggle() != null) {</span>
+<span class="fc" id="L377">              prodotto = Prodotto.search(Long.parseLong(codiceProd.getText()));</span>
+<span class="fc" id="L378">              ordineCalcolato =</span>
+<span class="fc" id="L379">                      ModuleIAConverter.prevedi(</span>
+                              prodotto,
+<span class="fc" id="L381">                              Double.parseDouble(prezzoSped.getText()),</span>
+<span class="fc" id="L382">                              ((RadioButton) stagione.getSelectedToggle()).getText(),</span>
+<span class="fc" id="L383">                              ((RadioButton) tipoSupermerc.getSelectedToggle()).getText(),</span>
+<span class="fc" id="L384">                              ((RadioButton) festivita.getSelectedToggle()).getText());</span>
+<span class="fc" id="L385">              System.out.println(ordineCalcolato);</span>
+<span class="nc" id="L386">              App.setRoot(&quot;OrdinaProdottoQuantitaSugg&quot;);</span>
+            } else {
+<span class="fc" id="L388">              AlertMessage.showError(&quot;Selezionare una festività&quot;);</span>
+            }
+          } else {
+<span class="fc" id="L391">            AlertMessage.showError(&quot;Selezionare un tipo di supermercato&quot;);</span>
+          }
+        } else {
+<span class="fc" id="L394">          AlertMessage.showError(&quot;Selezionare una stagione&quot;);</span>
+        }
+      } else {
+<span class="fc" id="L397">        AlertMessage.showError(&quot;Inserire un prezzo spedizione valido&quot;);</span>
+      }
+    } else {
+<span class="fc" id="L400">      AlertMessage.showError(&quot;Inserire un codice prodotto valido&quot;);</span>
+    }
+<span class="fc" id="L402">  }</span>
+
+  /**
+   * Apre il form per l'inserimento manuale della quantità per la nuova richiesta d'acquisto
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  @FXML
+  public void openOrdinaProdottoManu(ActionEvent mouseEvent) throws Exception {
+<span class="nc" id="L412">    App.setRoot(&quot;OrdinaProdottoQuantitaManuForm&quot;);</span>
+<span class="nc" id="L413">  }</span>
+
+  /**
+   * Esegue il salvataggio della richiesta d'acquisto con quantità suggerita
+   *
+   * @param mouseEvent
+   * @throws IOException
+   * @throws DatabaseException Errore nel Database
+   */
+  @FXML
+  public void confermaOrdine(MouseEvent mouseEvent) throws DatabaseException, IOException {
+<span class="nc" id="L424">    RichiestaAcquisto ra = new RichiestaAcquisto();</span>
+<span class="nc" id="L425">    ra.setCodice(prodotto.getCodice());</span>
+<span class="nc" id="L426">    ra.setQuantity(ordineCalcolato);</span>
+<span class="nc" id="L427">    ra.save();</span>
+<span class="nc" id="L428">    AlertMessage.showInformation(&quot;Ordine effettuato con successo&quot;);</span>
+<span class="nc" id="L429">    App.setRoot(&quot;OrdinaProdottoForm&quot;);</span>
+<span class="nc" id="L430">  }</span>
+
+  /**
+   * Esegue il salvataggio della richiesta d'acquisto con la quantità inserita manualmente
+   *
+   * @param mouseEvent
+   * @throws IOException
+   * @throws DatabaseException Errore nel Database
+   */
+  @FXML
+  public void confermaOrdineManu(MouseEvent mouseEvent) throws DatabaseException, IOException {
+    // controllo se è stata inserita una quantità valida
+<span class="fc bfc" id="L442" title="All 2 branches covered.">    if (quantitaProd.getText().matches(&quot;[0-9]+(\\.[0-9][0-9]?)?&quot;)) {</span>
+<span class="fc" id="L443">      RichiestaAcquisto ra = new RichiestaAcquisto();</span>
+<span class="fc" id="L444">      ra.setCodice(prodotto.getCodice());</span>
+<span class="fc" id="L445">      ra.setQuantity(Integer.parseInt(quantitaProd.getText()));</span>
+<span class="fc" id="L446">      ra.save();</span>
+<span class="fc" id="L447">      AlertMessage.showInformation(&quot;Ordine effettuato con successo&quot;);</span>
+<span class="nc" id="L448">      App.setRoot(&quot;OrdinaProdottoForm&quot;);</span>
+<span class="nc" id="L449">    } else {</span>
+<span class="fc" id="L450">      AlertMessage.showError(&quot;Inserire una quantità valida&quot;);</span>
+    }
+<span class="fc" id="L452">  }</span>
+
+  /////////////////////////////////////////////////////////
+
+  // GET E SETTER PER TEST
+
+  public void setNomeProd(TextField nomeProd) {
+<span class="nc" id="L459">    this.nomeProd = nomeProd;</span>
+<span class="nc" id="L460">  }</span>
+
+  public void setPrezzoProd(TextField prezzoProd) {
+<span class="nc" id="L463">    this.prezzoProd = prezzoProd;</span>
+<span class="nc" id="L464">  }</span>
+
+  public void setCodiceProd(TextField codiceProd) {
+<span class="nc" id="L467">    this.codiceProd = codiceProd;</span>
+<span class="nc" id="L468">  }</span>
+
+  public void setQuantitaProd(TextField quantitaProd) {
+<span class="nc" id="L471">    this.quantitaProd = quantitaProd;</span>
+<span class="nc" id="L472">  }</span>
+
+  public void setRiepilogoNuovoProdotto(TextField riepilogoNuovoProdotto) {
+<span class="fc" id="L475">    this.riepilogoNuovoProdotto = riepilogoNuovoProdotto;</span>
+<span class="fc" id="L476">  }</span>
+
+  public void setRiepilogoProdotto(TextField riepilogoProdotto) {
+<span class="fc" id="L479">    this.riepilogoProdotto = riepilogoProdotto;</span>
+<span class="fc" id="L480">  }</span>
+
+  public void setLabelNomeProd(Label labelNomeProd) {
+<span class="fc" id="L483">    this.labelNomeProd = labelNomeProd;</span>
+<span class="fc" id="L484">  }</span>
+
+  public void setLabelPrezzoProd(Label labelPrezzoProd) {
+<span class="fc" id="L487">    this.labelPrezzoProd = labelPrezzoProd;</span>
+<span class="fc" id="L488">  }</span>
+
+  public void setLabelOrdineCalcSugg(Label labelOrdineCalcSugg) {
+<span class="fc" id="L491">    this.labelOrdineCalcSugg = labelOrdineCalcSugg;</span>
+<span class="fc" id="L492">  }</span>
+
+  public void setLabelNomeProdSugg(Label labelNomeProdSugg) {
+<span class="fc" id="L495">    this.labelNomeProdSugg = labelNomeProdSugg;</span>
+<span class="fc" id="L496">  }</span>
+
+  public void setLabelQuantitaProdSugg(Label labelQuantitaProdSugg) {
+<span class="fc" id="L499">    this.labelQuantitaProdSugg = labelQuantitaProdSugg;</span>
+<span class="fc" id="L500">  }</span>
+
+  public void setTipologiaProd(TextField tipologiaProd) {
+<span class="nc" id="L503">    this.tipologiaProd = tipologiaProd;</span>
+<span class="nc" id="L504">  }</span>
+
+  public void setPrezzoSped(TextField prezzoSped) {
+<span class="nc" id="L507">    this.prezzoSped = prezzoSped;</span>
+<span class="nc" id="L508">  }</span>
+
+  public void setPiccolaDim(RadioButton piccolaDim) {
+<span class="nc" id="L511">    this.piccolaDim = piccolaDim;</span>
+<span class="nc" id="L512">  }</span>
+
+  public void setMedioDim(RadioButton medioDim) {
+<span class="nc" id="L515">    this.medioDim = medioDim;</span>
+<span class="nc" id="L516">  }</span>
+
+  public void setGrandeDim(RadioButton grandeDim) {
+<span class="nc" id="L519">    this.grandeDim = grandeDim;</span>
+<span class="nc" id="L520">  }</span>
+
+  public void setBreveSca(RadioButton breveSca) {
+<span class="nc" id="L523">    this.breveSca = breveSca;</span>
+<span class="nc" id="L524">  }</span>
+
+  public void setMediaSca(RadioButton mediaSca) {
+<span class="nc" id="L527">    this.mediaSca = mediaSca;</span>
+<span class="nc" id="L528">  }</span>
+
+  public void setLungaSca(RadioButton lungaSca) {
+<span class="nc" id="L531">    this.lungaSca = lungaSca;</span>
+<span class="nc" id="L532">  }</span>
+
+  public void setPrimavera(RadioButton primavera) {
+<span class="nc" id="L535">    this.primavera = primavera;</span>
+<span class="nc" id="L536">  }</span>
+
+  public void setEstate(RadioButton estate) {
+<span class="nc" id="L539">    this.estate = estate;</span>
+<span class="nc" id="L540">  }</span>
+
+  public void setAutunno(RadioButton autunno) {
+<span class="nc" id="L543">    this.autunno = autunno;</span>
+<span class="nc" id="L544">  }</span>
+
+  public void setInverno(RadioButton inverno) {
+<span class="nc" id="L547">    this.inverno = inverno;</span>
+<span class="nc" id="L548">  }</span>
+
+  public void setDimensioni(ToggleGroup dimensioni) {
+<span class="fc" id="L551">    this.dimensioni = dimensioni;</span>
+<span class="fc" id="L552">  }</span>
+
+  public void setScadenza(ToggleGroup scadenza) {
+<span class="fc" id="L555">    this.scadenza = scadenza;</span>
+<span class="fc" id="L556">  }</span>
+
+  public void setStagione(ToggleGroup stagione) {
+<span class="fc" id="L559">    this.stagione = stagione;</span>
+<span class="fc" id="L560">  }</span>
+
+  public void setTipoSupermerc(ToggleGroup tipoSupermerc) {
+<span class="fc" id="L563">    this.tipoSupermerc = tipoSupermerc;</span>
+<span class="fc" id="L564">  }</span>
+
+  public static Prodotto getProdotto() {
+<span class="nc" id="L567">    return prodotto;</span>
+  }
+
+  public static void setProdotto(Prodotto prodotto) {
+<span class="fc" id="L571">    MagazzinoController.prodotto = prodotto;</span>
+<span class="fc" id="L572">  }</span>
+
+  public static Prodotto getTempProdotto() {
+<span class="nc" id="L575">    return tempProdotto;</span>
+  }
+
+  public static void setTempProdotto(Prodotto tempProdotto) {
+<span class="fc" id="L579">    MagazzinoController.tempProdotto = tempProdotto;</span>
+<span class="fc" id="L580">  }</span>
+
+  public TextField getNomeProd() {
+<span class="nc" id="L583">    return nomeProd;</span>
+  }
+
+  public void setNomeProd(String nomeProd) {
+<span class="fc" id="L587">    this.nomeProd = new TextField();</span>
+<span class="fc" id="L588">    this.nomeProd.setText(nomeProd);</span>
+<span class="fc" id="L589">  }</span>
+
+  public TextField getPrezzoProd() {
+<span class="nc" id="L592">    return prezzoProd;</span>
+  }
+
+  public void setPrezzoProd(String prezzoProd) {
+<span class="fc" id="L596">    this.prezzoProd = new TextField();</span>
+<span class="fc" id="L597">    this.prezzoProd.setText(prezzoProd);</span>
+<span class="fc" id="L598">  }</span>
+
+  public TextField getCodiceProd() {
+<span class="nc" id="L601">    return codiceProd;</span>
+  }
+
+  public void setCodiceProd(String codiceProd) {
+<span class="fc" id="L605">    this.codiceProd = new TextField();</span>
+<span class="fc" id="L606">    this.codiceProd.setText(codiceProd);</span>
+<span class="fc" id="L607">  }</span>
+
+  public TextField getQuantitaProd() {
+<span class="nc" id="L610">    return quantitaProd;</span>
+  }
+
+  public void setQuantitaProd(String quantitaProd) {
+<span class="fc" id="L614">    this.quantitaProd = new TextField();</span>
+<span class="fc" id="L615">    this.quantitaProd.setText(quantitaProd);</span>
+<span class="fc" id="L616">  }</span>
+
+  public TextField getRiepilogoNuovoProdotto() {
+<span class="fc" id="L619">    return riepilogoNuovoProdotto;</span>
+  }
+
+  public void setRiepilogoNuovoProdotto(String riepilogoNuovoProdotto) {
+<span class="nc" id="L623">    this.riepilogoNuovoProdotto = new TextField();</span>
+<span class="nc" id="L624">    this.riepilogoNuovoProdotto.setText(riepilogoNuovoProdotto);</span>
+<span class="nc" id="L625">  }</span>
+
+  public TextField getRiepilogoProdotto() {
+<span class="fc" id="L628">    return riepilogoProdotto;</span>
+  }
+
+  public void setRiepilogoProdotto(String riepilogoProdotto) {
+<span class="nc" id="L632">    this.riepilogoProdotto = new TextField();</span>
+<span class="nc" id="L633">    this.riepilogoProdotto.setText(riepilogoProdotto);</span>
+<span class="nc" id="L634">  }</span>
+
+  public Label getLabelNomeProd() {
+<span class="fc" id="L637">    return labelNomeProd;</span>
+  }
+
+  public void setLabelNomeProd(String labelNomeProd) {
+<span class="nc" id="L641">    this.labelNomeProd = new Label();</span>
+<span class="nc" id="L642">    this.labelNomeProd.setText(labelNomeProd);</span>
+<span class="nc" id="L643">  }</span>
+
+  public Label getLabelPrezzoProd() {
+<span class="nc" id="L646">    return labelPrezzoProd;</span>
+  }
+
+  public void setLabelPrezzoProd(String labelPrezzoProd) {
+<span class="nc" id="L650">    this.labelPrezzoProd = new Label();</span>
+<span class="nc" id="L651">    this.labelPrezzoProd.setText(labelPrezzoProd);</span>
+<span class="nc" id="L652">  }</span>
+
+  public Label getLabelOrdineCalcSugg() {
+<span class="nc" id="L655">    return labelOrdineCalcSugg;</span>
+  }
+
+  public void setLabelOrdineCalcSugg(String labelOrdineCalcSugg) {
+<span class="nc" id="L659">    this.labelOrdineCalcSugg = new Label();</span>
+<span class="nc" id="L660">    this.labelOrdineCalcSugg.setText(labelOrdineCalcSugg);</span>
+<span class="nc" id="L661">  }</span>
+
+  public Label getLabelNomeProdSugg() {
+<span class="fc" id="L664">    return labelNomeProdSugg;</span>
+  }
+
+  public void setLabelNomeProdSugg(String labelNomeProdSugg) {
+<span class="nc" id="L668">    this.labelNomeProdSugg = new Label();</span>
+<span class="nc" id="L669">    this.labelNomeProdSugg.setText(labelNomeProdSugg);</span>
+<span class="nc" id="L670">  }</span>
+
+  public Label getLabelQuantitaProdSugg() {
+<span class="nc" id="L673">    return labelQuantitaProdSugg;</span>
+  }
+
+  public void setLabelQuantitaProdSugg(String labelQuantitaProdSugg) {
+<span class="nc" id="L677">    this.labelQuantitaProdSugg = new Label();</span>
+<span class="nc" id="L678">    this.labelQuantitaProdSugg.setText(labelQuantitaProdSugg);</span>
+<span class="nc" id="L679">  }</span>
+
+  public TextField getTipologiaProd() {
+<span class="nc" id="L682">    return tipologiaProd;</span>
+  }
+
+  public void setTipologiaProd(String tipologiaProd) {
+<span class="fc" id="L686">    this.tipologiaProd = new TextField();</span>
+<span class="fc" id="L687">    this.tipologiaProd.setText(tipologiaProd);</span>
+<span class="fc" id="L688">  }</span>
+
+  public TextField getPrezzoSped() {
+<span class="nc" id="L691">    return prezzoSped;</span>
+  }
+
+  public void setPrezzoSped(String prezzoSped) {
+<span class="fc" id="L695">    this.prezzoSped = new TextField();</span>
+<span class="fc" id="L696">    this.prezzoSped.setText(prezzoSped);</span>
+<span class="fc" id="L697">  }</span>
+
+  public RadioButton getPiccolaDim() {
+<span class="nc" id="L700">    return piccolaDim;</span>
+  }
+
+  public void setPiccolaDim(boolean piccolaDim) {
+<span class="nc" id="L704">    this.piccolaDim = new RadioButton();</span>
+<span class="nc" id="L705">    this.piccolaDim.setSelected(piccolaDim);</span>
+<span class="nc" id="L706">  }</span>
+
+  public RadioButton getMedioDim() {
+<span class="nc" id="L709">    return medioDim;</span>
+  }
+
+  public void setMedioDim(boolean medioDim) {
+<span class="nc" id="L713">    this.medioDim = new RadioButton();</span>
+<span class="nc" id="L714">    this.medioDim.setSelected(medioDim);</span>
+<span class="nc" id="L715">  }</span>
+
+  public RadioButton getGrandeDim() {
+<span class="nc" id="L718">    return grandeDim;</span>
+  }
+
+  public void setGrandeDim(boolean grandeDim) {
+<span class="nc" id="L722">    this.grandeDim = new RadioButton();</span>
+<span class="nc" id="L723">    this.grandeDim.setSelected(grandeDim);</span>
+<span class="nc" id="L724">  }</span>
+
+  public RadioButton getBreveSca() {
+<span class="nc" id="L727">    return breveSca;</span>
+  }
+
+  public void setBreveSca(boolean breveSca) {
+<span class="nc" id="L731">    this.breveSca = new RadioButton();</span>
+<span class="nc" id="L732">    this.breveSca.setSelected(breveSca);</span>
+<span class="nc" id="L733">  }</span>
+
+  public RadioButton getMediaSca() {
+<span class="nc" id="L736">    return mediaSca;</span>
+  }
+
+  public void setMediaSca(boolean mediaSca) {
+<span class="nc" id="L740">    this.mediaSca = new RadioButton();</span>
+<span class="nc" id="L741">    this.mediaSca.setSelected(mediaSca);</span>
+<span class="nc" id="L742">  }</span>
+
+  public RadioButton getLungaSca() {
+<span class="nc" id="L745">    return lungaSca;</span>
+  }
+
+  public void setLungaSca(boolean lungaSca) {
+<span class="nc" id="L749">    this.lungaSca = new RadioButton();</span>
+<span class="nc" id="L750">    this.lungaSca.setSelected(lungaSca);</span>
+<span class="nc" id="L751">  }</span>
+
+  public RadioButton getPrimavera() {
+<span class="nc" id="L754">    return primavera;</span>
+  }
+
+  public void setPrimavera(boolean primavera) {
+<span class="nc" id="L758">    this.primavera = new RadioButton();</span>
+<span class="nc" id="L759">    this.primavera.setSelected(primavera);</span>
+<span class="nc" id="L760">  }</span>
+
+  public RadioButton getEstate() {
+<span class="nc" id="L763">    return estate;</span>
+  }
+
+  public void setEstate(boolean estate) {
+<span class="nc" id="L767">    this.estate = new RadioButton();</span>
+<span class="nc" id="L768">    this.estate.setSelected(estate);</span>
+<span class="nc" id="L769">  }</span>
+
+  public RadioButton getAutunno() {
+<span class="nc" id="L772">    return autunno;</span>
+  }
+
+  public void setAutunno(boolean autunno) {
+<span class="nc" id="L776">    this.autunno = new RadioButton();</span>
+<span class="nc" id="L777">    this.autunno.setSelected(autunno);</span>
+<span class="nc" id="L778">  }</span>
+
+  public RadioButton getInverno() {
+<span class="nc" id="L781">    return inverno;</span>
+  }
+
+  public void setInverno(boolean inverno) {
+<span class="nc" id="L785">    this.inverno = new RadioButton();</span>
+<span class="nc" id="L786">    this.inverno.setSelected(inverno);</span>
+<span class="nc" id="L787">  }</span>
+
+  public static int getOrdineCalcolato() {
+<span class="nc" id="L790">    return ordineCalcolato;</span>
+  }
+
+  public ToggleGroup getDimensioni() {
+<span class="nc" id="L794">    return dimensioni;</span>
+  }
+
+  public void setDimensioni(RadioButton dimensioni) {
+<span class="fc" id="L798">    this.dimensioni = new ToggleGroup();</span>
+<span class="fc" id="L799">    dimensioni.setToggleGroup(this.dimensioni);</span>
+<span class="fc" id="L800">    this.dimensioni.selectToggle(dimensioni);</span>
+<span class="fc" id="L801">  }</span>
+
+  public ToggleGroup getScadenza() {
+<span class="nc" id="L804">    return scadenza;</span>
+  }
+
+  public void setScadenza(RadioButton scadenza) {
+<span class="fc" id="L808">    this.scadenza = new ToggleGroup();</span>
+<span class="fc" id="L809">    scadenza.setToggleGroup(this.scadenza);</span>
+<span class="fc" id="L810">    this.scadenza.selectToggle(scadenza);</span>
+<span class="fc" id="L811">  }</span>
+
+  public ToggleGroup getStagione() {
+<span class="nc" id="L814">    return stagione;</span>
+  }
+
+  public void setStagione(RadioButton stagione) {
+<span class="fc" id="L818">    this.stagione = new ToggleGroup();</span>
+<span class="fc" id="L819">    stagione.setToggleGroup(this.stagione);</span>
+<span class="fc" id="L820">    this.stagione.selectToggle(stagione);</span>
+<span class="fc" id="L821">  }</span>
+
+  public ToggleGroup getTipoSupermerc() {
+<span class="nc" id="L824">    return tipoSupermerc;</span>
+  }
+
+  public void setTipoSupermerc(RadioButton tipoSupermerc) {
+<span class="fc" id="L828">    this.tipoSupermerc = new ToggleGroup();</span>
+<span class="fc" id="L829">    tipoSupermerc.setToggleGroup(this.tipoSupermerc);</span>
+<span class="fc" id="L830">    this.tipoSupermerc.selectToggle(tipoSupermerc);</span>
+<span class="fc" id="L831">  }</span>
+
+  public void setFestivita(ToggleGroup festivita) {
+<span class="fc" id="L834">    this.festivita = festivita;</span>
+<span class="fc" id="L835">  }</span>
+
+  public void setFestivita(RadioButton festivita) {
+<span class="fc" id="L838">    this.festivita = new ToggleGroup();</span>
+<span class="fc" id="L839">    festivita.setToggleGroup(this.festivita);</span>
+<span class="fc" id="L840">    this.festivita.selectToggle(festivita);</span>
+<span class="fc" id="L841">  }</span>
+
+  public static void setOrdineCalcolato(int ordineCalcolato) {
+<span class="nc" id="L844">    MagazzinoController.ordineCalcolato = ordineCalcolato;</span>
+<span class="nc" id="L845">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
