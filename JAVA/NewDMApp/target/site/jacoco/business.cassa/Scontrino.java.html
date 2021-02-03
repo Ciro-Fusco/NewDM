@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Scontrino.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NewDMApp</a> &gt; <a href="index.source.html" class="el_package">business.cassa</a> &gt; <span class="el_source">Scontrino.java</span></div><h1>Scontrino.java</h1><pre class="source lang-java linenums">package business.cassa;
 
-import persistenza.ScontrinoDao;
+import persistenza.dao.ScontrinoDao;
 import business.inventario.Prodotto;
 import exceptions.*;
 
@@ -10,21 +10,25 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Lo Scontrino che viene emesso al termine degli acquisti. */
+/**
+ * Lo Scontrino che viene emesso al termine degli acquisti.
+ */
 public class Scontrino implements Serializable {
 
   private List&lt;Prodotto&gt; prodottoList;
-<span class="fc" id="L17">  private double tot = 0;</span>
+<span class="fc" id="L19">  private double tot = 0;</span>
   private double resto;
   private double versato;
   private String data;
-<span class="fc" id="L21">  private String riepilogo = &quot;&quot;;</span>
+<span class="fc" id="L23">  private String riepilogo = &quot;&quot;;</span>
   private long id;
 
-  /** Crea uno scontrino vuoto alla data corrente */
-<span class="fc" id="L25">  public Scontrino() {</span>
-<span class="fc" id="L26">    this.data = setData();</span>
-<span class="fc" id="L27">  }</span>
+  /**
+   * Crea uno scontrino vuoto alla data corrente
+   */
+<span class="fc" id="L29">  public Scontrino() {</span>
+<span class="fc" id="L30">    this.data = setData();</span>
+<span class="fc" id="L31">  }</span>
 
   /**
    * Inizializza la data dello scontrino alla data corrente
@@ -32,9 +36,9 @@ public class Scontrino implements Serializable {
    * @return La stringa contenente la data corrente
    */
   private String setData() {
-<span class="fc" id="L35">    LocalDateTime date = LocalDateTime.now();</span>
-<span class="fc" id="L36">    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy HH:mm:ss&quot;);</span>
-<span class="fc" id="L37">    return date.format(myFormatObj);</span>
+<span class="fc" id="L39">    LocalDateTime date = LocalDateTime.now();</span>
+<span class="fc" id="L40">    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy HH:mm:ss&quot;);</span>
+<span class="fc" id="L41">    return date.format(myFormatObj);</span>
   }
 
   /**
@@ -43,136 +47,149 @@ public class Scontrino implements Serializable {
    *
    * @param cod codice del prodotto
    * @throws ProdottoNotFoundException Il codice inserito non corrisponde ad alcun prodotto.
-   * @throws DatabaseException Errore del Database
+   * @throws DatabaseException         Errore del Database
    */
   public void addProdotto(Long cod)
-      throws ProdottoNotFoundException, DatabaseException, ProdottoException {
-<span class="fc bfc" id="L50" title="All 2 branches covered.">    if (prodottoList == null) {</span>
-<span class="fc" id="L51">      prodottoList = new ArrayList&lt;Prodotto&gt;();</span>
+          throws ProdottoNotFoundException, DatabaseException, ProdottoException {
+<span class="fc bfc" id="L54" title="All 2 branches covered.">    if (prodottoList == null) {</span>
+<span class="fc" id="L55">      prodottoList = new ArrayList&lt;Prodotto&gt;();</span>
     }
-<span class="fc" id="L53">    Prodotto p = Prodotto.search(cod);</span>
-<span class="fc bfc" id="L54" title="All 2 branches covered.">    if (prodottoList.contains(p)) {</span>
-<span class="fc" id="L55">      p = prodottoList.get(prodottoList.indexOf(p));</span>
-<span class="fc" id="L56">      riepilogo =</span>
-<span class="fc" id="L57">          riepilogo.replaceFirst(</span>
-<span class="fc" id="L58">              p.getNome()</span>
-                  + &quot;   x &quot;
-<span class="fc" id="L60">                  + p.getAcquistato()</span>
-                  + &quot;     € &quot;
-<span class="fc" id="L62">                  + p.getPrezzo() * p.getAcquistato(),</span>
-<span class="fc" id="L63">              p.getNome()</span>
-                  + &quot;   x &quot;
-<span class="fc" id="L65">                  + p.updateAcquistato(1)</span>
-                  + &quot;     € &quot;
-<span class="fc" id="L67">                  + p.getPrezzo() * p.getAcquistato());</span>
+<span class="fc" id="L57">    Prodotto p = Prodotto.search(cod);</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">    if (prodottoList.contains(p)) {</span>
+<span class="fc" id="L59">      p = prodottoList.get(prodottoList.indexOf(p));</span>
+<span class="fc" id="L60">      riepilogo =</span>
+<span class="fc" id="L61">              riepilogo.replaceFirst(</span>
+<span class="fc" id="L62">                      p.getNome()</span>
+                              + &quot;   x &quot;
+<span class="fc" id="L64">                              + p.getAcquistato()</span>
+                              + &quot;     € &quot;
+<span class="fc" id="L66">                              + p.getPrezzo() * p.getAcquistato(),</span>
+<span class="fc" id="L67">                      p.getNome()</span>
+                              + &quot;   x &quot;
+<span class="fc" id="L69">                              + p.updateAcquistato(1)</span>
+                              + &quot;     € &quot;
+<span class="fc" id="L71">                              + p.getPrezzo() * p.getAcquistato());</span>
     } else {
-<span class="fc" id="L69">      prodottoList.add(p);</span>
-<span class="fc" id="L70">      riepilogo +=</span>
-          &quot;\n&quot;
-<span class="fc" id="L72">              + p.getNome()</span>
-              + &quot;   x &quot;
-<span class="fc" id="L74">              + p.updateAcquistato(1)</span>
-              + &quot;     € &quot;
-<span class="fc" id="L76">              + p.getPrezzo() * p.getAcquistato();</span>
+<span class="fc" id="L73">      prodottoList.add(p);</span>
+<span class="fc" id="L74">      riepilogo +=</span>
+              &quot;\n&quot;
+<span class="fc" id="L76">                      + p.getNome()</span>
+                      + &quot;   x &quot;
+<span class="fc" id="L78">                      + p.updateAcquistato(1)</span>
+                      + &quot;     € &quot;
+<span class="fc" id="L80">                      + p.getPrezzo() * p.getAcquistato();</span>
     }
-<span class="fc" id="L78">  }</span>
+<span class="fc" id="L82">  }</span>
 
-  /** Calcola il totale dello scontrino */
+  /**
+   * Calcola il totale dello scontrino
+   */
   public void calcolaTot() {
-<span class="fc" id="L82">    this.tot = 0;</span>
-<span class="fc" id="L83">    prodottoList.forEach(</span>
-        (p) -&gt; {
-<span class="fc" id="L85">          this.tot += p.getPrezzo() * p.getAcquistato();</span>
-<span class="fc" id="L86">        });</span>
-<span class="fc" id="L87">  }</span>
-
-  /** Calcola il resto da dare al Cliente */
-  public void calcolaResto() {
-
-<span class="fc" id="L92">    this.resto = this.versato - this.tot;</span>
+<span class="fc" id="L88">    this.tot = 0;</span>
+<span class="fc" id="L89">    prodottoList.forEach(</span>
+            (p) -&gt; {
+<span class="fc" id="L91">              this.tot += p.getPrezzo() * p.getAcquistato();</span>
+<span class="fc" id="L92">            });</span>
 <span class="fc" id="L93">  }</span>
 
   /**
+   * Calcola il resto da dare al Cliente
+   */
+  public void calcolaResto() {
+
+<span class="fc" id="L100">    this.resto = this.versato - this.tot;</span>
+<span class="fc" id="L101">  }</span>
+
+  /**
    * Imposta l'importo versato dal cliente, se l'importo non è sufficiente lancia eccezione
+   *
    * @param versato l'importo dato dal cliente
    * @throws ScontrinoException Importo pagato non sufficiente
    */
   public void setVersato(double versato) throws ScontrinoException {
-<span class="fc bfc" id="L101" title="All 2 branches covered.">    if (versato &lt; this.tot) {</span>
-<span class="fc" id="L102">      throw new ScontrinoException(&quot;Importo versato non sufficiente&quot;);</span>
+<span class="fc bfc" id="L110" title="All 2 branches covered.">    if (versato &lt; this.tot) {</span>
+<span class="fc" id="L111">      throw new ScontrinoException(&quot;Importo versato non sufficiente&quot;);</span>
     }
-<span class="fc" id="L104">    this.versato = versato;</span>
-<span class="fc" id="L105">    calcolaResto();</span>
-<span class="fc" id="L106">  }</span>
+<span class="fc" id="L113">    this.versato = versato;</span>
+<span class="fc" id="L114">    calcolaResto();</span>
+<span class="fc" id="L115">  }</span>
 
   /**
    * Restituisce il totale dello Scontrino
+   *
    * @return il totale dello Scontrino
    */
   public double getTot() {
-<span class="fc" id="L113">    return tot;</span>
+<span class="fc" id="L123">    return tot;</span>
   }
 
   /**
    * Restituisce il resto da dare al cliente
+   *
    * @return il resto da dare al cliente
    */
   public double getResto() {
-<span class="fc" id="L121">    return resto;</span>
+<span class="fc" id="L132">    return resto;</span>
   }
 
   /**
    * Restituisce l'importo versato dal cliente
+   *
    * @return l'importo versato dal cliente
    */
   public double getVersato() {
-<span class="fc" id="L129">    return versato;</span>
+<span class="fc" id="L141">    return versato;</span>
   }
 
   /**
    * Restituisce la data di apertura dello Scontrino
+   *
    * @return la data di apertura dello Scontrino
    */
   public String getData() {
-<span class="fc" id="L137">    return data;</span>
+<span class="fc" id="L150">    return data;</span>
   }
 
   public void setDataSbagliataTEST() {
-<span class="fc" id="L141">    LocalDateTime date = LocalDateTime.of(1999, 06, 05, 00, 00);</span>
-<span class="fc" id="L142">    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy HH:mm:ss&quot;);</span>
-<span class="fc" id="L143">    this.data = date.format(myFormatObj);</span>
-<span class="fc" id="L144">  }</span>
+<span class="fc" id="L154">    LocalDateTime date = LocalDateTime.of(1999, 06, 05, 00, 00);</span>
+<span class="fc" id="L155">    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy HH:mm:ss&quot;);</span>
+<span class="fc" id="L156">    this.data = date.format(myFormatObj);</span>
+<span class="fc" id="L157">  }</span>
 
   /**
    * Restituisce il riepilogo dei prodotti inseriti nello Scontrino
+   *
    * @return il riepilogo dello scontrino
    */
   public String getRiepilogo() {
-<span class="fc" id="L151">    return riepilogo;</span>
+<span class="fc" id="L165">    return riepilogo;</span>
   }
 
   /**
    * Imposta l'id dello Scontrino
+   *
    * @param id l'id dello scontrino
    */
   public void setId(int id) {
-<span class="fc" id="L159">    this.id = id;</span>
-<span class="fc" id="L160">  }</span>
+<span class="fc" id="L174">    this.id = id;</span>
+<span class="fc" id="L175">  }</span>
 
   /**
    * Restituisce l'id dello Scontrino
+   *
    * @return l'id dello Scontrino
    */
   public long getId() {
-<span class="fc" id="L167">    return id;</span>
+<span class="fc" id="L183">    return id;</span>
   }
 
   /**
    * Restituisce la lista di prodotti inseriti nello Scontrino
+   *
    * @return la lista dei prodotti
    */
   public List&lt;Prodotto&gt; getList() {
-<span class="fc" id="L175">    return prodottoList;</span>
+<span class="fc" id="L192">    return prodottoList;</span>
   }
 
   /**
@@ -181,28 +198,30 @@ public class Scontrino implements Serializable {
    * @throws DatabaseException Errore nel Database
    */
   public void save() throws DatabaseException {
-<span class="fc" id="L184">    ScontrinoDao.save(this);</span>
-<span class="fc" id="L185">  }</span>
+<span class="fc" id="L201">    ScontrinoDao.save(this);</span>
+<span class="fc" id="L202">  }</span>
 
   /**
    * Verifica l'esistenza di uno Scontrino.
-   * @param codice il codice dello scontrino da verificare
+   *
+   * @param codice        il codice dello scontrino da verificare
    * @param dataScontrino la data dello scontrino da verificare
    * @throws ScontrinoException Errore nella ricerca dello scontrino
-    * @throws DatabaseException Errore del database
+   * @throws DatabaseException  Errore del database
    */
   public static void checkScontrino(long codice, String dataScontrino)
-      throws ScontrinoException, DatabaseException {
-<span class="fc" id="L196">    ScontrinoDao.checkScontrino(codice, dataScontrino);</span>
-<span class="fc" id="L197">  }</span>
+          throws ScontrinoException, DatabaseException {
+<span class="fc" id="L214">    ScontrinoDao.checkScontrino(codice, dataScontrino);</span>
+<span class="fc" id="L215">  }</span>
 
   /**
    * Metodo toString() del Ticket
+   *
    * @return una stringa contenente la conversione canonica dell'oggetto
    */
   @Override
   public String toString() {
-<span class="nc" id="L205">    return &quot;Scontrino{&quot; +</span>
+<span class="nc" id="L224">    return &quot;Scontrino{&quot; +</span>
             &quot;prodottoList=&quot; + prodottoList +
             &quot;, tot=&quot; + tot +
             &quot;, resto=&quot; + resto +

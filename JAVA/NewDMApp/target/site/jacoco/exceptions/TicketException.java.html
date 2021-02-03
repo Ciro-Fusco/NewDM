@@ -2,10 +2,13 @@
 
 import presentazione.AlertMessage;
 
+/**
+ * Eccezione lanciata dai metodi che gestiscono i Ticket
+ */
 public class TicketException extends Exception {
   public TicketException(String message) {
-<span class="fc" id="L7">    super(message);</span>
-<span class="fc" id="L8">    AlertMessage.showError(message);</span>
-<span class="fc" id="L9">  }</span>
+<span class="fc" id="L10">    super(message);</span>
+<span class="fc" id="L11">    AlertMessage.showError(message);</span>
+<span class="fc" id="L12">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
