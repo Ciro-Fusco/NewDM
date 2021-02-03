@@ -233,10 +233,12 @@ public class Prodotto {
    * @throws DatabaseException Errore del Database
    */
   public void leavedbquantity() throws DatabaseException, ProdottoException {
-<span class="pc bpc" id="L236" title="1 of 2 branches missed.">    if (quantity &gt; 0) {</span>
+<span class="fc bfc" id="L236" title="All 2 branches covered.">    if (quantity &gt; 0) {</span>
 <span class="fc" id="L237">      ProdottoDao.leavedbquantity(this);</span>
+    }else {
+<span class="fc" id="L239">      System.out.println();</span>
     }
-<span class="fc" id="L239">  }</span>
+<span class="fc" id="L241">  }</span>
 
   /**
    * Aumenta la quantità di questo prodotto nel persistenza se la quantità da aggiungere è positiva
@@ -246,11 +248,11 @@ public class Prodotto {
    * @throws ProdottoException La quantità deve essere positiva
    */
   public void adddbquantity(int i) throws DatabaseException, ProdottoException {
-<span class="fc bfc" id="L249" title="All 2 branches covered.">    if (i &gt; 0) ProdottoDao.adddbquantity(i, this);</span>
+<span class="fc bfc" id="L251" title="All 2 branches covered.">    if (i &gt; 0) ProdottoDao.adddbquantity(i, this);</span>
     else {
-<span class="fc" id="L251">      throw new ProdottoException(&quot;Inserire un valore maggiore di 0&quot;);</span>
+<span class="fc" id="L253">      throw new ProdottoException(&quot;Inserire un valore maggiore di 0&quot;);</span>
     }
-<span class="fc" id="L253">  }</span>
+<span class="fc" id="L255">  }</span>
 
   /**
    * Salva questo Prodotto nel persistenza. Il prezzo e la quantità del prodotto devono essere positivi
@@ -259,10 +261,10 @@ public class Prodotto {
    * @throws ProdottoException Il prezzo e la quantita del Prodotto devono essere positivi
    */
   public void createProdotto() throws DatabaseException, ProdottoException {
-<span class="fc bfc" id="L262" title="All 4 branches covered.">    if (prezzo &lt;= 0 || quantity &lt;= 0)</span>
-<span class="fc" id="L263">      throw new ProdottoException(&quot;Prezzo e quantità devono essere entrambi positivi&quot;);</span>
-<span class="fc" id="L264">    ProdottoDao.createProdotto(this);</span>
-<span class="fc" id="L265">  }</span>
+<span class="fc bfc" id="L264" title="All 4 branches covered.">    if (prezzo &lt;= 0 || quantity &lt;= 0)</span>
+<span class="fc" id="L265">      throw new ProdottoException(&quot;Prezzo e quantità devono essere entrambi positivi&quot;);</span>
+<span class="fc" id="L266">    ProdottoDao.createProdotto(this);</span>
+<span class="fc" id="L267">  }</span>
 
   /**
    * Modifica il prezzo del Prodotto
@@ -272,15 +274,15 @@ public class Prodotto {
    * @throws ProdottoException Il prezzo deve essere positivo
    */
   public void modificaPrezzo(double prezzo) throws DatabaseException, ProdottoException {
-<span class="fc bfc" id="L275" title="All 2 branches covered.">    if (prezzo &lt; 0) {</span>
-<span class="fc" id="L276">      throw new ProdottoException(&quot;Prezzo nuovo negativo.&quot;);</span>
+<span class="fc bfc" id="L277" title="All 2 branches covered.">    if (prezzo &lt; 0) {</span>
+<span class="fc" id="L278">      throw new ProdottoException(&quot;Prezzo nuovo negativo.&quot;);</span>
     }
-<span class="fc" id="L278">    ProdottoDao.modificaPrezzo(this, prezzo);</span>
-<span class="fc" id="L279">  }</span>
+<span class="fc" id="L280">    ProdottoDao.modificaPrezzo(this, prezzo);</span>
+<span class="fc" id="L281">  }</span>
 
   @Override
   public String toString() {
-<span class="fc" id="L283">    return &quot;Prodotto{&quot;</span>
+<span class="fc" id="L285">    return &quot;Prodotto{&quot;</span>
             + &quot;acquistato=&quot;
             + acquistato
             + &quot;, prezzo=&quot;
@@ -306,15 +308,15 @@ public class Prodotto {
 
   @Override
   public boolean equals(Object o) {
-<span class="fc bfc" id="L309" title="All 2 branches covered.">    if (this == o) return true;</span>
+<span class="fc bfc" id="L311" title="All 2 branches covered.">    if (this == o) return true;</span>
     else {
-<span class="fc bfc" id="L311" title="All 4 branches covered.">      if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc bfc" id="L313" title="All 4 branches covered.">      if (o == null || getClass() != o.getClass()) return false;</span>
       else {
-<span class="fc" id="L313">        Prodotto prodotto = (Prodotto) o;</span>
-<span class="fc bfc" id="L314" title="All 2 branches covered.">        if (getCodice() == prodotto.getCodice()) {</span>
-<span class="fc" id="L315">          return true;</span>
+<span class="fc" id="L315">        Prodotto prodotto = (Prodotto) o;</span>
+<span class="fc bfc" id="L316" title="All 2 branches covered.">        if (getCodice() == prodotto.getCodice()) {</span>
+<span class="fc" id="L317">          return true;</span>
         } else {
-<span class="fc" id="L317">          return false;</span>
+<span class="fc" id="L319">          return false;</span>
         }
       }
     }
@@ -327,13 +329,13 @@ public class Prodotto {
    * @throws DatabaseException Errore del database
    */
   public boolean eliminaProdotto() throws DatabaseException {
-<span class="nc" id="L330">    return ProdottoDao.eliminaProdotto(this);</span>
+<span class="nc" id="L332">    return ProdottoDao.eliminaProdotto(this);</span>
   }
 
   //PER TESTING
 
   public void setQuantitySenzaControllo(int quantity) throws ProdottoException {
-<span class="nc" id="L336">    this.quantity = quantity;</span>
-<span class="nc" id="L337">  }</span>
+<span class="fc" id="L338">    this.quantity = quantity;</span>
+<span class="fc" id="L339">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

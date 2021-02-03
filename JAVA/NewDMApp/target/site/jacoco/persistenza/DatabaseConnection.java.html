@@ -27,14 +27,14 @@ public class DatabaseConnection {
                 &quot;jdbc:mysql://localhost:3306/NEGOZIO?&quot;
                         + &quot;allowPublicKeyRetrieval=true&amp;&amp;useSSL=false&amp;serverTimezone=UTC&quot;;
 <span class="fc" id="L29">        String username = &quot;root&quot;;</span>
-<span class="fc" id="L30">        String pwd = &quot;One_plus3t&quot;;</span>
+<span class="fc" id="L30">        String pwd = &quot;federernadal&quot;;</span>
 <span class="fc" id="L31">        con = DriverManager.getConnection(url, username, pwd);</span>
 <span class="fc" id="L32">      } else {</span>
 <span class="fc" id="L33">        System.out.println();</span>
       }
-<span class="nc" id="L35">    } catch (SQLException e) {</span>
-<span class="nc" id="L36">      e.printStackTrace();</span>
-<span class="nc" id="L37">      throw new DatabaseException(&quot;Connessione al Database non riuscita&quot;);</span>
+<span class="fc" id="L35">    } catch (SQLException e) {</span>
+<span class="fc" id="L36">      e.printStackTrace();</span>
+<span class="fc" id="L37">      throw new DatabaseException(&quot;Connessione al Database non riuscita&quot;);</span>
 <span class="nc" id="L38">    } catch (ClassNotFoundException e) {</span>
 <span class="nc" id="L39">      e.printStackTrace();</span>
 <span class="fc" id="L40">    }</span>

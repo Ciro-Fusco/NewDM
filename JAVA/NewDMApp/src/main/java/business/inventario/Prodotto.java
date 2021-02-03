@@ -235,6 +235,8 @@ public class Prodotto {
   public void leavedbquantity() throws DatabaseException, ProdottoException {
     if (quantity > 0) {
       ProdottoDao.leavedbquantity(this);
+    }else {
+      System.out.println();
     }
   }
 

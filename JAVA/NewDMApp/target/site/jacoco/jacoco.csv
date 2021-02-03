@@ -1,7 +1,7 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 NewDMApp,business.fornitura,RichiestaAcquisto,38,46,0,0,4,19,3,10,3,10
-NewDMApp,persistenza,DatabaseConnection,19,46,0,6,8,21,0,9,0,6
-NewDMApp,business.inventario,Prodotto,7,254,1,21,3,62,3,36,2,26
+NewDMApp,persistenza,DatabaseConnection,11,54,0,6,5,24,0,9,0,6
+NewDMApp,business.inventario,Prodotto,3,261,0,22,1,65,1,38,1,27
 NewDMApp,business.inventario,MagazzinoController,390,601,0,48,148,163,70,61,70,37
 NewDMApp,persistenza.dao,RichiestaAcquistoDao,11,55,0,0,4,14,1,1,1,1
 NewDMApp,persistenza.dao,ElencaDao,19,81,0,4,7,22,1,4,1,2
