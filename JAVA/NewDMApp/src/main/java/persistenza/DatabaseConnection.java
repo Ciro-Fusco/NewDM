@@ -5,9 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * Crea la connessione al database. Singleton.
- */
+/** Crea la connessione al database. Singleton. */
 public class DatabaseConnection {
   private static Connection con = null;
   private static DatabaseConnection instance = null;
@@ -24,8 +22,8 @@ public class DatabaseConnection {
         // caricamento e registrazione driver
         Class.forName("com.mysql.cj.jdbc.Driver"); // Carica il driver
         String url =
-                "jdbc:mysql://localhost:3306/NEGOZIO?"
-                        + "allowPublicKeyRetrieval=true&&useSSL=false&serverTimezone=UTC";
+            "jdbc:mysql://localhost:3306/NEGOZIO?"
+                + "allowPublicKeyRetrieval=true&&useSSL=false&serverTimezone=UTC";
         String username = "root";
         String pwd = "federernadal";
         con = DriverManager.getConnection(url, username, pwd);
@@ -40,11 +38,8 @@ public class DatabaseConnection {
     }
   }
 
-  /**
-   * Costruttore per il singleton
-   */
-  private DatabaseConnection() {
-  }
+  /** Costruttore per il singleton */
+  private DatabaseConnection() {}
 
   /**
    * Restituisce l'istanza di DatabaseConnection
@@ -84,7 +79,7 @@ public class DatabaseConnection {
     return con;
   }
 
-  //METODO PER IL TEST
+  // METODO PER IL TEST
   public static DatabaseConnection getInstanceTEST() throws DatabaseException {
     return instance;
   }

@@ -91,8 +91,8 @@ public class MagazzinoController implements Initializable {
   /**
    * Apre la dashboard del magazzino.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   public void openDashboardMagazzino(MouseEvent mouseEvent) throws IOException {
     App.setRoot("DashboardMagazzino");
@@ -103,8 +103,8 @@ public class MagazzinoController implements Initializable {
   /**
    * Apre la dashboard iniziale.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    * @throws DatabaseException Errore del Database
    */
   public void openDashboard(MouseEvent mouseEvent) throws IOException, DatabaseException {
@@ -115,8 +115,8 @@ public class MagazzinoController implements Initializable {
   /**
    * Apre il form per la modifica della quantità di un prodotto.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   @FXML
   public void openInserisciProdotto(MouseEvent mouseEvent) throws Exception {
@@ -126,8 +126,8 @@ public class MagazzinoController implements Initializable {
   /**
    * Apre il form per l'inserimento di un nuovo prodotto.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   @FXML
   public void openInserisciNuovoProdotto(MouseEvent mouseEvent) throws Exception {
@@ -137,8 +137,8 @@ public class MagazzinoController implements Initializable {
   /**
    * Apre il form per la creazione di una nuova richiesta d'acquisto.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   @FXML
   public void openOrdinaProdotto(MouseEvent mouseEvent) throws Exception {
@@ -148,8 +148,8 @@ public class MagazzinoController implements Initializable {
   /**
    * Apre il form per la modifica del prezzo di un prodotto.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   @FXML
   public void openModificaPrezzo(MouseEvent mouseEvent) throws Exception {
@@ -163,8 +163,8 @@ public class MagazzinoController implements Initializable {
   /**
    * Apre la schermata di riepilogo della quantità del prodotto modificata.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    * @throws ProdottoException Prodotto non trovato
    * @throws DatabaseException Errore nel Database
    */
@@ -196,8 +196,8 @@ public class MagazzinoController implements Initializable {
   /**
    * Esegue l'aggiornamento della quantità del prodotto.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   public void inserisciProdotto(MouseEvent mouseEvent)
       throws DatabaseException, IOException, ProdottoException {
@@ -213,8 +213,8 @@ public class MagazzinoController implements Initializable {
   /**
    * Apre la schermata di riepilogo dell'inserimento del nuovo prodotto.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   public void openNuovoProdottoRiepilogo(MouseEvent mouseEvent)
       throws IOException, ProdottoException {
@@ -270,8 +270,8 @@ public class MagazzinoController implements Initializable {
   /**
    * Esegue il salvataggio del nuovo prodotto.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   public void inserisciNuovoProdotto(MouseEvent mouseEvent)
       throws DatabaseException, IOException, ProdottoException {
@@ -287,8 +287,8 @@ public class MagazzinoController implements Initializable {
   /**
    * Esegue la modifica del prezzo del prodotto.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   public void aggiornaPrezzo(MouseEvent mouseEvent)
       throws DatabaseException, ProdottoException, IOException {
@@ -307,8 +307,8 @@ public class MagazzinoController implements Initializable {
   /**
    * Apre la schermata per l'inserimento del nuovo prezzo.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   public void openModificaPrezzoPopUp(MouseEvent mouseEvent)
       throws ProdottoException, DatabaseException, IOException {
@@ -329,8 +329,8 @@ public class MagazzinoController implements Initializable {
   /**
    * Apre la schermata di suggerimento per la richiesta d'acquisto.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   public void cercaProdottoOrdinaProd(MouseEvent mouseEvent)
       throws DatabaseException, ProdottoException, IOException {
@@ -375,8 +375,8 @@ public class MagazzinoController implements Initializable {
   /**
    * Apre il form per l'inserimento manuale della quantità per la nuova richiesta d'acquisto.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   @FXML
   public void openOrdinaProdottoManu(ActionEvent mouseEvent) throws Exception {
@@ -386,8 +386,8 @@ public class MagazzinoController implements Initializable {
   /**
    * Esegue il salvataggio della richiesta d'acquisto con quantità suggerita.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    * @throws DatabaseException Errore nel Database
    */
   @FXML
@@ -403,8 +403,8 @@ public class MagazzinoController implements Initializable {
   /**
    * Esegue il salvataggio della richiesta d'acquisto con la quantità inserita manualmente.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    * @throws DatabaseException Errore nel Database
    */
   @FXML
@@ -430,40 +430,99 @@ public class MagazzinoController implements Initializable {
     this.nomeProd = nomeProd;
   }
 
+  public void setNomeProd(String nomeProd) {
+    this.nomeProd = new TextField();
+    this.nomeProd.setText(nomeProd);
+  }
+
   public void setPrezzoProd(TextField prezzoProd) {
     this.prezzoProd = prezzoProd;
+  }
+
+  public void setPrezzoProd(String prezzoProd) {
+    this.prezzoProd = new TextField();
+    this.prezzoProd.setText(prezzoProd);
   }
 
   public void setCodiceProd(TextField codiceProd) {
     this.codiceProd = codiceProd;
   }
 
+  public void setCodiceProd(String codiceProd) {
+    this.codiceProd = new TextField();
+    this.codiceProd.setText(codiceProd);
+  }
+
   public void setQuantitaProd(TextField quantitaProd) {
     this.quantitaProd = quantitaProd;
+  }
+
+  public void setQuantitaProd(String quantitaProd) {
+    this.quantitaProd = new TextField();
+    this.quantitaProd.setText(quantitaProd);
+  }
+
+  public TextField getQuantitaProd() {
+    return quantitaProd;
   }
 
   public void setRiepilogoNuovoProdotto(TextField riepilogoNuovoProdotto) {
     this.riepilogoNuovoProdotto = riepilogoNuovoProdotto;
   }
 
-  public void setRiepilogoProdotto(TextField riepilogoProdotto) {
-    this.riepilogoProdotto = riepilogoProdotto;
+  public void setRiepilogoNuovoProdotto(String riepilogoNuovoProdotto) {
+    this.riepilogoNuovoProdotto = new TextField();
+    this.riepilogoNuovoProdotto.setText(riepilogoNuovoProdotto);
   }
 
-  public void setLabelNomeProd(Label labelNomeProd) {
-    this.labelNomeProd = labelNomeProd;
-  }
-
-  public void setLabelPrezzoProd(Label labelPrezzoProd) {
-    this.labelPrezzoProd = labelPrezzoProd;
+  public void setLabelOrdineCalcSugg(String labelOrdineCalcSugg) {
+    this.labelOrdineCalcSugg = new Label();
+    this.labelOrdineCalcSugg.setText(labelOrdineCalcSugg);
   }
 
   public void setLabelOrdineCalcSugg(Label labelOrdineCalcSugg) {
     this.labelOrdineCalcSugg = labelOrdineCalcSugg;
   }
 
+  public void setRiepilogoProdotto(TextField riepilogoProdotto) {
+    this.riepilogoProdotto = riepilogoProdotto;
+  }
+
+  public void setRiepilogoProdotto(String riepilogoProdotto) {
+    this.riepilogoProdotto = new TextField();
+    this.riepilogoProdotto.setText(riepilogoProdotto);
+  }
+
+  public void setLabelNomeProd(Label labelNomeProd) {
+    this.labelNomeProd = labelNomeProd;
+  }
+
+  public void setLabelNomeProd(String labelNomeProd) {
+    this.labelNomeProd = new Label();
+    this.labelNomeProd.setText(labelNomeProd);
+  }
+
+  public void setLabelPrezzoProd(Label labelPrezzoProd) {
+    this.labelPrezzoProd = labelPrezzoProd;
+  }
+
+  public void setLabelPrezzoProd(String labelPrezzoProd) {
+    this.labelPrezzoProd = new Label();
+    this.labelPrezzoProd.setText(labelPrezzoProd);
+  }
+
   public void setLabelNomeProdSugg(Label labelNomeProdSugg) {
     this.labelNomeProdSugg = labelNomeProdSugg;
+  }
+
+  public void setLabelNomeProdSugg(String labelNomeProdSugg) {
+    this.labelNomeProdSugg = new Label();
+    this.labelNomeProdSugg.setText(labelNomeProdSugg);
+  }
+
+  public void setLabelQuantitaProdSugg(String labelQuantitaProdSugg) {
+    this.labelQuantitaProdSugg = new Label();
+    this.labelQuantitaProdSugg.setText(labelQuantitaProdSugg);
   }
 
   public void setLabelQuantitaProdSugg(Label labelQuantitaProdSugg) {
@@ -474,32 +533,77 @@ public class MagazzinoController implements Initializable {
     this.tipologiaProd = tipologiaProd;
   }
 
-  public void setPrezzoSped(TextField prezzoSped) {
-    this.prezzoSped = prezzoSped;
+  public void setTipologiaProd(String tipologiaProd) {
+    this.tipologiaProd = new TextField();
+    this.tipologiaProd.setText(tipologiaProd);
   }
 
-  public void setPiccolaDim(RadioButton piccolaDim) {
-    this.piccolaDim = piccolaDim;
+  public void setPrezzoSped(String prezzoSped) {
+    this.prezzoSped = new TextField();
+    this.prezzoSped.setText(prezzoSped);
+  }
+
+  public void setPrezzoSped(TextField prezzoSped) {
+    this.prezzoSped = prezzoSped;
   }
 
   public void setMedioDim(RadioButton medioDim) {
     this.medioDim = medioDim;
   }
 
+  public void setMedioDim(boolean medioDim) {
+    this.medioDim = new RadioButton();
+    this.medioDim.setSelected(medioDim);
+  }
+
+  public void setPiccolaDim(boolean piccolaDim) {
+    this.piccolaDim = new RadioButton();
+    this.piccolaDim.setSelected(piccolaDim);
+  }
+
+  public void setPiccolaDim(RadioButton piccolaDim) {
+    this.piccolaDim = piccolaDim;
+  }
+
+  public void setGrandeDim(boolean grandeDim) {
+    this.grandeDim = new RadioButton();
+    this.grandeDim.setSelected(grandeDim);
+  }
+
   public void setGrandeDim(RadioButton grandeDim) {
     this.grandeDim = grandeDim;
+  }
+
+  public void setBreveSca(boolean breveSca) {
+    this.breveSca = new RadioButton();
+    this.breveSca.setSelected(breveSca);
   }
 
   public void setBreveSca(RadioButton breveSca) {
     this.breveSca = breveSca;
   }
 
+  public void setMediaSca(boolean mediaSca) {
+    this.mediaSca = new RadioButton();
+    this.mediaSca.setSelected(mediaSca);
+  }
+
   public void setMediaSca(RadioButton mediaSca) {
     this.mediaSca = mediaSca;
   }
 
+  public void setLungaSca(boolean lungaSca) {
+    this.lungaSca = new RadioButton();
+    this.lungaSca.setSelected(lungaSca);
+  }
+
   public void setLungaSca(RadioButton lungaSca) {
     this.lungaSca = lungaSca;
+  }
+
+  public void setPrimavera(boolean primavera) {
+    this.primavera = new RadioButton();
+    this.primavera.setSelected(primavera);
   }
 
   public void setPrimavera(RadioButton primavera) {
@@ -510,24 +614,58 @@ public class MagazzinoController implements Initializable {
     this.estate = estate;
   }
 
+  public void setAutunno(boolean autunno) {
+    this.autunno = new RadioButton();
+    this.autunno.setSelected(autunno);
+  }
+
   public void setAutunno(RadioButton autunno) {
     this.autunno = autunno;
+  }
+
+  public void setInverno(boolean inverno) {
+    this.inverno = new RadioButton();
+    this.inverno.setSelected(inverno);
   }
 
   public void setInverno(RadioButton inverno) {
     this.inverno = inverno;
   }
 
+  public void setDimensioni(RadioButton dimensioni) {
+    this.dimensioni = new ToggleGroup();
+    dimensioni.setToggleGroup(this.dimensioni);
+    this.dimensioni.selectToggle(dimensioni);
+  }
+
   public void setDimensioni(ToggleGroup dimensioni) {
     this.dimensioni = dimensioni;
+  }
+
+  public void setScadenza(RadioButton scadenza) {
+    this.scadenza = new ToggleGroup();
+    scadenza.setToggleGroup(this.scadenza);
+    this.scadenza.selectToggle(scadenza);
   }
 
   public void setScadenza(ToggleGroup scadenza) {
     this.scadenza = scadenza;
   }
 
+  public void setStagione(RadioButton stagione) {
+    this.stagione = new ToggleGroup();
+    stagione.setToggleGroup(this.stagione);
+    this.stagione.selectToggle(stagione);
+  }
+
   public void setStagione(ToggleGroup stagione) {
     this.stagione = stagione;
+  }
+
+  public void setTipoSupermerc(RadioButton tipoSupermerc) {
+    this.tipoSupermerc = new ToggleGroup();
+    tipoSupermerc.setToggleGroup(this.tipoSupermerc);
+    this.tipoSupermerc.selectToggle(tipoSupermerc);
   }
 
   public void setTipoSupermerc(ToggleGroup tipoSupermerc) {
@@ -554,207 +692,88 @@ public class MagazzinoController implements Initializable {
     return nomeProd;
   }
 
-  public void setNomeProd(String nomeProd) {
-    this.nomeProd = new TextField();
-    this.nomeProd.setText(nomeProd);
-  }
-
   public TextField getPrezzoProd() {
     return prezzoProd;
-  }
-
-  public void setPrezzoProd(String prezzoProd) {
-    this.prezzoProd = new TextField();
-    this.prezzoProd.setText(prezzoProd);
   }
 
   public TextField getCodiceProd() {
     return codiceProd;
   }
 
-  public void setCodiceProd(String codiceProd) {
-    this.codiceProd = new TextField();
-    this.codiceProd.setText(codiceProd);
-  }
-
-  public TextField getQuantitaProd() {
-    return quantitaProd;
-  }
-
-  public void setQuantitaProd(String quantitaProd) {
-    this.quantitaProd = new TextField();
-    this.quantitaProd.setText(quantitaProd);
-  }
-
   public TextField getRiepilogoNuovoProdotto() {
     return riepilogoNuovoProdotto;
-  }
-
-  public void setRiepilogoNuovoProdotto(String riepilogoNuovoProdotto) {
-    this.riepilogoNuovoProdotto = new TextField();
-    this.riepilogoNuovoProdotto.setText(riepilogoNuovoProdotto);
   }
 
   public TextField getRiepilogoProdotto() {
     return riepilogoProdotto;
   }
 
-  public void setRiepilogoProdotto(String riepilogoProdotto) {
-    this.riepilogoProdotto = new TextField();
-    this.riepilogoProdotto.setText(riepilogoProdotto);
-  }
-
   public Label getLabelNomeProd() {
     return labelNomeProd;
-  }
-
-  public void setLabelNomeProd(String labelNomeProd) {
-    this.labelNomeProd = new Label();
-    this.labelNomeProd.setText(labelNomeProd);
   }
 
   public Label getLabelPrezzoProd() {
     return labelPrezzoProd;
   }
 
-  public void setLabelPrezzoProd(String labelPrezzoProd) {
-    this.labelPrezzoProd = new Label();
-    this.labelPrezzoProd.setText(labelPrezzoProd);
-  }
-
   public Label getLabelOrdineCalcSugg() {
     return labelOrdineCalcSugg;
-  }
-
-  public void setLabelOrdineCalcSugg(String labelOrdineCalcSugg) {
-    this.labelOrdineCalcSugg = new Label();
-    this.labelOrdineCalcSugg.setText(labelOrdineCalcSugg);
   }
 
   public Label getLabelNomeProdSugg() {
     return labelNomeProdSugg;
   }
 
-  public void setLabelNomeProdSugg(String labelNomeProdSugg) {
-    this.labelNomeProdSugg = new Label();
-    this.labelNomeProdSugg.setText(labelNomeProdSugg);
-  }
-
   public Label getLabelQuantitaProdSugg() {
     return labelQuantitaProdSugg;
-  }
-
-  public void setLabelQuantitaProdSugg(String labelQuantitaProdSugg) {
-    this.labelQuantitaProdSugg = new Label();
-    this.labelQuantitaProdSugg.setText(labelQuantitaProdSugg);
   }
 
   public TextField getTipologiaProd() {
     return tipologiaProd;
   }
 
-  public void setTipologiaProd(String tipologiaProd) {
-    this.tipologiaProd = new TextField();
-    this.tipologiaProd.setText(tipologiaProd);
-  }
-
   public TextField getPrezzoSped() {
     return prezzoSped;
-  }
-
-  public void setPrezzoSped(String prezzoSped) {
-    this.prezzoSped = new TextField();
-    this.prezzoSped.setText(prezzoSped);
   }
 
   public RadioButton getPiccolaDim() {
     return piccolaDim;
   }
 
-  public void setPiccolaDim(boolean piccolaDim) {
-    this.piccolaDim = new RadioButton();
-    this.piccolaDim.setSelected(piccolaDim);
-  }
-
   public RadioButton getMedioDim() {
     return medioDim;
-  }
-
-  public void setMedioDim(boolean medioDim) {
-    this.medioDim = new RadioButton();
-    this.medioDim.setSelected(medioDim);
   }
 
   public RadioButton getGrandeDim() {
     return grandeDim;
   }
 
-  public void setGrandeDim(boolean grandeDim) {
-    this.grandeDim = new RadioButton();
-    this.grandeDim.setSelected(grandeDim);
-  }
-
   public RadioButton getBreveSca() {
     return breveSca;
-  }
-
-  public void setBreveSca(boolean breveSca) {
-    this.breveSca = new RadioButton();
-    this.breveSca.setSelected(breveSca);
   }
 
   public RadioButton getMediaSca() {
     return mediaSca;
   }
 
-  public void setMediaSca(boolean mediaSca) {
-    this.mediaSca = new RadioButton();
-    this.mediaSca.setSelected(mediaSca);
-  }
-
   public RadioButton getLungaSca() {
     return lungaSca;
-  }
-
-  public void setLungaSca(boolean lungaSca) {
-    this.lungaSca = new RadioButton();
-    this.lungaSca.setSelected(lungaSca);
   }
 
   public RadioButton getPrimavera() {
     return primavera;
   }
 
-  public void setPrimavera(boolean primavera) {
-    this.primavera = new RadioButton();
-    this.primavera.setSelected(primavera);
-  }
-
   public RadioButton getEstate() {
     return estate;
-  }
-
-  public void setEstate(boolean estate) {
-    this.estate = new RadioButton();
-    this.estate.setSelected(estate);
   }
 
   public RadioButton getAutunno() {
     return autunno;
   }
 
-  public void setAutunno(boolean autunno) {
-    this.autunno = new RadioButton();
-    this.autunno.setSelected(autunno);
-  }
-
   public RadioButton getInverno() {
     return inverno;
-  }
-
-  public void setInverno(boolean inverno) {
-    this.inverno = new RadioButton();
-    this.inverno.setSelected(inverno);
   }
 
   public static int getOrdineCalcolato() {
@@ -765,40 +784,16 @@ public class MagazzinoController implements Initializable {
     return dimensioni;
   }
 
-  public void setDimensioni(RadioButton dimensioni) {
-    this.dimensioni = new ToggleGroup();
-    dimensioni.setToggleGroup(this.dimensioni);
-    this.dimensioni.selectToggle(dimensioni);
-  }
-
   public ToggleGroup getScadenza() {
     return scadenza;
-  }
-
-  public void setScadenza(RadioButton scadenza) {
-    this.scadenza = new ToggleGroup();
-    scadenza.setToggleGroup(this.scadenza);
-    this.scadenza.selectToggle(scadenza);
   }
 
   public ToggleGroup getStagione() {
     return stagione;
   }
 
-  public void setStagione(RadioButton stagione) {
-    this.stagione = new ToggleGroup();
-    stagione.setToggleGroup(this.stagione);
-    this.stagione.selectToggle(stagione);
-  }
-
   public ToggleGroup getTipoSupermerc() {
     return tipoSupermerc;
-  }
-
-  public void setTipoSupermerc(RadioButton tipoSupermerc) {
-    this.tipoSupermerc = new ToggleGroup();
-    tipoSupermerc.setToggleGroup(this.tipoSupermerc);
-    this.tipoSupermerc.selectToggle(tipoSupermerc);
   }
 
   public void setFestivita(ToggleGroup festivita) {

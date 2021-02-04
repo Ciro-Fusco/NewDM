@@ -2,13 +2,11 @@
 
 import presentazione.AlertMessage;
 
-/**
- * Eccezione del database, accorpa tutte le eccezioni generate dal database
- */
+/** Eccezione del database, accorpa tutte le eccezioni generate dal database. */
 public class DatabaseException extends Exception {
   public DatabaseException(String message) {
-<span class="fc" id="L10">    super(message);</span>
-<span class="fc" id="L11">    AlertMessage.showError(message);</span>
-<span class="fc" id="L12">  }</span>
+<span class="fc" id="L8">    super(message);</span>
+<span class="fc" id="L9">    AlertMessage.showError(message);</span>
+<span class="fc" id="L10">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

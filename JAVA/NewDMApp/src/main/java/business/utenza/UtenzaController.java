@@ -8,9 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import presentazione.App;
 
-/**
- * Controller per le interazioni della fase di Login
- */
+/** Controller per le interazioni della fase di Login. */
 public class UtenzaController {
 
   public TextField us;
@@ -22,10 +20,10 @@ public class UtenzaController {
   /////////////////////////// LOGIN
 
   /**
-   * Esegue il login controllando se le credenziali inserite sono valide
+   * Esegue il login controllando se le credenziali inserite sono valide.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   @FXML
   public void checkLogin(MouseEvent mouseEvent) throws Exception {
@@ -54,10 +52,10 @@ public class UtenzaController {
   }
 
   /**
-   * Apre la dashboard iniziale
+   * Apre la dashboard iniziale.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   @FXML
   public void openDashboard(MouseEvent mouseEvent) throws Exception {
@@ -68,10 +66,10 @@ public class UtenzaController {
   /////////////////////////// Dashboard
 
   /**
-   * Apre la schermata di login per il magazzino
+   * Apre la schermata di login per il magazzino.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   @FXML
   public void openMagazzino(MouseEvent mouseEvent) throws Exception {
@@ -82,10 +80,10 @@ public class UtenzaController {
   }
 
   /**
-   * Apre la schermata di login per l'assistenza
+   * Apre la schermata di login per l'assistenza.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   @FXML
   public void openAssistenza(MouseEvent mouseEvent) throws Exception {
@@ -96,10 +94,10 @@ public class UtenzaController {
   }
 
   /**
-   * Apre la schermata di login per la cassa
+   * Apre la schermata di login per la cassa.
    *
-   * @param mouseEvent
-   * @throws IOException
+   * @param mouseEvent mouseEvent
+   * @throws IOException Errore cambio scena
    */
   @FXML
   public void openCassa(MouseEvent mouseEvent) throws Exception {

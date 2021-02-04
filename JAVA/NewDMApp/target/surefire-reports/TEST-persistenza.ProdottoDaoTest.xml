@@ -64,11 +64,11 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="persistenza.ProdottoDaoTest" name="leavedbquantityCorretto" time="0.172"/>
-  <testcase classname="persistenza.ProdottoDaoTest" name="modificaPrezzoCorretto" time="0.187"/>
-  <testcase classname="persistenza.ProdottoDaoTest" name="createProdottoConnesioneErrata" time="0.047"/>
+  <testcase classname="persistenza.ProdottoDaoTest" name="leavedbquantityCorretto" time="0.094"/>
+  <testcase classname="persistenza.ProdottoDaoTest" name="modificaPrezzoCorretto" time="0.171"/>
+  <testcase classname="persistenza.ProdottoDaoTest" name="createProdottoConnesioneErrata" time="0.11"/>
   <testcase classname="persistenza.ProdottoDaoTest" name="createProdottoCorretto" time="0.125"/>
   <testcase classname="persistenza.ProdottoDaoTest" name="searchSbagliatoProdottoNonPresente" time="0"/>
-  <testcase classname="persistenza.ProdottoDaoTest" name="adddbquantityCorretto" time="0.312"/>
-  <testcase classname="persistenza.ProdottoDaoTest" name="searchCorretto" time="0"/>
+  <testcase classname="persistenza.ProdottoDaoTest" name="adddbquantityCorretto" time="0.328"/>
+  <testcase classname="persistenza.ProdottoDaoTest" name="searchCorretto" time="0.015"/>
 </testsuite>

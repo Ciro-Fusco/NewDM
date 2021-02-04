@@ -38,7 +38,7 @@ public class Ticket {
    * @param tipo Tipo di prodotto per cui si chiede assistenza
    * @param nomeProdotto Nome del prodotto per cui si chiede assistenza
    * @param numeroDiSerie Numero di serie del prodotto per cui si richiede assistenza
-   * @param num_tel Numero di telefono del cliente
+   * @param numTel Numero di telefono del cliente
    * @param codiceScontrino Codice dello scontrino di acquisto del prodotto per cui si richiede
    *     assistenza
    * @param dataScontrino Data dello scontrino di acquisto del prodotto per cui si richiede
@@ -57,7 +57,7 @@ public class Ticket {
       String tipo,
       String nomeProdotto,
       String numeroDiSerie,
-      long num_tel,
+      long numTel,
       long codiceScontrino,
       String dataScontrino,
       long codiceProdotto)
@@ -70,7 +70,7 @@ public class Ticket {
     this.nomeProdotto = nomeProdotto;
     this.dataScontrino = dataScontrino;
     this.dataApertura = setDataApertura();
-    this.numTel = num_tel;
+    this.numTel = numTel;
     Scontrino.checkScontrino(codiceScontrino, dataScontrino);
     this.codiceScontrino = codiceScontrino;
     this.dataScontrino = dataScontrino;
@@ -92,6 +92,16 @@ public class Ticket {
     LocalDateTime date = LocalDateTime.now();
     DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     return date.format(myFormatObj);
+  }
+
+  /**
+   * Imposta la data di apertura del Ticket, utile per la creazione di un Ticket a partire da uno
+   * persistente.
+   *
+   * @param dataApertura una stringa contenente la data di apertura del Ticket
+   */
+  public void setDataApertura(String dataApertura) {
+    this.dataApertura = dataApertura;
   }
 
   /**
@@ -257,16 +267,6 @@ public class Ticket {
   }
 
   /**
-   * Imposta la data di apertura del Ticket, utile per la creazione di un Ticket a partire da uno
-   * persistente.
-   *
-   * @param dataApertura una stringa contenente la data di apertura del Ticket
-   */
-  public void setDataApertura(String dataApertura) {
-    this.dataApertura = dataApertura;
-  }
-
-  /**
    * Restituisce la data dello Scontrino.
    *
    * @return la data dello Scontrino
@@ -342,15 +342,15 @@ public class Ticket {
    * Cerca un Ticket dati tutti i parametri.
    *
    * @param apertura Data di apertura del Ticket
-   * @param CF Codice Fiscale del Cliente
+   * @param cf Codice Fiscale del Cliente
    * @param serie Numero di Serie del Prodotto
    * @return il Ticket cercato
    * @throws DatabaseException Errore del Database
    * @throws TicketException Errore nella ricerca del Ticket
    */
-  public static Ticket getTicket(String apertura, String CF, String serie)
+  public static Ticket getTicket(String apertura, String cf, String serie)
       throws DatabaseException, TicketException {
-    return TicketDao.getTicket(apertura, CF, serie);
+    return TicketDao.getTicket(apertura, cf, serie);
   }
 
   /**

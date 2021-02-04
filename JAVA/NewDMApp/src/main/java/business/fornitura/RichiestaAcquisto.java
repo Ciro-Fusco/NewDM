@@ -8,11 +8,11 @@ import persistenza.dao.RichiestaAcquistoDao;
 /** Richiesta di rifornimento di un Prodotto. */
 public class RichiestaAcquisto {
 
-  Long codice;
-  Long id;
-  int quantity;
-  String data;
-  String stato;
+  private Long codice;
+  private Long id;
+  private int quantity;
+  private String data;
+  private String stato;
   private static final String DA_ESEGUIRE = "Da Eseguire";
   private static final String ESEGUITO = "Eseguito";
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NewDMApp</a> &gt; <a href="index.source.html" class="el_package">presentazione</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">package presentazione;
 
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,31 +9,31 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
- * JavaFX App. Crea le interfacce grafiche a partire dai file .fxml
+ * JavaFX App. Crea le interfacce grafiche a partire dai file .fxml.
  */
-<span class="nc" id="L15">public class App extends Application {</span>
+<span class="nc" id="L14">public class App extends Application {</span>
 
   private static Scene scene;
 
   @Override
   public void start(Stage stage) throws IOException {
-<span class="nc" id="L21">    stage.getIcons().add(new Image(App.class.getResourceAsStream(&quot;LogoIcon.png&quot;)));</span>
-<span class="nc" id="L22">    scene = new Scene(loadfxml(&quot;Dashboard&quot;), 800, 620);</span>
-<span class="nc" id="L23">    stage.setScene(scene);</span>
-<span class="nc" id="L24">    stage.show();</span>
-<span class="nc" id="L25">  }</span>
+<span class="nc" id="L20">    stage.getIcons().add(new Image(App.class.getResourceAsStream(&quot;LogoIcon.png&quot;)));</span>
+<span class="nc" id="L21">    scene = new Scene(loadfxml(&quot;Dashboard&quot;), 800, 620);</span>
+<span class="nc" id="L22">    stage.setScene(scene);</span>
+<span class="nc" id="L23">    stage.show();</span>
+<span class="nc" id="L24">  }</span>
 
   public static void setRoot(String fxml) throws IOException {
-<span class="nc" id="L28">    scene.setRoot(loadfxml(fxml));</span>
-<span class="nc" id="L29">  }</span>
+<span class="nc" id="L27">    scene.setRoot(loadfxml(fxml));</span>
+<span class="nc" id="L28">  }</span>
 
   private static Parent loadfxml(String fxml) throws IOException {
-<span class="fc" id="L32">    FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + &quot;.fxml&quot;));</span>
-<span class="fc" id="L33">    return fxmlLoader.load();</span>
+<span class="fc" id="L31">    FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + &quot;.fxml&quot;));</span>
+<span class="fc" id="L32">    return fxmlLoader.load();</span>
   }
 
   public static void main(String[] args) {
-<span class="nc" id="L37">    launch();</span>
-<span class="nc" id="L38">  }</span>
+<span class="nc" id="L36">    launch();</span>
+<span class="nc" id="L37">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -144,7 +144,7 @@ public class Scontrino implements Serializable {
     return data;
   }
 
-  public void setDataSbagliataTEST() {
+  public void setdatasbagliatatest() {
     LocalDateTime date = LocalDateTime.of(1999, 06, 05, 00, 00);
     DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     this.data = date.format(myFormatObj);

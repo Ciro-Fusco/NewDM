@@ -9,17 +9,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import persistenza.DatabaseConnection;
 
-/**
- * DAO per il salvataggio persistente di un Prodotto
- */
+/** DAO per il salvataggio persistente di un Prodotto. */
 public class ProdottoDao {
 
   /**
-   * Cerca un prodotto nel Database dato il codice
+   * Cerca un prodotto nel Database dato il codice.
    *
    * @param cod codice del prodotto
    * @return un nuovo Prodotto contenente i dati della query
-   * @throws DatabaseException         errore del persistenza:
+   * @throws DatabaseException errore del persistenza:
    * @throws ProdottoNotFoundException prodotto non trovato nel persistenza;
    */
   public static Prodotto search(Long cod) throws DatabaseException, ProdottoException {
@@ -34,13 +32,13 @@ public class ProdottoDao {
         throw new ProdottoNotFoundException("Prodotto non trovato");
       } else {
         return new Prodotto(
-                res.getDouble("Prezzo"),
-                res.getLong("Codice"),
-                res.getString("Nome"),
-                res.getInt("quantity"),
-                res.getString("Dimensione_Confezione"),
-                res.getString("Scadenza"),
-                res.getString("Tipologia"));
+            res.getDouble("Prezzo"),
+            res.getLong("Codice"),
+            res.getString("Nome"),
+            res.getInt("quantity"),
+            res.getString("Dimensione_Confezione"),
+            res.getString("Scadenza"),
+            res.getString("Tipologia"));
       }
 
     } catch (SQLException throwables) {
@@ -50,7 +48,7 @@ public class ProdottoDao {
   }
 
   /**
-   * Aggiorna la quantità del prodotto nel DB
+   * Aggiorna la quantità del prodotto nel DB.
    *
    * @param p prodotto da aggiornare
    * @throws DatabaseException errore del persistenza:
@@ -67,11 +65,13 @@ public class ProdottoDao {
     } catch (SQLException throwables) {
       throwables.printStackTrace();
       throw new DatabaseException(
-              "Errore nell'aggiornamento della quantità del Prodotto: " + p.getNome());
+          "Errore nell'aggiornamento della quantità del Prodotto: " + p.getNome());
     }
   }
 
   /**
+   * Aggiorna la quantità del prodotto nel db.
+   *
    * @param i quantità da aggiungere al Database
    * @param p Prodotto a cui aggiungere la quantità
    * @throws DatabaseException Errore del Database
@@ -87,12 +87,12 @@ public class ProdottoDao {
     } catch (SQLException throwables) {
       throwables.printStackTrace();
       throw new DatabaseException(
-              "Errore nell'aggiornamento della quantità del Prodotto: " + p.getNome());
+          "Errore nell'aggiornamento della quantità del Prodotto: " + p.getNome());
     }
   }
 
   /**
-   * Salva le informazioni di un Prodotto nel persistenza
+   * Salva le informazioni di un Prodotto nel persistenza.
    *
    * @param p il Prodotto da salvare
    * @throws DatabaseException Errore del persistenza
@@ -117,9 +117,9 @@ public class ProdottoDao {
   }
 
   /**
-   * Modifica il prezzo di un prodotto
+   * Modifica il prezzo di un prodotto.
    *
-   * @param p      Prodotto da modificare
+   * @param p Prodotto da modificare
    * @param prezzo Nuovo prezzo da impostare
    * @throws DatabaseException Errore nel Database
    */
@@ -138,7 +138,7 @@ public class ProdottoDao {
   }
 
   /**
-   * Elimina una riga dalla tabella Prodotto
+   * Elimina una riga dalla tabella Prodotto.
    *
    * @param p il Prodotto da eliminare
    * @return true se l'eliminazione è avvenuta con successo

@@ -14,13 +14,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import persistenza.DatabaseConnection;
 
-/**
- * DAO per il salvataggio persistente di uno Scontrino
- */
+/** DAO per il salvataggio persistente di uno Scontrino. */
 public class ScontrinoDao {
 
   /**
-   * Salva le informazioni dello scontrino nel Database e crea le voci della tabella ELENCA
+   * Salva le informazioni dello scontrino nel Database e crea le voci della tabella ELENCA.
    *
    * @param s Scontrino da salvare
    * @throws DatabaseException Errore del Database
@@ -29,9 +27,9 @@ public class ScontrinoDao {
 
     try {
       PreparedStatement prep =
-              DatabaseConnection.getInstance()
-                      .getCon()
-                      .prepareStatement(Query.newScontrino, Statement.RETURN_GENERATED_KEYS);
+          DatabaseConnection.getInstance()
+              .getCon()
+              .prepareStatement(Query.newScontrino, Statement.RETURN_GENERATED_KEYS);
       prep.setString(1, s.getData().substring(0, 10));
       prep.setString(2, s.getData().substring(11, 19));
       prep.setDouble(3, s.getVersato());
@@ -52,19 +50,19 @@ public class ScontrinoDao {
 
   /**
    * Cerca una stringa nel persistenza alla tabella Scontrino contenente codice e data dello
-   * scontrino
+   * scontrino.
    *
-   * @param codice        il codice dello scontrino
+   * @param codice il codice dello scontrino
    * @param dataScontrino la data dello scontrino
-   * @throws ScontrinoNotFoundException  Scontrino non trovato
+   * @throws ScontrinoNotFoundException Scontrino non trovato
    * @throws ScontrinoNonValidoException Lo Scontrino non è valido ai fini della garanzia
-   * @throws DatabaseException           Errore del persistenza
+   * @throws DatabaseException Errore del persistenza
    */
   public static void checkScontrino(long codice, String dataScontrino)
-          throws ScontrinoNonValidoException, DatabaseException, ScontrinoNotFoundException {
+      throws ScontrinoNonValidoException, DatabaseException, ScontrinoNotFoundException {
     try {
       PreparedStatement prep =
-              DatabaseConnection.getInstance().getCon().prepareStatement(Query.checkScontrino);
+          DatabaseConnection.getInstance().getCon().prepareStatement(Query.checkScontrino);
       prep.setLong(1, codice);
       prep.setString(2, dataScontrino);
 
@@ -76,10 +74,10 @@ public class ScontrinoDao {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDateTime data_obj = LocalDate.parse(data_temp, formatter).atStartOfDay();
         LocalDateTime data_2_years_ago = LocalDateTime.now().minusYears(2);
-        if (data_obj.isBefore(data_2_years_ago))
+        if (data_obj.isBefore(data_2_years_ago)) {
           throw new ScontrinoNonValidoException(
-                  "Inserire una data valida, non precedente a 2 anni fa e non successiva alla data odierna");
-        else {
+              "Inserire una data valida, non precedente a 2 anni fa e non successiva alla data odierna");
+        } else {
           System.out.println();
         }
       }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Utente.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NewDMApp</a> &gt; <a href="index.source.html" class="el_package">business.utenza</a> &gt; <span class="el_source">Utente.java</span></div><h1>Utente.java</h1><pre class="source lang-java linenums">package business.utenza;
 
-import persistenza.DatabaseConnection;
 import exceptions.DatabaseException;
 import exceptions.UtenteException;
 import exceptions.UtenteNotFoundException;
+import persistenza.DatabaseConnection;
 import persistenza.dao.UtenteDao;
 
 /**
@@ -14,148 +14,159 @@ import persistenza.dao.UtenteDao;
   private static String nome;
   private static String cognome;
   private static String username;
-  private static boolean cassa, magazzino, assistenza;
+  private static boolean cassa;
+  private static boolean magazzino;
+  private static boolean assistenza;
 
   /**
-   * @param nome       nome dell'utente
-   * @param cognome    cognome dell'utente
-   * @param username   username dell'utente
-   * @param cassa      flag autorizzazione cassa
-   * @param magazzino  flag autorizzazione magazzino
+   * Inserisce le informazioni riguardo l'utente nella classe.
+   *
+   * @param nome nome dell'utente
+   * @param cognome cognome dell'utente
+   * @param username username dell'utente
+   * @param cassa flag autorizzazione cassa
+   * @param magazzino flag autorizzazione magazzino
    * @param assistenza flag autorizzazione assistenza
-   *                   &lt;p&gt;Inserisce le informazioni riguardo l'utente nella classe.
    */
-  public static void setUtente(String nome, String cognome, String username, boolean cassa, boolean magazzino, boolean assistenza) {
-<span class="fc" id="L29">    Utente.nome = nome;</span>
-<span class="fc" id="L30">    Utente.cognome = cognome;</span>
-<span class="fc" id="L31">    Utente.username = username;</span>
-<span class="fc" id="L32">    Utente.cassa = cassa;</span>
-<span class="fc" id="L33">    Utente.magazzino = magazzino;</span>
-<span class="fc" id="L34">    Utente.assistenza = assistenza;</span>
-<span class="fc" id="L35">  }</span>
+  public static void setUtente(
+      String nome,
+      String cognome,
+      String username,
+      boolean cassa,
+      boolean magazzino,
+      boolean assistenza) {
+<span class="fc" id="L38">    Utente.nome = nome;</span>
+<span class="fc" id="L39">    Utente.cognome = cognome;</span>
+<span class="fc" id="L40">    Utente.username = username;</span>
+<span class="fc" id="L41">    Utente.cassa = cassa;</span>
+<span class="fc" id="L42">    Utente.magazzino = magazzino;</span>
+<span class="fc" id="L43">    Utente.assistenza = assistenza;</span>
+<span class="fc" id="L44">  }</span>
 
-  /**
-   * Elimina le informazioni circa l'utente correntemente autenticato
-   */
+  /** Elimina le informazioni circa l'utente correntemente autenticato. */
   private static void clear() {
-<span class="nc" id="L41">    setUtente(null, null, null, false, false, false);</span>
-<span class="nc" id="L42">  }</span>
+<span class="nc" id="L48">    setUtente(null, null, null, false, false, false);</span>
+<span class="nc" id="L49">  }</span>
 
   /**
+   * Ritorna il nome dell'utente.
+   *
    * @return nome -- il nome dell'utente autenticato; null -- se non è autenticato nessun utente;
    */
   public static String getNome() {
-<span class="nc" id="L48">    return nome;</span>
+<span class="nc" id="L57">    return nome;</span>
   }
 
   /**
+   * Ritorna il cognome dell' utente.
+   *
    * @return cognome -- il cognome dell'utente autenticato; null -- se non è autenticato nessun
-   * utente;
+   *     utente;
    */
   public static String getCognome() {
-<span class="nc" id="L56">    return cognome;</span>
+<span class="nc" id="L67">    return cognome;</span>
   }
 
   /**
+   * Ritorna l'username dell'utente.
+   *
    * @return Username-- Nome utente dell'utente autenticato; null -- se non è autenticato nessun
-   * utente;
+   *     utente;
    */
   public static String getUsername() {
-<span class="fc" id="L64">    return username;</span>
+<span class="fc" id="L77">    return username;</span>
   }
 
   /**
-   * Restituisce il valore del flag cassa
+   * Restituisce il valore del flag cassa.
    *
    * @return il valore del flag cassa
    */
   public static boolean isCassa() {
-<span class="fc" id="L73">    return cassa;</span>
+<span class="fc" id="L86">    return cassa;</span>
   }
 
   /**
-   * Imposta il valore del flag cassa
+   * Imposta il valore del flag cassa.
    *
    * @param cassa Il valore del flag cassa
    */
   public static void setCassa(boolean cassa) {
-<span class="fc" id="L82">    Utente.cassa = cassa;</span>
-<span class="fc" id="L83">  }</span>
+<span class="fc" id="L95">    Utente.cassa = cassa;</span>
+<span class="fc" id="L96">  }</span>
 
   /**
-   * +
-   * Restituisce il valore del flag magazzino
+   * + Restituisce il valore del flag magazzino.
    *
    * @return il valore del flag magazzino
    */
   public static boolean isMagazzino() {
-<span class="fc" id="L92">    return magazzino;</span>
+<span class="fc" id="L104">    return magazzino;</span>
   }
 
   /**
-   * Imposta il valore del flag magazzino
+   * Imposta il valore del flag magazzino.
    *
    * @param magazzino Il valore da assegnare a magazzino
    */
   public static void setMagazzino(boolean magazzino) {
-<span class="nc" id="L101">    Utente.magazzino = magazzino;</span>
-<span class="nc" id="L102">  }</span>
+<span class="nc" id="L113">    Utente.magazzino = magazzino;</span>
+<span class="nc" id="L114">  }</span>
 
   /**
-   * Restituisce il valore del flag assistenza
+   * Restituisce il valore del flag assistenza.
    *
    * @return il valore del flag assistenza
    */
   public static boolean isAssistenza() {
-<span class="fc" id="L110">    return assistenza;</span>
+<span class="fc" id="L122">    return assistenza;</span>
   }
 
   /**
-   * Imposta il valore del flag assistenza
+   * Imposta il valore del flag assistenza.
    *
    * @param assistenza Il valore del flag assistenza
    */
   public static void setAssistenza(boolean assistenza) {
-<span class="fc" id="L119">    Utente.assistenza = assistenza;</span>
-<span class="fc" id="L120">  }</span>
+<span class="fc" id="L131">    Utente.assistenza = assistenza;</span>
+<span class="fc" id="L132">  }</span>
 
   @Override
   public String toString() {
-<span class="nc" id="L124">    return &quot;Utente{&quot;</span>
-            + &quot;nome='&quot;
-            + nome
-            + '\''
-            + &quot;, cognome='&quot;
-            + cognome
-            + '\''
-            + &quot;, username='&quot;
-            + username
-            + '\''
-            + '}';
+<span class="nc" id="L136">    return &quot;Utente{&quot;</span>
+        + &quot;nome='&quot;
+        + nome
+        + '\''
+        + &quot;, cognome='&quot;
+        + cognome
+        + '\''
+        + &quot;, username='&quot;
+        + username
+        + '\''
+        + '}';
   }
 
   /**
-   * Crea una connessione con il persistenza e verifica se un utente esiste
+   * Crea una connessione con il persistenza e verifica se un utente esiste.
    *
-   * @param us   Nome utente
+   * @param us Nome utente
    * @param pass Password in chiaro
    * @throws UtenteNotFoundException Utente non trovato
-   * @throws DatabaseException       Errore generico del Database
+   * @throws DatabaseException Errore generico del Database
    */
-  public static void login(String us, String pass)
-          throws UtenteException, DatabaseException {
-<span class="fc" id="L147">    DatabaseConnection.getInstance();</span>
-<span class="fc" id="L148">    UtenteDao.login(us, pass);</span>
-<span class="fc" id="L149">  }</span>
+  public static void login(String us, String pass) throws UtenteException, DatabaseException {
+<span class="fc" id="L158">    DatabaseConnection.getInstance();</span>
+<span class="fc" id="L159">    UtenteDao.login(us, pass);</span>
+<span class="fc" id="L160">  }</span>
 
   /**
-   * Elimina le informazioni dell'utente dal sistema e chiude la connessione con il persistenza
+   * Elimina le informazioni dell'utente dal sistema e chiude la connessione con il persistenza.
    *
    * @throws DatabaseException Errore nel persistenza
    */
   public static void logout() throws DatabaseException {
-<span class="nc" id="L157">    clear();</span>
-<span class="nc" id="L158">    DatabaseConnection.close();</span>
-<span class="nc" id="L159">  }</span>
+<span class="nc" id="L168">    clear();</span>
+<span class="nc" id="L169">    DatabaseConnection.close();</span>
+<span class="nc" id="L170">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

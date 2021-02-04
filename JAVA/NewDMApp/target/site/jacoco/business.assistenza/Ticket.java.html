@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Ticket.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NewDMApp</a> &gt; <a href="index.source.html" class="el_package">business.assistenza</a> &gt; <span class="el_source">Ticket.java</span></div><h1>Ticket.java</h1><pre class="source lang-java linenums">package business.assistenza;
 
-import persistenza.dao.TicketDao;
 import business.cassa.Scontrino;
-import persistenza.dao.ElencaDao;
-import exceptions.*;
 import business.inventario.Prodotto;
-
+import exceptions.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import persistenza.dao.ElencaDao;
+import persistenza.dao.TicketDao;
 
-/**
- * Il Ticket contenente le informazioni che riguardano una richiesta di Assistenza
- */
+/** Il Ticket contenente le informazioni che riguardano una richiesta di Assistenza. */
 public class Ticket {
 
-  private String nomeCognome,
-          cf,
-          indirizzo,
-          numeroDiSerie,
-          nomeProdotto,
-          stato,
-          problema,
-          dataApertura,
-          dataScontrino,
-          tipo;
-  private long numTel, codiceProdotto;
+  private String nomeCognome;
+  private String cf;
+  private String indirizzo;
+  private String numeroDiSerie;
+  private String nomeProdotto;
+  private String stato;
+  private String problema;
+  private String dataApertura;
+  private String dataScontrino;
+  private String tipo;
+  private long numTel;
+  private long codiceProdotto;
   private long codiceScontrino;
   private static final String APERTO = &quot;Aperto&quot;;
   private static final String IN_LAVORAZIONE = &quot;In Lavorazione&quot;;
   private static final String CHIUSO = &quot;Chiuso&quot;;
 
   /**
-   * Crea un nuovo Ticket. Lo scontrino deve esistere, il prodotto deve esistere
-   * e lo scontrino deve riferirsi al prodotto
+   * Crea un nuovo Ticket. Lo scontrino deve esistere, il prodotto deve esistere e lo scontrino deve
+   * riferirsi al prodotto
    *
-   * @param nomeCognome     Nome e Cognome del cliente
-   * @param cf              Codice Fiscale del cliente
-   * @param indirizzo       Indirizzo di residenza del cliente
-   * @param tipo            Tipo di prodotto per cui si chiede assistenza
-   * @param nomeProdotto    Nome del prodotto per cui si chiede assistenza
-   * @param numeroDiSerie   Numero di serie del prodotto per cui si richiede assistenza
-   * @param num_tel         Numero di telefono del cliente
-   * @param codiceScontrino Codice dello scontrino di acquisto del prodotto per cui si richiede assistenza
-   * @param dataScontrino   Data dello scontrino di acquisto del prodotto per cui si richiede assistenza
-   * @param codiceProdotto  Codice identificativo comune (codice a barre o codice utilizzato nel negozio per identificare
-   *                        un prodotto) del prodotto per cui si richiede assistenza
+   * @param nomeCognome Nome e Cognome del cliente
+   * @param cf Codice Fiscale del cliente
+   * @param indirizzo Indirizzo di residenza del cliente
+   * @param tipo Tipo di prodotto per cui si chiede assistenza
+   * @param nomeProdotto Nome del prodotto per cui si chiede assistenza
+   * @param numeroDiSerie Numero di serie del prodotto per cui si richiede assistenza
+   * @param numTel Numero di telefono del cliente
+   * @param codiceScontrino Codice dello scontrino di acquisto del prodotto per cui si richiede
+   *     assistenza
+   * @param dataScontrino Data dello scontrino di acquisto del prodotto per cui si richiede
+   *     assistenza
+   * @param codiceProdotto Codice identificativo comune (codice a barre o codice utilizzato nel
+   *     negozio per identificare un prodotto) del prodotto per cui si richiede assistenza
    * @throws ScontrinoException Scontrino non esistente
-   * @throws DatabaseException  Errore nel uso della persistenza
-   * @throws ProdottoException  Prodotto non esistente
-   * @throws ElencaException    Lo Scontrino e il Prodotto non corrispondono
+   * @throws DatabaseException Errore nel uso della persistenza
+   * @throws ProdottoException Prodotto non esistente
+   * @throws ElencaException Lo Scontrino e il Prodotto non corrispondono
    */
   public Ticket(
-          String nomeCognome,
-          String cf,
-          String indirizzo,
-          String tipo,
-          String nomeProdotto,
-          String numeroDiSerie,
-          long num_tel,
-          long codiceScontrino,
-          String dataScontrino,
-          long codiceProdotto)
-<span class="fc" id="L64">          throws ScontrinoException, DatabaseException, ProdottoException, ElencaException {</span>
+      String nomeCognome,
+      String cf,
+      String indirizzo,
+      String tipo,
+      String nomeProdotto,
+      String numeroDiSerie,
+      long numTel,
+      long codiceScontrino,
+      String dataScontrino,
+      long codiceProdotto)
+<span class="fc" id="L64">      throws ScontrinoException, DatabaseException, ProdottoException, ElencaException {</span>
 <span class="fc" id="L65">    this.nomeCognome = nomeCognome;</span>
 <span class="fc" id="L66">    this.cf = cf;</span>
 <span class="fc" id="L67">    this.indirizzo = indirizzo;</span>
@@ -70,7 +70,7 @@ public class Ticket {
 <span class="fc" id="L70">    this.nomeProdotto = nomeProdotto;</span>
 <span class="fc" id="L71">    this.dataScontrino = dataScontrino;</span>
 <span class="fc" id="L72">    this.dataApertura = setDataApertura();</span>
-<span class="fc" id="L73">    this.numTel = num_tel;</span>
+<span class="fc" id="L73">    this.numTel = numTel;</span>
 <span class="fc" id="L74">    Scontrino.checkScontrino(codiceScontrino, dataScontrino);</span>
 <span class="fc" id="L75">    this.codiceScontrino = codiceScontrino;</span>
 <span class="fc" id="L76">    this.dataScontrino = dataScontrino;</span>
@@ -80,326 +80,324 @@ public class Ticket {
 <span class="fc" id="L80">    this.stato = APERTO;</span>
 <span class="fc" id="L81">  }</span>
 
-  /**
-   * Crea uno scontrino senza inizializzarlo
-   */
-<span class="fc" id="L86">  public Ticket() {</span>
-<span class="fc" id="L87">  }</span>
+  /** Crea uno scontrino senza inizializzarlo. */
+<span class="fc" id="L84">  public Ticket() {}</span>
 
   /**
-   * Imposta la data di apertura del Ticket alla data e ora corrente
+   * Imposta la data di apertura del Ticket alla data e ora corrente.
    *
    * @return la stringa contenente data e ora di creazione del Ticket
    */
   private String setDataApertura() {
-<span class="fc" id="L95">    LocalDateTime date = LocalDateTime.now();</span>
-<span class="fc" id="L96">    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy HH:mm:ss&quot;);</span>
-<span class="fc" id="L97">    return date.format(myFormatObj);</span>
+<span class="fc" id="L92">    LocalDateTime date = LocalDateTime.now();</span>
+<span class="fc" id="L93">    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy HH:mm:ss&quot;);</span>
+<span class="fc" id="L94">    return date.format(myFormatObj);</span>
   }
 
   /**
-   * Salva il ticket nel Database
-   *
-   * @throws DatabaseException Errore nel Database
-   */
-  public void save() throws DatabaseException {
-<span class="fc" id="L106">    TicketDao.save(this);</span>
-<span class="fc" id="L107">  }</span>
-
-  /**
-   * Resituisce Nome e Cognome del CLiente
-   *
-   * @return una stringa contente il nome e il cognome del cliente
-   */
-  public String getNomeCognome() {
-<span class="fc" id="L115">    return nomeCognome;</span>
-  }
-
-  /**
-   * Imposta Nome e Cognome del Cliente
-   *
-   * @param nomeCognome Stringa contente Nome e Cognome del Cliente
-   */
-  public void setNomeCognome(String nomeCognome) {
-<span class="fc" id="L124">    this.nomeCognome = nomeCognome;</span>
-<span class="fc" id="L125">  }</span>
-
-  /**
-   * Restituisce il Codice Fiscale del Cliente
-   *
-   * @return il Codice Fiscale del Cliente
-   */
-  public String getCf() {
-<span class="fc" id="L133">    return cf;</span>
-  }
-
-  /**
-   * Imposta il Codice Fiscale del Cliente
-   *
-   * @param cf Il codice fiscale del Cliente
-   */
-  public void setCf(String cf) {
-<span class="fc" id="L142">    this.cf = cf;</span>
-<span class="fc" id="L143">  }</span>
-
-  /**
-   * Restituisce l'indirizzo di residenza del Cliente
-   *
-   * @return l'indirizzo di residenza del Cliente
-   */
-  public String getIndirizzo() {
-<span class="fc" id="L151">    return indirizzo;</span>
-  }
-
-  /**
-   * Imposta l'indirizzo di residenza del Cliente
-   *
-   * @param indirizzo l'indirizzo di Residenza del Cliente
-   */
-  public void setIndirizzo(String indirizzo) {
-<span class="fc" id="L160">    this.indirizzo = indirizzo;</span>
-<span class="fc" id="L161">  }</span>
-
-  /**
-   * Restituisce il tipo di categoria del Prodotto
-   *
-   * @return il tipo di categoria del prodotto
-   */
-  public String getTipo() {
-<span class="fc" id="L169">    return tipo;</span>
-  }
-
-  /**
-   * Imposta la categoria del Prodotto
-   *
-   * @param tipo il tipo di categoria del Prodotto
-   */
-  public void setTipo(String tipo) {
-<span class="fc" id="L178">    this.tipo = tipo;</span>
-<span class="fc" id="L179">  }</span>
-
-  /**
-   * Restituisce il Numero di Serie del Prodotto
-   *
-   * @return il Numero di Serie del Prodotto
-   */
-  public String getNumeroDiSerie() {
-<span class="fc" id="L187">    return numeroDiSerie;</span>
-  }
-
-  /**
-   * Restituisce il nome del Prodotto
-   *
-   * @return il nome del Prodotto
-   */
-  public String getNomeProdotto() {
-<span class="fc" id="L196">    return nomeProdotto;</span>
-  }
-
-  /**
-   * Imposta il nome del Prodotto
-   *
-   * @param nomeProdotto il nome del Prodotto
-   */
-  public void setNomeProdotto(String nomeProdotto) {
-<span class="fc" id="L205">    this.nomeProdotto = nomeProdotto;</span>
-<span class="fc" id="L206">  }</span>
-
-  /**
-   * Imposta il Numero di Serie del Prodotto
-   *
-   * @param numeroDiSerie il Numero di Serie del Prodotto
-   */
-  public void setNumeroDiSerie(String numeroDiSerie) {
-<span class="fc" id="L214">    this.numeroDiSerie = numeroDiSerie;</span>
-<span class="fc" id="L215">  }</span>
-
-  /**
-   * Restituisce lo stato di lavorazione del Ticket
-   *
-   * @return lo stato di lavorazione del Ticket
-   */
-  public String getStato() {
-<span class="fc" id="L223">    return stato;</span>
-  }
-
-  /**
-   * Imposta lo stato di lavorazione del Ticket
-   *
-   * @param stato lo stato di lavorazione del Ticket
-   */
-  public void setStato(String stato) {
-<span class="fc" id="L232">    this.stato = stato;</span>
-<span class="fc" id="L233">  }</span>
-
-  /**
-   * Restituisce il problema per cui è stato creato il Ticket
-   *
-   * @return il problema relativo al Prodotto
-   */
-  public String getProblema() {
-<span class="fc" id="L241">    return problema;</span>
-  }
-
-  /**
-   * Imposta il problema per cui è stato creato il Ticket
-   *
-   * @param problema il problema relativo al Prodotto
-   */
-  public void setProblema(String problema) {
-<span class="fc" id="L250">    this.problema = problema;</span>
-<span class="fc" id="L251">  }</span>
-
-  /**
-   * Restituisce la data di apertura del Ticket
-   *
-   * @return una stringa contenente la data di apertura del Ticket
-   */
-  public String getDataApertura() {
-<span class="fc" id="L259">    return dataApertura;</span>
-  }
-
-  /**
-   * Imposta la data di apertura del Ticket, utile per la creazione di un Ticket a partire da uno persistente
+   * Imposta la data di apertura del Ticket, utile per la creazione di un Ticket a partire da uno
+   * persistente.
    *
    * @param dataApertura una stringa contenente la data di apertura del Ticket
    */
   public void setDataApertura(String dataApertura) {
-<span class="fc" id="L268">    this.dataApertura = dataApertura;</span>
-<span class="fc" id="L269">  }</span>
+<span class="fc" id="L104">    this.dataApertura = dataApertura;</span>
+<span class="fc" id="L105">  }</span>
 
   /**
-   * Restituisce la data dello Scontrino
+   * Salva il ticket nel Database.
+   *
+   * @throws DatabaseException Errore nel Database
+   */
+  public void save() throws DatabaseException {
+<span class="fc" id="L113">    TicketDao.save(this);</span>
+<span class="fc" id="L114">  }</span>
+
+  /**
+   * Resituisce Nome e Cognome del CLiente.
+   *
+   * @return una stringa contente il nome e il cognome del cliente
+   */
+  public String getNomeCognome() {
+<span class="fc" id="L122">    return nomeCognome;</span>
+  }
+
+  /**
+   * Imposta Nome e Cognome del Cliente.
+   *
+   * @param nomeCognome Stringa contente Nome e Cognome del Cliente
+   */
+  public void setNomeCognome(String nomeCognome) {
+<span class="fc" id="L131">    this.nomeCognome = nomeCognome;</span>
+<span class="fc" id="L132">  }</span>
+
+  /**
+   * Restituisce il Codice Fiscale del Cliente.
+   *
+   * @return il Codice Fiscale del Cliente
+   */
+  public String getCf() {
+<span class="fc" id="L140">    return cf;</span>
+  }
+
+  /**
+   * Imposta il Codice Fiscale del Cliente.
+   *
+   * @param cf Il codice fiscale del Cliente
+   */
+  public void setCf(String cf) {
+<span class="fc" id="L149">    this.cf = cf;</span>
+<span class="fc" id="L150">  }</span>
+
+  /**
+   * Restituisce l'indirizzo di residenza del Cliente.
+   *
+   * @return l'indirizzo di residenza del Cliente
+   */
+  public String getIndirizzo() {
+<span class="fc" id="L158">    return indirizzo;</span>
+  }
+
+  /**
+   * Imposta l'indirizzo di residenza del Cliente.
+   *
+   * @param indirizzo l'indirizzo di Residenza del Cliente
+   */
+  public void setIndirizzo(String indirizzo) {
+<span class="fc" id="L167">    this.indirizzo = indirizzo;</span>
+<span class="fc" id="L168">  }</span>
+
+  /**
+   * Restituisce il tipo di categoria del Prodotto.
+   *
+   * @return il tipo di categoria del prodotto
+   */
+  public String getTipo() {
+<span class="fc" id="L176">    return tipo;</span>
+  }
+
+  /**
+   * Imposta la categoria del Prodotto.
+   *
+   * @param tipo il tipo di categoria del Prodotto
+   */
+  public void setTipo(String tipo) {
+<span class="fc" id="L185">    this.tipo = tipo;</span>
+<span class="fc" id="L186">  }</span>
+
+  /**
+   * Restituisce il Numero di Serie del Prodotto.
+   *
+   * @return il Numero di Serie del Prodotto
+   */
+  public String getNumeroDiSerie() {
+<span class="fc" id="L194">    return numeroDiSerie;</span>
+  }
+
+  /**
+   * Restituisce il nome del Prodotto.
+   *
+   * @return il nome del Prodotto
+   */
+  public String getNomeProdotto() {
+<span class="fc" id="L203">    return nomeProdotto;</span>
+  }
+
+  /**
+   * Imposta il nome del Prodotto.
+   *
+   * @param nomeProdotto il nome del Prodotto
+   */
+  public void setNomeProdotto(String nomeProdotto) {
+<span class="fc" id="L212">    this.nomeProdotto = nomeProdotto;</span>
+<span class="fc" id="L213">  }</span>
+
+  /**
+   * Imposta il Numero di Serie del Prodotto.
+   *
+   * @param numeroDiSerie il Numero di Serie del Prodotto
+   */
+  public void setNumeroDiSerie(String numeroDiSerie) {
+<span class="fc" id="L221">    this.numeroDiSerie = numeroDiSerie;</span>
+<span class="fc" id="L222">  }</span>
+
+  /**
+   * Restituisce lo stato di lavorazione del Ticket.
+   *
+   * @return lo stato di lavorazione del Ticket
+   */
+  public String getStato() {
+<span class="fc" id="L230">    return stato;</span>
+  }
+
+  /**
+   * Imposta lo stato di lavorazione del Ticket.
+   *
+   * @param stato lo stato di lavorazione del Ticket
+   */
+  public void setStato(String stato) {
+<span class="fc" id="L239">    this.stato = stato;</span>
+<span class="fc" id="L240">  }</span>
+
+  /**
+   * Restituisce il problema per cui è stato creato il Ticket.
+   *
+   * @return il problema relativo al Prodotto
+   */
+  public String getProblema() {
+<span class="fc" id="L248">    return problema;</span>
+  }
+
+  /**
+   * Imposta il problema per cui è stato creato il Ticket.
+   *
+   * @param problema il problema relativo al Prodotto
+   */
+  public void setProblema(String problema) {
+<span class="fc" id="L257">    this.problema = problema;</span>
+<span class="fc" id="L258">  }</span>
+
+  /**
+   * Restituisce la data di apertura del Ticket.
+   *
+   * @return una stringa contenente la data di apertura del Ticket
+   */
+  public String getDataApertura() {
+<span class="fc" id="L266">    return dataApertura;</span>
+  }
+
+  /**
+   * Restituisce la data dello Scontrino.
    *
    * @return la data dello Scontrino
    */
   public String getDataScontrino() {
-<span class="fc" id="L277">    return dataScontrino;</span>
+<span class="fc" id="L275">    return dataScontrino;</span>
   }
 
   /**
-   * Imposta la data dello Scontrino
+   * Imposta la data dello Scontrino.
    *
    * @param dataScontrino la data dello scontrino
    */
   public void setDataScontrino(String dataScontrino) {
-<span class="nc" id="L286">    this.dataScontrino = dataScontrino;</span>
-<span class="nc" id="L287">  }</span>
+<span class="nc" id="L284">    this.dataScontrino = dataScontrino;</span>
+<span class="nc" id="L285">  }</span>
 
   /**
-   * Restituisce il numero di telefono del Cliente
+   * Restituisce il numero di telefono del Cliente.
    *
    * @return il numero di telefono
    */
   public long getNumTel() {
-<span class="fc" id="L295">    return numTel;</span>
+<span class="fc" id="L293">    return numTel;</span>
   }
 
   /**
-   * Imposta il numero di telefono del Cliente
+   * Imposta il numero di telefono del Cliente.
    *
    * @param numTel il numero di telefono
    */
   public void setNumTel(long numTel) {
-<span class="fc" id="L304">    this.numTel = numTel;</span>
-<span class="fc" id="L305">  }</span>
+<span class="fc" id="L302">    this.numTel = numTel;</span>
+<span class="fc" id="L303">  }</span>
 
   /**
-   * Restituisce il codice dello Scontrino
+   * Restituisce il codice dello Scontrino.
    *
    * @return il codice dello Scontrino
    */
   public long getCodiceScontrino() {
-<span class="fc" id="L313">    return codiceScontrino;</span>
+<span class="fc" id="L311">    return codiceScontrino;</span>
   }
 
   /**
-   * Imposta il codice dello Scontrino
+   * Imposta il codice dello Scontrino.
    *
    * @param codiceScontrino il codice dello scontrino
    */
   public void setCodiceScontrino(int codiceScontrino) {
-<span class="fc" id="L322">    this.codiceScontrino = codiceScontrino;</span>
-<span class="fc" id="L323">  }</span>
+<span class="fc" id="L320">    this.codiceScontrino = codiceScontrino;</span>
+<span class="fc" id="L321">  }</span>
 
   /**
-   * Restituisce il codice generico del Prodotto
+   * Restituisce il codice generico del Prodotto.
    *
    * @return il codice generico del Prodotto
    */
   public long getCodiceProdotto() {
-<span class="fc" id="L331">    return codiceProdotto;</span>
+<span class="fc" id="L329">    return codiceProdotto;</span>
   }
 
   /**
-   * Imposta il codice generico del Prodotto
+   * Imposta il codice generico del Prodotto.
    *
    * @param codiceProdotto il codice generico del Prodotto
    */
   public void setCodiceProdotto(long codiceProdotto) {
-<span class="fc" id="L340">    this.codiceProdotto = codiceProdotto;</span>
-<span class="fc" id="L341">  }</span>
+<span class="fc" id="L338">    this.codiceProdotto = codiceProdotto;</span>
+<span class="fc" id="L339">  }</span>
 
   /**
    * Cerca un Ticket dati tutti i parametri.
    *
    * @param apertura Data di apertura del Ticket
-   * @param CF       Codice Fiscale del Cliente
-   * @param serie    Numero di Serie del Prodotto
+   * @param cf Codice Fiscale del Cliente
+   * @param serie Numero di Serie del Prodotto
    * @return il Ticket cercato
    * @throws DatabaseException Errore del Database
-   * @throws TicketException   Errore nella ricerca del Ticket
+   * @throws TicketException Errore nella ricerca del Ticket
    */
-  public static Ticket getTicket(String apertura, String CF, String serie)
-          throws DatabaseException, TicketException {
-<span class="nc" id="L355">    return TicketDao.getTicket(apertura, CF, serie);</span>
+  public static Ticket getTicket(String apertura, String cf, String serie)
+      throws DatabaseException, TicketException {
+<span class="nc" id="L353">    return TicketDao.getTicket(apertura, cf, serie);</span>
   }
 
   /**
-   * Metodo toString() del Ticket
+   * Metodo toString() del Ticket.
    *
    * @return una stringa contenente la conversione canonica dell'oggetto
    */
   @Override
   public String toString() {
-<span class="nc" id="L365">    return &quot;Ticket{&quot;</span>
-            + &quot;nomeCognome='&quot;
-            + nomeCognome
-            + '\''
-            + &quot;, cf='&quot;
-            + cf
-            + '\''
-            + &quot;, indirizzo='&quot;
-            + indirizzo
-            + '\''
-            + &quot;, numeroDiSerie='&quot;
-            + numeroDiSerie
-            + '\''
-            + &quot;, nomeProdotto='&quot;
-            + nomeProdotto
-            + '\''
-            + &quot;, stato='&quot;
-            + stato
-            + '\''
-            + &quot;, problema='&quot;
-            + problema
-            + '\''
-            + &quot;, dataApertura='&quot;
-            + dataApertura
-            + '\''
-            + &quot;, dataScontrino='&quot;
-            + dataScontrino
-            + '\''
-            + &quot;, tipo='&quot;
-            + tipo
-            + '\''
-            + &quot;, numTel=&quot;
-            + numTel
-            + &quot;, codiceProdotto=&quot;
-            + codiceProdotto
-            + &quot;, codiceScontrino=&quot;
-            + codiceScontrino
-            + '}';
+<span class="nc" id="L363">    return &quot;Ticket{&quot;</span>
+        + &quot;nomeCognome='&quot;
+        + nomeCognome
+        + '\''
+        + &quot;, cf='&quot;
+        + cf
+        + '\''
+        + &quot;, indirizzo='&quot;
+        + indirizzo
+        + '\''
+        + &quot;, numeroDiSerie='&quot;
+        + numeroDiSerie
+        + '\''
+        + &quot;, nomeProdotto='&quot;
+        + nomeProdotto
+        + '\''
+        + &quot;, stato='&quot;
+        + stato
+        + '\''
+        + &quot;, problema='&quot;
+        + problema
+        + '\''
+        + &quot;, dataApertura='&quot;
+        + dataApertura
+        + '\''
+        + &quot;, dataScontrino='&quot;
+        + dataScontrino
+        + '\''
+        + &quot;, tipo='&quot;
+        + tipo
+        + '\''
+        + &quot;, numTel=&quot;
+        + numTel
+        + &quot;, codiceProdotto=&quot;
+        + codiceProdotto
+        + &quot;, codiceScontrino=&quot;
+        + codiceScontrino
+        + '}';
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

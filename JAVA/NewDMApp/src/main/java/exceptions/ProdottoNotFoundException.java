@@ -2,7 +2,7 @@ package exceptions;
 
 /**
  * Eccezione lanciata quando non è possibile trovare un prodotto a database. Estende
- * ProdottoException
+ * ProdottoException.
  */
 public class ProdottoNotFoundException extends ProdottoException {
 

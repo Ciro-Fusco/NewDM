@@ -5,9 +5,7 @@ import exceptions.ProdottoException;
 import exceptions.ProdottoNotFoundException;
 import persistenza.dao.ProdottoDao;
 
-/**
- * Un Prodotto disponibile nel punto vendita
- */
+/** Un Prodotto disponibile nel punto vendita. */
 public class Prodotto {
 
   private int acquistato; /* Numero di volte in cui il prodotto è stato inserito nello scontrino */
@@ -15,27 +13,29 @@ public class Prodotto {
   private long codice;
   private String nome;
   private int quantity;
-  private String tipologia, scadenza, dimensioneConfezione;
+  private String tipologia;
+  private String scadenza;
+  private String dimensioneConfezione;
 
   /**
-   * Crea un nuovo Prodotto
+   * Crea un nuovo Prodotto.
    *
-   * @param prezzo     Prezzo del Prodotto
-   * @param codice     Codice generico del prodotto
-   * @param nome       Nome del prodotto
-   * @param quantity   Quantità del Prodotto
+   * @param prezzo Prezzo del Prodotto
+   * @param codice Codice generico del prodotto
+   * @param nome Nome del prodotto
+   * @param quantity Quantità del Prodotto
    * @param dimensione Dimensione della confezione del Prodotto
-   * @param scade      Durata media del Prodotto prima della scadenza
-   * @param tipologia  Categoria di Prodotto
+   * @param scade Durata media del Prodotto prima della scadenza
+   * @param tipologia Categoria di Prodotto
    */
   public Prodotto(
-          double prezzo,
-          long codice,
-          String nome,
-          int quantity,
-          String dimensione,
-          String scade,
-          String tipologia) {
+      double prezzo,
+      long codice,
+      String nome,
+      int quantity,
+      String dimensione,
+      String scade,
+      String tipologia) {
     this.prezzo = prezzo;
     this.codice = codice;
     this.nome = nome;
@@ -47,14 +47,11 @@ public class Prodotto {
     this.tipologia = tipologia.replace(tipologia.substring(0, 1), temp);
   }
 
-  /**
-   * Crea un nuovo Prodotto senza parametri
-   */
-  public Prodotto() {
-  }
+  /** Crea un nuovo Prodotto senza parametri. */
+  public Prodotto() {}
 
   /**
-   * Restituisce la categoria del Prodotto
+   * Restituisce la categoria del Prodotto.
    *
    * @return la categoria del Prodotto
    */
@@ -63,7 +60,7 @@ public class Prodotto {
   }
 
   /**
-   * Imposta la categoria del Prodotto
+   * Imposta la categoria del Prodotto.
    *
    * @param tipologia la categoria del prodotto
    */
@@ -72,7 +69,7 @@ public class Prodotto {
   }
 
   /**
-   * Restituisce la durata media del prodotto prima di scadere
+   * Restituisce la durata media del prodotto prima di scadere.
    *
    * @return la durata media (breve,media,lunga) del Prodotto prima di scadere
    */
@@ -81,7 +78,7 @@ public class Prodotto {
   }
 
   /**
-   * Imposta la durata media del prodotto prima di scadere
+   * Imposta la durata media del prodotto prima di scadere.
    *
    * @param scadenza durata media (breve,media,lunga) del Prodotto prima di scadere
    */
@@ -90,7 +87,7 @@ public class Prodotto {
   }
 
   /**
-   * Restituisce la dimensione della confezione del prodotto
+   * Restituisce la dimensione della confezione del prodotto.
    *
    * @return la dimensione della confezione del prodotto (piccola,media,grande)
    */
@@ -99,7 +96,7 @@ public class Prodotto {
   }
 
   /**
-   * Imposta la dimensione della confezione del Prodotto
+   * Imposta la dimensione della confezione del Prodotto.
    *
    * @param dimensioneConfezione la dimensione della confezione del prodotto(piccola,media,grande)
    */
@@ -108,7 +105,7 @@ public class Prodotto {
   }
 
   /**
-   * Restituisce il prezzo del Prodotto
+   * Restituisce il prezzo del Prodotto.
    *
    * @return il prezzo del Prodotto
    */
@@ -117,7 +114,7 @@ public class Prodotto {
   }
 
   /**
-   * Restituisce il nome del Prodotto
+   * Restituisce il nome del Prodotto.
    *
    * @return il nome del Prodotto
    */
@@ -127,7 +124,7 @@ public class Prodotto {
 
   /**
    * Restituisce la quantità di pezzi del prodotto contenuti dallo scontrino che ha invocato la
-   * creazione di questo prodotto
+   * creazione di questo prodotto.
    *
    * @return la quantità di pezzi contenuti
    */
@@ -136,7 +133,7 @@ public class Prodotto {
   }
 
   /**
-   * Aggiorna le unità di prodotto inserite nello scontrino
+   * Aggiorna le unità di prodotto inserite nello scontrino.
    *
    * @param q unità da aggiungere
    * @return quantità totale nello scontrino
@@ -146,7 +143,7 @@ public class Prodotto {
   }
 
   /**
-   * Imposta la quantità di pezzi acquistati nello scontrino
+   * Imposta la quantità di pezzi acquistati nello scontrino.
    *
    * @param acquistato la quantità di pezzi da salvare
    */
@@ -155,19 +152,21 @@ public class Prodotto {
   }
 
   /**
-   * Imposta il prezzo del Prodotto. Se il prezzo non è positivo lancia eccezione
+   * Imposta il prezzo del Prodotto. Se il prezzo non è positivo lancia eccezione.
    *
    * @param prezzo il prezzo del prodotto
    * @throws ProdottoException Il prezzo deve essere positivo
    */
   public void setPrezzo(double prezzo) throws ProdottoException {
-    if (prezzo <= 0) throw new ProdottoException("Il prezzo del prodotto deve essere positivo");
+    if (prezzo <= 0) {
+      throw new ProdottoException("Il prezzo del prodotto deve essere positivo");
+    }
 
     this.prezzo = prezzo;
   }
 
   /**
-   * Restituisce il codice identificativo del Prodotto
+   * Restituisce il codice identificativo del Prodotto.
    *
    * @return il codice del Prodotto
    */
@@ -176,7 +175,7 @@ public class Prodotto {
   }
 
   /**
-   * Imposta il codice del Prodotto
+   * Imposta il codice del Prodotto.
    *
    * @param codice il codice del Prodotto
    */
@@ -185,7 +184,7 @@ public class Prodotto {
   }
 
   /**
-   * Imposta il nome del Prodotto
+   * Imposta il nome del Prodotto.
    *
    * @param nome il nome del Prodotto
    */
@@ -194,7 +193,7 @@ public class Prodotto {
   }
 
   /**
-   * Restituisce la qunatità di un Prodotto
+   * Restituisce la qunatità di un Prodotto.
    *
    * @return la quantità di un prodotto
    */
@@ -203,24 +202,26 @@ public class Prodotto {
   }
 
   /**
-   * Imposta la quantitò di un Prodotto. Se la quantità non è maggiore di 0 lancia eccezione
+   * Imposta la quantitò di un Prodotto. Se la quantità non è maggiore di 0 lancia eccezione.
    *
    * @param quantity la quantità del prdotto
    * @throws ProdottoException Errore nella modifica della quantità
    */
   public void setQuantity(int quantity) throws ProdottoException {
-    if (quantity <= 0) throw new ProdottoException("La quantità deve essere maggiore di 0");
+    if (quantity <= 0) {
+      throw new ProdottoException("La quantità deve essere maggiore di 0");
+    }
 
     this.quantity = quantity;
   }
 
   /**
-   * Cerca un prodotto dato il codice
+   * Cerca un prodotto dato il codice.
    *
    * @param cod Codice del prodotto da trovare
    * @return Il prodotto cercato
    * @throws ProdottoNotFoundException Prodotto non trovato
-   * @throws DatabaseException         Errore nel persistenza
+   * @throws DatabaseException Errore nel persistenza
    */
   public static Prodotto search(Long cod) throws ProdottoException, DatabaseException {
     return ProdottoDao.search(cod);
@@ -228,46 +229,49 @@ public class Prodotto {
 
   /**
    * Diminuisce la quantità del Prodotto dal Database in base al numero di volte in cui il codice è
-   * stato inserito nello scontrino. Se la quantità del prodotto è già zero non esegue nulla
+   * stato inserito nello scontrino. Se la quantità del prodotto è già zero non esegue nulla.
    *
    * @throws DatabaseException Errore del Database
    */
   public void leavedbquantity() throws DatabaseException, ProdottoException {
     if (quantity > 0) {
       ProdottoDao.leavedbquantity(this);
-    }else {
+    } else {
       System.out.println();
     }
   }
 
   /**
-   * Aumenta la quantità di questo prodotto nel persistenza se la quantità da aggiungere è positiva
+   * Aumenta la quantità di questo prodotto nel persistenza se la quantità da aggiungere è positiva.
    *
    * @param i quantità da aggiungere al Database
    * @throws DatabaseException Errore del Database
    * @throws ProdottoException La quantità deve essere positiva
    */
   public void adddbquantity(int i) throws DatabaseException, ProdottoException {
-    if (i > 0) ProdottoDao.adddbquantity(i, this);
-    else {
+    if (i > 0) {
+      ProdottoDao.adddbquantity(i, this);
+    } else {
       throw new ProdottoException("Inserire un valore maggiore di 0");
     }
   }
 
   /**
-   * Salva questo Prodotto nel persistenza. Il prezzo e la quantità del prodotto devono essere positivi
+   * Salva questo Prodotto nel persistenza. Il prezzo e la quantità del prodotto devono essere
+   * positivi.
    *
    * @throws DatabaseException Errore del Database
    * @throws ProdottoException Il prezzo e la quantita del Prodotto devono essere positivi
    */
   public void createProdotto() throws DatabaseException, ProdottoException {
-    if (prezzo <= 0 || quantity <= 0)
+    if (prezzo <= 0 || quantity <= 0) {
       throw new ProdottoException("Prezzo e quantità devono essere entrambi positivi");
+    }
     ProdottoDao.createProdotto(this);
   }
 
   /**
-   * Modifica il prezzo del Prodotto
+   * Modifica il prezzo del Prodotto.
    *
    * @param prezzo Nuovo prezzo
    * @throws DatabaseException Errore generico nel Database
@@ -283,35 +287,37 @@ public class Prodotto {
   @Override
   public String toString() {
     return "Prodotto{"
-            + "acquistato="
-            + acquistato
-            + ", prezzo="
-            + prezzo
-            + ", codice="
-            + codice
-            + ", nome='"
-            + nome
-            + '\''
-            + ", quantity="
-            + quantity
-            + ", tipologia='"
-            + tipologia
-            + '\''
-            + ", scadenza='"
-            + scadenza
-            + '\''
-            + ", dimensioneConfezione='"
-            + dimensioneConfezione
-            + '\''
-            + '}';
+        + "acquistato="
+        + acquistato
+        + ", prezzo="
+        + prezzo
+        + ", codice="
+        + codice
+        + ", nome='"
+        + nome
+        + '\''
+        + ", quantity="
+        + quantity
+        + ", tipologia='"
+        + tipologia
+        + '\''
+        + ", scadenza='"
+        + scadenza
+        + '\''
+        + ", dimensioneConfezione='"
+        + dimensioneConfezione
+        + '\''
+        + '}';
   }
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    else {
-      if (o == null || getClass() != o.getClass()) return false;
-      else {
+    if (this == o) {
+      return true;
+    } else {
+      if (o == null || getClass() != o.getClass()) {
+        return false;
+      } else {
         Prodotto prodotto = (Prodotto) o;
         if (getCodice() == prodotto.getCodice()) {
           return true;
@@ -323,7 +329,7 @@ public class Prodotto {
   }
 
   /**
-   * Elimina un prodotto dal database
+   * Elimina un prodotto dal database.
    *
    * @return true se il prodotto è stato eliminato
    * @throws DatabaseException Errore del database
@@ -332,7 +338,7 @@ public class Prodotto {
     return ProdottoDao.eliminaProdotto(this);
   }
 
-  //PER TESTING
+  // PER TESTING
 
   public void setQuantitySenzaControllo(int quantity) throws ProdottoException {
     this.quantity = quantity;

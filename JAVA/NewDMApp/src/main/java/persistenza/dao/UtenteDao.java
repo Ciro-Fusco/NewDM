@@ -10,9 +10,7 @@ import persistenza.DatabaseConnection;
 
 import static business.utenza.Utente.setUtente;
 
-/**
- * DAO per la ricerca di un utente.
- */
+/** DAO per la ricerca di un utente. */
 public class UtenteDao {
 
   /**
@@ -20,13 +18,14 @@ public class UtenteDao {
    *
    * @param user Nome utente
    * @param pass Password non ancora codificata
-   * @throws DatabaseException       Errore generico;
+   * @throws DatabaseException Errore generico;
    * @throws UtenteNotFoundException Utente non trovato nel Database;
    */
   public static void login(String user, String pass)
-          throws DatabaseException, UtenteNotFoundException {
+      throws DatabaseException, UtenteNotFoundException {
     try {
-      PreparedStatement prep = DatabaseConnection.getInstance().getCon().prepareStatement(Query.login);
+      PreparedStatement prep =
+          DatabaseConnection.getInstance().getCon().prepareStatement(Query.login);
       prep.setString(1, user);
       String shapass = DigestUtils.sha1Hex(pass);
       prep.setString(2, shapass);
@@ -34,8 +33,13 @@ public class UtenteDao {
       if (!res.next()) {
         throw new UtenteNotFoundException("Utente non trovato\nControlla username e password");
       } else {
-        setUtente(res.getString("NOME"), res.getString("COGNOME"), res.getString("USERNAME"),
-                res.getBoolean("CASSA"), res.getBoolean("MAGAZZINO"), res.getBoolean("ASSISTENZA"));
+        setUtente(
+            res.getString("NOME"),
+            res.getString("COGNOME"),
+            res.getString("USERNAME"),
+            res.getBoolean("CASSA"),
+            res.getBoolean("MAGAZZINO"),
+            res.getBoolean("ASSISTENZA"));
       }
     } catch (SQLException e) {
       e.printStackTrace();

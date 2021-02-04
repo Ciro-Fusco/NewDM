@@ -58,9 +58,9 @@ public class AssistenzaController {
    * @param mouseEvent
    * @throws IOException Errore cambio di scena
    * @throws ScontrinoException Scontrino non trovato
-   * @throws ElencaException  Lo scontrino non contiene quel prodotto
-   * @throws ProdottoException  Prodotto non trovato
-   * @throws DatabaseException  Errore nel Database
+   * @throws ElencaException Lo scontrino non contiene quel prodotto
+   * @throws ProdottoException Prodotto non trovato
+   * @throws DatabaseException Errore nel Database
    */
   @FXML
   public void openAssistenzaDettagliProb(MouseEvent mouseEvent)
@@ -88,11 +88,11 @@ public class AssistenzaController {
                       .getText()
                       .matches(
                           "^([0]?[1-9]|[1|2][0-9]|[3][0|1])[-]([0]?[1-9]|[1][0-2])[-]([0-9]{4})$")) {
-                    String data_temp = dataScontrino.getText();
+                    String dataTemp = dataScontrino.getText();
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                    LocalDateTime data_obj = LocalDate.parse(data_temp, formatter).atStartOfDay();
-                    LocalDateTime data_2_years_ago = LocalDateTime.now().minusYears(2);
-                    if (data_obj.isBefore(data_2_years_ago)) {
+                    LocalDateTime dataObj = LocalDate.parse(dataTemp, formatter).atStartOfDay();
+                    LocalDateTime data2YearsAgo = LocalDateTime.now().minusYears(2);
+                    if (dataObj.isBefore(data2YearsAgo)) {
                       throw new ScontrinoNonValidoException(
                           "Inserire una data valida, non precedente a 2 anni fa e non successiva alla data odierna");
                     }

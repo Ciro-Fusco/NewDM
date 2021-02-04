@@ -53,7 +53,7 @@ public class ScontrinoDaoTest {
     
     Scontrino s = new Scontrino();
     s.addProdotto(1000000000001L);
-    s.setDataSbagliataTEST();
+    s.setdatasbagliatatest();
     s.save();
     Exception ex =
             assertThrows(
