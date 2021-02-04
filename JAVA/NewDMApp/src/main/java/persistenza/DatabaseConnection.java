@@ -38,11 +38,11 @@ public class DatabaseConnection {
     }
   }
 
-  /** Costruttore per il singleton */
+  /** Costruttore per il singleton. */
   private DatabaseConnection() {}
 
   /**
-   * Restituisce l'istanza di DatabaseConnection
+   * Restituisce l'istanza di DatabaseConnection.
    *
    * @return l'istanza
    * @throws DatabaseException Errore nel Database
@@ -71,7 +71,7 @@ public class DatabaseConnection {
   }
 
   /**
-   * Restituisce l'istanza di connesione al database
+   * Restituisce l'istanza di connesione al database.
    *
    * @return l'istanza di connesione al database
    */
@@ -80,7 +80,7 @@ public class DatabaseConnection {
   }
 
   // METODO PER IL TEST
-  public static DatabaseConnection getInstanceTEST() throws DatabaseException {
+  public static DatabaseConnection getInstancetest() throws DatabaseException {
     return instance;
   }
 }

@@ -18,7 +18,7 @@ public class DatabaseConnectionTest {
     public void connectConNotNull() throws DatabaseException {
         DatabaseConnection.getInstance();
         DatabaseConnection.getInstance();
-        assertNotEquals(null,DatabaseConnection.getInstanceTEST());
+        assertNotEquals(null,DatabaseConnection.getInstancetest());
         DatabaseConnection.close();
     }
 
@@ -27,7 +27,7 @@ public class DatabaseConnectionTest {
         DatabaseConnection.getInstance();
         DatabaseConnection.close();
         DatabaseConnection.getInstance();
-        assertNotEquals(null,DatabaseConnection.getInstanceTEST());
+        assertNotEquals(null,DatabaseConnection.getInstancetest());
         DatabaseConnection.close();
     }
 
@@ -35,7 +35,7 @@ public class DatabaseConnectionTest {
     public void connectConNotClosed() throws DatabaseException {
         DatabaseConnection.getInstance();
         DatabaseConnection.getInstance();
-        assertNotEquals(null,DatabaseConnection.getInstanceTEST());
+        assertNotEquals(null,DatabaseConnection.getInstancetest());
         DatabaseConnection.close();
     }
 

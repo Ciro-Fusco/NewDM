@@ -46,19 +46,19 @@ import persistenza.DatabaseConnection;
    * Salva le informazioni di un Ticket nel persistenza.
    *
    * @param apertura data di apertura del Ticket
-   * @param CF Codice Fiscale del Cliente
+   * @param cf Codice Fiscale del Cliente
    * @param serie Numero di Serie del Prodotto
    * @return il Ticket cercato
    * @throws TicketNotFoundException Ticket non trovato
    * @throws DatabaseException Errore del Database
    */
-  public static Ticket getTicket(String apertura, String CF, String serie)
+  public static Ticket getTicket(String apertura, String cf, String serie)
       throws TicketNotFoundException, DatabaseException {
     try {
       PreparedStatement prep =
 <span class="fc" id="L59">          DatabaseConnection.getInstance().getCon().prepareStatement(Query.getTicket);</span>
 <span class="fc" id="L60">      prep.setString(1, apertura + &quot;%&quot;);</span>
-<span class="fc" id="L61">      prep.setString(2, CF);</span>
+<span class="fc" id="L61">      prep.setString(2, cf);</span>
 <span class="fc" id="L62">      prep.setString(3, serie);</span>
 <span class="fc" id="L63">      ResultSet res = prep.executeQuery();</span>
 <span class="fc bfc" id="L64" title="All 2 branches covered.">      if (!res.next()) {</span>

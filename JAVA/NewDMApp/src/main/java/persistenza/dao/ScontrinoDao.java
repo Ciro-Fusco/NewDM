@@ -70,11 +70,11 @@ public class ScontrinoDao {
       if (!res.next()) {
         throw new ScontrinoNotFoundException("Scontrino non trovato\nControlla il codice");
       } else {
-        String data_temp = res.getString("data");
+        String dataTemp = res.getString("data");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        LocalDateTime data_obj = LocalDate.parse(data_temp, formatter).atStartOfDay();
-        LocalDateTime data_2_years_ago = LocalDateTime.now().minusYears(2);
-        if (data_obj.isBefore(data_2_years_ago)) {
+        LocalDateTime dataObj = LocalDate.parse(dataTemp, formatter).atStartOfDay();
+        LocalDateTime data2YearsAgo = LocalDateTime.now().minusYears(2);
+        if (dataObj.isBefore(data2YearsAgo)) {
           throw new ScontrinoNonValidoException(
               "Inserire una data valida, non precedente a 2 anni fa e non successiva alla data odierna");
         } else {

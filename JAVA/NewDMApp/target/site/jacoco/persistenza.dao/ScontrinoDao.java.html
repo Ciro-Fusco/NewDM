@@ -70,11 +70,11 @@ import persistenza.DatabaseConnection;
 <span class="fc bfc" id="L70" title="All 2 branches covered.">      if (!res.next()) {</span>
 <span class="fc" id="L71">        throw new ScontrinoNotFoundException(&quot;Scontrino non trovato\nControlla il codice&quot;);</span>
       } else {
-<span class="fc" id="L73">        String data_temp = res.getString(&quot;data&quot;);</span>
+<span class="fc" id="L73">        String dataTemp = res.getString(&quot;data&quot;);</span>
 <span class="fc" id="L74">        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
-<span class="fc" id="L75">        LocalDateTime data_obj = LocalDate.parse(data_temp, formatter).atStartOfDay();</span>
-<span class="fc" id="L76">        LocalDateTime data_2_years_ago = LocalDateTime.now().minusYears(2);</span>
-<span class="fc bfc" id="L77" title="All 2 branches covered.">        if (data_obj.isBefore(data_2_years_ago)) {</span>
+<span class="fc" id="L75">        LocalDateTime dataObj = LocalDate.parse(dataTemp, formatter).atStartOfDay();</span>
+<span class="fc" id="L76">        LocalDateTime data2YearsAgo = LocalDateTime.now().minusYears(2);</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        if (dataObj.isBefore(data2YearsAgo)) {</span>
 <span class="fc" id="L78">          throw new ScontrinoNonValidoException(</span>
               &quot;Inserire una data valida, non precedente a 2 anni fa e non successiva alla data odierna&quot;);
         } else {
