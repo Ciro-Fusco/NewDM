@@ -1,0 +1,999 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="TestSuiteMagazzino" time="501.738" tests="9" failures="0" skips="0" errors="0">
+   <testsuite name="TestSuiteMagazzino" tests="9" failures="0" errors="0" time="501.738" skips="0" timestamp="2021-02-01 13:33:58" hostname="vinny - LAPTOP-RE4EIHP2" id="Test Suites/TestSuiteMagazzino">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform" value=""/>
+         <property name="logFolder" value="C:\\Users\\vinny\\Documents\\GitHub\\NewDM\\NewDMKatalon\\Reports\\20210201_133352\\TestSuiteMagazzino\\20210201_133352"/>
+         <property name="logFiles" value="C:\\Users\\vinny\\Documents\\GitHub\\NewDM\\NewDMKatalon\\Reports\\20210201_133352\\TestSuiteMagazzino\\20210201_133352\\execution0.log"/>
+         <property name="attachments" value=""/>
+         <property name="hostName" value="vinny - LAPTOP-RE4EIHP2"/>
+         <property name="hostAddress" value="192.168.43.108"/>
+         <property name="desiredCapabilities" value="{}"/>
+         <property name="os" value="Windows 10 64bit"/>
+         <property name="katalonVersion" value="7.9.0.208"/>
+      </properties>
+      <testcase name="Test Cases/TC_I_1_1" time="49.042" classname="Test Cases/TC_I_1_1" status="PASSED">
+         <system-out><![CDATA[2021-02-01 13:34:00 - [TEST_CASE][PASSED] - Test Cases/TC_I_1_1: Test Cases/TC_I_1_1
+
+2021-02-01 13:34:01 - [TEST_STEP][PASSED] - callTestCase(findTestCase("BeforeMagazzino"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:34:01 - [TEST_CASE][PASSED] - Test Cases/BeforeMagazzino: Test Cases/BeforeMagazzino
+
+2021-02-01 13:34:02 - [TEST_STEP][PASSED] - startApplicationWithTitle("C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe", ""): The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:34:02 - [MESSAGE][INFO] - Starting application C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe on the local machine at address http://127.0.0.1:4723
+
+2021-02-01 13:34:05 - [MESSAGE][PASSED] - The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:34:05 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/Magazzino")): Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:34:05 - [MESSAGE][INFO] - Clicking on element: Object Repository/Magazzino
+
+2021-02-01 13:34:06 - [MESSAGE][PASSED] - Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:34:06 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/CodUtenteLogIn")): Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:34:06 - [MESSAGE][INFO] - Clicking on element: Object Repository/CodUtenteLogIn
+
+2021-02-01 13:34:07 - [MESSAGE][PASSED] - Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:34:07 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/CodUtenteLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:34:09 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:34:09 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/PasswordLogIn")): Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:34:10 - [MESSAGE][INFO] - Clicking on element: Object Repository/PasswordLogIn
+
+2021-02-01 13:34:10 - [MESSAGE][PASSED] - Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:34:10 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/PasswordLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:34:12 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:34:12 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/AccediLogIn")): Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:34:13 - [MESSAGE][INFO] - Clicking on element: Object Repository/AccediLogIn
+
+2021-02-01 13:34:13 - [MESSAGE][PASSED] - Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:34:13 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/InserisciNuovoProdottoMagazzino")): Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:34:14 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciNuovoProdottoMagazzino
+
+2021-02-01 13:34:14 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:34:14 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:34:14 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/NomeProdottoMagazzino")): Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:34:15 - [MESSAGE][INFO] - Clicking on element: Object Repository/NomeProdottoMagazzino
+
+2021-02-01 13:34:16 - [MESSAGE][PASSED] - Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:34:16 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/NomeProdottoMagazzinoText"), "P"): Text P is set
+
+2021-02-01 13:34:18 - [MESSAGE][PASSED] - Text P is set
+
+2021-02-01 13:34:18 - [TEST_STEP][PASSED] - click(findWindowsObject("InserisciProdottoMagazzino")): Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:34:19 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciProdottoMagazzino
+
+2021-02-01 13:34:19 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:34:19 - [TEST_STEP][PASSED] - switchToWindowTitle("Errore"): Switch to window 'Errore' successfully
+
+2021-02-01 13:34:19 - [MESSAGE][INFO] - Start finding a window that matches with title 'Errore' in 120.000 millisecond(s)
+
+2021-02-01 13:34:48 - [MESSAGE][PASSED] - Switch to window 'Errore' successfully
+
+2021-02-01 13:34:48 - [TEST_STEP][PASSED] - text = getText(findWindowsObject("Object Repository/MessaggioErrore")): Text of test object: Object Repository/MessaggioErrore is: Inserisci un nome valido
+
+2021-02-01 13:34:49 - [MESSAGE][PASSED] - Text of test object: Object Repository/MessaggioErrore is: Inserisci un nome valido
+
+2021-02-01 13:34:49 - [TEST_STEP][PASSED] - assert text == "Inserisci un nome valido": null
+
+2021-02-01 13:34:49 - [TEST_STEP][PASSED] - closeApplication(): Fire Close event sucessfully.
+
+2021-02-01 13:34:49 - [MESSAGE][PASSED] - Fire Close event sucessfully.]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/TC_I_1_2" time="51.779" classname="Test Cases/TC_I_1_2" status="PASSED">
+         <system-out><![CDATA[2021-02-01 13:34:49 - [TEST_CASE][PASSED] - Test Cases/TC_I_1_2: Test Cases/TC_I_1_2
+
+2021-02-01 13:34:49 - [TEST_STEP][PASSED] - callTestCase(findTestCase("BeforeMagazzino"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:34:49 - [TEST_CASE][PASSED] - Test Cases/BeforeMagazzino: Test Cases/BeforeMagazzino
+
+2021-02-01 13:34:50 - [TEST_STEP][PASSED] - startApplicationWithTitle("C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe", ""): The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:34:50 - [MESSAGE][INFO] - Starting application C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe on the local machine at address http://127.0.0.1:4723
+
+2021-02-01 13:34:51 - [MESSAGE][PASSED] - The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:34:51 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/Magazzino")): Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:34:52 - [MESSAGE][INFO] - Clicking on element: Object Repository/Magazzino
+
+2021-02-01 13:34:52 - [MESSAGE][PASSED] - Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:34:52 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/CodUtenteLogIn")): Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:34:53 - [MESSAGE][INFO] - Clicking on element: Object Repository/CodUtenteLogIn
+
+2021-02-01 13:34:53 - [MESSAGE][PASSED] - Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:34:53 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/CodUtenteLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:34:55 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:34:55 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/PasswordLogIn")): Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:34:56 - [MESSAGE][INFO] - Clicking on element: Object Repository/PasswordLogIn
+
+2021-02-01 13:34:56 - [MESSAGE][PASSED] - Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:34:56 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/PasswordLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:34:58 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:34:58 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/AccediLogIn")): Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:34:59 - [MESSAGE][INFO] - Clicking on element: Object Repository/AccediLogIn
+
+2021-02-01 13:34:59 - [MESSAGE][PASSED] - Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:34:59 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/InserisciNuovoProdottoMagazzino")): Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:35:00 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciNuovoProdottoMagazzino
+
+2021-02-01 13:35:00 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:35:00 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:35:00 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/NomeProdottoMagazzino")): Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:35:01 - [MESSAGE][INFO] - Clicking on element: Object Repository/NomeProdottoMagazzino
+
+2021-02-01 13:35:01 - [MESSAGE][PASSED] - Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:35:01 - [TEST_STEP][PASSED] - setText(findWindowsObject("NomeProdottoMagazzinoText"), "Orata"): Text Orata is set
+
+2021-02-01 13:35:04 - [MESSAGE][PASSED] - Text Orata is set
+
+2021-02-01 13:35:04 - [TEST_STEP][PASSED] - click(findWindowsObject("QuantitaMagazzino")): Click on element: Object Repository/QuantitaMagazzino succesfully
+
+2021-02-01 13:35:05 - [MESSAGE][INFO] - Clicking on element: Object Repository/QuantitaMagazzino
+
+2021-02-01 13:35:05 - [MESSAGE][PASSED] - Click on element: Object Repository/QuantitaMagazzino succesfully
+
+2021-02-01 13:35:05 - [TEST_STEP][PASSED] - setText(findWindowsObject("QuantitaMagazzinoText"), "a"): Text a is set
+
+2021-02-01 13:35:08 - [MESSAGE][PASSED] - Text a is set
+
+2021-02-01 13:35:08 - [TEST_STEP][PASSED] - click(findWindowsObject("InserisciProdottoMagazzino")): Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:35:09 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciProdottoMagazzino
+
+2021-02-01 13:35:09 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:35:09 - [TEST_STEP][PASSED] - switchToWindowTitle("Errore"): Switch to window 'Errore' successfully
+
+2021-02-01 13:35:09 - [MESSAGE][INFO] - Start finding a window that matches with title 'Errore' in 120.000 millisecond(s)
+
+2021-02-01 13:35:40 - [MESSAGE][PASSED] - Switch to window 'Errore' successfully
+
+2021-02-01 13:35:40 - [TEST_STEP][PASSED] - text = getText(findWindowsObject("Object Repository/MessaggioErrore")): Text of test object: Object Repository/MessaggioErrore is: Inserisci una quantità positiva
+
+2021-02-01 13:35:41 - [MESSAGE][PASSED] - Text of test object: Object Repository/MessaggioErrore is: Inserisci una quantità positiva
+
+2021-02-01 13:35:41 - [TEST_STEP][PASSED] - assert text == "Inserisci una quantità positiva": null
+
+2021-02-01 13:35:41 - [TEST_STEP][PASSED] - closeApplication(): Fire Close event sucessfully.
+
+2021-02-01 13:35:41 - [MESSAGE][PASSED] - Fire Close event sucessfully.]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/TC_I_1_3" time="54.851" classname="Test Cases/TC_I_1_3" status="PASSED">
+         <system-out><![CDATA[2021-02-01 13:35:41 - [TEST_CASE][PASSED] - Test Cases/TC_I_1_3: Test Cases/TC_I_1_3
+
+2021-02-01 13:35:41 - [TEST_STEP][PASSED] - callTestCase(findTestCase("BeforeMagazzino"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:35:41 - [TEST_CASE][PASSED] - Test Cases/BeforeMagazzino: Test Cases/BeforeMagazzino
+
+2021-02-01 13:35:41 - [TEST_STEP][PASSED] - startApplicationWithTitle("C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe", ""): The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:35:41 - [MESSAGE][INFO] - Starting application C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe on the local machine at address http://127.0.0.1:4723
+
+2021-02-01 13:35:43 - [MESSAGE][PASSED] - The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:35:43 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/Magazzino")): Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:35:44 - [MESSAGE][INFO] - Clicking on element: Object Repository/Magazzino
+
+2021-02-01 13:35:44 - [MESSAGE][PASSED] - Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:35:44 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/CodUtenteLogIn")): Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:35:45 - [MESSAGE][INFO] - Clicking on element: Object Repository/CodUtenteLogIn
+
+2021-02-01 13:35:45 - [MESSAGE][PASSED] - Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:35:45 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/CodUtenteLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:35:47 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:35:47 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/PasswordLogIn")): Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:35:47 - [MESSAGE][INFO] - Clicking on element: Object Repository/PasswordLogIn
+
+2021-02-01 13:35:48 - [MESSAGE][PASSED] - Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:35:48 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/PasswordLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:35:50 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:35:50 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/AccediLogIn")): Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:35:50 - [MESSAGE][INFO] - Clicking on element: Object Repository/AccediLogIn
+
+2021-02-01 13:35:51 - [MESSAGE][PASSED] - Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:35:51 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/InserisciNuovoProdottoMagazzino")): Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:35:51 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciNuovoProdottoMagazzino
+
+2021-02-01 13:35:52 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:35:52 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:35:52 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/NomeProdottoMagazzino")): Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:35:53 - [MESSAGE][INFO] - Clicking on element: Object Repository/NomeProdottoMagazzino
+
+2021-02-01 13:35:53 - [MESSAGE][PASSED] - Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:35:53 - [TEST_STEP][PASSED] - setText(findWindowsObject("NomeProdottoMagazzinoText"), "Orata"): Text Orata is set
+
+2021-02-01 13:35:56 - [MESSAGE][PASSED] - Text Orata is set
+
+2021-02-01 13:35:56 - [TEST_STEP][PASSED] - click(findWindowsObject("QuantitaMagazzino")): Click on element: Object Repository/QuantitaMagazzino succesfully
+
+2021-02-01 13:35:57 - [MESSAGE][INFO] - Clicking on element: Object Repository/QuantitaMagazzino
+
+2021-02-01 13:35:57 - [MESSAGE][PASSED] - Click on element: Object Repository/QuantitaMagazzino succesfully
+
+2021-02-01 13:35:57 - [TEST_STEP][PASSED] - setText(findWindowsObject("QuantitaMagazzinoText"), "0"): Text 0 is set
+
+2021-02-01 13:35:59 - [MESSAGE][PASSED] - Text 0 is set
+
+2021-02-01 13:35:59 - [TEST_STEP][PASSED] - click(findWindowsObject("InserisciProdottoMagazzino")): Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:36:00 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciProdottoMagazzino
+
+2021-02-01 13:36:01 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:36:01 - [TEST_STEP][PASSED] - switchToWindowTitle("Errore"): Switch to window 'Errore' successfully
+
+2021-02-01 13:36:01 - [MESSAGE][INFO] - Start finding a window that matches with title 'Errore' in 120.000 millisecond(s)
+
+2021-02-01 13:36:35 - [MESSAGE][PASSED] - Switch to window 'Errore' successfully
+
+2021-02-01 13:36:35 - [TEST_STEP][PASSED] - text = getText(findWindowsObject("Object Repository/MessaggioErrore")): Text of test object: Object Repository/MessaggioErrore is: Inserisci una quantità positiva
+
+2021-02-01 13:36:35 - [MESSAGE][PASSED] - Text of test object: Object Repository/MessaggioErrore is: Inserisci una quantità positiva
+
+2021-02-01 13:36:35 - [TEST_STEP][PASSED] - assert text == "Inserisci una quantità positiva": null
+
+2021-02-01 13:36:35 - [TEST_STEP][PASSED] - closeApplication(): Fire Close event sucessfully.
+
+2021-02-01 13:36:36 - [MESSAGE][PASSED] - Fire Close event sucessfully.]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/TC_I_1_4" time="54.141" classname="Test Cases/TC_I_1_4" status="PASSED">
+         <system-out><![CDATA[2021-02-01 13:36:36 - [TEST_CASE][PASSED] - Test Cases/TC_I_1_4: Test Cases/TC_I_1_4
+
+2021-02-01 13:36:36 - [TEST_STEP][PASSED] - callTestCase(findTestCase("BeforeMagazzino"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:36:36 - [TEST_CASE][PASSED] - Test Cases/BeforeMagazzino: Test Cases/BeforeMagazzino
+
+2021-02-01 13:36:36 - [TEST_STEP][PASSED] - startApplicationWithTitle("C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe", ""): The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:36:36 - [MESSAGE][INFO] - Starting application C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe on the local machine at address http://127.0.0.1:4723
+
+2021-02-01 13:36:38 - [MESSAGE][PASSED] - The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:36:38 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/Magazzino")): Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:36:38 - [MESSAGE][INFO] - Clicking on element: Object Repository/Magazzino
+
+2021-02-01 13:36:39 - [MESSAGE][PASSED] - Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:36:39 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/CodUtenteLogIn")): Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:36:39 - [MESSAGE][INFO] - Clicking on element: Object Repository/CodUtenteLogIn
+
+2021-02-01 13:36:39 - [MESSAGE][PASSED] - Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:36:39 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/CodUtenteLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:36:42 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:36:42 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/PasswordLogIn")): Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:36:42 - [MESSAGE][INFO] - Clicking on element: Object Repository/PasswordLogIn
+
+2021-02-01 13:36:42 - [MESSAGE][PASSED] - Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:36:42 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/PasswordLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:36:44 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:36:44 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/AccediLogIn")): Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:36:45 - [MESSAGE][INFO] - Clicking on element: Object Repository/AccediLogIn
+
+2021-02-01 13:36:45 - [MESSAGE][PASSED] - Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:36:45 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/InserisciNuovoProdottoMagazzino")): Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:36:46 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciNuovoProdottoMagazzino
+
+2021-02-01 13:36:46 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:36:46 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:36:46 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/NomeProdottoMagazzino")): Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:36:47 - [MESSAGE][INFO] - Clicking on element: Object Repository/NomeProdottoMagazzino
+
+2021-02-01 13:36:48 - [MESSAGE][PASSED] - Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:36:48 - [TEST_STEP][PASSED] - setText(findWindowsObject("NomeProdottoMagazzinoText"), "Orata"): Text Orata is set
+
+2021-02-01 13:36:50 - [MESSAGE][PASSED] - Text Orata is set
+
+2021-02-01 13:36:50 - [TEST_STEP][PASSED] - click(findWindowsObject("QuantitaMagazzino")): Click on element: Object Repository/QuantitaMagazzino succesfully
+
+2021-02-01 13:36:51 - [MESSAGE][INFO] - Clicking on element: Object Repository/QuantitaMagazzino
+
+2021-02-01 13:36:51 - [MESSAGE][PASSED] - Click on element: Object Repository/QuantitaMagazzino succesfully
+
+2021-02-01 13:36:51 - [TEST_STEP][PASSED] - setText(findWindowsObject("QuantitaMagazzinoText"), "100"): Text 100 is set
+
+2021-02-01 13:36:54 - [MESSAGE][PASSED] - Text 100 is set
+
+2021-02-01 13:36:54 - [TEST_STEP][PASSED] - click(findWindowsObject("CodProdottoMagazzino")): Click on element: Object Repository/CodProdottoMagazzino succesfully
+
+2021-02-01 13:36:55 - [MESSAGE][INFO] - Clicking on element: Object Repository/CodProdottoMagazzino
+
+2021-02-01 13:36:55 - [MESSAGE][PASSED] - Click on element: Object Repository/CodProdottoMagazzino succesfully
+
+2021-02-01 13:36:55 - [TEST_STEP][PASSED] - setText(findWindowsObject("CodProdottoMagazzinoText"), "123456"): Text 123456 is set
+
+2021-02-01 13:36:58 - [MESSAGE][PASSED] - Text 123456 is set
+
+2021-02-01 13:36:58 - [TEST_STEP][PASSED] - click(findWindowsObject("InserisciProdottoMagazzino")): Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:36:59 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciProdottoMagazzino
+
+2021-02-01 13:36:59 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:36:59 - [TEST_STEP][PASSED] - switchToWindowTitle("Errore"): Switch to window 'Errore' successfully
+
+2021-02-01 13:36:59 - [MESSAGE][INFO] - Start finding a window that matches with title 'Errore' in 120.000 millisecond(s)
+
+2021-02-01 13:37:29 - [MESSAGE][PASSED] - Switch to window 'Errore' successfully
+
+2021-02-01 13:37:29 - [TEST_STEP][PASSED] - text = getText(findWindowsObject("Object Repository/MessaggioErrore")): Text of test object: Object Repository/MessaggioErrore is: Inserisci un codice prodotto valido (13 cifre)
+
+2021-02-01 13:37:30 - [MESSAGE][PASSED] - Text of test object: Object Repository/MessaggioErrore is: Inserisci un codice prodotto valido (13 cifre)
+
+2021-02-01 13:37:30 - [TEST_STEP][PASSED] - assert text == "Inserisci un codice prodotto valido (13 cifre)": null
+
+2021-02-01 13:37:30 - [TEST_STEP][PASSED] - closeApplication(): Fire Close event sucessfully.
+
+2021-02-01 13:37:30 - [MESSAGE][PASSED] - Fire Close event sucessfully.]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/TC_I_1_6" time="64.703" classname="Test Cases/TC_I_1_6" status="PASSED">
+         <system-out><![CDATA[2021-02-01 13:37:30 - [TEST_CASE][PASSED] - Test Cases/TC_I_1_6: Test Cases/TC_I_1_6
+
+2021-02-01 13:37:30 - [TEST_STEP][PASSED] - callTestCase(findTestCase("BeforeMagazzino"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:37:30 - [TEST_CASE][PASSED] - Test Cases/BeforeMagazzino: Test Cases/BeforeMagazzino
+
+2021-02-01 13:37:30 - [TEST_STEP][PASSED] - startApplicationWithTitle("C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe", ""): The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:37:30 - [MESSAGE][INFO] - Starting application C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe on the local machine at address http://127.0.0.1:4723
+
+2021-02-01 13:37:32 - [MESSAGE][PASSED] - The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:37:32 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/Magazzino")): Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:37:33 - [MESSAGE][INFO] - Clicking on element: Object Repository/Magazzino
+
+2021-02-01 13:37:33 - [MESSAGE][PASSED] - Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:37:33 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/CodUtenteLogIn")): Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:37:33 - [MESSAGE][INFO] - Clicking on element: Object Repository/CodUtenteLogIn
+
+2021-02-01 13:37:34 - [MESSAGE][PASSED] - Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:37:34 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/CodUtenteLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:37:36 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:37:36 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/PasswordLogIn")): Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:37:36 - [MESSAGE][INFO] - Clicking on element: Object Repository/PasswordLogIn
+
+2021-02-01 13:37:36 - [MESSAGE][PASSED] - Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:37:36 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/PasswordLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:37:39 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:37:39 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/AccediLogIn")): Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:37:39 - [MESSAGE][INFO] - Clicking on element: Object Repository/AccediLogIn
+
+2021-02-01 13:37:39 - [MESSAGE][PASSED] - Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:37:39 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/InserisciNuovoProdottoMagazzino")): Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:37:40 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciNuovoProdottoMagazzino
+
+2021-02-01 13:37:41 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:37:41 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:37:41 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/NomeProdottoMagazzino")): Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:37:42 - [MESSAGE][INFO] - Clicking on element: Object Repository/NomeProdottoMagazzino
+
+2021-02-01 13:37:42 - [MESSAGE][PASSED] - Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:37:42 - [TEST_STEP][PASSED] - setText(findWindowsObject("NomeProdottoMagazzinoText"), "Orata"): Text Orata is set
+
+2021-02-01 13:37:45 - [MESSAGE][PASSED] - Text Orata is set
+
+2021-02-01 13:37:45 - [TEST_STEP][PASSED] - click(findWindowsObject("QuantitaMagazzino")): Click on element: Object Repository/QuantitaMagazzino succesfully
+
+2021-02-01 13:37:46 - [MESSAGE][INFO] - Clicking on element: Object Repository/QuantitaMagazzino
+
+2021-02-01 13:37:47 - [MESSAGE][PASSED] - Click on element: Object Repository/QuantitaMagazzino succesfully
+
+2021-02-01 13:37:47 - [TEST_STEP][PASSED] - setText(findWindowsObject("QuantitaMagazzinoText"), "100"): Text 100 is set
+
+2021-02-01 13:37:49 - [MESSAGE][PASSED] - Text 100 is set
+
+2021-02-01 13:37:49 - [TEST_STEP][PASSED] - click(findWindowsObject("CodProdottoMagazzino")): Click on element: Object Repository/CodProdottoMagazzino succesfully
+
+2021-02-01 13:37:50 - [MESSAGE][INFO] - Clicking on element: Object Repository/CodProdottoMagazzino
+
+2021-02-01 13:37:50 - [MESSAGE][PASSED] - Click on element: Object Repository/CodProdottoMagazzino succesfully
+
+2021-02-01 13:37:50 - [TEST_STEP][PASSED] - setText(findWindowsObject("CodProdottoMagazzinoText"), "0123456789000"): Text 0123456789000 is set
+
+2021-02-01 13:37:54 - [MESSAGE][PASSED] - Text 0123456789000 is set
+
+2021-02-01 13:37:54 - [TEST_STEP][PASSED] - click(findWindowsObject("PrezzoMagazzino")): Click on element: Object Repository/PrezzoMagazzino succesfully
+
+2021-02-01 13:37:55 - [MESSAGE][INFO] - Clicking on element: Object Repository/PrezzoMagazzino
+
+2021-02-01 13:37:55 - [MESSAGE][PASSED] - Click on element: Object Repository/PrezzoMagazzino succesfully
+
+2021-02-01 13:37:55 - [TEST_STEP][PASSED] - setText(findWindowsObject("PrezzoMagazzinoText"), "a"): Text a is set
+
+2021-02-01 13:37:57 - [MESSAGE][PASSED] - Text a is set
+
+2021-02-01 13:37:57 - [TEST_STEP][PASSED] - click(findWindowsObject("InserisciProdottoMagazzino")): Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:37:58 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciProdottoMagazzino
+
+2021-02-01 13:37:59 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:37:59 - [TEST_STEP][PASSED] - switchToWindowTitle("Errore"): Switch to window 'Errore' successfully
+
+2021-02-01 13:37:59 - [MESSAGE][INFO] - Start finding a window that matches with title 'Errore' in 120.000 millisecond(s)
+
+2021-02-01 13:38:34 - [MESSAGE][PASSED] - Switch to window 'Errore' successfully
+
+2021-02-01 13:38:34 - [TEST_STEP][PASSED] - text = getText(findWindowsObject("Object Repository/MessaggioErrore")): Text of test object: Object Repository/MessaggioErrore is: Inserire un prezzo valido
+
+2021-02-01 13:38:34 - [MESSAGE][PASSED] - Text of test object: Object Repository/MessaggioErrore is: Inserire un prezzo valido
+
+2021-02-01 13:38:34 - [TEST_STEP][PASSED] - assert text == "Inserire un prezzo valido": null
+
+2021-02-01 13:38:34 - [TEST_STEP][PASSED] - closeApplication(): Fire Close event sucessfully.
+
+2021-02-01 13:38:34 - [MESSAGE][PASSED] - Fire Close event sucessfully.]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/TC_I_1_5" time="57.92" classname="Test Cases/TC_I_1_5" status="PASSED">
+         <system-out><![CDATA[2021-02-01 13:38:34 - [TEST_CASE][PASSED] - Test Cases/TC_I_1_5: Test Cases/TC_I_1_5
+
+2021-02-01 13:38:35 - [TEST_STEP][PASSED] - callTestCase(findTestCase("BeforeMagazzino"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:38:35 - [TEST_CASE][PASSED] - Test Cases/BeforeMagazzino: Test Cases/BeforeMagazzino
+
+2021-02-01 13:38:35 - [TEST_STEP][PASSED] - startApplicationWithTitle("C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe", ""): The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:38:35 - [MESSAGE][INFO] - Starting application C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe on the local machine at address http://127.0.0.1:4723
+
+2021-02-01 13:38:37 - [MESSAGE][PASSED] - The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:38:37 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/Magazzino")): Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:38:37 - [MESSAGE][INFO] - Clicking on element: Object Repository/Magazzino
+
+2021-02-01 13:38:38 - [MESSAGE][PASSED] - Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:38:38 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/CodUtenteLogIn")): Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:38:38 - [MESSAGE][INFO] - Clicking on element: Object Repository/CodUtenteLogIn
+
+2021-02-01 13:38:39 - [MESSAGE][PASSED] - Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:38:39 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/CodUtenteLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:38:41 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:38:41 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/PasswordLogIn")): Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:38:41 - [MESSAGE][INFO] - Clicking on element: Object Repository/PasswordLogIn
+
+2021-02-01 13:38:42 - [MESSAGE][PASSED] - Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:38:42 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/PasswordLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:38:44 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:38:44 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/AccediLogIn")): Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:38:44 - [MESSAGE][INFO] - Clicking on element: Object Repository/AccediLogIn
+
+2021-02-01 13:38:44 - [MESSAGE][PASSED] - Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:38:44 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/InserisciNuovoProdottoMagazzino")): Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:38:45 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciNuovoProdottoMagazzino
+
+2021-02-01 13:38:46 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:38:46 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:38:46 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/NomeProdottoMagazzino")): Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:38:47 - [MESSAGE][INFO] - Clicking on element: Object Repository/NomeProdottoMagazzino
+
+2021-02-01 13:38:47 - [MESSAGE][PASSED] - Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:38:47 - [TEST_STEP][PASSED] - setText(findWindowsObject("NomeProdottoMagazzinoText"), "Orata"): Text Orata is set
+
+2021-02-01 13:38:49 - [MESSAGE][PASSED] - Text Orata is set
+
+2021-02-01 13:38:49 - [TEST_STEP][PASSED] - click(findWindowsObject("QuantitaMagazzino")): Click on element: Object Repository/QuantitaMagazzino succesfully
+
+2021-02-01 13:38:50 - [MESSAGE][INFO] - Clicking on element: Object Repository/QuantitaMagazzino
+
+2021-02-01 13:38:51 - [MESSAGE][PASSED] - Click on element: Object Repository/QuantitaMagazzino succesfully
+
+2021-02-01 13:38:51 - [TEST_STEP][PASSED] - setText(findWindowsObject("QuantitaMagazzinoText"), "100"): Text 100 is set
+
+2021-02-01 13:38:53 - [MESSAGE][PASSED] - Text 100 is set
+
+2021-02-01 13:38:53 - [TEST_STEP][PASSED] - click(findWindowsObject("CodProdottoMagazzino")): Click on element: Object Repository/CodProdottoMagazzino succesfully
+
+2021-02-01 13:38:54 - [MESSAGE][INFO] - Clicking on element: Object Repository/CodProdottoMagazzino
+
+2021-02-01 13:38:54 - [MESSAGE][PASSED] - Click on element: Object Repository/CodProdottoMagazzino succesfully
+
+2021-02-01 13:38:54 - [TEST_STEP][PASSED] - setText(findWindowsObject("CodProdottoMagazzinoText"), "0123456789aaa"): Text 0123456789aaa is set
+
+2021-02-01 13:38:58 - [MESSAGE][PASSED] - Text 0123456789aaa is set
+
+2021-02-01 13:38:58 - [TEST_STEP][PASSED] - click(findWindowsObject("InserisciProdottoMagazzino")): Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:38:59 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciProdottoMagazzino
+
+2021-02-01 13:38:59 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:38:59 - [TEST_STEP][PASSED] - switchToWindowTitle("Errore"): Switch to window 'Errore' successfully
+
+2021-02-01 13:38:59 - [MESSAGE][INFO] - Start finding a window that matches with title 'Errore' in 120.000 millisecond(s)
+
+2021-02-01 13:39:32 - [MESSAGE][PASSED] - Switch to window 'Errore' successfully
+
+2021-02-01 13:39:32 - [TEST_STEP][PASSED] - text = getText(findWindowsObject("Object Repository/MessaggioErrore")): Text of test object: Object Repository/MessaggioErrore is: Inserisci un codice prodotto valido (13 cifre)
+
+2021-02-01 13:39:32 - [MESSAGE][PASSED] - Text of test object: Object Repository/MessaggioErrore is: Inserisci un codice prodotto valido (13 cifre)
+
+2021-02-01 13:39:32 - [TEST_STEP][PASSED] - assert text == "Inserisci un codice prodotto valido (13 cifre)": null
+
+2021-02-01 13:39:32 - [TEST_STEP][PASSED] - closeApplication(): Fire Close event sucessfully.
+
+2021-02-01 13:39:32 - [MESSAGE][PASSED] - Fire Close event sucessfully.]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/TC_I_1_7" time="65.562" classname="Test Cases/TC_I_1_7" status="PASSED">
+         <system-out><![CDATA[2021-02-01 13:39:32 - [TEST_CASE][PASSED] - Test Cases/TC_I_1_7: Test Cases/TC_I_1_7
+
+2021-02-01 13:39:33 - [TEST_STEP][PASSED] - callTestCase(findTestCase("BeforeMagazzino"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:39:33 - [TEST_CASE][PASSED] - Test Cases/BeforeMagazzino: Test Cases/BeforeMagazzino
+
+2021-02-01 13:39:33 - [TEST_STEP][PASSED] - startApplicationWithTitle("C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe", ""): The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:39:33 - [MESSAGE][INFO] - Starting application C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe on the local machine at address http://127.0.0.1:4723
+
+2021-02-01 13:39:35 - [MESSAGE][PASSED] - The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:39:35 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/Magazzino")): Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:39:35 - [MESSAGE][INFO] - Clicking on element: Object Repository/Magazzino
+
+2021-02-01 13:39:35 - [MESSAGE][PASSED] - Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:39:35 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/CodUtenteLogIn")): Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:39:36 - [MESSAGE][INFO] - Clicking on element: Object Repository/CodUtenteLogIn
+
+2021-02-01 13:39:36 - [MESSAGE][PASSED] - Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:39:36 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/CodUtenteLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:39:38 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:39:38 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/PasswordLogIn")): Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:39:39 - [MESSAGE][INFO] - Clicking on element: Object Repository/PasswordLogIn
+
+2021-02-01 13:39:39 - [MESSAGE][PASSED] - Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:39:39 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/PasswordLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:39:41 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:39:41 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/AccediLogIn")): Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:39:42 - [MESSAGE][INFO] - Clicking on element: Object Repository/AccediLogIn
+
+2021-02-01 13:39:42 - [MESSAGE][PASSED] - Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:39:42 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/InserisciNuovoProdottoMagazzino")): Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:39:43 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciNuovoProdottoMagazzino
+
+2021-02-01 13:39:43 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:39:43 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:39:43 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/NomeProdottoMagazzino")): Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:39:44 - [MESSAGE][INFO] - Clicking on element: Object Repository/NomeProdottoMagazzino
+
+2021-02-01 13:39:44 - [MESSAGE][PASSED] - Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:39:44 - [TEST_STEP][PASSED] - setText(findWindowsObject("NomeProdottoMagazzinoText"), "Orata"): Text Orata is set
+
+2021-02-01 13:39:47 - [MESSAGE][PASSED] - Text Orata is set
+
+2021-02-01 13:39:47 - [TEST_STEP][PASSED] - click(findWindowsObject("QuantitaMagazzino")): Click on element: Object Repository/QuantitaMagazzino succesfully
+
+2021-02-01 13:39:48 - [MESSAGE][INFO] - Clicking on element: Object Repository/QuantitaMagazzino
+
+2021-02-01 13:39:48 - [MESSAGE][PASSED] - Click on element: Object Repository/QuantitaMagazzino succesfully
+
+2021-02-01 13:39:48 - [TEST_STEP][PASSED] - setText(findWindowsObject("QuantitaMagazzinoText"), "100"): Text 100 is set
+
+2021-02-01 13:39:51 - [MESSAGE][PASSED] - Text 100 is set
+
+2021-02-01 13:39:51 - [TEST_STEP][PASSED] - click(findWindowsObject("CodProdottoMagazzino")): Click on element: Object Repository/CodProdottoMagazzino succesfully
+
+2021-02-01 13:39:52 - [MESSAGE][INFO] - Clicking on element: Object Repository/CodProdottoMagazzino
+
+2021-02-01 13:39:52 - [MESSAGE][PASSED] - Click on element: Object Repository/CodProdottoMagazzino succesfully
+
+2021-02-01 13:39:52 - [TEST_STEP][PASSED] - setText(findWindowsObject("CodProdottoMagazzinoText"), "0123456789000"): Text 0123456789000 is set
+
+2021-02-01 13:39:56 - [MESSAGE][PASSED] - Text 0123456789000 is set
+
+2021-02-01 13:39:56 - [TEST_STEP][PASSED] - click(findWindowsObject("PrezzoMagazzino")): Click on element: Object Repository/PrezzoMagazzino succesfully
+
+2021-02-01 13:39:57 - [MESSAGE][INFO] - Clicking on element: Object Repository/PrezzoMagazzino
+
+2021-02-01 13:39:57 - [MESSAGE][PASSED] - Click on element: Object Repository/PrezzoMagazzino succesfully
+
+2021-02-01 13:39:57 - [TEST_STEP][PASSED] - setText(findWindowsObject("PrezzoMagazzinoText"), "0"): Text 0 is set
+
+2021-02-01 13:39:59 - [MESSAGE][PASSED] - Text 0 is set
+
+2021-02-01 13:39:59 - [TEST_STEP][PASSED] - click(findWindowsObject("InserisciProdottoMagazzino")): Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:40:00 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciProdottoMagazzino
+
+2021-02-01 13:40:01 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:40:01 - [TEST_STEP][PASSED] - switchToWindowTitle("Errore"): Switch to window 'Errore' successfully
+
+2021-02-01 13:40:01 - [MESSAGE][INFO] - Start finding a window that matches with title 'Errore' in 120.000 millisecond(s)
+
+2021-02-01 13:40:37 - [MESSAGE][PASSED] - Switch to window 'Errore' successfully
+
+2021-02-01 13:40:37 - [TEST_STEP][PASSED] - text = getText(findWindowsObject("Object Repository/MessaggioErrore")): Text of test object: Object Repository/MessaggioErrore is: Inserire un prezzo valido
+
+2021-02-01 13:40:38 - [MESSAGE][PASSED] - Text of test object: Object Repository/MessaggioErrore is: Inserire un prezzo valido
+
+2021-02-01 13:40:38 - [TEST_STEP][PASSED] - assert text == "Inserire un prezzo valido": null
+
+2021-02-01 13:40:38 - [TEST_STEP][PASSED] - closeApplication(): Fire Close event sucessfully.
+
+2021-02-01 13:40:38 - [MESSAGE][PASSED] - Fire Close event sucessfully.]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/TC_I_1_8" time="65.784" classname="Test Cases/TC_I_1_8" status="PASSED">
+         <system-out><![CDATA[2021-02-01 13:40:38 - [TEST_CASE][PASSED] - Test Cases/TC_I_1_8: Test Cases/TC_I_1_8
+
+2021-02-01 13:40:39 - [TEST_STEP][PASSED] - callTestCase(findTestCase("BeforeMagazzino"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:40:39 - [TEST_CASE][PASSED] - Test Cases/BeforeMagazzino: Test Cases/BeforeMagazzino
+
+2021-02-01 13:40:39 - [TEST_STEP][PASSED] - startApplicationWithTitle("C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe", ""): The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:40:39 - [MESSAGE][INFO] - Starting application C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe on the local machine at address http://127.0.0.1:4723
+
+2021-02-01 13:40:41 - [MESSAGE][PASSED] - The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:40:41 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/Magazzino")): Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:40:41 - [MESSAGE][INFO] - Clicking on element: Object Repository/Magazzino
+
+2021-02-01 13:40:41 - [MESSAGE][PASSED] - Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:40:41 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/CodUtenteLogIn")): Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:40:42 - [MESSAGE][INFO] - Clicking on element: Object Repository/CodUtenteLogIn
+
+2021-02-01 13:40:42 - [MESSAGE][PASSED] - Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:40:42 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/CodUtenteLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:40:44 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:40:44 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/PasswordLogIn")): Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:40:45 - [MESSAGE][INFO] - Clicking on element: Object Repository/PasswordLogIn
+
+2021-02-01 13:40:45 - [MESSAGE][PASSED] - Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:40:45 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/PasswordLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:40:47 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:40:47 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/AccediLogIn")): Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:40:48 - [MESSAGE][INFO] - Clicking on element: Object Repository/AccediLogIn
+
+2021-02-01 13:40:48 - [MESSAGE][PASSED] - Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:40:48 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/InserisciNuovoProdottoMagazzino")): Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:40:49 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciNuovoProdottoMagazzino
+
+2021-02-01 13:40:49 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:40:49 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:40:49 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/NomeProdottoMagazzino")): Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:40:50 - [MESSAGE][INFO] - Clicking on element: Object Repository/NomeProdottoMagazzino
+
+2021-02-01 13:40:51 - [MESSAGE][PASSED] - Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:40:51 - [TEST_STEP][PASSED] - setText(findWindowsObject("NomeProdottoMagazzinoText"), "Orata"): Text Orata is set
+
+2021-02-01 13:40:53 - [MESSAGE][PASSED] - Text Orata is set
+
+2021-02-01 13:40:53 - [TEST_STEP][PASSED] - click(findWindowsObject("QuantitaMagazzino")): Click on element: Object Repository/QuantitaMagazzino succesfully
+
+2021-02-01 13:40:54 - [MESSAGE][INFO] - Clicking on element: Object Repository/QuantitaMagazzino
+
+2021-02-01 13:40:54 - [MESSAGE][PASSED] - Click on element: Object Repository/QuantitaMagazzino succesfully
+
+2021-02-01 13:40:54 - [TEST_STEP][PASSED] - setText(findWindowsObject("QuantitaMagazzinoText"), "100"): Text 100 is set
+
+2021-02-01 13:40:57 - [MESSAGE][PASSED] - Text 100 is set
+
+2021-02-01 13:40:57 - [TEST_STEP][PASSED] - click(findWindowsObject("CodProdottoMagazzino")): Click on element: Object Repository/CodProdottoMagazzino succesfully
+
+2021-02-01 13:40:58 - [MESSAGE][INFO] - Clicking on element: Object Repository/CodProdottoMagazzino
+
+2021-02-01 13:40:58 - [MESSAGE][PASSED] - Click on element: Object Repository/CodProdottoMagazzino succesfully
+
+2021-02-01 13:40:58 - [TEST_STEP][PASSED] - setText(findWindowsObject("CodProdottoMagazzinoText"), "0123456789000"): Text 0123456789000 is set
+
+2021-02-01 13:41:02 - [MESSAGE][PASSED] - Text 0123456789000 is set
+
+2021-02-01 13:41:02 - [TEST_STEP][PASSED] - click(findWindowsObject("PrezzoMagazzino")): Click on element: Object Repository/PrezzoMagazzino succesfully
+
+2021-02-01 13:41:02 - [MESSAGE][INFO] - Clicking on element: Object Repository/PrezzoMagazzino
+
+2021-02-01 13:41:03 - [MESSAGE][PASSED] - Click on element: Object Repository/PrezzoMagazzino succesfully
+
+2021-02-01 13:41:03 - [TEST_STEP][PASSED] - setText(findWindowsObject("PrezzoMagazzinoText"), "30"): Text 30 is set
+
+2021-02-01 13:41:05 - [MESSAGE][PASSED] - Text 30 is set
+
+2021-02-01 13:41:05 - [TEST_STEP][PASSED] - click(findWindowsObject("TipologiaMagazzino")): Click on element: Object Repository/TipologiaMagazzino succesfully
+
+2021-02-01 13:41:06 - [MESSAGE][INFO] - Clicking on element: Object Repository/TipologiaMagazzino
+
+2021-02-01 13:41:06 - [MESSAGE][PASSED] - Click on element: Object Repository/TipologiaMagazzino succesfully
+
+2021-02-01 13:41:06 - [TEST_STEP][PASSED] - setText(findWindowsObject("TipologiaMagazzinoText"), "x"): Text x is set
+
+2021-02-01 13:41:09 - [MESSAGE][PASSED] - Text x is set
+
+2021-02-01 13:41:09 - [TEST_STEP][PASSED] - click(findWindowsObject("InserisciProdottoMagazzino")): Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:41:10 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciProdottoMagazzino
+
+2021-02-01 13:41:10 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:41:10 - [TEST_STEP][PASSED] - switchToWindowTitle("Errore"): Switch to window 'Errore' successfully
+
+2021-02-01 13:41:10 - [MESSAGE][INFO] - Start finding a window that matches with title 'Errore' in 120.000 millisecond(s)
+
+2021-02-01 13:41:43 - [MESSAGE][PASSED] - Switch to window 'Errore' successfully
+
+2021-02-01 13:41:43 - [TEST_STEP][PASSED] - text = getText(findWindowsObject("Object Repository/MessaggioErrore")): Text of test object: Object Repository/MessaggioErrore is: Inserire una tipologia valida
+
+2021-02-01 13:41:44 - [MESSAGE][PASSED] - Text of test object: Object Repository/MessaggioErrore is: Inserire una tipologia valida
+
+2021-02-01 13:41:44 - [TEST_STEP][PASSED] - assert text == "Inserire una tipologia valida": null
+
+2021-02-01 13:41:44 - [TEST_STEP][PASSED] - closeApplication(): Fire Close event sucessfully.
+
+2021-02-01 13:41:44 - [MESSAGE][PASSED] - Fire Close event sucessfully.]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/TC_I_1_9" time="35.254" classname="Test Cases/TC_I_1_9" status="PASSED">
+         <system-out><![CDATA[2021-02-01 13:41:44 - [TEST_CASE][PASSED] - Test Cases/TC_I_1_9: Test Cases/TC_I_1_9
+
+2021-02-01 13:41:44 - [TEST_STEP][PASSED] - callTestCase(findTestCase("BeforeMagazzino"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:41:44 - [TEST_CASE][PASSED] - Test Cases/BeforeMagazzino: Test Cases/BeforeMagazzino
+
+2021-02-01 13:41:44 - [TEST_STEP][PASSED] - startApplicationWithTitle("C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe", ""): The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:41:44 - [MESSAGE][INFO] - Starting application C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe on the local machine at address http://127.0.0.1:4723
+
+2021-02-01 13:41:46 - [MESSAGE][PASSED] - The application at location: C:\Users\vinny\Documents\GitHub\NewDM\JAVA\NewDMApp\out\artifacts\NewDMApp\bundles\NewDMApp\NewDMApp.exe started.
+
+2021-02-01 13:41:46 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/Magazzino")): Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:41:47 - [MESSAGE][INFO] - Clicking on element: Object Repository/Magazzino
+
+2021-02-01 13:41:47 - [MESSAGE][PASSED] - Click on element: Object Repository/Magazzino succesfully
+
+2021-02-01 13:41:47 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/CodUtenteLogIn")): Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:41:48 - [MESSAGE][INFO] - Clicking on element: Object Repository/CodUtenteLogIn
+
+2021-02-01 13:41:48 - [MESSAGE][PASSED] - Click on element: Object Repository/CodUtenteLogIn succesfully
+
+2021-02-01 13:41:48 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/CodUtenteLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:41:50 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:41:50 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/PasswordLogIn")): Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:41:51 - [MESSAGE][INFO] - Clicking on element: Object Repository/PasswordLogIn
+
+2021-02-01 13:41:51 - [MESSAGE][PASSED] - Click on element: Object Repository/PasswordLogIn succesfully
+
+2021-02-01 13:41:51 - [TEST_STEP][PASSED] - setText(findWindowsObject("Object Repository/PasswordLogInText"), "cirofu"): Text cirofu is set
+
+2021-02-01 13:41:53 - [MESSAGE][PASSED] - Text cirofu is set
+
+2021-02-01 13:41:53 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/AccediLogIn")): Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:41:54 - [MESSAGE][INFO] - Clicking on element: Object Repository/AccediLogIn
+
+2021-02-01 13:41:54 - [MESSAGE][PASSED] - Click on element: Object Repository/AccediLogIn succesfully
+
+2021-02-01 13:41:54 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/InserisciNuovoProdottoMagazzino")): Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:41:55 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciNuovoProdottoMagazzino
+
+2021-02-01 13:41:55 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciNuovoProdottoMagazzino succesfully
+
+2021-02-01 13:41:55 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/BeforeMagazzino' successfully
+
+2021-02-01 13:41:55 - [TEST_STEP][PASSED] - click(findWindowsObject("Object Repository/NomeProdottoMagazzino")): Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:41:56 - [MESSAGE][INFO] - Clicking on element: Object Repository/NomeProdottoMagazzino
+
+2021-02-01 13:41:56 - [MESSAGE][PASSED] - Click on element: Object Repository/NomeProdottoMagazzino succesfully
+
+2021-02-01 13:41:56 - [TEST_STEP][PASSED] - setText(findWindowsObject("NomeProdottoMagazzinoText"), "Orata"): Text Orata is set
+
+2021-02-01 13:41:59 - [MESSAGE][PASSED] - Text Orata is set
+
+2021-02-01 13:41:59 - [TEST_STEP][PASSED] - click(findWindowsObject("QuantitaMagazzino")): Click on element: Object Repository/QuantitaMagazzino succesfully
+
+2021-02-01 13:42:00 - [MESSAGE][INFO] - Clicking on element: Object Repository/QuantitaMagazzino
+
+2021-02-01 13:42:00 - [MESSAGE][PASSED] - Click on element: Object Repository/QuantitaMagazzino succesfully
+
+2021-02-01 13:42:00 - [TEST_STEP][PASSED] - setText(findWindowsObject("QuantitaMagazzinoText"), "100"): Text 100 is set
+
+2021-02-01 13:42:03 - [MESSAGE][PASSED] - Text 100 is set
+
+2021-02-01 13:42:03 - [TEST_STEP][PASSED] - click(findWindowsObject("CodProdottoMagazzino")): Click on element: Object Repository/CodProdottoMagazzino succesfully
+
+2021-02-01 13:42:04 - [MESSAGE][INFO] - Clicking on element: Object Repository/CodProdottoMagazzino
+
+2021-02-01 13:42:04 - [MESSAGE][PASSED] - Click on element: Object Repository/CodProdottoMagazzino succesfully
+
+2021-02-01 13:42:04 - [TEST_STEP][PASSED] - setText(findWindowsObject("CodProdottoMagazzinoText"), "0123456789000"): Text 0123456789000 is set
+
+2021-02-01 13:42:07 - [MESSAGE][PASSED] - Text 0123456789000 is set
+
+2021-02-01 13:42:07 - [TEST_STEP][PASSED] - click(findWindowsObject("PrezzoMagazzino")): Click on element: Object Repository/PrezzoMagazzino succesfully
+
+2021-02-01 13:42:08 - [MESSAGE][INFO] - Clicking on element: Object Repository/PrezzoMagazzino
+
+2021-02-01 13:42:08 - [MESSAGE][PASSED] - Click on element: Object Repository/PrezzoMagazzino succesfully
+
+2021-02-01 13:42:08 - [TEST_STEP][PASSED] - setText(findWindowsObject("PrezzoMagazzinoText"), "30"): Text 30 is set
+
+2021-02-01 13:42:11 - [MESSAGE][PASSED] - Text 30 is set
+
+2021-02-01 13:42:11 - [TEST_STEP][PASSED] - click(findWindowsObject("TipologiaMagazzino")): Click on element: Object Repository/TipologiaMagazzino succesfully
+
+2021-02-01 13:42:12 - [MESSAGE][INFO] - Clicking on element: Object Repository/TipologiaMagazzino
+
+2021-02-01 13:42:12 - [MESSAGE][PASSED] - Click on element: Object Repository/TipologiaMagazzino succesfully
+
+2021-02-01 13:42:12 - [TEST_STEP][PASSED] - setText(findWindowsObject("TipologiaMagazzinoText"), "Pesce"): Text Pesce is set
+
+2021-02-01 13:42:15 - [MESSAGE][PASSED] - Text Pesce is set
+
+2021-02-01 13:42:15 - [TEST_STEP][PASSED] - click(findWindowsObject("DimMedioMagazzino")): Click on element: Object Repository/DimMedioMagazzino succesfully
+
+2021-02-01 13:42:16 - [MESSAGE][INFO] - Clicking on element: Object Repository/DimMedioMagazzino
+
+2021-02-01 13:42:16 - [MESSAGE][PASSED] - Click on element: Object Repository/DimMedioMagazzino succesfully
+
+2021-02-01 13:42:16 - [TEST_STEP][PASSED] - click(findWindowsObject("ScaMediaMagazzino")): Click on element: Object Repository/ScaMediaMagazzino succesfully
+
+2021-02-01 13:42:17 - [MESSAGE][INFO] - Clicking on element: Object Repository/ScaMediaMagazzino
+
+2021-02-01 13:42:17 - [MESSAGE][PASSED] - Click on element: Object Repository/ScaMediaMagazzino succesfully
+
+2021-02-01 13:42:17 - [TEST_STEP][PASSED] - click(findWindowsObject("InserisciProdottoMagazzino")): Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:42:18 - [MESSAGE][INFO] - Clicking on element: Object Repository/InserisciProdottoMagazzino
+
+2021-02-01 13:42:18 - [MESSAGE][PASSED] - Click on element: Object Repository/InserisciProdottoMagazzino succesfully
+
+2021-02-01 13:42:18 - [TEST_STEP][PASSED] - text = getText(findWindowsObject("InserisciNuovoProdottoRiepilogoLabel")): Text of test object: Object Repository/InserisciNuovoProdottoRiepilogoLabel is: Inserisci nuovo prodotto - Riepilogo
+
+2021-02-01 13:42:19 - [MESSAGE][PASSED] - Text of test object: Object Repository/InserisciNuovoProdottoRiepilogoLabel is: Inserisci nuovo prodotto - Riepilogo
+
+2021-02-01 13:42:19 - [TEST_STEP][PASSED] - assert text == "Inserisci nuovo prodotto - Riepilogo": null
+
+2021-02-01 13:42:19 - [TEST_STEP][PASSED] - closeApplication(): Fire Close event sucessfully.
+
+2021-02-01 13:42:19 - [MESSAGE][PASSED] - Fire Close event sucessfully.]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[2021-02-01 13:33:58 - [TEST_SUITE][PASSED] - TestSuiteMagazzino: Test Cases/TC_I_1_9]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>
