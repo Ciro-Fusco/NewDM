@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" style="-fx-background-color: #3b3c40;" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Utenza">
+    <center>
+        <SplitPane dividerPositions="0.5868945868945868" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0"
+                   style="-fx-background-color: #3b3c40;" stylesheets="@Dashboard.css" BorderPane.alignment="CENTER">
+            <items>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="171.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="264.0" minHeight="10.0" prefHeight="134.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Label text="Dashboard" textFill="WHITE">
+                            <font>
+                                <Font size="35.0"/>
+                            </font>
+                            <GridPane.margin>
+                                <Insets left="20.0"/>
+                            </GridPane.margin>
+                        </Label>
+                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                mnemonicParsing="false" onMousePressed="#openMagazzino" prefHeight="149.0"
+                                prefWidth="306.0" style="-fx-background-color: #46494e;" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                            </GridPane.margin>
+                            <graphic>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Label text="Magazzino" textFill="WHITE">
+                                            <font>
+                                                <Font size="30.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label text="Gestione prodotti magazzino" textFill="#5ac5f1"/>
+                                    </children>
+                                </VBox>
+                            </graphic>
+                        </Button>
+                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                mnemonicParsing="false" onMousePressed="#openAssistenza" prefHeight="149.0"
+                                prefWidth="306.0" style="-fx-background-color: #46494e;" GridPane.columnIndex="1"
+                                GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                            </GridPane.margin>
+                            <graphic>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Label text="Assistenza" textFill="WHITE">
+                                            <font>
+                                                <Font size="30.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label text="Assistenza cliente" textFill="#5ac5f1"/>
+                                    </children>
+                                </VBox>
+                            </graphic>
+                        </Button>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                            <right>
+                                <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onMousePressed="#logout"
+                                        style="-fx-background-color: #ff5c66;" text="Logout" textAlignment="CENTER"
+                                        textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <BorderPane.margin>
+                                        <Insets right="20.0"/>
+                                    </BorderPane.margin>
+                                </Button>
+                            </right>
+                        </BorderPane>
+                    </children>
+                </GridPane>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                mnemonicParsing="false" onMousePressed="#openCassa" prefHeight="97.0" prefWidth="598.0"
+                                style="-fx-background-color: #46494e;">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                            </GridPane.margin>
+                            <graphic>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Label text="Cassa" textFill="WHITE">
+                                            <font>
+                                                <Font size="30.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label text="Gestione cassa, scontrini" textFill="#5ac5f1"/>
+                                    </children>
+                                </VBox>
+                            </graphic>
+                        </Button>
+                    </children>
+                </GridPane>
+            </items>
+        </SplitPane>
+    </center>
+    <top>
+        <GridPane prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #46494e;"
+                  BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <ImageView fitHeight="68.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true"
+                           GridPane.halignment="CENTER">
+                    <GridPane.margin>
+                        <Insets/>
+                    </GridPane.margin>
+                    <image>
+                        <Image url="@Logo.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </GridPane>
+    </top>
+</BorderPane>
