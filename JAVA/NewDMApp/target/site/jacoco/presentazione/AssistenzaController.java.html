@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AssistenzaController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NewDMApp</a> &gt; <a href="index.source.html" class="el_package">presentazione</a> &gt; <span class="el_source">AssistenzaController.java</span></div><h1>AssistenzaController.java</h1><pre class="source lang-java linenums">package presentazione;
+
+import business.assistenza.Ticket;
+import business.cassa.Scontrino;
+import business.inventario.Prodotto;
+import exceptions.*;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import business.utenza.Utente;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+/**
+ * Controller per le interazioni della sezione Assistenza
+ */
+<span class="fc" id="L20">public class AssistenzaController {</span>
+
+  private static Ticket ticket;
+  @FXML private TextField nomeCognCli;
+  @FXML private TextField telefonoCli;
+  @FXML private TextField codFiscCli;
+  @FXML private TextField indirizzoResiCli;
+  @FXML private TextField tipoProdotto;
+  @FXML private TextField nomeProdotto;
+  @FXML private TextField codProdotto;
+  @FXML private TextField numSerieProd;
+  @FXML private TextField numScontrino;
+  @FXML private TextField dataScontrino;
+  @FXML private TextField dettagliProb;
+
+  /**
+   * Apre la dashboard principale
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  public void openDashboard(MouseEvent mouseEvent) throws IOException, DatabaseException {
+<span class="nc" id="L42">    Utente.logout();</span>
+<span class="nc" id="L43">    App.setRoot(&quot;Dashboard&quot;);</span>
+<span class="nc" id="L44">  }</span>
+
+  /**
+   * Crea un nuovo Ticket con i dati forniti a video dall'utente
+   *
+   * @param mouseEvent
+   * @throws IOException
+   * @throws ScontrinoException
+   * @throws ElencaException
+   * @throws ProdottoException
+   * @throws DatabaseException
+   */
+  @FXML // DIVIDI NOME E COGNOME IN DUE CAMPI SEPARATI,ANCHE NELLA UI
+  public void openAssistenzaDettagliProb(MouseEvent mouseEvent)
+      throws IOException, ScontrinoException, ElencaException, ProdottoException,
+          DatabaseException {
+
+    // controllo la lunghezza del nome del cliente
+<span class="fc bfc" id="L62" title="All 4 branches covered.">    if (nomeCognCli.getText().length() &gt;= 2 &amp;&amp; nomeCognCli.getText().length() &lt;= 255) {</span>
+      // controllo la lunghezza dell'indirizzo
+<span class="fc bfc" id="L64" title="All 4 branches covered.">      if (indirizzoResiCli.getText().length() &gt;= 2 &amp;&amp; indirizzoResiCli.getText().length() &lt;= 255) {</span>
+        // controllo che il numero di telefono sia scritto correttamente
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if (telefonoCli.getText().matches(&quot;^[0-9]{10,11}$&quot;)) {</span>
+          // controllo la lunghezza del nome del prodotto
+<span class="fc bfc" id="L68" title="All 4 branches covered.">          if (nomeProdotto.getText().length() &gt;= 2 &amp;&amp; nomeProdotto.getText().length() &lt;= 255) {</span>
+            // controllo la lunghezza del tipo del prodotto
+<span class="fc bfc" id="L70" title="All 4 branches covered.">            if (tipoProdotto.getText().length() &gt;= 2 &amp;&amp; tipoProdotto.getText().length() &lt;= 255) {</span>
+              // controllo che il codice del prodotto sia scritto correttamente
+<span class="fc bfc" id="L72" title="All 2 branches covered.">              if (codProdotto.getText().matches(&quot;^[0-9]{13}$&quot;)) {</span>
+<span class="fc" id="L73">                Prodotto.search(Long.parseLong(codProdotto.getText()));</span>
+                // controllo la lunghezza del numero di serie del prodotto
+<span class="fc bfc" id="L75" title="All 2 branches covered.">                if (numSerieProd.getText().length() &gt;= 2</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">                    &amp;&amp; numSerieProd.getText().length() &lt;= 255) {</span>
+                  // controllo se la data è scritta correttamente
+<span class="fc" id="L78">                  if (dataScontrino</span>
+<span class="fc" id="L79">                      .getText()</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">                      .matches(</span>
+                          &quot;^([0]?[1-9]|[1|2][0-9]|[3][0|1])[-]([0]?[1-9]|[1][0-2])[-]([0-9]{4})$&quot;)) {
+<span class="fc" id="L82">                    String data_temp = dataScontrino.getText();</span>
+<span class="fc" id="L83">                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+<span class="fc" id="L84">                    LocalDateTime data_obj = LocalDate.parse(data_temp, formatter).atStartOfDay();</span>
+<span class="fc" id="L85">                    LocalDateTime data_2_years_ago = LocalDateTime.now().minusYears(2);</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">                    if (data_obj.isBefore(data_2_years_ago))</span>
+<span class="fc" id="L87">                      throw new ScontrinoNonValidoException(</span>
+                          &quot;Inserire una data valida, non precedente a 2 anni fa e non successiva alla data odierna&quot;);
+                    // controllo che il numero delo scontrino sia scritto correttamente
+<span class="fc bfc" id="L90" title="All 2 branches covered.">                    if (numScontrino.getText().matches(&quot;^[1-9][0-9]*$&quot;)) {</span>
+<span class="fc" id="L91">                      Scontrino.checkScontrino(</span>
+<span class="fc" id="L92">                          Long.parseLong(numScontrino.getText()), dataScontrino.getText());</span>
+                      // controllo che il codice fiscale sia scritto correttamente
+<span class="fc" id="L94">                      if (codFiscCli</span>
+<span class="fc" id="L95">                          .getText()</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">                          .matches(&quot;^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$&quot;)) {</span>
+<span class="fc" id="L97">                        ticket =</span>
+                            new Ticket(
+<span class="fc" id="L99">                                nomeCognCli.getText(),</span>
+<span class="fc" id="L100">                                codFiscCli.getText(),</span>
+<span class="fc" id="L101">                                indirizzoResiCli.getText(),</span>
+<span class="fc" id="L102">                                tipoProdotto.getText(),</span>
+<span class="fc" id="L103">                                nomeProdotto.getText(),</span>
+<span class="fc" id="L104">                                numSerieProd.getText(),</span>
+<span class="fc" id="L105">                                Long.parseLong(telefonoCli.getText()),</span>
+<span class="fc" id="L106">                                Integer.parseInt(numScontrino.getText()),</span>
+<span class="fc" id="L107">                                dataScontrino.getText(),</span>
+<span class="fc" id="L108">                                Long.parseLong(codProdotto.getText()));</span>
+<span class="nc" id="L109">                        App.setRoot(&quot;AssistenzaDettagliProbForm&quot;);</span>
+                      } else {
+<span class="fc" id="L111">                        AlertMessage.showError(&quot;Inserire un codice fiscale valido&quot;);</span>
+                      }
+                    } else {
+<span class="fc" id="L114">                      AlertMessage.showError(&quot;Inserire un numero di scontrino valido&quot;);</span>
+                    }
+<span class="fc" id="L116">                  } else {</span>
+<span class="fc" id="L117">                    AlertMessage.showError(&quot;Inserire una data valida&quot;);</span>
+                  }
+                } else {
+<span class="fc" id="L120">                  AlertMessage.showError(&quot;Inserire un numero di serie valido&quot;);</span>
+                }
+              } else {
+<span class="fc" id="L123">                AlertMessage.showError(&quot;Inserire un codice prodotto valido (13 cifre)&quot;);</span>
+              }
+            } else {
+<span class="fc" id="L126">              AlertMessage.showError(&quot;Inserire un tipo di prodotto valido&quot;);</span>
+            }
+          } else {
+<span class="fc" id="L129">            AlertMessage.showError(&quot;Inserire un nome prodotto valido&quot;);</span>
+          }
+        } else {
+<span class="fc" id="L132">          AlertMessage.showError(&quot;Inserire un numero di telefono valido&quot;);</span>
+        }
+      } else {
+<span class="fc" id="L135">        AlertMessage.showError(&quot;Inserire un indirizzo valido&quot;);</span>
+      }
+    } else {
+<span class="fc" id="L138">      AlertMessage.showError(&quot;Inserire nome e cognome validi&quot;);</span>
+    }
+<span class="fc" id="L140">  }</span>
+  ////////////////////////////////////////////////////////////
+
+  // AssistenzaController dettagli prob
+
+  /**
+   * Apre la schermata di assistenza
+   *
+   * @param mouseEvent
+   * @throws IOException
+   */
+  public void openAssistenza(MouseEvent mouseEvent) throws IOException {
+<span class="nc" id="L152">    ticket = null;</span>
+<span class="nc" id="L153">    App.setRoot(&quot;AssistenzaForm&quot;);</span>
+<span class="nc" id="L154">  }</span>
+
+  /**
+   * Usa le informazioni inserite a video per impostare il problema per cui si chiede assistenza e
+   * poi rende il Ticket persistente
+   *
+   * @param mouseEvent
+   * @throws DatabaseException
+   * @throws IOException
+   */
+  public void salvaTicket(MouseEvent mouseEvent) throws DatabaseException, IOException {
+<span class="fc bfc" id="L165" title="All 2 branches covered.">    if (!dettagliProb.getText().equals(&quot;&quot;)) {</span>
+<span class="fc" id="L166">      ticket.setProblema(dettagliProb.getText());</span>
+<span class="fc" id="L167">      ticket.save();</span>
+<span class="fc" id="L168">      AlertMessage.showInformation(&quot;Ticket salvato con successo&quot;);</span>
+<span class="nc" id="L169">      App.setRoot(&quot;AssistenzaForm&quot;);</span>
+<span class="nc" id="L170">      ticket = null;</span>
+    } else {
+<span class="fc" id="L172">      AlertMessage.showError(&quot;Inserire i dettagli del problema&quot;);</span>
+    }
+<span class="fc" id="L174">  }</span>
+  /////////////////////////////////////////////////////
+
+  // GET E SETTER PER TESTING
+
+  public static Ticket getTicket() {
+<span class="fc" id="L180">    return ticket;</span>
+  }
+
+  public static void setTicket(Ticket ticket) {
+<span class="fc" id="L184">    AssistenzaController.ticket = ticket;</span>
+<span class="fc" id="L185">  }</span>
+
+  public TextField getNomeCognCli() {
+<span class="nc" id="L188">    return nomeCognCli;</span>
+  }
+
+  public void setNomeCognCli(TextField nomeCognCli) {
+<span class="fc" id="L192">    this.nomeCognCli = nomeCognCli;</span>
+<span class="fc" id="L193">  }</span>
+
+  public TextField getTelefonoCli() {
+<span class="nc" id="L196">    return telefonoCli;</span>
+  }
+
+  public void setTelefonoCli(TextField telefonoCli) {
+<span class="fc" id="L200">    this.telefonoCli = telefonoCli;</span>
+<span class="fc" id="L201">  }</span>
+
+  public TextField getCodFiscCli() {
+<span class="nc" id="L204">    return codFiscCli;</span>
+  }
+
+  public void setCodFiscCli(TextField codFiscCli) {
+<span class="fc" id="L208">    this.codFiscCli = codFiscCli;</span>
+<span class="fc" id="L209">  }</span>
+
+  public TextField getIndirizzoResiCli() {
+<span class="nc" id="L212">    return indirizzoResiCli;</span>
+  }
+
+  public void setIndirizzoResiCli(TextField indirizzoResiCli) {
+<span class="fc" id="L216">    this.indirizzoResiCli = indirizzoResiCli;</span>
+<span class="fc" id="L217">  }</span>
+
+  public TextField getTipoProdotto() {
+<span class="nc" id="L220">    return tipoProdotto;</span>
+  }
+
+  public void setTipoProdotto(TextField tipoProdotto) {
+<span class="fc" id="L224">    this.tipoProdotto = tipoProdotto;</span>
+<span class="fc" id="L225">  }</span>
+
+  public TextField getNomeProdotto() {
+<span class="nc" id="L228">    return nomeProdotto;</span>
+  }
+
+  public void setNomeProdotto(TextField nomeProdotto) {
+<span class="fc" id="L232">    this.nomeProdotto = nomeProdotto;</span>
+<span class="fc" id="L233">  }</span>
+
+  public TextField getCodProdotto() {
+<span class="nc" id="L236">    return codProdotto;</span>
+  }
+
+  public void setCodProdotto(TextField codProdotto) {
+<span class="fc" id="L240">    this.codProdotto = codProdotto;</span>
+<span class="fc" id="L241">  }</span>
+
+  public TextField getNumSerieProd() {
+<span class="nc" id="L244">    return numSerieProd;</span>
+  }
+
+  public void setNumSerieProd(TextField numSerieProd) {
+<span class="fc" id="L248">    this.numSerieProd = numSerieProd;</span>
+<span class="fc" id="L249">  }</span>
+
+  public TextField getNumScontrino() {
+<span class="nc" id="L252">    return numScontrino;</span>
+  }
+
+  public void setNumScontrino(TextField numScontrino) {
+<span class="fc" id="L256">    this.numScontrino = numScontrino;</span>
+<span class="fc" id="L257">  }</span>
+
+  public TextField getDataScontrino() {
+<span class="nc" id="L260">    return dataScontrino;</span>
+  }
+
+  public void setDataScontrino(TextField dataScontrino) {
+<span class="fc" id="L264">    this.dataScontrino = dataScontrino;</span>
+<span class="fc" id="L265">  }</span>
+
+  public TextField getDettagliProb() {
+<span class="nc" id="L268">    return dettagliProb;</span>
+  }
+
+  public void setDettagliProb(TextField dettagliProb) {
+<span class="fc" id="L272">    this.dettagliProb = dettagliProb;</span>
+<span class="fc" id="L273">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

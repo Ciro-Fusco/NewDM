@@ -1,0 +1,326 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+TestSuiteAssistenza,,,,2021-02-01 13:09:49,2021-02-01 13:29:08,"19m - 18,696s",PASSED
+,,,,,,,
+Test Cases/TC_A_1_1,,,,2021-02-01 13:09:51,2021-02-01 13:10:44,"53,128s",PASSED
+"callTestCase(findTestCase(""BeforeAssistenza""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:09:51,2021-02-01 13:10:05,"13,401s",PASSED
+"click(findWindowsObject(""Object Repository/NomeCognomeAssistenza""))",,,,2021-02-01 13:10:05,2021-02-01 13:10:07,"1,762s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeCognomeAssistenzaText""), ""a"")",,,,2021-02-01 13:10:07,2021-02-01 13:10:09,"2,446s",PASSED
+"click(findWindowsObject(""Object Repository/AvantiAssistenza""))",,,,2021-02-01 13:10:09,2021-02-01 13:10:10,"1,093s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:10:10,2021-02-01 13:10:43,"32,881s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:10:43,2021-02-01 13:10:44,"0,570s",PASSED
+"assert text == ""Inserire nome e cognome validi""",,,,2021-02-01 13:10:44,2021-02-01 13:10:44,"0,004s",PASSED
+closeApplication(),,,,2021-02-01 13:10:44,2021-02-01 13:10:44,"0,140s",PASSED
+,,,,,,,
+Test Cases/TC_A_1_2,,,,2021-02-01 13:10:44,2021-02-01 13:11:34,"49,975s",PASSED
+"callTestCase(findTestCase(""BeforeAssistenza""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:10:44,2021-02-01 13:10:54,"9,377s",PASSED
+"click(findWindowsObject(""Object Repository/NomeCognomeAssistenza""))",,,,2021-02-01 13:10:54,2021-02-01 13:10:55,"1,414s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeCognomeAssistenzaText""), ""Franco Cirillo"")",,,,2021-02-01 13:10:55,2021-02-01 13:10:58,"3,243s",PASSED
+"click(findWindowsObject(""Object Repository/IndirizzoAssistenza""))",,,,2021-02-01 13:10:58,2021-02-01 13:10:59,"1,108s",PASSED
+"setText(findWindowsObject(""Object Repository/IndirizzoAssistenzaText""), ""V"")",,,,2021-02-01 13:10:59,2021-02-01 13:11:02,"2,486s",PASSED
+"click(findWindowsObject(""Object Repository/AvantiAssistenza""))",,,,2021-02-01 13:11:02,2021-02-01 13:11:03,"1,120s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:11:03,2021-02-01 13:11:33,"29,993s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:11:33,2021-02-01 13:11:34,"0,531s",PASSED
+"assert text == ""Inserire un indirizzo valido""",,,,2021-02-01 13:11:34,2021-02-01 13:11:34,"0,001s",PASSED
+closeApplication(),,,,2021-02-01 13:11:34,2021-02-01 13:11:34,"0,142s",PASSED
+,,,,,,,
+Test Cases/TC_A_1_10,,,,2021-02-01 13:11:34,2021-02-01 13:12:48,"1m - 14,188s",PASSED
+"callTestCase(findTestCase(""BeforeAssistenza""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:11:34,2021-02-01 13:11:44,"9,399s",PASSED
+"click(findWindowsObject(""Object Repository/NomeCognomeAssistenza""))",,,,2021-02-01 13:11:44,2021-02-01 13:11:45,"1,412s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeCognomeAssistenzaText""), ""Franco Cirillo"")",,,,2021-02-01 13:11:45,2021-02-01 13:11:48,"3,151s",PASSED
+"click(findWindowsObject(""Object Repository/IndirizzoAssistenza""))",,,,2021-02-01 13:11:48,2021-02-01 13:11:49,"1,097s",PASSED
+"setText(findWindowsObject(""Object Repository/IndirizzoAssistenzaText""), ""Via Roma"")",,,,2021-02-01 13:11:49,2021-02-01 13:11:52,"2,823s",PASSED
+"click(findWindowsObject(""TelefonoClienteAssistenza""))",,,,2021-02-01 13:11:52,2021-02-01 13:11:53,"1,107s",PASSED
+"setText(findWindowsObject(""Object Repository/TelefonoClienteAssistenzaText""), ""0123456789"")",,,,2021-02-01 13:11:53,2021-02-01 13:11:56,"2,950s",PASSED
+"click(findWindowsObject(""NomeProdottoAssistenza""))",,,,2021-02-01 13:11:56,2021-02-01 13:11:57,"1,095s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeProdottoAssistenzaText""), ""Notebook Asus"")",,,,2021-02-01 13:11:57,2021-02-01 13:12:00,"3,157s",PASSED
+"click(findWindowsObject(""TipoProdottoAssistenza""))",,,,2021-02-01 13:12:00,2021-02-01 13:12:02,"1,113s",PASSED
+"setText(findWindowsObject(""Object Repository/TipoProdottoAssistenzaText""), ""Computer"")",,,,2021-02-01 13:12:02,2021-02-01 13:12:05,"2,979s",PASSED
+"click(findWindowsObject(""CodProdottoAssistenza""))",,,,2021-02-01 13:12:05,2021-02-01 13:12:06,"1,167s",PASSED
+"setText(findWindowsObject(""CodProdottoAssistenzaText""), ""1000000000001"")",,,,2021-02-01 13:12:06,2021-02-01 13:12:09,"3,204s",PASSED
+"click(findWindowsObject(""NumSerieAssistenza""))",,,,2021-02-01 13:12:09,2021-02-01 13:12:10,"1,072s",PASSED
+"setText(findWindowsObject(""NumSerieAssistenzaText""), ""x"")",,,,2021-02-01 13:12:10,2021-02-01 13:12:12,"2,459s",PASSED
+"click(findWindowsObject(""Object Repository/AvantiAssistenza""))",,,,2021-02-01 13:12:12,2021-02-01 13:12:14,"1,075s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:12:14,2021-02-01 13:12:47,"33,702s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:12:47,2021-02-01 13:12:48,"0,532s",PASSED
+"assert text == ""Inserire un numero di serie valido""",,,,2021-02-01 13:12:48,2021-02-01 13:12:48,"0,001s",PASSED
+closeApplication(),,,,2021-02-01 13:12:48,2021-02-01 13:12:48,"0,154s",PASSED
+,,,,,,,
+Test Cases/TC_A_1_11,,,,2021-02-01 13:12:48,2021-02-01 13:14:09,"1m - 21,161s",PASSED
+"callTestCase(findTestCase(""BeforeAssistenza""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:12:49,2021-02-01 13:12:58,"9,129s",PASSED
+"click(findWindowsObject(""Object Repository/NomeCognomeAssistenza""))",,,,2021-02-01 13:12:58,2021-02-01 13:12:59,"1,745s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeCognomeAssistenzaText""), ""Franco Cirillo"")",,,,2021-02-01 13:12:59,2021-02-01 13:13:03,"3,578s",PASSED
+"click(findWindowsObject(""Object Repository/IndirizzoAssistenza""))",,,,2021-02-01 13:13:03,2021-02-01 13:13:04,"1,090s",PASSED
+"setText(findWindowsObject(""Object Repository/IndirizzoAssistenzaText""), ""Via Roma"")",,,,2021-02-01 13:13:04,2021-02-01 13:13:07,"2,809s",PASSED
+"click(findWindowsObject(""TelefonoClienteAssistenza""))",,,,2021-02-01 13:13:07,2021-02-01 13:13:08,"1,093s",PASSED
+"setText(findWindowsObject(""Object Repository/TelefonoClienteAssistenzaText""), ""0123456789"")",,,,2021-02-01 13:13:08,2021-02-01 13:13:11,"3,089s",PASSED
+"click(findWindowsObject(""NomeProdottoAssistenza""))",,,,2021-02-01 13:13:11,2021-02-01 13:13:12,"1,113s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeProdottoAssistenzaText""), ""Notebook Asus"")",,,,2021-02-01 13:13:12,2021-02-01 13:13:16,"3,307s",PASSED
+"click(findWindowsObject(""TipoProdottoAssistenza""))",,,,2021-02-01 13:13:16,2021-02-01 13:13:18,"1,975s",PASSED
+"setText(findWindowsObject(""Object Repository/TipoProdottoAssistenzaText""), ""Computer"")",,,,2021-02-01 13:13:18,2021-02-01 13:13:21,"3,071s",PASSED
+"click(findWindowsObject(""CodProdottoAssistenza""))",,,,2021-02-01 13:13:21,2021-02-01 13:13:22,"1,101s",PASSED
+"setText(findWindowsObject(""CodProdottoAssistenzaText""), ""1000000000001"")",,,,2021-02-01 13:13:22,2021-02-01 13:13:25,"3,432s",PASSED
+"click(findWindowsObject(""NumSerieAssistenza""))",,,,2021-02-01 13:13:25,2021-02-01 13:13:26,"1,212s",PASSED
+"setText(findWindowsObject(""NumSerieAssistenzaText""), ""X1ay07"")",,,,2021-02-01 13:13:26,2021-02-01 13:13:29,"2,984s",PASSED
+"click(findWindowsObject(""DataScontrinoAssistenza""))",,,,2021-02-01 13:13:29,2021-02-01 13:13:31,"1,439s",PASSED
+"setText(findWindowsObject(""DataScontrinoAssistenzaText""), ""12/12/2017"")",,,,2021-02-01 13:13:31,2021-02-01 13:13:34,"3,278s",PASSED
+"click(findWindowsObject(""Object Repository/AvantiAssistenza""))",,,,2021-02-01 13:13:34,2021-02-01 13:13:35,"1,097s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:13:35,2021-02-01 13:14:08,"33,259s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:14:08,2021-02-01 13:14:09,"0,539s",PASSED
+"assert text == ""Inserire una data valida, non precedente a 2 anni fa e non successiva alla data odierna""",,,,2021-02-01 13:14:09,2021-02-01 13:14:09,"0,001s",PASSED
+closeApplication(),,,,2021-02-01 13:14:09,2021-02-01 13:14:09,"0,131s",PASSED
+,,,,,,,
+Test Cases/TC_A_1_12,,,,2021-02-01 13:14:09,2021-02-01 13:15:32,"1m - 22,461s",PASSED
+"callTestCase(findTestCase(""BeforeAssistenza""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:14:10,2021-02-01 13:14:19,"9,482s",PASSED
+"click(findWindowsObject(""Object Repository/NomeCognomeAssistenza""))",,,,2021-02-01 13:14:19,2021-02-01 13:14:21,"1,424s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeCognomeAssistenzaText""), ""Franco Cirillo"")",,,,2021-02-01 13:14:21,2021-02-01 13:14:24,"3,228s",PASSED
+"click(findWindowsObject(""Object Repository/IndirizzoAssistenza""))",,,,2021-02-01 13:14:24,2021-02-01 13:14:25,"1,091s",PASSED
+"setText(findWindowsObject(""Object Repository/IndirizzoAssistenzaText""), ""Via Roma"")",,,,2021-02-01 13:14:25,2021-02-01 13:14:28,"2,807s",PASSED
+"click(findWindowsObject(""TelefonoClienteAssistenza""))",,,,2021-02-01 13:14:28,2021-02-01 13:14:29,"1,095s",PASSED
+"setText(findWindowsObject(""Object Repository/TelefonoClienteAssistenzaText""), ""0123456789"")",,,,2021-02-01 13:14:29,2021-02-01 13:14:32,"3,038s",PASSED
+"click(findWindowsObject(""NomeProdottoAssistenza""))",,,,2021-02-01 13:14:32,2021-02-01 13:14:33,"1,082s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeProdottoAssistenzaText""), ""Notebook Asus"")",,,,2021-02-01 13:14:33,2021-02-01 13:14:36,"3,265s",PASSED
+"click(findWindowsObject(""TipoProdottoAssistenza""))",,,,2021-02-01 13:14:36,2021-02-01 13:14:37,"1,103s",PASSED
+"setText(findWindowsObject(""Object Repository/TipoProdottoAssistenzaText""), ""Computer"")",,,,2021-02-01 13:14:37,2021-02-01 13:14:40,"2,864s",PASSED
+"click(findWindowsObject(""CodProdottoAssistenza""))",,,,2021-02-01 13:14:40,2021-02-01 13:14:41,"1,090s",PASSED
+"setText(findWindowsObject(""CodProdottoAssistenzaText""), ""1000000000001"")",,,,2021-02-01 13:14:41,2021-02-01 13:14:44,"3,176s",PASSED
+"click(findWindowsObject(""NumSerieAssistenza""))",,,,2021-02-01 13:14:44,2021-02-01 13:14:45,"1,098s",PASSED
+"setText(findWindowsObject(""NumSerieAssistenzaText""), ""X1ay07"")",,,,2021-02-01 13:14:45,2021-02-01 13:14:48,"2,722s",PASSED
+"click(findWindowsObject(""DataScontrinoAssistenza""))",,,,2021-02-01 13:14:48,2021-02-01 13:14:49,"1,144s",PASSED
+"setText(findWindowsObject(""DataScontrinoAssistenzaText""), ""12/12/2020"")",,,,2021-02-01 13:14:49,2021-02-01 13:14:52,"3,027s",PASSED
+"click(findWindowsObject(""NumScontrinoAssistenza""))",,,,2021-02-01 13:14:52,2021-02-01 13:14:53,"1,107s",PASSED
+"setText(findWindowsObject(""NumScontrinoAssistenzaText""), ""aa"")",,,,2021-02-01 13:14:53,2021-02-01 13:14:56,"2,499s",PASSED
+"click(findWindowsObject(""Object Repository/AvantiAssistenza""))",,,,2021-02-01 13:14:56,2021-02-01 13:14:57,"1,080s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:14:57,2021-02-01 13:15:31,"33,892s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:15:31,2021-02-01 13:15:31,"0,504s",PASSED
+"assert text == ""Inserire un numero di scontrino valido""",,,,2021-02-01 13:15:31,2021-02-01 13:15:31,"0,001s",PASSED
+closeApplication(),,,,2021-02-01 13:15:31,2021-02-01 13:15:32,"0,147s",PASSED
+,,,,,,,
+Test Cases/TC_A_1_13,,,,2021-02-01 13:15:32,2021-02-01 13:16:57,"1m - 25,616s",PASSED
+"callTestCase(findTestCase(""BeforeAssistenza""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:15:32,2021-02-01 13:15:41,"9,381s",PASSED
+"click(findWindowsObject(""Object Repository/NomeCognomeAssistenza""))",,,,2021-02-01 13:15:41,2021-02-01 13:15:43,"1,450s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeCognomeAssistenzaText""), ""Franco Cirillo"")",,,,2021-02-01 13:15:43,2021-02-01 13:15:46,"3,203s",PASSED
+"click(findWindowsObject(""Object Repository/IndirizzoAssistenza""))",,,,2021-02-01 13:15:46,2021-02-01 13:15:47,"1,097s",PASSED
+"setText(findWindowsObject(""Object Repository/IndirizzoAssistenzaText""), ""Via Roma"")",,,,2021-02-01 13:15:47,2021-02-01 13:15:50,"2,807s",PASSED
+"click(findWindowsObject(""TelefonoClienteAssistenza""))",,,,2021-02-01 13:15:50,2021-02-01 13:15:51,"1,144s",PASSED
+"setText(findWindowsObject(""Object Repository/TelefonoClienteAssistenzaText""), ""0123456789"")",,,,2021-02-01 13:15:51,2021-02-01 13:15:54,"3,011s",PASSED
+"click(findWindowsObject(""NomeProdottoAssistenza""))",,,,2021-02-01 13:15:54,2021-02-01 13:15:55,"1,088s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeProdottoAssistenzaText""), ""Notebook Asus"")",,,,2021-02-01 13:15:55,2021-02-01 13:15:58,"3,120s",PASSED
+"click(findWindowsObject(""TipoProdottoAssistenza""))",,,,2021-02-01 13:15:58,2021-02-01 13:15:59,"1,081s",PASSED
+"setText(findWindowsObject(""Object Repository/TipoProdottoAssistenzaText""), ""Computer"")",,,,2021-02-01 13:15:59,2021-02-01 13:16:02,"2,931s",PASSED
+"click(findWindowsObject(""CodProdottoAssistenza""))",,,,2021-02-01 13:16:02,2021-02-01 13:16:04,"1,101s",PASSED
+"setText(findWindowsObject(""CodProdottoAssistenzaText""), ""1000000000001"")",,,,2021-02-01 13:16:04,2021-02-01 13:16:07,"3,183s",PASSED
+"click(findWindowsObject(""NumSerieAssistenza""))",,,,2021-02-01 13:16:07,2021-02-01 13:16:08,"1,163s",PASSED
+"setText(findWindowsObject(""NumSerieAssistenzaText""), ""X1ay07"")",,,,2021-02-01 13:16:08,2021-02-01 13:16:11,"2,748s",PASSED
+"click(findWindowsObject(""DataScontrinoAssistenza""))",,,,2021-02-01 13:16:11,2021-02-01 13:16:12,"1,119s",PASSED
+"setText(findWindowsObject(""DataScontrinoAssistenzaText""), ""12/12/2020"")",,,,2021-02-01 13:16:12,2021-02-01 13:16:15,"2,972s",PASSED
+"click(findWindowsObject(""NumScontrinoAssistenza""))",,,,2021-02-01 13:16:15,2021-02-01 13:16:16,"1,087s",PASSED
+"setText(findWindowsObject(""NumScontrinoAssistenzaText""), ""0"")",,,,2021-02-01 13:16:16,2021-02-01 13:16:18,"2,406s",PASSED
+"click(findWindowsObject(""Object Repository/AvantiAssistenza""))",,,,2021-02-01 13:16:18,2021-02-01 13:16:19,"1,079s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:16:19,2021-02-01 13:16:57,"37,271s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:16:57,2021-02-01 13:16:57,"0,538s",PASSED
+"assert text == ""Inserire un numero di scontrino valido""",,,,2021-02-01 13:16:57,2021-02-01 13:16:57,"0,001s",PASSED
+closeApplication(),,,,2021-02-01 13:16:57,2021-02-01 13:16:57,"0,132s",PASSED
+,,,,,,,
+Test Cases/TC_A_1_14,,,,2021-02-01 13:16:57,2021-02-01 13:18:23,"1m - 25,810s",PASSED
+"callTestCase(findTestCase(""BeforeAssistenza""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:16:58,2021-02-01 13:17:07,"9,499s",PASSED
+"click(findWindowsObject(""Object Repository/NomeCognomeAssistenza""))",,,,2021-02-01 13:17:07,2021-02-01 13:17:09,"1,420s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeCognomeAssistenzaText""), ""Franco Cirillo"")",,,,2021-02-01 13:17:09,2021-02-01 13:17:12,"3,172s",PASSED
+"click(findWindowsObject(""Object Repository/IndirizzoAssistenza""))",,,,2021-02-01 13:17:12,2021-02-01 13:17:13,"1,080s",PASSED
+"setText(findWindowsObject(""Object Repository/IndirizzoAssistenzaText""), ""Via Roma"")",,,,2021-02-01 13:17:13,2021-02-01 13:17:16,"2,858s",PASSED
+"click(findWindowsObject(""TelefonoClienteAssistenza""))",,,,2021-02-01 13:17:16,2021-02-01 13:17:17,"1,206s",PASSED
+"setText(findWindowsObject(""Object Repository/TelefonoClienteAssistenzaText""), ""0123456789"")",,,,2021-02-01 13:17:17,2021-02-01 13:17:21,"3,937s",PASSED
+"click(findWindowsObject(""NomeProdottoAssistenza""))",,,,2021-02-01 13:17:21,2021-02-01 13:17:22,"1,285s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeProdottoAssistenzaText""), ""Notebook Asus"")",,,,2021-02-01 13:17:22,2021-02-01 13:17:25,"3,243s",PASSED
+"click(findWindowsObject(""TipoProdottoAssistenza""))",,,,2021-02-01 13:17:25,2021-02-01 13:17:27,"1,135s",PASSED
+"setText(findWindowsObject(""Object Repository/TipoProdottoAssistenzaText""), ""Computer"")",,,,2021-02-01 13:17:27,2021-02-01 13:17:30,"2,945s",PASSED
+"click(findWindowsObject(""CodProdottoAssistenza""))",,,,2021-02-01 13:17:30,2021-02-01 13:17:31,"1,162s",PASSED
+"setText(findWindowsObject(""CodProdottoAssistenzaText""), ""1000000000001"")",,,,2021-02-01 13:17:31,2021-02-01 13:17:34,"3,269s",PASSED
+"click(findWindowsObject(""NumSerieAssistenza""))",,,,2021-02-01 13:17:34,2021-02-01 13:17:35,"1,103s",PASSED
+"setText(findWindowsObject(""NumSerieAssistenzaText""), ""X1ay07"")",,,,2021-02-01 13:17:35,2021-02-01 13:17:38,"2,756s",PASSED
+"click(findWindowsObject(""DataScontrinoAssistenza""))",,,,2021-02-01 13:17:38,2021-02-01 13:17:39,"1,077s",PASSED
+"setText(findWindowsObject(""DataScontrinoAssistenzaText""), ""12/12/2020"")",,,,2021-02-01 13:17:39,2021-02-01 13:17:42,"3,110s",PASSED
+"click(findWindowsObject(""NumScontrinoAssistenza""))",,,,2021-02-01 13:17:42,2021-02-01 13:17:43,"1,140s",PASSED
+"setText(findWindowsObject(""NumScontrinoAssistenzaText""), ""1000"")",,,,2021-02-01 13:17:43,2021-02-01 13:17:46,"2,790s",PASSED
+"click(findWindowsObject(""Object Repository/AvantiAssistenza""))",,,,2021-02-01 13:17:46,2021-02-01 13:17:47,"1,161s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:17:47,2021-02-01 13:18:22,"35,261s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:18:22,2021-02-01 13:18:23,"0,539s",PASSED
+"assert text == ""Scontrino non trovato
+Controlla il codice""",,,,2021-02-01 13:18:23,2021-02-01 13:18:23,"0,000s",PASSED
+closeApplication(),,,,2021-02-01 13:18:23,2021-02-01 13:18:23,"0,144s",PASSED
+,,,,,,,
+Test Cases/TC_A_1_15,,,,2021-02-01 13:18:23,2021-02-01 13:19:53,"1m - 30,046s",PASSED
+"callTestCase(findTestCase(""BeforeAssistenza""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:18:24,2021-02-01 13:18:33,"9,457s",PASSED
+"click(findWindowsObject(""Object Repository/NomeCognomeAssistenza""))",,,,2021-02-01 13:18:33,2021-02-01 13:18:34,"1,429s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeCognomeAssistenzaText""), ""Franco Cirillo"")",,,,2021-02-01 13:18:34,2021-02-01 13:18:38,"3,159s",PASSED
+"click(findWindowsObject(""Object Repository/IndirizzoAssistenza""))",,,,2021-02-01 13:18:38,2021-02-01 13:18:39,"1,094s",PASSED
+"setText(findWindowsObject(""Object Repository/IndirizzoAssistenzaText""), ""Via Roma"")",,,,2021-02-01 13:18:39,2021-02-01 13:18:42,"2,836s",PASSED
+"click(findWindowsObject(""TelefonoClienteAssistenza""))",,,,2021-02-01 13:18:42,2021-02-01 13:18:43,"1,108s",PASSED
+"setText(findWindowsObject(""Object Repository/TelefonoClienteAssistenzaText""), ""0123456789"")",,,,2021-02-01 13:18:43,2021-02-01 13:18:46,"3,048s",PASSED
+"click(findWindowsObject(""NomeProdottoAssistenza""))",,,,2021-02-01 13:18:46,2021-02-01 13:18:47,"1,109s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeProdottoAssistenzaText""), ""Notebook Asus"")",,,,2021-02-01 13:18:47,2021-02-01 13:18:50,"3,131s",PASSED
+"click(findWindowsObject(""TipoProdottoAssistenza""))",,,,2021-02-01 13:18:50,2021-02-01 13:18:51,"1,123s",PASSED
+"setText(findWindowsObject(""Object Repository/TipoProdottoAssistenzaText""), ""Computer"")",,,,2021-02-01 13:18:51,2021-02-01 13:18:54,"2,836s",PASSED
+"click(findWindowsObject(""CodProdottoAssistenza""))",,,,2021-02-01 13:18:54,2021-02-01 13:18:55,"1,053s",PASSED
+"setText(findWindowsObject(""CodProdottoAssistenzaText""), ""1000000000001"")",,,,2021-02-01 13:18:55,2021-02-01 13:18:58,"3,109s",PASSED
+"click(findWindowsObject(""NumSerieAssistenza""))",,,,2021-02-01 13:18:58,2021-02-01 13:18:59,"1,103s",PASSED
+"setText(findWindowsObject(""NumSerieAssistenzaText""), ""X1ay07"")",,,,2021-02-01 13:18:59,2021-02-01 13:19:02,"2,621s",PASSED
+"click(findWindowsObject(""DataScontrinoAssistenza""))",,,,2021-02-01 13:19:02,2021-02-01 13:19:03,"1,101s",PASSED
+"setText(findWindowsObject(""DataScontrinoAssistenzaText""), ""12/12/2020"")",,,,2021-02-01 13:19:03,2021-02-01 13:19:06,"3,089s",PASSED
+"click(findWindowsObject(""NumScontrinoAssistenza""))",,,,2021-02-01 13:19:06,2021-02-01 13:19:07,"1,077s",PASSED
+"setText(findWindowsObject(""NumScontrinoAssistenzaText""), ""1"")",,,,2021-02-01 13:19:07,2021-02-01 13:19:10,"2,408s",PASSED
+"click(findWindowsObject(""CodFiscaleAssistenza""))",,,,2021-02-01 13:19:10,2021-02-01 13:19:11,"1,126s",PASSED
+"setText(findWindowsObject(""CodFiscaleAssistenzaText""), ""CRLFNC00"")",,,,2021-02-01 13:19:11,2021-02-01 13:19:13,"2,582s",PASSED
+"click(findWindowsObject(""Object Repository/AvantiAssistenza""))",,,,2021-02-01 13:19:13,2021-02-01 13:19:14,"1,098s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:19:14,2021-02-01 13:19:52,"38,135s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:19:52,2021-02-01 13:19:53,"0,523s",PASSED
+"assert text == ""Inserire un codice fiscale valido""",,,,2021-02-01 13:19:53,2021-02-01 13:19:53,"0,001s",PASSED
+closeApplication(),,,,2021-02-01 13:19:53,2021-02-01 13:19:53,"0,144s",PASSED
+,,,,,,,
+Test Cases/TC_A_1_16,,,,2021-02-01 13:19:53,2021-02-01 13:20:46,"52,860s",PASSED
+"callTestCase(findTestCase(""BeforeAssistenza""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:19:54,2021-02-01 13:20:03,"9,636s",PASSED
+"click(findWindowsObject(""Object Repository/NomeCognomeAssistenza""))",,,,2021-02-01 13:20:03,2021-02-01 13:20:05,"1,438s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeCognomeAssistenzaText""), ""Franco Cirillo"")",,,,2021-02-01 13:20:05,2021-02-01 13:20:08,"3,259s",PASSED
+"click(findWindowsObject(""Object Repository/IndirizzoAssistenza""))",,,,2021-02-01 13:20:08,2021-02-01 13:20:09,"1,074s",PASSED
+"setText(findWindowsObject(""Object Repository/IndirizzoAssistenzaText""), ""Via Roma"")",,,,2021-02-01 13:20:09,2021-02-01 13:20:12,"2,840s",PASSED
+"click(findWindowsObject(""TelefonoClienteAssistenza""))",,,,2021-02-01 13:20:12,2021-02-01 13:20:13,"1,100s",PASSED
+"setText(findWindowsObject(""Object Repository/TelefonoClienteAssistenzaText""), ""0123456789"")",,,,2021-02-01 13:20:13,2021-02-01 13:20:16,"3,066s",PASSED
+"click(findWindowsObject(""NomeProdottoAssistenza""))",,,,2021-02-01 13:20:16,2021-02-01 13:20:17,"1,075s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeProdottoAssistenzaText""), ""Notebook Asus"")",,,,2021-02-01 13:20:17,2021-02-01 13:20:20,"3,172s",PASSED
+"click(findWindowsObject(""TipoProdottoAssistenza""))",,,,2021-02-01 13:20:20,2021-02-01 13:20:21,"1,108s",PASSED
+"setText(findWindowsObject(""Object Repository/TipoProdottoAssistenzaText""), ""Computer"")",,,,2021-02-01 13:20:21,2021-02-01 13:20:24,"2,821s",PASSED
+"click(findWindowsObject(""CodProdottoAssistenza""))",,,,2021-02-01 13:20:24,2021-02-01 13:20:25,"1,078s",PASSED
+"setText(findWindowsObject(""CodProdottoAssistenzaText""), ""1000000000001"")",,,,2021-02-01 13:20:25,2021-02-01 13:20:29,"3,230s",PASSED
+"click(findWindowsObject(""NumSerieAssistenza""))",,,,2021-02-01 13:20:29,2021-02-01 13:20:30,"1,106s",PASSED
+"setText(findWindowsObject(""NumSerieAssistenzaText""), ""X1ay07"")",,,,2021-02-01 13:20:30,2021-02-01 13:20:32,"2,687s",PASSED
+"click(findWindowsObject(""DataScontrinoAssistenza""))",,,,2021-02-01 13:20:32,2021-02-01 13:20:33,"1,075s",PASSED
+"setText(findWindowsObject(""DataScontrinoAssistenzaText""), ""12/12/2020"")",,,,2021-02-01 13:20:33,2021-02-01 13:20:36,"2,971s",PASSED
+"click(findWindowsObject(""NumScontrinoAssistenza""))",,,,2021-02-01 13:20:36,2021-02-01 13:20:37,"1,082s",PASSED
+"setText(findWindowsObject(""NumScontrinoAssistenzaText""), ""1"")",,,,2021-02-01 13:20:37,2021-02-01 13:20:40,"2,443s",PASSED
+"click(findWindowsObject(""CodFiscaleAssistenza""))",,,,2021-02-01 13:20:40,2021-02-01 13:20:41,"1,091s",PASSED
+"setText(findWindowsObject(""CodFiscaleAssistenzaText""), ""CRLFNC00R00G000Y"")",,,,2021-02-01 13:20:41,2021-02-01 13:20:44,"3,145s",PASSED
+"click(findWindowsObject(""Object Repository/AvantiAssistenza""))",,,,2021-02-01 13:20:44,2021-02-01 13:20:45,"1,108s",PASSED
+"text = getText(findWindowsObject(""AssistenzaDettagliProblemaLabel""))",,,,2021-02-01 13:20:45,2021-02-01 13:20:46,"0,619s",PASSED
+"assert text == ""Assistenza - Dettagli problema""",,,,2021-02-01 13:20:46,2021-02-01 13:20:46,"0,000s",PASSED
+closeApplication(),,,,2021-02-01 13:20:46,2021-02-01 13:20:46,"0,133s",PASSED
+,,,,,,,
+Test Cases/TC_A_1_3,,,,2021-02-01 13:20:46,2021-02-01 13:21:48,"1m - 1,866s",PASSED
+"callTestCase(findTestCase(""BeforeAssistenza""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:20:47,2021-02-01 13:20:56,"9,485s",PASSED
+"click(findWindowsObject(""Object Repository/NomeCognomeAssistenza""))",,,,2021-02-01 13:20:56,2021-02-01 13:20:58,"1,513s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeCognomeAssistenzaText""), ""Franco Cirillo"")",,,,2021-02-01 13:20:58,2021-02-01 13:21:01,"3,234s",PASSED
+"click(findWindowsObject(""Object Repository/IndirizzoAssistenza""))",,,,2021-02-01 13:21:01,2021-02-01 13:21:02,"1,109s",PASSED
+"setText(findWindowsObject(""Object Repository/IndirizzoAssistenzaText""), ""Via Roma"")",,,,2021-02-01 13:21:02,2021-02-01 13:21:05,"2,821s",PASSED
+"click(findWindowsObject(""TelefonoClienteAssistenza""))",,,,2021-02-01 13:21:05,2021-02-01 13:21:06,"1,126s",PASSED
+"setText(findWindowsObject(""Object Repository/TelefonoClienteAssistenzaText""), ""3331234"")",,,,2021-02-01 13:21:06,2021-02-01 13:21:09,"2,829s",PASSED
+"click(findWindowsObject(""Object Repository/AvantiAssistenza""))",,,,2021-02-01 13:21:09,2021-02-01 13:21:10,"1,131s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:21:10,2021-02-01 13:21:47,"37,327s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:21:47,2021-02-01 13:21:48,"0,664s",PASSED
+"assert text == ""Inserire un numero di telefono valido""",,,,2021-02-01 13:21:48,2021-02-01 13:21:48,"0,001s",PASSED
+closeApplication(),,,,2021-02-01 13:21:48,2021-02-01 13:21:48,"0,122s",PASSED
+,,,,,,,
+Test Cases/TC_A_1_4,,,,2021-02-01 13:21:48,2021-02-01 13:22:52,"1m - 3,800s",PASSED
+"callTestCase(findTestCase(""BeforeAssistenza""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:21:48,2021-02-01 13:21:58,"9,450s",PASSED
+"click(findWindowsObject(""Object Repository/NomeCognomeAssistenza""))",,,,2021-02-01 13:21:58,2021-02-01 13:21:59,"1,470s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeCognomeAssistenzaText""), ""Franco Cirillo"")",,,,2021-02-01 13:21:59,2021-02-01 13:22:03,"3,183s",PASSED
+"click(findWindowsObject(""Object Repository/IndirizzoAssistenza""))",,,,2021-02-01 13:22:03,2021-02-01 13:22:04,"1,124s",PASSED
+"setText(findWindowsObject(""Object Repository/IndirizzoAssistenzaText""), ""Via Roma"")",,,,2021-02-01 13:22:04,2021-02-01 13:22:07,"2,972s",PASSED
+"click(findWindowsObject(""TelefonoClienteAssistenza""))",,,,2021-02-01 13:22:07,2021-02-01 13:22:08,"1,123s",PASSED
+"setText(findWindowsObject(""Object Repository/TelefonoClienteAssistenzaText""), ""01234567ab"")",,,,2021-02-01 13:22:08,2021-02-01 13:22:11,"2,968s",PASSED
+"click(findWindowsObject(""Object Repository/AvantiAssistenza""))",,,,2021-02-01 13:22:11,2021-02-01 13:22:12,"1,134s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:22:12,2021-02-01 13:22:51,"39,109s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:22:51,2021-02-01 13:22:52,"0,541s",PASSED
+"assert text == ""Inserire un numero di telefono valido""",,,,2021-02-01 13:22:52,2021-02-01 13:22:52,"0,001s",PASSED
+closeApplication(),,,,2021-02-01 13:22:52,2021-02-01 13:22:52,"0,144s",PASSED
+,,,,,,,
+Test Cases/TC_A_1_5,,,,2021-02-01 13:22:52,2021-02-01 13:23:58,"1m - 6,093s",PASSED
+"callTestCase(findTestCase(""BeforeAssistenza""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:22:52,2021-02-01 13:23:02,"9,519s",PASSED
+"click(findWindowsObject(""Object Repository/NomeCognomeAssistenza""))",,,,2021-02-01 13:23:02,2021-02-01 13:23:03,"1,560s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeCognomeAssistenzaText""), ""Franco Cirillo"")",,,,2021-02-01 13:23:03,2021-02-01 13:23:06,"3,190s",PASSED
+"click(findWindowsObject(""Object Repository/IndirizzoAssistenza""))",,,,2021-02-01 13:23:06,2021-02-01 13:23:08,"1,099s",PASSED
+"setText(findWindowsObject(""Object Repository/IndirizzoAssistenzaText""), ""Via Roma"")",,,,2021-02-01 13:23:08,2021-02-01 13:23:10,"2,890s",PASSED
+"click(findWindowsObject(""TelefonoClienteAssistenza""))",,,,2021-02-01 13:23:10,2021-02-01 13:23:12,"1,092s",PASSED
+"setText(findWindowsObject(""Object Repository/TelefonoClienteAssistenzaText""), ""0123456789"")",,,,2021-02-01 13:23:12,2021-02-01 13:23:15,"3,048s",PASSED
+"click(findWindowsObject(""NomeProdottoAssistenza""))",,,,2021-02-01 13:23:15,2021-02-01 13:23:16,"1,090s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeProdottoAssistenzaText""), ""P"")",,,,2021-02-01 13:23:16,2021-02-01 13:23:18,"2,483s",PASSED
+"click(findWindowsObject(""Object Repository/AvantiAssistenza""))",,,,2021-02-01 13:23:18,2021-02-01 13:23:19,"1,068s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:23:19,2021-02-01 13:23:57,"37,897s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:23:57,2021-02-01 13:23:58,"0,534s",PASSED
+"assert text == ""Inserire un nome prodotto valido""",,,,2021-02-01 13:23:58,2021-02-01 13:23:58,"0,001s",PASSED
+closeApplication(),,,,2021-02-01 13:23:58,2021-02-01 13:23:58,"0,132s",PASSED
+,,,,,,,
+Test Cases/TC_A_1_6,,,,2021-02-01 13:23:58,2021-02-01 13:25:11,"1m - 13,404s",PASSED
+"callTestCase(findTestCase(""BeforeAssistenza""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:23:58,2021-02-01 13:24:08,"9,502s",PASSED
+"click(findWindowsObject(""Object Repository/NomeCognomeAssistenza""))",,,,2021-02-01 13:24:08,2021-02-01 13:24:09,"1,501s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeCognomeAssistenzaText""), ""Franco Cirillo"")",,,,2021-02-01 13:24:09,2021-02-01 13:24:13,"3,182s",PASSED
+"click(findWindowsObject(""Object Repository/IndirizzoAssistenza""))",,,,2021-02-01 13:24:13,2021-02-01 13:24:14,"1,113s",PASSED
+"setText(findWindowsObject(""Object Repository/IndirizzoAssistenzaText""), ""Via Roma"")",,,,2021-02-01 13:24:14,2021-02-01 13:24:17,"2,917s",PASSED
+"click(findWindowsObject(""TelefonoClienteAssistenza""))",,,,2021-02-01 13:24:17,2021-02-01 13:24:18,"1,077s",PASSED
+"setText(findWindowsObject(""Object Repository/TelefonoClienteAssistenzaText""), ""0123456789"")",,,,2021-02-01 13:24:18,2021-02-01 13:24:21,"3,100s",PASSED
+"click(findWindowsObject(""NomeProdottoAssistenza""))",,,,2021-02-01 13:24:21,2021-02-01 13:24:22,"1,140s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeProdottoAssistenzaText""), ""Notebook Asus"")",,,,2021-02-01 13:24:22,2021-02-01 13:24:25,"3,133s",PASSED
+"click(findWindowsObject(""TipoProdottoAssistenza""))",,,,2021-02-01 13:24:25,2021-02-01 13:24:26,"1,125s",PASSED
+"setText(findWindowsObject(""Object Repository/TipoProdottoAssistenzaText""), ""N"")",,,,2021-02-01 13:24:26,2021-02-01 13:24:29,"2,545s",PASSED
+"click(findWindowsObject(""Object Repository/AvantiAssistenza""))",,,,2021-02-01 13:24:29,2021-02-01 13:24:30,"1,119s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:24:30,2021-02-01 13:25:11,"40,797s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:25:11,2021-02-01 13:25:11,"0,516s",PASSED
+"assert text == ""Inserire un tipo di prodotto valido""",,,,2021-02-01 13:25:11,2021-02-01 13:25:11,"0,000s",PASSED
+closeApplication(),,,,2021-02-01 13:25:11,2021-02-01 13:25:11,"0,132s",PASSED
+,,,,,,,
+Test Cases/TC_A_1_7,,,,2021-02-01 13:25:11,2021-02-01 13:26:27,"1m - 15,364s",PASSED
+"callTestCase(findTestCase(""BeforeAssistenza""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:25:12,2021-02-01 13:25:21,"9,571s",PASSED
+"click(findWindowsObject(""Object Repository/NomeCognomeAssistenza""))",,,,2021-02-01 13:25:21,2021-02-01 13:25:23,"1,471s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeCognomeAssistenzaText""), ""Franco Cirillo"")",,,,2021-02-01 13:25:23,2021-02-01 13:25:26,"3,216s",PASSED
+"click(findWindowsObject(""Object Repository/IndirizzoAssistenza""))",,,,2021-02-01 13:25:26,2021-02-01 13:25:27,"1,094s",PASSED
+"setText(findWindowsObject(""Object Repository/IndirizzoAssistenzaText""), ""Via Roma"")",,,,2021-02-01 13:25:27,2021-02-01 13:25:30,"2,883s",PASSED
+"click(findWindowsObject(""TelefonoClienteAssistenza""))",,,,2021-02-01 13:25:30,2021-02-01 13:25:31,"1,071s",PASSED
+"setText(findWindowsObject(""Object Repository/TelefonoClienteAssistenzaText""), ""0123456789"")",,,,2021-02-01 13:25:31,2021-02-01 13:25:34,"3,056s",PASSED
+"click(findWindowsObject(""NomeProdottoAssistenza""))",,,,2021-02-01 13:25:34,2021-02-01 13:25:35,"1,111s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeProdottoAssistenzaText""), ""Notebook Asus"")",,,,2021-02-01 13:25:35,2021-02-01 13:25:38,"3,255s",PASSED
+"click(findWindowsObject(""TipoProdottoAssistenza""))",,,,2021-02-01 13:25:38,2021-02-01 13:25:40,"1,138s",PASSED
+"setText(findWindowsObject(""Object Repository/TipoProdottoAssistenzaText""), ""Computer"")",,,,2021-02-01 13:25:40,2021-02-01 13:25:43,"2,889s",PASSED
+"click(findWindowsObject(""CodProdottoAssistenza""))",,,,2021-02-01 13:25:43,2021-02-01 13:25:44,"1,092s",PASSED
+"setText(findWindowsObject(""CodProdottoAssistenzaText""), ""123456"")",,,,2021-02-01 13:25:44,2021-02-01 13:25:46,"2,776s",PASSED
+"click(findWindowsObject(""Object Repository/AvantiAssistenza""))",,,,2021-02-01 13:25:46,2021-02-01 13:25:47,"1,107s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:25:47,2021-02-01 13:26:26,"38,482s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:26:26,2021-02-01 13:26:26,"0,518s",PASSED
+"assert text == ""Inserire un codice prodotto valido (13 cifre)""",,,,2021-02-01 13:26:26,2021-02-01 13:26:26,"0,000s",PASSED
+closeApplication(),,,,2021-02-01 13:26:26,2021-02-01 13:26:27,"0,140s",PASSED
+,,,,,,,
+Test Cases/TC_A_1_9,,,,2021-02-01 13:26:27,2021-02-01 13:27:47,"1m - 20,005s",PASSED
+"callTestCase(findTestCase(""BeforeAssistenza""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:26:27,2021-02-01 13:26:37,"9,773s",PASSED
+"click(findWindowsObject(""Object Repository/NomeCognomeAssistenza""))",,,,2021-02-01 13:26:37,2021-02-01 13:26:39,"1,625s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeCognomeAssistenzaText""), ""Franco Cirillo"")",,,,2021-02-01 13:26:39,2021-02-01 13:26:42,"3,308s",PASSED
+"click(findWindowsObject(""Object Repository/IndirizzoAssistenza""))",,,,2021-02-01 13:26:42,2021-02-01 13:26:43,"1,124s",PASSED
+"setText(findWindowsObject(""Object Repository/IndirizzoAssistenzaText""), ""Via Roma"")",,,,2021-02-01 13:26:43,2021-02-01 13:26:46,"3,037s",PASSED
+"click(findWindowsObject(""TelefonoClienteAssistenza""))",,,,2021-02-01 13:26:46,2021-02-01 13:26:47,"1,091s",PASSED
+"setText(findWindowsObject(""Object Repository/TelefonoClienteAssistenzaText""), ""0123456789"")",,,,2021-02-01 13:26:47,2021-02-01 13:26:50,"3,012s",PASSED
+"click(findWindowsObject(""NomeProdottoAssistenza""))",,,,2021-02-01 13:26:50,2021-02-01 13:26:51,"1,111s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeProdottoAssistenzaText""), ""Notebook Asus"")",,,,2021-02-01 13:26:51,2021-02-01 13:26:54,"3,210s",PASSED
+"click(findWindowsObject(""TipoProdottoAssistenza""))",,,,2021-02-01 13:26:54,2021-02-01 13:26:56,"1,100s",PASSED
+"setText(findWindowsObject(""Object Repository/TipoProdottoAssistenzaText""), ""Computer"")",,,,2021-02-01 13:26:56,2021-02-01 13:26:58,"2,949s",PASSED
+"click(findWindowsObject(""CodProdottoAssistenza""))",,,,2021-02-01 13:26:58,2021-02-01 13:27:00,"1,059s",PASSED
+"setText(findWindowsObject(""CodProdottoAssistenzaText""), ""0123456789000"")",,,,2021-02-01 13:27:00,2021-02-01 13:27:03,"3,249s",PASSED
+"click(findWindowsObject(""Object Repository/AvantiAssistenza""))",,,,2021-02-01 13:27:03,2021-02-01 13:27:04,"1,153s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:27:04,2021-02-01 13:27:46,"42,050s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:27:46,2021-02-01 13:27:47,"0,558s",PASSED
+"assert text == ""Prodotto non trovato""",,,,2021-02-01 13:27:47,2021-02-01 13:27:47,"0,000s",PASSED
+closeApplication(),,,,2021-02-01 13:27:47,2021-02-01 13:27:47,"0,133s",PASSED
+,,,,,,,
+Test Cases/TC_A_1_8,,,,2021-02-01 13:27:47,2021-02-01 13:29:08,"1m - 21,009s",PASSED
+"callTestCase(findTestCase(""BeforeAssistenza""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:27:47,2021-02-01 13:27:57,"10,019s",PASSED
+"click(findWindowsObject(""Object Repository/NomeCognomeAssistenza""))",,,,2021-02-01 13:27:57,2021-02-01 13:27:59,"1,503s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeCognomeAssistenzaText""), ""Franco Cirillo"")",,,,2021-02-01 13:27:59,2021-02-01 13:28:02,"3,292s",PASSED
+"click(findWindowsObject(""Object Repository/IndirizzoAssistenza""))",,,,2021-02-01 13:28:02,2021-02-01 13:28:03,"1,108s",PASSED
+"setText(findWindowsObject(""Object Repository/IndirizzoAssistenzaText""), ""Via Roma"")",,,,2021-02-01 13:28:03,2021-02-01 13:28:06,"2,818s",PASSED
+"click(findWindowsObject(""TelefonoClienteAssistenza""))",,,,2021-02-01 13:28:06,2021-02-01 13:28:07,"1,100s",PASSED
+"setText(findWindowsObject(""Object Repository/TelefonoClienteAssistenzaText""), ""0123456789"")",,,,2021-02-01 13:28:07,2021-02-01 13:28:10,"3,052s",PASSED
+"click(findWindowsObject(""NomeProdottoAssistenza""))",,,,2021-02-01 13:28:10,2021-02-01 13:28:11,"1,075s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeProdottoAssistenzaText""), ""Notebook Asus"")",,,,2021-02-01 13:28:11,2021-02-01 13:28:14,"3,153s",PASSED
+"click(findWindowsObject(""TipoProdottoAssistenza""))",,,,2021-02-01 13:28:14,2021-02-01 13:28:15,"1,149s",PASSED
+"setText(findWindowsObject(""Object Repository/TipoProdottoAssistenzaText""), ""Computer"")",,,,2021-02-01 13:28:15,2021-02-01 13:28:18,"2,816s",PASSED
+"click(findWindowsObject(""CodProdottoAssistenza""))",,,,2021-02-01 13:28:18,2021-02-01 13:28:19,"1,109s",PASSED
+"setText(findWindowsObject(""CodProdottoAssistenzaText""), ""0123456789aaa"")",,,,2021-02-01 13:28:19,2021-02-01 13:28:23,"3,198s",PASSED
+"click(findWindowsObject(""Object Repository/AvantiAssistenza""))",,,,2021-02-01 13:28:23,2021-02-01 13:28:24,"1,092s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:28:24,2021-02-01 13:29:07,"43,360s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:29:07,2021-02-01 13:29:08,"0,525s",PASSED
+"assert text == ""Inserire un codice prodotto valido (13 cifre)""",,,,2021-02-01 13:29:08,2021-02-01 13:29:08,"0,001s",PASSED
+closeApplication(),,,,2021-02-01 13:29:08,2021-02-01 13:29:08,"0,147s",PASSED

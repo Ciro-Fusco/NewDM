@@ -1,0 +1,31 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+TestSuiteCassa,,,,2021-02-01 13:30:06,2021-02-01 13:32:12,"2m - 5,827s",PASSED
+,,,,,,,
+Test Cases/TC_C_1_1,,,,2021-02-01 13:30:08,2021-02-01 13:31:00,"52,188s",PASSED
+"callTestCase(findTestCase(""BeforeCassa""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:30:09,2021-02-01 13:30:28,"19,539s",PASSED
+"click(findWindowsObject(""SommaVersata""))",,,,2021-02-01 13:30:28,2021-02-01 13:30:29,"0,897s",PASSED
+"setText(findWindowsObject(""SommaVersataText""), ""aa"")",,,,2021-02-01 13:30:29,2021-02-01 13:30:31,"1,832s",PASSED
+"click(findWindowsObject(""ConfermaSommaVersata""))",,,,2021-02-01 13:30:31,2021-02-01 13:30:32,"0,856s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:30:32,2021-02-01 13:30:59,"27,546s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:30:59,2021-02-01 13:31:00,"0,530s",PASSED
+"assert text == ""Inserisci una somma valida""",,,,2021-02-01 13:31:00,2021-02-01 13:31:00,"0,003s",PASSED
+closeApplication(),,,,2021-02-01 13:31:00,2021-02-01 13:31:00,"0,146s",PASSED
+,,,,,,,
+Test Cases/TC_C_1_2,,,,2021-02-01 13:31:00,2021-02-01 13:31:51,"50,700s",PASSED
+"callTestCase(findTestCase(""BeforeCassa""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:31:00,2021-02-01 13:31:17,"17,023s",PASSED
+"click(findWindowsObject(""SommaVersata""))",,,,2021-02-01 13:31:17,2021-02-01 13:31:18,"0,853s",PASSED
+"setText(findWindowsObject(""SommaVersataText""), ""0.00"")",,,,2021-02-01 13:31:18,2021-02-01 13:31:20,"1,883s",PASSED
+"click(findWindowsObject(""ConfermaSommaVersata""))",,,,2021-02-01 13:31:20,2021-02-01 13:31:21,"0,856s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:31:21,2021-02-01 13:31:50,"28,923s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:31:50,2021-02-01 13:31:50,"0,530s",PASSED
+"assert text == ""Importo versato non sufficiente""",,,,2021-02-01 13:31:50,2021-02-01 13:31:50,"0,000s",PASSED
+closeApplication(),,,,2021-02-01 13:31:50,2021-02-01 13:31:51,"0,110s",PASSED
+,,,,,,,
+Test Cases/TC_C_1_3,,,,2021-02-01 13:31:51,2021-02-01 13:32:12,"21,293s",PASSED
+"callTestCase(findTestCase(""BeforeCassa""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:31:51,2021-02-01 13:32:07,"16,423s",PASSED
+"click(findWindowsObject(""SommaVersata""))",,,,2021-02-01 13:32:07,2021-02-01 13:32:08,"0,816s",PASSED
+"setText(findWindowsObject(""SommaVersataText""), ""100.00"")",,,,2021-02-01 13:32:08,2021-02-01 13:32:10,"1,992s",PASSED
+"click(findWindowsObject(""ConfermaSommaVersata""))",,,,2021-02-01 13:32:10,2021-02-01 13:32:11,"0,800s",PASSED
+"text = getText(findWindowsObject(""Object Repository/CassaRiepilogoLabel""))",,,,2021-02-01 13:32:11,2021-02-01 13:32:12,"0,659s",PASSED
+"assert text == ""Cassa - Riepilogo""",,,,2021-02-01 13:32:12,2021-02-01 13:32:12,"0,001s",PASSED
+closeApplication(),,,,2021-02-01 13:32:12,2021-02-01 13:32:12,"0,126s",PASSED

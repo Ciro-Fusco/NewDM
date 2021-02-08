@@ -9,12 +9,16 @@ create table UTENTE
   NOME varchar(30),
   COGNOME varchar(30),
   PASSWORD varchar(500) not null,
+  CASSA bool not null,
+  MAGAZZINO bool not null,
+  ASSISTENZA bool not null,
   constraint pk_username primary key (USERNAME)
   );
   
 create table SCONTRINO
 ( ID bigint auto_increment not null ,
-  DATA varchar(30) not null,
+  DATA varchar(12) not null,
+  ORA varchar(12) not null,
   IMPORTO_VERSATO double not null,
   TOTALE double not null,
   RESTO double not null,
@@ -35,7 +39,7 @@ create table PRODOTTO
 create table ELENCA
 (
   ID bigint not null ,
-  DATA varchar(30) not null,
+  DATA varchar(12) not null,
   CODICE bigint not null,
   QUANTITY int not null,
   constraint pk_id_data_codice primary key( ID,DATA,CODICE),
@@ -48,7 +52,8 @@ create table ELENCA
 create table RICHIESTA_ACQUISTO
 ( ID int unsigned auto_increment not null,
   QUANTITY int unsigned not null,
-  DATA varchar(30) not null,
+  DATA varchar(12) not null,
+  ORA varchar(12) not null,
   STATO varchar(20) not null,
   PRODOTTO bigint not null,
   constraint pk_id primary key(ID),
@@ -66,7 +71,7 @@ create table TICKET
   PRODOTTO bigint not null,
   NUMERO_DI_SERIE varchar(60) not null,
   SCONTRINO bigint not null,
-  DATA_SCONTRINO varchar(30) not null,
+  DATA_SCONTRINO varchar(12) not null,
   PROBLEMA varchar(400) not null,
   DATA_APERTURA varchar(30) not null,
   STATO varchar(20) not null,
@@ -74,15 +79,6 @@ create table TICKET
   constraint fk_prodotto foreign key(PRODOTTO) references PRODOTTO(CODICE) on update cascade,
   constraint fk_scontrino foreign key(SCONTRINO,DATA_SCONTRINO) references SCONTRINO(ID,DATA) on update cascade
 );
-
-/*load data local infile "C:\\Users\\Ciro\\Desktop\\IS\\NewDM\\DB\\datautente.sql"
-into table UTENTE fields terminated by",";
-
-load data local infile 'C:\\Users\\Ciro\\Desktop\\IS\\NewDM\\DB\\dataprodotti.sql'
-into table PRODOTTO fields terminated by",";
-
-load data local infile 'C:\\Users\\Ciro\\Desktop\\IS\\NewDM\\DB\\datascontrini.sql'
-into table SCONTRINO fields terminated by",";*/
 
 DELIMITER //
 CREATE PROCEDURE reset_id_scontrino()
