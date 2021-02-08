@@ -1,10 +1,5 @@
 module:org.exemple
-assistenza
-cassa
-database
-driver
+controller
+db
 entity
 exceptions
-magazzino
-start
-utenza

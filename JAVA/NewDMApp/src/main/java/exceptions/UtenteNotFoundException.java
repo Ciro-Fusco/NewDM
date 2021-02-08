@@ -1,8 +1,11 @@
 package exceptions;
 
-/** Eccezione lanciata quando non è possibile autenticare l'utente nel sistema. */
-public class UtenteNotFoundException extends UtenteException {
+import controller.AlertMessage;
+
+public class UtenteNotFoundException extends Exception {
+
   public UtenteNotFoundException(String message) {
     super(message);
+    AlertMessage.showError(message);
   }
 }
