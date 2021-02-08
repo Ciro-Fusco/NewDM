@@ -2,8 +2,6 @@ language: java
 
 sudo: false
 
-jdk:
-  - oraclejdk8
 
 script:
   - mvn -f JAVA/NewDMApp/pom.xml clean verify
