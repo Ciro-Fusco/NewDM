@@ -1,0 +1,133 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+TestSuiteMagazzino,,,,2021-02-01 13:33:58,2021-02-01 13:42:19,"8m - 21,053s",PASSED
+,,,,,,,
+Test Cases/TC_I_1_1,,,,2021-02-01 13:34:00,2021-02-01 13:34:49,"49,042s",PASSED
+"callTestCase(findTestCase(""BeforeMagazzino""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:34:01,2021-02-01 13:34:14,"13,580s",PASSED
+"click(findWindowsObject(""Object Repository/NomeProdottoMagazzino""))",,,,2021-02-01 13:34:14,2021-02-01 13:34:16,"1,270s",PASSED
+"setText(findWindowsObject(""Object Repository/NomeProdottoMagazzinoText""), ""P"")",,,,2021-02-01 13:34:16,2021-02-01 13:34:18,"2,342s",PASSED
+"click(findWindowsObject(""InserisciProdottoMagazzino""))",,,,2021-02-01 13:34:18,2021-02-01 13:34:19,"1,126s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:34:19,2021-02-01 13:34:48,"29,111s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:34:48,2021-02-01 13:34:49,"0,570s",PASSED
+"assert text == ""Inserisci un nome valido""",,,,2021-02-01 13:34:49,2021-02-01 13:34:49,"0,004s",PASSED
+closeApplication(),,,,2021-02-01 13:34:49,2021-02-01 13:34:49,"0,143s",PASSED
+,,,,,,,
+Test Cases/TC_I_1_2,,,,2021-02-01 13:34:49,2021-02-01 13:35:41,"51,779s",PASSED
+"callTestCase(findTestCase(""BeforeMagazzino""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:34:49,2021-02-01 13:35:00,"10,689s",PASSED
+"click(findWindowsObject(""Object Repository/NomeProdottoMagazzino""))",,,,2021-02-01 13:35:00,2021-02-01 13:35:01,"1,282s",PASSED
+"setText(findWindowsObject(""NomeProdottoMagazzinoText""), ""Orata"")",,,,2021-02-01 13:35:01,2021-02-01 13:35:04,"2,752s",PASSED
+"click(findWindowsObject(""QuantitaMagazzino""))",,,,2021-02-01 13:35:04,2021-02-01 13:35:05,"1,123s",PASSED
+"setText(findWindowsObject(""QuantitaMagazzinoText""), ""a"")",,,,2021-02-01 13:35:05,2021-02-01 13:35:08,"2,586s",PASSED
+"click(findWindowsObject(""InserisciProdottoMagazzino""))",,,,2021-02-01 13:35:08,2021-02-01 13:35:09,"1,161s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:35:09,2021-02-01 13:35:40,"30,989s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:35:40,2021-02-01 13:35:41,"0,510s",PASSED
+"assert text == ""Inserisci una quantità positiva""",,,,2021-02-01 13:35:41,2021-02-01 13:35:41,"0,002s",PASSED
+closeApplication(),,,,2021-02-01 13:35:41,2021-02-01 13:35:41,"0,137s",PASSED
+,,,,,,,
+Test Cases/TC_I_1_3,,,,2021-02-01 13:35:41,2021-02-01 13:36:36,"54,851s",PASSED
+"callTestCase(findTestCase(""BeforeMagazzino""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:35:41,2021-02-01 13:35:52,"10,573s",PASSED
+"click(findWindowsObject(""Object Repository/NomeProdottoMagazzino""))",,,,2021-02-01 13:35:52,2021-02-01 13:35:53,"1,289s",PASSED
+"setText(findWindowsObject(""NomeProdottoMagazzinoText""), ""Orata"")",,,,2021-02-01 13:35:53,2021-02-01 13:35:56,"2,642s",PASSED
+"click(findWindowsObject(""QuantitaMagazzino""))",,,,2021-02-01 13:35:56,2021-02-01 13:35:57,"1,084s",PASSED
+"setText(findWindowsObject(""QuantitaMagazzinoText""), ""0"")",,,,2021-02-01 13:35:57,2021-02-01 13:35:59,"2,593s",PASSED
+"click(findWindowsObject(""InserisciProdottoMagazzino""))",,,,2021-02-01 13:35:59,2021-02-01 13:36:01,"1,144s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:36:01,2021-02-01 13:36:35,"34,278s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:36:35,2021-02-01 13:36:35,"0,510s",PASSED
+"assert text == ""Inserisci una quantità positiva""",,,,2021-02-01 13:36:35,2021-02-01 13:36:35,"0,000s",PASSED
+closeApplication(),,,,2021-02-01 13:36:35,2021-02-01 13:36:36,"0,155s",PASSED
+,,,,,,,
+Test Cases/TC_I_1_4,,,,2021-02-01 13:36:36,2021-02-01 13:37:30,"54,141s",PASSED
+"callTestCase(findTestCase(""BeforeMagazzino""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:36:36,2021-02-01 13:36:46,"10,253s",PASSED
+"click(findWindowsObject(""Object Repository/NomeProdottoMagazzino""))",,,,2021-02-01 13:36:46,2021-02-01 13:36:48,"1,257s",PASSED
+"setText(findWindowsObject(""NomeProdottoMagazzinoText""), ""Orata"")",,,,2021-02-01 13:36:48,2021-02-01 13:36:50,"2,718s",PASSED
+"click(findWindowsObject(""QuantitaMagazzino""))",,,,2021-02-01 13:36:50,2021-02-01 13:36:51,"1,073s",PASSED
+"setText(findWindowsObject(""QuantitaMagazzinoText""), ""100"")",,,,2021-02-01 13:36:51,2021-02-01 13:36:54,"2,821s",PASSED
+"click(findWindowsObject(""CodProdottoMagazzino""))",,,,2021-02-01 13:36:54,2021-02-01 13:36:55,"1,106s",PASSED
+"setText(findWindowsObject(""CodProdottoMagazzinoText""), ""123456"")",,,,2021-02-01 13:36:55,2021-02-01 13:36:58,"2,760s",PASSED
+"click(findWindowsObject(""InserisciProdottoMagazzino""))",,,,2021-02-01 13:36:58,2021-02-01 13:36:59,"1,082s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:36:59,2021-02-01 13:37:29,"29,996s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:37:29,2021-02-01 13:37:30,"0,500s",PASSED
+"assert text == ""Inserisci un codice prodotto valido (13 cifre)""",,,,2021-02-01 13:37:30,2021-02-01 13:37:30,"0,001s",PASSED
+closeApplication(),,,,2021-02-01 13:37:30,2021-02-01 13:37:30,"0,095s",PASSED
+,,,,,,,
+Test Cases/TC_I_1_6,,,,2021-02-01 13:37:30,2021-02-01 13:38:34,"1m - 4,703s",PASSED
+"callTestCase(findTestCase(""BeforeMagazzino""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:37:30,2021-02-01 13:37:41,"10,368s",PASSED
+"click(findWindowsObject(""Object Repository/NomeProdottoMagazzino""))",,,,2021-02-01 13:37:41,2021-02-01 13:37:42,"1,451s",PASSED
+"setText(findWindowsObject(""NomeProdottoMagazzinoText""), ""Orata"")",,,,2021-02-01 13:37:42,2021-02-01 13:37:45,"3,479s",PASSED
+"click(findWindowsObject(""QuantitaMagazzino""))",,,,2021-02-01 13:37:45,2021-02-01 13:37:47,"1,121s",PASSED
+"setText(findWindowsObject(""QuantitaMagazzinoText""), ""100"")",,,,2021-02-01 13:37:47,2021-02-01 13:37:49,"2,669s",PASSED
+"click(findWindowsObject(""CodProdottoMagazzino""))",,,,2021-02-01 13:37:49,2021-02-01 13:37:50,"1,092s",PASSED
+"setText(findWindowsObject(""CodProdottoMagazzinoText""), ""0123456789000"")",,,,2021-02-01 13:37:50,2021-02-01 13:37:54,"3,330s",PASSED
+"click(findWindowsObject(""PrezzoMagazzino""))",,,,2021-02-01 13:37:54,2021-02-01 13:37:55,"1,122s",PASSED
+"setText(findWindowsObject(""PrezzoMagazzinoText""), ""a"")",,,,2021-02-01 13:37:55,2021-02-01 13:37:57,"2,557s",PASSED
+"click(findWindowsObject(""InserisciProdottoMagazzino""))",,,,2021-02-01 13:37:57,2021-02-01 13:37:59,"1,184s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:37:59,2021-02-01 13:38:34,"35,197s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:38:34,2021-02-01 13:38:34,"0,536s",PASSED
+"assert text == ""Inserire un prezzo valido""",,,,2021-02-01 13:38:34,2021-02-01 13:38:34,"0,000s",PASSED
+closeApplication(),,,,2021-02-01 13:38:34,2021-02-01 13:38:34,"0,129s",PASSED
+,,,,,,,
+Test Cases/TC_I_1_5,,,,2021-02-01 13:38:34,2021-02-01 13:39:32,"57,920s",PASSED
+"callTestCase(findTestCase(""BeforeMagazzino""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:38:35,2021-02-01 13:38:46,"10,664s",PASSED
+"click(findWindowsObject(""Object Repository/NomeProdottoMagazzino""))",,,,2021-02-01 13:38:46,2021-02-01 13:38:47,"1,218s",PASSED
+"setText(findWindowsObject(""NomeProdottoMagazzinoText""), ""Orata"")",,,,2021-02-01 13:38:47,2021-02-01 13:38:49,"2,673s",PASSED
+"click(findWindowsObject(""QuantitaMagazzino""))",,,,2021-02-01 13:38:49,2021-02-01 13:38:51,"1,122s",PASSED
+"setText(findWindowsObject(""QuantitaMagazzinoText""), ""100"")",,,,2021-02-01 13:38:51,2021-02-01 13:38:53,"2,679s",PASSED
+"click(findWindowsObject(""CodProdottoMagazzino""))",,,,2021-02-01 13:38:53,2021-02-01 13:38:54,"1,129s",PASSED
+"setText(findWindowsObject(""CodProdottoMagazzinoText""), ""0123456789aaa"")",,,,2021-02-01 13:38:54,2021-02-01 13:38:58,"3,253s",PASSED
+"click(findWindowsObject(""InserisciProdottoMagazzino""))",,,,2021-02-01 13:38:58,2021-02-01 13:38:59,"1,158s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:38:59,2021-02-01 13:39:32,"32,887s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:39:32,2021-02-01 13:39:32,"0,517s",PASSED
+"assert text == ""Inserisci un codice prodotto valido (13 cifre)""",,,,2021-02-01 13:39:32,2021-02-01 13:39:32,"0,001s",PASSED
+closeApplication(),,,,2021-02-01 13:39:32,2021-02-01 13:39:32,"0,127s",PASSED
+,,,,,,,
+Test Cases/TC_I_1_7,,,,2021-02-01 13:39:32,2021-02-01 13:40:38,"1m - 5,562s",PASSED
+"callTestCase(findTestCase(""BeforeMagazzino""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:39:33,2021-02-01 13:39:43,"10,279s",PASSED
+"click(findWindowsObject(""Object Repository/NomeProdottoMagazzino""))",,,,2021-02-01 13:39:43,2021-02-01 13:39:44,"1,143s",PASSED
+"setText(findWindowsObject(""NomeProdottoMagazzinoText""), ""Orata"")",,,,2021-02-01 13:39:44,2021-02-01 13:39:47,"2,713s",PASSED
+"click(findWindowsObject(""QuantitaMagazzino""))",,,,2021-02-01 13:39:47,2021-02-01 13:39:48,"1,069s",PASSED
+"setText(findWindowsObject(""QuantitaMagazzinoText""), ""100"")",,,,2021-02-01 13:39:48,2021-02-01 13:39:51,"2,865s",PASSED
+"click(findWindowsObject(""CodProdottoMagazzino""))",,,,2021-02-01 13:39:51,2021-02-01 13:39:52,"1,170s",PASSED
+"setText(findWindowsObject(""CodProdottoMagazzinoText""), ""0123456789000"")",,,,2021-02-01 13:39:52,2021-02-01 13:39:56,"3,575s",PASSED
+"click(findWindowsObject(""PrezzoMagazzino""))",,,,2021-02-01 13:39:56,2021-02-01 13:39:57,"1,216s",PASSED
+"setText(findWindowsObject(""PrezzoMagazzinoText""), ""0"")",,,,2021-02-01 13:39:57,2021-02-01 13:39:59,"2,486s",PASSED
+"click(findWindowsObject(""InserisciProdottoMagazzino""))",,,,2021-02-01 13:39:59,2021-02-01 13:40:01,"1,174s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:40:01,2021-02-01 13:40:37,"36,729s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:40:37,2021-02-01 13:40:38,"0,512s",PASSED
+"assert text == ""Inserire un prezzo valido""",,,,2021-02-01 13:40:38,2021-02-01 13:40:38,"0,000s",PASSED
+closeApplication(),,,,2021-02-01 13:40:38,2021-02-01 13:40:38,"0,151s",PASSED
+,,,,,,,
+Test Cases/TC_I_1_8,,,,2021-02-01 13:40:38,2021-02-01 13:41:44,"1m - 5,784s",PASSED
+"callTestCase(findTestCase(""BeforeMagazzino""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:40:39,2021-02-01 13:40:49,"10,340s",PASSED
+"click(findWindowsObject(""Object Repository/NomeProdottoMagazzino""))",,,,2021-02-01 13:40:49,2021-02-01 13:40:51,"1,513s",PASSED
+"setText(findWindowsObject(""NomeProdottoMagazzinoText""), ""Orata"")",,,,2021-02-01 13:40:51,2021-02-01 13:40:53,"2,829s",PASSED
+"click(findWindowsObject(""QuantitaMagazzino""))",,,,2021-02-01 13:40:53,2021-02-01 13:40:54,"1,112s",PASSED
+"setText(findWindowsObject(""QuantitaMagazzinoText""), ""100"")",,,,2021-02-01 13:40:54,2021-02-01 13:40:57,"2,650s",PASSED
+"click(findWindowsObject(""CodProdottoMagazzino""))",,,,2021-02-01 13:40:57,2021-02-01 13:40:58,"1,134s",PASSED
+"setText(findWindowsObject(""CodProdottoMagazzinoText""), ""0123456789000"")",,,,2021-02-01 13:40:58,2021-02-01 13:41:02,"3,312s",PASSED
+"click(findWindowsObject(""PrezzoMagazzino""))",,,,2021-02-01 13:41:02,2021-02-01 13:41:03,"1,137s",PASSED
+"setText(findWindowsObject(""PrezzoMagazzinoText""), ""30"")",,,,2021-02-01 13:41:03,2021-02-01 13:41:05,"2,578s",PASSED
+"click(findWindowsObject(""TipologiaMagazzino""))",,,,2021-02-01 13:41:05,2021-02-01 13:41:06,"1,169s",PASSED
+"setText(findWindowsObject(""TipologiaMagazzinoText""), ""x"")",,,,2021-02-01 13:41:06,2021-02-01 13:41:09,"2,531s",PASSED
+"click(findWindowsObject(""InserisciProdottoMagazzino""))",,,,2021-02-01 13:41:09,2021-02-01 13:41:10,"1,177s",PASSED
+"switchToWindowTitle(""Errore"")",,,,2021-02-01 13:41:10,2021-02-01 13:41:43,"32,883s",PASSED
+"text = getText(findWindowsObject(""Object Repository/MessaggioErrore""))",,,,2021-02-01 13:41:43,2021-02-01 13:41:44,"0,547s",PASSED
+"assert text == ""Inserire una tipologia valida""",,,,2021-02-01 13:41:44,2021-02-01 13:41:44,"0,001s",PASSED
+closeApplication(),,,,2021-02-01 13:41:44,2021-02-01 13:41:44,"0,136s",PASSED
+,,,,,,,
+Test Cases/TC_I_1_9,,,,2021-02-01 13:41:44,2021-02-01 13:42:19,"35,254s",PASSED
+"callTestCase(findTestCase(""BeforeMagazzino""), [:], STOP_ON_FAILURE)",,,,2021-02-01 13:41:44,2021-02-01 13:41:55,"10,622s",PASSED
+"click(findWindowsObject(""Object Repository/NomeProdottoMagazzino""))",,,,2021-02-01 13:41:55,2021-02-01 13:41:56,"1,215s",PASSED
+"setText(findWindowsObject(""NomeProdottoMagazzinoText""), ""Orata"")",,,,2021-02-01 13:41:56,2021-02-01 13:41:59,"2,732s",PASSED
+"click(findWindowsObject(""QuantitaMagazzino""))",,,,2021-02-01 13:41:59,2021-02-01 13:42:00,"1,150s",PASSED
+"setText(findWindowsObject(""QuantitaMagazzinoText""), ""100"")",,,,2021-02-01 13:42:00,2021-02-01 13:42:03,"2,622s",PASSED
+"click(findWindowsObject(""CodProdottoMagazzino""))",,,,2021-02-01 13:42:03,2021-02-01 13:42:04,"1,137s",PASSED
+"setText(findWindowsObject(""CodProdottoMagazzinoText""), ""0123456789000"")",,,,2021-02-01 13:42:04,2021-02-01 13:42:07,"3,330s",PASSED
+"click(findWindowsObject(""PrezzoMagazzino""))",,,,2021-02-01 13:42:07,2021-02-01 13:42:08,"1,107s",PASSED
+"setText(findWindowsObject(""PrezzoMagazzinoText""), ""30"")",,,,2021-02-01 13:42:08,2021-02-01 13:42:11,"2,699s",PASSED
+"click(findWindowsObject(""TipologiaMagazzino""))",,,,2021-02-01 13:42:11,2021-02-01 13:42:12,"1,102s",PASSED
+"setText(findWindowsObject(""TipologiaMagazzinoText""), ""Pesce"")",,,,2021-02-01 13:42:12,2021-02-01 13:42:15,"2,786s",PASSED
+"click(findWindowsObject(""DimMedioMagazzino""))",,,,2021-02-01 13:42:15,2021-02-01 13:42:16,"1,170s",PASSED
+"click(findWindowsObject(""ScaMediaMagazzino""))",,,,2021-02-01 13:42:16,2021-02-01 13:42:17,"1,124s",PASSED
+"click(findWindowsObject(""InserisciProdottoMagazzino""))",,,,2021-02-01 13:42:17,2021-02-01 13:42:18,"1,157s",PASSED
+"text = getText(findWindowsObject(""InserisciNuovoProdottoRiepilogoLabel""))",,,,2021-02-01 13:42:18,2021-02-01 13:42:19,"0,575s",PASSED
+"assert text == ""Inserisci nuovo prodotto - Riepilogo""",,,,2021-02-01 13:42:19,2021-02-01 13:42:19,"0,000s",PASSED
+closeApplication(),,,,2021-02-01 13:42:19,2021-02-01 13:42:19,"0,165s",PASSED
