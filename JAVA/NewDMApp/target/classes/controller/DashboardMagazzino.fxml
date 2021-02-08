@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" style="-fx-background-color: #3b3c40;" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Magazzino">
+    <top>
+        <GridPane prefHeight="65.0" prefWidth="600.0" style="-fx-background-color: #46494e;"
+                  BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <ImageView fitHeight="68.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true"
+                           GridPane.halignment="CENTER">
+                    <GridPane.margin>
+                        <Insets/>
+                    </GridPane.margin>
+                    <image>
+                        <Image url="@Logo.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </GridPane>
+    </top>
+    <center>
+        <SplitPane dividerPositions="0.17717717717717718" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0"
+                   style="-fx-background-color: #3b3c40;" stylesheets="@Dashboard.css" BorderPane.alignment="CENTER">
+            <items>
+                <BorderPane maxHeight="-Infinity" prefHeight="70.0" prefWidth="200.0">
+                    <left>
+                        <Label text="Dashboard - Magazzino" textFill="WHITE" BorderPane.alignment="CENTER">
+                            <font>
+                                <Font size="30.0"/>
+                            </font>
+                            <padding>
+                                <Insets left="20.0" top="6.0"/>
+                            </padding>
+                        </Label>
+                    </left>
+                    <right>
+                        <Button alignment="CENTER" mnemonicParsing="false" onMousePressed="#openDashboard"
+                                style="-fx-background-color: #ff5c66;" text="Indietro" textFill="WHITE"
+                                BorderPane.alignment="CENTER">
+                            <BorderPane.margin>
+                                <Insets right="20.0"/>
+                            </BorderPane.margin>
+                        </Button>
+                    </right>
+                </BorderPane>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints/>
+                        <RowConstraints maxHeight="264.0" minHeight="10.0" prefHeight="134.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="264.0" minHeight="10.0" prefHeight="134.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                mnemonicParsing="false" onMousePressed="#openInserisciProdotto" prefHeight="149.0"
+                                prefWidth="306.0" style="-fx-background-color: #46494e;" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                            </GridPane.margin>
+                            <graphic>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Label text="Inserisci prodotti già registrati" textAlignment="CENTER"
+                                               textFill="WHITE" wrapText="true">
+                                            <font>
+                                                <Font size="25.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label text="Inserimento prodotti già registrati" textFill="#5ac5f1"/>
+                                    </children>
+                                </VBox>
+                            </graphic>
+                        </Button>
+                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                mnemonicParsing="false" onMousePressed="#openInserisciNuovoProdotto" prefHeight="149.0"
+                                prefWidth="306.0" style="-fx-background-color: #46494e;" GridPane.columnIndex="1"
+                                GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                            </GridPane.margin>
+                            <graphic>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Label text="Inserisci nuovi prodotti" textAlignment="CENTER" textFill="WHITE"
+                                               wrapText="true">
+                                            <font>
+                                                <Font size="25.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label text="Inserimento nuovi prodotti" textFill="#5ac5f1"/>
+                                    </children>
+                                </VBox>
+                            </graphic>
+                        </Button>
+                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                mnemonicParsing="false" onMousePressed="#openModificaPrezzo" prefHeight="149.0"
+                                prefWidth="306.0" style="-fx-background-color: #46494e;" GridPane.columnIndex="1"
+                                GridPane.rowIndex="2">
+                            <graphic>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Label text="Modifica prezzo prodotto" textAlignment="CENTER" textFill="WHITE"
+                                               wrapText="true">
+                                            <font>
+                                                <Font size="25.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label text="Modifica prezzo prodotto" textFill="#5ac5f1"/>
+                                    </children>
+                                </VBox>
+                            </graphic>
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                            </GridPane.margin>
+                        </Button>
+                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                                mnemonicParsing="false" onMousePressed="#openOrdinaProdotto" prefHeight="149.0"
+                                prefWidth="306.0" style="-fx-background-color: #46494e;" GridPane.rowIndex="2">
+                            <graphic>
+                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                    <children>
+                                        <Label text="Ordina nuovi prodotti" textFill="WHITE">
+                                            <font>
+                                                <Font size="25.0"/>
+                                            </font>
+                                        </Label>
+                                        <Label text="Ordina nuovo stock di prodotti" textFill="#5ac5f1"/>
+                                    </children>
+                                </VBox>
+                            </graphic>
+                            <GridPane.margin>
+                                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
+                            </GridPane.margin>
+                        </Button>
+                    </children>
+                </GridPane>
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>
